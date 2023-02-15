@@ -42,7 +42,7 @@ import com.ptvgroup.developer.client.data.JSON;
   PredefinedVehicleProfile.JSON_PROPERTY_CURRENCY,
   PredefinedVehicleProfile.JSON_PROPERTY_MONETARY_COST_OPTIONS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-02T07:18:16.164654Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-15T15:59:32.341301Z[Etc/UTC]")
 public class PredefinedVehicleProfile {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;

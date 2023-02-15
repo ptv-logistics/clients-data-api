@@ -37,7 +37,7 @@ import com.ptvgroup.developer.client.data.JSON;
 @JsonPropertyOrder({
   PredefinedVehicleProfiles.JSON_PROPERTY_PROFILES
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-02T07:18:16.164654Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-15T15:59:32.341301Z[Etc/UTC]")
 public class PredefinedVehicleProfiles {
   public static final String JSON_PROPERTY_PROFILES = "profiles";
   private List<PredefinedVehicleProfile> profiles = new ArrayList<>();

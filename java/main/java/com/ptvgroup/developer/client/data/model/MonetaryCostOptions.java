@@ -35,7 +35,7 @@ import com.ptvgroup.developer.client.data.JSON;
   MonetaryCostOptions.JSON_PROPERTY_COST_PER_KILOMETER,
   MonetaryCostOptions.JSON_PROPERTY_WORKING_COST_PER_HOUR
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-02T07:18:16.164654Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-15T15:59:32.341301Z[Etc/UTC]")
 public class MonetaryCostOptions {
   public static final String JSON_PROPERTY_COST_PER_KILOMETER = "costPerKilometer";
   private Double costPerKilometer;
