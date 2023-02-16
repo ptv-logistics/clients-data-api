@@ -29,9 +29,7 @@ namespace PTV.Developer.Clients.data.Model
     /// The electricity type of the vehicle.  Supported for **engineType** _ELECTRIC_ or _HYBRID_. Relevant for &#x60;emissions&#x60;. 
     /// </summary>
     /// <value>The electricity type of the vehicle.  Supported for **engineType** _ELECTRIC_ or _HYBRID_. Relevant for &#x60;emissions&#x60;. </value>
-    
     [JsonConverter(typeof(StringEnumConverter))]
-    
     public enum ElectricityType
     {
         /// <summary>

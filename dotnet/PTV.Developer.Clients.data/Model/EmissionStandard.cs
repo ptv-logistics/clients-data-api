@@ -29,9 +29,7 @@ namespace PTV.Developer.Clients.data.Model
     /// The emission standard of the vehicle valid in the European Union.  Values different from _NONE_ supported for **engineType** _COMBUSTION_ and _HBYRID_. Relevant for &#x60;toll&#x60;, &#x60;emissions&#x60;. 
     /// </summary>
     /// <value>The emission standard of the vehicle valid in the European Union.  Values different from _NONE_ supported for **engineType** _COMBUSTION_ and _HBYRID_. Relevant for &#x60;toll&#x60;, &#x60;emissions&#x60;. </value>
-    
     [JsonConverter(typeof(StringEnumConverter))]
-    
     public enum EmissionStandard
     {
         /// <summary>

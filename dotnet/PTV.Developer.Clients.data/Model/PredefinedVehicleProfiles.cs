@@ -43,14 +43,18 @@ namespace PTV.Developer.Clients.data.Model
         public PredefinedVehicleProfiles(List<PredefinedVehicleProfile> profiles = default(List<PredefinedVehicleProfile>))
         {
             // to ensure "profiles" is required (not null)
-            this.Profiles = profiles ?? throw new ArgumentNullException("profiles is a required property for PredefinedVehicleProfiles and cannot be null");
+            if (profiles == null)
+            {
+                throw new ArgumentNullException("profiles is a required property for PredefinedVehicleProfiles and cannot be null");
+            }
+            this.Profiles = profiles;
         }
 
         /// <summary>
         /// A list of predefined vehicle profiles.
         /// </summary>
         /// <value>A list of predefined vehicle profiles.</value>
-        [DataMember(Name = "profiles", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "profiles", IsRequired = true, EmitDefaultValue = true)]
         public List<PredefinedVehicleProfile> Profiles { get; set; }
 
         /// <summary>
@@ -59,7 +63,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PredefinedVehicleProfiles {\n");
             sb.Append("  Profiles: ").Append(Profiles).Append("\n");
             sb.Append("}\n");
@@ -93,8 +97,9 @@ namespace PTV.Developer.Clients.data.Model
         public bool Equals(PredefinedVehicleProfiles input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Profiles == input.Profiles ||
@@ -114,7 +119,9 @@ namespace PTV.Developer.Clients.data.Model
             {
                 int hashCode = 41;
                 if (this.Profiles != null)
-                    hashCode = hashCode * 59 + this.Profiles.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Profiles.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -124,7 +131,7 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

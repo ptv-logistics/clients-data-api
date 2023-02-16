@@ -29,9 +29,7 @@ namespace PTV.Developer.Clients.data.Model
     /// The tunnel restriction code according to ADR (European Agreement Concerning the International Carriage of Dangerous Goods by Road) depending on the load of the vehicle.  Relevant for &#x60;routing&#x60;. 
     /// </summary>
     /// <value>The tunnel restriction code according to ADR (European Agreement Concerning the International Carriage of Dangerous Goods by Road) depending on the load of the vehicle.  Relevant for &#x60;routing&#x60;. </value>
-    
     [JsonConverter(typeof(StringEnumConverter))]
-    
     public enum TunnelRestrictionCode
     {
         /// <summary>

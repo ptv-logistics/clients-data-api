@@ -28,9 +28,7 @@ namespace PTV.Developer.Clients.data.Model
     /// <summary>
     /// Defines HazardousMaterials
     /// </summary>
-    
     [JsonConverter(typeof(StringEnumConverter))]
-    
     public enum HazardousMaterials
     {
         /// <summary>

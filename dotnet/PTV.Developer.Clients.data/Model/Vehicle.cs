@@ -31,31 +31,37 @@ namespace PTV.Developer.Clients.data.Model
     [DataContract(Name = "Vehicle")]
     public partial class Vehicle : IEquatable<Vehicle>, IValidatableObject
     {
+
         /// <summary>
         /// Gets or Sets EngineType
         /// </summary>
         [DataMember(Name = "engineType", EmitDefaultValue = true)]
         public EngineType? EngineType { get; set; }
+
         /// <summary>
         /// Gets or Sets FuelType
         /// </summary>
         [DataMember(Name = "fuelType", EmitDefaultValue = true)]
         public FuelType? FuelType { get; set; }
+
         /// <summary>
         /// Gets or Sets ElectricityType
         /// </summary>
         [DataMember(Name = "electricityType", EmitDefaultValue = true)]
         public ElectricityType? ElectricityType { get; set; }
+
         /// <summary>
         /// Gets or Sets EmissionStandard
         /// </summary>
         [DataMember(Name = "emissionStandard", EmitDefaultValue = true)]
         public EmissionStandard? EmissionStandard { get; set; }
+
         /// <summary>
         /// Gets or Sets ParticleReductionClass
         /// </summary>
         [DataMember(Name = "particleReductionClass", EmitDefaultValue = true)]
         public ParticleReductionClass? ParticleReductionClass { get; set; }
+
         /// <summary>
         /// Gets or Sets TunnelRestrictionCode
         /// </summary>
@@ -275,7 +281,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Vehicle {\n");
             sb.Append("  EngineType: ").Append(EngineType).Append("\n");
             sb.Append("  FuelType: ").Append(FuelType).Append("\n");
@@ -335,8 +341,9 @@ namespace PTV.Developer.Clients.data.Model
         public bool Equals(Vehicle input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.EngineType == input.EngineType ||
@@ -482,54 +489,96 @@ namespace PTV.Developer.Clients.data.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.EngineType.GetHashCode();
-                hashCode = hashCode * 59 + this.FuelType.GetHashCode();
-                hashCode = hashCode * 59 + this.ElectricityType.GetHashCode();
+                hashCode = (hashCode * 59) + this.EngineType.GetHashCode();
+                hashCode = (hashCode * 59) + this.FuelType.GetHashCode();
+                hashCode = (hashCode * 59) + this.ElectricityType.GetHashCode();
                 if (this.AverageFuelConsumption != null)
-                    hashCode = hashCode * 59 + this.AverageFuelConsumption.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AverageFuelConsumption.GetHashCode();
+                }
                 if (this.AverageElectricityConsumption != null)
-                    hashCode = hashCode * 59 + this.AverageElectricityConsumption.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AverageElectricityConsumption.GetHashCode();
+                }
                 if (this.BioFuelRatio != null)
-                    hashCode = hashCode * 59 + this.BioFuelRatio.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BioFuelRatio.GetHashCode();
+                }
                 if (this.HybridRatio != null)
-                    hashCode = hashCode * 59 + this.HybridRatio.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.HybridRatio.GetHashCode();
+                }
                 if (this.DualFuelRatio != null)
-                    hashCode = hashCode * 59 + this.DualFuelRatio.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DualFuelRatio.GetHashCode();
+                }
                 if (this.CylinderCapacity != null)
-                    hashCode = hashCode * 59 + this.CylinderCapacity.GetHashCode();
-                hashCode = hashCode * 59 + this.EmissionStandard.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CylinderCapacity.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.EmissionStandard.GetHashCode();
                 if (this.LowEmissionZoneTypes != null)
-                    hashCode = hashCode * 59 + this.LowEmissionZoneTypes.GetHashCode();
-                hashCode = hashCode * 59 + this.ParticleReductionClass.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LowEmissionZoneTypes.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ParticleReductionClass.GetHashCode();
                 if (this.EmptyWeight != null)
-                    hashCode = hashCode * 59 + this.EmptyWeight.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EmptyWeight.GetHashCode();
+                }
                 if (this.LoadWeight != null)
-                    hashCode = hashCode * 59 + this.LoadWeight.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LoadWeight.GetHashCode();
+                }
                 if (this.TotalPermittedWeight != null)
-                    hashCode = hashCode * 59 + this.TotalPermittedWeight.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TotalPermittedWeight.GetHashCode();
+                }
                 if (this.AxleWeight != null)
-                    hashCode = hashCode * 59 + this.AxleWeight.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AxleWeight.GetHashCode();
+                }
                 if (this.NumberOfAxles != null)
-                    hashCode = hashCode * 59 + this.NumberOfAxles.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NumberOfAxles.GetHashCode();
+                }
                 if (this.NumberOfTires != null)
-                    hashCode = hashCode * 59 + this.NumberOfTires.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NumberOfTires.GetHashCode();
+                }
                 if (this.Height != null)
-                    hashCode = hashCode * 59 + this.Height.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Height.GetHashCode();
+                }
                 if (this.HeightAboveFrontAxle != null)
-                    hashCode = hashCode * 59 + this.HeightAboveFrontAxle.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.HeightAboveFrontAxle.GetHashCode();
+                }
                 if (this.Length != null)
-                    hashCode = hashCode * 59 + this.Length.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Length.GetHashCode();
+                }
                 if (this.Width != null)
-                    hashCode = hashCode * 59 + this.Width.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Width.GetHashCode();
+                }
                 if (this.HazardousMaterials != null)
-                    hashCode = hashCode * 59 + this.HazardousMaterials.GetHashCode();
-                hashCode = hashCode * 59 + this.TunnelRestrictionCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.HazardousMaterials.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.TunnelRestrictionCode.GetHashCode();
                 if (this.TruckRoutes != null)
-                    hashCode = hashCode * 59 + this.TruckRoutes.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TruckRoutes.GetHashCode();
+                }
                 if (this.Commercial != null)
-                    hashCode = hashCode * 59 + this.Commercial.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Commercial.GetHashCode();
+                }
                 if (this.EtcSubscriptions != null)
-                    hashCode = hashCode * 59 + this.EtcSubscriptions.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EtcSubscriptions.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -539,118 +588,118 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // AverageFuelConsumption (double?) minimum
-            if(this.AverageFuelConsumption < (double?)0)
+            if (this.AverageFuelConsumption < (double?)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AverageFuelConsumption, must be a value greater than or equal to 0.", new [] { "AverageFuelConsumption" });
             }
 
             // AverageElectricityConsumption (double?) minimum
-            if(this.AverageElectricityConsumption < (double?)0)
+            if (this.AverageElectricityConsumption < (double?)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AverageElectricityConsumption, must be a value greater than or equal to 0.", new [] { "AverageElectricityConsumption" });
             }
 
             // BioFuelRatio (int?) maximum
-            if(this.BioFuelRatio > (int?)100)
+            if (this.BioFuelRatio > (int?)100)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BioFuelRatio, must be a value less than or equal to 100.", new [] { "BioFuelRatio" });
             }
 
             // BioFuelRatio (int?) minimum
-            if(this.BioFuelRatio < (int?)0)
+            if (this.BioFuelRatio < (int?)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BioFuelRatio, must be a value greater than or equal to 0.", new [] { "BioFuelRatio" });
             }
 
             // HybridRatio (int?) maximum
-            if(this.HybridRatio > (int?)99)
+            if (this.HybridRatio > (int?)99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HybridRatio, must be a value less than or equal to 99.", new [] { "HybridRatio" });
             }
 
             // HybridRatio (int?) minimum
-            if(this.HybridRatio < (int?)1)
+            if (this.HybridRatio < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HybridRatio, must be a value greater than or equal to 1.", new [] { "HybridRatio" });
             }
 
             // DualFuelRatio (int?) maximum
-            if(this.DualFuelRatio > (int?)99)
+            if (this.DualFuelRatio > (int?)99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DualFuelRatio, must be a value less than or equal to 99.", new [] { "DualFuelRatio" });
             }
 
             // DualFuelRatio (int?) minimum
-            if(this.DualFuelRatio < (int?)1)
+            if (this.DualFuelRatio < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DualFuelRatio, must be a value greater than or equal to 1.", new [] { "DualFuelRatio" });
             }
 
             // CylinderCapacity (int?) minimum
-            if(this.CylinderCapacity < (int?)1)
+            if (this.CylinderCapacity < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CylinderCapacity, must be a value greater than or equal to 1.", new [] { "CylinderCapacity" });
             }
 
             // EmptyWeight (int?) minimum
-            if(this.EmptyWeight < (int?)1)
+            if (this.EmptyWeight < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EmptyWeight, must be a value greater than or equal to 1.", new [] { "EmptyWeight" });
             }
 
             // LoadWeight (int?) minimum
-            if(this.LoadWeight < (int?)0)
+            if (this.LoadWeight < (int?)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoadWeight, must be a value greater than or equal to 0.", new [] { "LoadWeight" });
             }
 
             // TotalPermittedWeight (int?) minimum
-            if(this.TotalPermittedWeight < (int?)1)
+            if (this.TotalPermittedWeight < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalPermittedWeight, must be a value greater than or equal to 1.", new [] { "TotalPermittedWeight" });
             }
 
             // AxleWeight (int?) minimum
-            if(this.AxleWeight < (int?)1)
+            if (this.AxleWeight < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AxleWeight, must be a value greater than or equal to 1.", new [] { "AxleWeight" });
             }
 
             // NumberOfAxles (int?) minimum
-            if(this.NumberOfAxles < (int?)1)
+            if (this.NumberOfAxles < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfAxles, must be a value greater than or equal to 1.", new [] { "NumberOfAxles" });
             }
 
             // NumberOfTires (int?) minimum
-            if(this.NumberOfTires < (int?)1)
+            if (this.NumberOfTires < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfTires, must be a value greater than or equal to 1.", new [] { "NumberOfTires" });
             }
 
             // Height (int?) minimum
-            if(this.Height < (int?)1)
+            if (this.Height < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Height, must be a value greater than or equal to 1.", new [] { "Height" });
             }
 
             // HeightAboveFrontAxle (int?) minimum
-            if(this.HeightAboveFrontAxle < (int?)1)
+            if (this.HeightAboveFrontAxle < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeightAboveFrontAxle, must be a value greater than or equal to 1.", new [] { "HeightAboveFrontAxle" });
             }
 
             // Length (int?) minimum
-            if(this.Length < (int?)1)
+            if (this.Length < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Length, must be a value greater than or equal to 1.", new [] { "Length" });
             }
 
             // Width (int?) minimum
-            if(this.Width < (int?)1)
+            if (this.Width < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Width, must be a value greater than or equal to 1.", new [] { "Width" });
             }

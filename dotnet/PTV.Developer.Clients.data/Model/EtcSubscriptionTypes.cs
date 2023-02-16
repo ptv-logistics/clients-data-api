@@ -28,9 +28,7 @@ namespace PTV.Developer.Clients.data.Model
     /// <summary>
     /// Defines EtcSubscriptionTypes
     /// </summary>
-    
     [JsonConverter(typeof(StringEnumConverter))]
-    
     public enum EtcSubscriptionTypes
     {
         /// <summary>

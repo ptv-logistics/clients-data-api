@@ -28,9 +28,7 @@ namespace PTV.Developer.Clients.data.Model
     /// <summary>
     /// Defines LowEmissionZoneTypes
     /// </summary>
-    
     [JsonConverter(typeof(StringEnumConverter))]
-    
     public enum LowEmissionZoneTypes
     {
         /// <summary>

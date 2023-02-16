@@ -29,9 +29,7 @@ namespace PTV.Developer.Clients.data.Model
     /// The particle reduction class (Partikelminderungsklasse) according to &#39;Anlage XIV zu &amp;sect; 48 StVZO&#39; (German law).  Supported for **engineType** _COMBUSTION_ and _HYBRID_. Relevant for &#x60;toll&#x60;. 
     /// </summary>
     /// <value>The particle reduction class (Partikelminderungsklasse) according to &#39;Anlage XIV zu &amp;sect; 48 StVZO&#39; (German law).  Supported for **engineType** _COMBUSTION_ and _HYBRID_. Relevant for &#x60;toll&#x60;. </value>
-    
     [JsonConverter(typeof(StringEnumConverter))]
-    
     public enum ParticleReductionClass
     {
         /// <summary>

@@ -29,9 +29,7 @@ namespace PTV.Developer.Clients.data.Model
     /// The engine type of the vehicle.  Relevant for &#x60;toll&#x60;, &#x60;emissions&#x60;. 
     /// </summary>
     /// <value>The engine type of the vehicle.  Relevant for &#x60;toll&#x60;, &#x60;emissions&#x60;. </value>
-    
     [JsonConverter(typeof(StringEnumConverter))]
-    
     public enum EngineType
     {
         /// <summary>

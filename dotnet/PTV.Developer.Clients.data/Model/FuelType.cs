@@ -29,9 +29,7 @@ namespace PTV.Developer.Clients.data.Model
     /// The fuel type of the vehicle. The fuel types _CNG_GASOLINE_ and _LNG_GASOLINE_ are used for dual-fuel vehicles.  Supported for **engineType** _COMBUSTION_ and _HYBRID_. Relevant for &#x60;emissions&#x60;. 
     /// </summary>
     /// <value>The fuel type of the vehicle. The fuel types _CNG_GASOLINE_ and _LNG_GASOLINE_ are used for dual-fuel vehicles.  Supported for **engineType** _COMBUSTION_ and _HYBRID_. Relevant for &#x60;emissions&#x60;. </value>
-    
     [JsonConverter(typeof(StringEnumConverter))]
-    
     public enum FuelType
     {
         /// <summary>

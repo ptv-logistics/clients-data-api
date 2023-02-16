@@ -29,9 +29,7 @@ namespace PTV.Developer.Clients.data.Model
     /// The region in this profile is designed for. It represents the characteristics of its region. See the [profiles concept](./concepts/profiles) for details. 
     /// </summary>
     /// <value>The region in this profile is designed for. It represents the characteristics of its region. See the [profiles concept](./concepts/profiles) for details. </value>
-    
     [JsonConverter(typeof(StringEnumConverter))]
-    
     public enum RegionType
     {
         /// <summary>

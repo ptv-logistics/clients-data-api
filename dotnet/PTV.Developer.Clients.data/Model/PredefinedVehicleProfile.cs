@@ -31,10 +31,11 @@ namespace PTV.Developer.Clients.data.Model
     [DataContract(Name = "PredefinedVehicleProfile")]
     public partial class PredefinedVehicleProfile : IEquatable<PredefinedVehicleProfile>, IValidatableObject
     {
+
         /// <summary>
         /// Gets or Sets Region
         /// </summary>
-        [DataMember(Name = "region", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "region", IsRequired = true, EmitDefaultValue = true)]
         public RegionType Region { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PredefinedVehicleProfile" /> class.
@@ -53,12 +54,24 @@ namespace PTV.Developer.Clients.data.Model
         public PredefinedVehicleProfile(string name = default(string), string description = default(string), RegionType region = default(RegionType), Vehicle vehicle = default(Vehicle), string currency = default(string), MonetaryCostOptions monetaryCostOptions = default(MonetaryCostOptions))
         {
             // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for PredefinedVehicleProfile and cannot be null");
+            if (name == null)
+            {
+                throw new ArgumentNullException("name is a required property for PredefinedVehicleProfile and cannot be null");
+            }
+            this.Name = name;
             // to ensure "description" is required (not null)
-            this.Description = description ?? throw new ArgumentNullException("description is a required property for PredefinedVehicleProfile and cannot be null");
+            if (description == null)
+            {
+                throw new ArgumentNullException("description is a required property for PredefinedVehicleProfile and cannot be null");
+            }
+            this.Description = description;
             this.Region = region;
             // to ensure "currency" is required (not null)
-            this.Currency = currency ?? throw new ArgumentNullException("currency is a required property for PredefinedVehicleProfile and cannot be null");
+            if (currency == null)
+            {
+                throw new ArgumentNullException("currency is a required property for PredefinedVehicleProfile and cannot be null");
+            }
+            this.Currency = currency;
             this.Vehicle = vehicle;
             this.MonetaryCostOptions = monetaryCostOptions;
         }
@@ -67,14 +80,14 @@ namespace PTV.Developer.Clients.data.Model
         /// The name of the predefined profile.
         /// </summary>
         /// <value>The name of the predefined profile.</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The description of the predefined profile.
         /// </summary>
         /// <value>The description of the predefined profile.</value>
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
@@ -87,7 +100,7 @@ namespace PTV.Developer.Clients.data.Model
         /// The default currency for the predefined vehicle according to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).
         /// </summary>
         /// <value>The default currency for the predefined vehicle according to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).</value>
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
@@ -102,7 +115,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PredefinedVehicleProfile {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -141,8 +154,9 @@ namespace PTV.Developer.Clients.data.Model
         public bool Equals(PredefinedVehicleProfile input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Name == input.Name ||
@@ -185,16 +199,26 @@ namespace PTV.Developer.Clients.data.Model
             {
                 int hashCode = 41;
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                hashCode = hashCode * 59 + this.Region.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Region.GetHashCode();
                 if (this.Vehicle != null)
-                    hashCode = hashCode * 59 + this.Vehicle.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Vehicle.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.MonetaryCostOptions != null)
-                    hashCode = hashCode * 59 + this.MonetaryCostOptions.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MonetaryCostOptions.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -204,16 +228,16 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Name (string) maxLength
-            if(this.Name != null && this.Name.Length > 50)
+            if (this.Name != null && this.Name.Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 50.", new [] { "Name" });
             }
 
             // Name (string) minLength
-            if(this.Name != null && this.Name.Length < 1)
+            if (this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }

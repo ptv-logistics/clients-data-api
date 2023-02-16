@@ -33,8 +33,9 @@ namespace PTV.Developer.Clients.data.Api
         /// Returns the predefined vehicle profiles for routing.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PredefinedVehicleProfiles</returns>
-        PredefinedVehicleProfiles GetPredefinedVehicleProfiles();
+        PredefinedVehicleProfiles GetPredefinedVehicleProfiles(int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -43,8 +44,9 @@ namespace PTV.Developer.Clients.data.Api
         /// Returns the predefined vehicle profiles for routing.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PredefinedVehicleProfiles</returns>
-        ApiResponse<PredefinedVehicleProfiles> GetPredefinedVehicleProfilesWithHttpInfo();
+        ApiResponse<PredefinedVehicleProfiles> GetPredefinedVehicleProfilesWithHttpInfo(int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -61,9 +63,10 @@ namespace PTV.Developer.Clients.data.Api
         /// Returns the predefined vehicle profiles for routing.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PredefinedVehicleProfiles</returns>
-        System.Threading.Tasks.Task<PredefinedVehicleProfiles> GetPredefinedVehicleProfilesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PredefinedVehicleProfiles> GetPredefinedVehicleProfilesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -72,9 +75,10 @@ namespace PTV.Developer.Clients.data.Api
         /// Returns the predefined vehicle profiles for routing.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PredefinedVehicleProfiles)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PredefinedVehicleProfiles>> GetPredefinedVehicleProfilesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PredefinedVehicleProfiles>> GetPredefinedVehicleProfilesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -105,7 +109,7 @@ namespace PTV.Developer.Clients.data.Api
         /// Initializes a new instance of the <see cref="VehicleProfilesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public VehicleProfilesApi(String basePath)
+        public VehicleProfilesApi(string basePath)
         {
             this.Configuration = PTV.Developer.Clients.data.Client.Configuration.MergeConfigurations(
                 PTV.Developer.Clients.data.Client.GlobalConfiguration.Instance,
@@ -168,7 +172,7 @@ namespace PTV.Developer.Clients.data.Api
         /// Gets the base path of the API client.
         /// </summary>
         /// <value>The base path</value>
-        public String GetBasePath()
+        public string GetBasePath()
         {
             return this.Configuration.BasePath;
         }
@@ -199,8 +203,9 @@ namespace PTV.Developer.Clients.data.Api
         ///  Returns the predefined vehicle profiles for routing.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PredefinedVehicleProfiles</returns>
-        public PredefinedVehicleProfiles GetPredefinedVehicleProfiles()
+        public PredefinedVehicleProfiles GetPredefinedVehicleProfiles(int operationIndex = 0)
         {
             PTV.Developer.Clients.data.Client.ApiResponse<PredefinedVehicleProfiles> localVarResponse = GetPredefinedVehicleProfilesWithHttpInfo();
             return localVarResponse.Data;
@@ -210,39 +215,51 @@ namespace PTV.Developer.Clients.data.Api
         ///  Returns the predefined vehicle profiles for routing.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PredefinedVehicleProfiles</returns>
-        public PTV.Developer.Clients.data.Client.ApiResponse<PredefinedVehicleProfiles> GetPredefinedVehicleProfilesWithHttpInfo()
+        public PTV.Developer.Clients.data.Client.ApiResponse<PredefinedVehicleProfiles> GetPredefinedVehicleProfilesWithHttpInfo(int operationIndex = 0)
         {
             PTV.Developer.Clients.data.Client.RequestOptions localVarRequestOptions = new PTV.Developer.Clients.data.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
             var localVarContentType = PTV.Developer.Clients.data.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = PTV.Developer.Clients.data.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
+
+            localVarRequestOptions.Operation = "VehicleProfilesApi.GetPredefinedVehicleProfiles";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apiKey")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apiKey")))
             {
                 localVarRequestOptions.HeaderParameters.Add("apiKey", this.Configuration.GetApiKeyWithPrefix("apiKey"));
             }
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PredefinedVehicleProfiles>("/vehicle-profiles/predefined", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPredefinedVehicleProfiles", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -252,11 +269,12 @@ namespace PTV.Developer.Clients.data.Api
         ///  Returns the predefined vehicle profiles for routing.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PredefinedVehicleProfiles</returns>
-        public async System.Threading.Tasks.Task<PredefinedVehicleProfiles> GetPredefinedVehicleProfilesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PredefinedVehicleProfiles> GetPredefinedVehicleProfilesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            PTV.Developer.Clients.data.Client.ApiResponse<PredefinedVehicleProfiles> localVarResponse = await GetPredefinedVehicleProfilesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            PTV.Developer.Clients.data.Client.ApiResponse<PredefinedVehicleProfiles> localVarResponse = await GetPredefinedVehicleProfilesWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -264,43 +282,54 @@ namespace PTV.Developer.Clients.data.Api
         ///  Returns the predefined vehicle profiles for routing.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PredefinedVehicleProfiles)</returns>
-        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<PredefinedVehicleProfiles>> GetPredefinedVehicleProfilesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<PredefinedVehicleProfiles>> GetPredefinedVehicleProfilesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             PTV.Developer.Clients.data.Client.RequestOptions localVarRequestOptions = new PTV.Developer.Clients.data.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
-
             var localVarContentType = PTV.Developer.Clients.data.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = PTV.Developer.Clients.data.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
+
+            localVarRequestOptions.Operation = "VehicleProfilesApi.GetPredefinedVehicleProfiles";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apiKey")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apiKey")))
             {
                 localVarRequestOptions.HeaderParameters.Add("apiKey", this.Configuration.GetApiKeyWithPrefix("apiKey"));
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<PredefinedVehicleProfiles>("/vehicle-profiles/predefined", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPredefinedVehicleProfiles", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

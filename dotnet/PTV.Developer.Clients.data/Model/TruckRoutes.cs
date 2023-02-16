@@ -28,9 +28,7 @@ namespace PTV.Developer.Clients.data.Model
     /// <summary>
     /// Defines TruckRoutes
     /// </summary>
-    
     [JsonConverter(typeof(StringEnumConverter))]
-    
     public enum TruckRoutes
     {
         /// <summary>

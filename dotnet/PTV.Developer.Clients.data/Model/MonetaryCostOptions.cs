@@ -51,14 +51,14 @@ namespace PTV.Developer.Clients.data.Model
         /// Specifies the cost per kilometer. The default value of a profile is used as an example and can change at any time.
         /// </summary>
         /// <value>Specifies the cost per kilometer. The default value of a profile is used as an example and can change at any time.</value>
-        [DataMember(Name = "costPerKilometer", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "costPerKilometer", IsRequired = true, EmitDefaultValue = true)]
         public double CostPerKilometer { get; set; }
 
         /// <summary>
         /// Specifies the cost per hour. It is not applied to service, break or rest periods. The default value of a profile is used as an example and can change at any time.
         /// </summary>
         /// <value>Specifies the cost per hour. It is not applied to service, break or rest periods. The default value of a profile is used as an example and can change at any time.</value>
-        [DataMember(Name = "workingCostPerHour", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "workingCostPerHour", IsRequired = true, EmitDefaultValue = true)]
         public double WorkingCostPerHour { get; set; }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class MonetaryCostOptions {\n");
             sb.Append("  CostPerKilometer: ").Append(CostPerKilometer).Append("\n");
             sb.Append("  WorkingCostPerHour: ").Append(WorkingCostPerHour).Append("\n");
@@ -102,8 +102,9 @@ namespace PTV.Developer.Clients.data.Model
         public bool Equals(MonetaryCostOptions input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.CostPerKilometer == input.CostPerKilometer ||
@@ -124,8 +125,8 @@ namespace PTV.Developer.Clients.data.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.CostPerKilometer.GetHashCode();
-                hashCode = hashCode * 59 + this.WorkingCostPerHour.GetHashCode();
+                hashCode = (hashCode * 59) + this.CostPerKilometer.GetHashCode();
+                hashCode = (hashCode * 59) + this.WorkingCostPerHour.GetHashCode();
                 return hashCode;
             }
         }
@@ -135,16 +136,16 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // CostPerKilometer (double) minimum
-            if(this.CostPerKilometer < (double)0)
+            if (this.CostPerKilometer < (double)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CostPerKilometer, must be a value greater than or equal to 0.", new [] { "CostPerKilometer" });
             }
 
             // WorkingCostPerHour (double) minimum
-            if(this.WorkingCostPerHour < (double)0)
+            if (this.WorkingCostPerHour < (double)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WorkingCostPerHour, must be a value greater than or equal to 0.", new [] { "WorkingCostPerHour" });
             }
