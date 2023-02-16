@@ -12,18 +12,20 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * The electricity type of the vehicle.
  * 
  * Supported for **engineType** _ELECTRIC_ or _HYBRID_. Relevant for `emissions`.
  * @export
- * @enum {string}
  */
-export enum ElectricityType {
-    BATTERY = 'BATTERY',
-    HYDROGEN_FUEL_CELL = 'HYDROGEN_FUEL_CELL',
-    NONE = 'NONE'
-}
+export const ElectricityType = {
+    BATTERY: 'BATTERY',
+    HYDROGEN_FUEL_CELL: 'HYDROGEN_FUEL_CELL',
+    NONE: 'NONE'
+} as const;
+export type ElectricityType = typeof ElectricityType[keyof typeof ElectricityType];
+
 
 export function ElectricityTypeFromJSON(json: any): ElectricityType {
     return ElectricityTypeFromJSONTyped(json, false);

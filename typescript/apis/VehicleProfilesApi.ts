@@ -14,11 +14,13 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  ErrorResponse,
+  PredefinedVehicleProfiles,
+} from '../models';
 import {
-    ErrorResponse,
     ErrorResponseFromJSON,
     ErrorResponseToJSON,
-    PredefinedVehicleProfiles,
     PredefinedVehicleProfilesFromJSON,
     PredefinedVehicleProfilesToJSON,
 } from '../models';
@@ -31,7 +33,7 @@ export class VehicleProfilesApi extends runtime.BaseAPI {
     /**
      * Returns the predefined vehicle profiles for routing.
      */
-    async getPredefinedVehicleProfilesRaw(): Promise<runtime.ApiResponse<PredefinedVehicleProfiles>> {
+    async getPredefinedVehicleProfilesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PredefinedVehicleProfiles>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -45,7 +47,7 @@ export class VehicleProfilesApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PredefinedVehicleProfilesFromJSON(jsonValue));
     }
@@ -53,8 +55,8 @@ export class VehicleProfilesApi extends runtime.BaseAPI {
     /**
      * Returns the predefined vehicle profiles for routing.
      */
-    async getPredefinedVehicleProfiles(): Promise<PredefinedVehicleProfiles> {
-        const response = await this.getPredefinedVehicleProfilesRaw();
+    async getPredefinedVehicleProfiles(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PredefinedVehicleProfiles> {
+        const response = await this.getPredefinedVehicleProfilesRaw(initOverrides);
         return await response.value();
     }
 

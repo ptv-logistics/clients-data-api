@@ -12,23 +12,25 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum TruckRoutes {
-    DE_LKWUEBERLSTVAUSNV = 'DE_LKWUEBERLSTVAUSNV',
-    NL_LZV = 'NL_LZV',
-    SE_BK_1 = 'SE_BK_1',
-    SE_BK_2 = 'SE_BK_2',
-    SE_BK_3 = 'SE_BK_3',
-    SE_BK_4 = 'SE_BK_4',
-    US_STAA = 'US_STAA',
-    US_TD = 'US_TD',
-    AU_B_DOUBLE = 'AU_B_DOUBLE',
-    AU_B_TRIPLE = 'AU_B_TRIPLE'
-}
+export const TruckRoutes = {
+    DE_LKWUEBERLSTVAUSNV: 'DE_LKWUEBERLSTVAUSNV',
+    NL_LZV: 'NL_LZV',
+    SE_BK_1: 'SE_BK_1',
+    SE_BK_2: 'SE_BK_2',
+    SE_BK_3: 'SE_BK_3',
+    SE_BK_4: 'SE_BK_4',
+    US_STAA: 'US_STAA',
+    US_TD: 'US_TD',
+    AU_B_DOUBLE: 'AU_B_DOUBLE',
+    AU_B_TRIPLE: 'AU_B_TRIPLE'
+} as const;
+export type TruckRoutes = typeof TruckRoutes[keyof typeof TruckRoutes];
+
 
 export function TruckRoutesFromJSON(json: any): TruckRoutes {
     return TruckRoutesFromJSONTyped(json, false);

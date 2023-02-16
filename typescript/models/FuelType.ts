@@ -12,25 +12,27 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * The fuel type of the vehicle.
  * The fuel types _CNG_GASOLINE_ and _LNG_GASOLINE_ are used for dual-fuel vehicles.
  * 
  * Supported for **engineType** _COMBUSTION_ and _HYBRID_. Relevant for `emissions`.
  * @export
- * @enum {string}
  */
-export enum FuelType {
-    GASOLINE = 'GASOLINE',
-    DIESEL = 'DIESEL',
-    COMPRESSED_NATURAL_GAS = 'COMPRESSED_NATURAL_GAS',
-    LIQUEFIED_PETROLEUM_GAS = 'LIQUEFIED_PETROLEUM_GAS',
-    LIQUEFIED_NATURAL_GAS = 'LIQUEFIED_NATURAL_GAS',
-    CNG_GASOLINE = 'CNG_GASOLINE',
-    LPG_GASOLINE = 'LPG_GASOLINE',
-    ETHANOL = 'ETHANOL',
-    NONE = 'NONE'
-}
+export const FuelType = {
+    GASOLINE: 'GASOLINE',
+    DIESEL: 'DIESEL',
+    COMPRESSED_NATURAL_GAS: 'COMPRESSED_NATURAL_GAS',
+    LIQUEFIED_PETROLEUM_GAS: 'LIQUEFIED_PETROLEUM_GAS',
+    LIQUEFIED_NATURAL_GAS: 'LIQUEFIED_NATURAL_GAS',
+    CNG_GASOLINE: 'CNG_GASOLINE',
+    LPG_GASOLINE: 'LPG_GASOLINE',
+    ETHANOL: 'ETHANOL',
+    NONE: 'NONE'
+} as const;
+export type FuelType = typeof FuelType[keyof typeof FuelType];
+
 
 export function FuelTypeFromJSON(json: any): FuelType {
     return FuelTypeFromJSONTyped(json, false);

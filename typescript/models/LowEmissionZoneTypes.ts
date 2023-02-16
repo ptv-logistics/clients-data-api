@@ -12,17 +12,19 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum LowEmissionZoneTypes {
-    DE_GREEN = 'DE_GREEN',
-    DE_YELLOW = 'DE_YELLOW',
-    DE_RED = 'DE_RED',
-    DE_NONE = 'DE_NONE'
-}
+export const LowEmissionZoneTypes = {
+    DE_GREEN: 'DE_GREEN',
+    DE_YELLOW: 'DE_YELLOW',
+    DE_RED: 'DE_RED',
+    DE_NONE: 'DE_NONE'
+} as const;
+export type LowEmissionZoneTypes = typeof LowEmissionZoneTypes[keyof typeof LowEmissionZoneTypes];
+
 
 export function LowEmissionZoneTypesFromJSON(json: any): LowEmissionZoneTypes {
     return LowEmissionZoneTypesFromJSONTyped(json, false);

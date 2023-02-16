@@ -12,18 +12,20 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * The engine type of the vehicle.
  * 
  * Relevant for `toll`, `emissions`.
  * @export
- * @enum {string}
  */
-export enum EngineType {
-    COMBUSTION = 'COMBUSTION',
-    ELECTRIC = 'ELECTRIC',
-    HYBRID = 'HYBRID'
-}
+export const EngineType = {
+    COMBUSTION: 'COMBUSTION',
+    ELECTRIC: 'ELECTRIC',
+    HYBRID: 'HYBRID'
+} as const;
+export type EngineType = typeof EngineType[keyof typeof EngineType];
+
 
 export function EngineTypeFromJSON(json: any): EngineType {
     return EngineTypeFromJSONTyped(json, false);

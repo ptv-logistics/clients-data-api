@@ -13,48 +13,66 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { ElectricityType } from './ElectricityType';
 import {
-    ElectricityType,
     ElectricityTypeFromJSON,
     ElectricityTypeFromJSONTyped,
     ElectricityTypeToJSON,
-    EmissionStandard,
+} from './ElectricityType';
+import type { EmissionStandard } from './EmissionStandard';
+import {
     EmissionStandardFromJSON,
     EmissionStandardFromJSONTyped,
     EmissionStandardToJSON,
-    EngineType,
+} from './EmissionStandard';
+import type { EngineType } from './EngineType';
+import {
     EngineTypeFromJSON,
     EngineTypeFromJSONTyped,
     EngineTypeToJSON,
-    EtcSubscriptionTypes,
+} from './EngineType';
+import type { EtcSubscriptionTypes } from './EtcSubscriptionTypes';
+import {
     EtcSubscriptionTypesFromJSON,
     EtcSubscriptionTypesFromJSONTyped,
     EtcSubscriptionTypesToJSON,
-    FuelType,
+} from './EtcSubscriptionTypes';
+import type { FuelType } from './FuelType';
+import {
     FuelTypeFromJSON,
     FuelTypeFromJSONTyped,
     FuelTypeToJSON,
-    HazardousMaterials,
+} from './FuelType';
+import type { HazardousMaterials } from './HazardousMaterials';
+import {
     HazardousMaterialsFromJSON,
     HazardousMaterialsFromJSONTyped,
     HazardousMaterialsToJSON,
-    LowEmissionZoneTypes,
+} from './HazardousMaterials';
+import type { LowEmissionZoneTypes } from './LowEmissionZoneTypes';
+import {
     LowEmissionZoneTypesFromJSON,
     LowEmissionZoneTypesFromJSONTyped,
     LowEmissionZoneTypesToJSON,
-    ParticleReductionClass,
+} from './LowEmissionZoneTypes';
+import type { ParticleReductionClass } from './ParticleReductionClass';
+import {
     ParticleReductionClassFromJSON,
     ParticleReductionClassFromJSONTyped,
     ParticleReductionClassToJSON,
-    TruckRoutes,
+} from './ParticleReductionClass';
+import type { TruckRoutes } from './TruckRoutes';
+import {
     TruckRoutesFromJSON,
     TruckRoutesFromJSONTyped,
     TruckRoutesToJSON,
-    TunnelRestrictionCode,
+} from './TruckRoutes';
+import type { TunnelRestrictionCode } from './TunnelRestrictionCode';
+import {
     TunnelRestrictionCodeFromJSON,
     TunnelRestrictionCodeFromJSONTyped,
     TunnelRestrictionCodeToJSON,
-} from './';
+} from './TunnelRestrictionCode';
 
 /**
  * Physical and legal properties of the vehicle such as its dimensions.
@@ -298,6 +316,15 @@ export interface Vehicle {
     etcSubscriptions?: Array<EtcSubscriptionTypes> | null;
 }
 
+/**
+ * Check if a given object implements the Vehicle interface.
+ */
+export function instanceOfVehicle(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function VehicleFromJSON(json: any): Vehicle {
     return VehicleFromJSONTyped(json, false);
 }
@@ -376,5 +403,4 @@ export function VehicleToJSON(value?: Vehicle | null): any {
         'etcSubscriptions': value.etcSubscriptions === undefined ? undefined : (value.etcSubscriptions === null ? null : (value.etcSubscriptions as Array<any>).map(EtcSubscriptionTypesToJSON)),
     };
 }
-
 

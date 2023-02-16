@@ -1,3 +1,5 @@
+/* tslint:disable */
+/* eslint-disable */
 export * from './CausingError';
 export * from './ElectricityType';
 export * from './EmissionStandard';

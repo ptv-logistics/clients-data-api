@@ -12,20 +12,22 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum HazardousMaterials {
-    HAZARDOUS_TO_WATER = 'HAZARDOUS_TO_WATER',
-    EXPLOSIVE = 'EXPLOSIVE',
-    FLAMMABLE = 'FLAMMABLE',
-    RADIOACTIVE = 'RADIOACTIVE',
-    INHALATION_HAZARD = 'INHALATION_HAZARD',
-    MEDICAL_WASTE = 'MEDICAL_WASTE',
-    OTHER = 'OTHER'
-}
+export const HazardousMaterials = {
+    HAZARDOUS_TO_WATER: 'HAZARDOUS_TO_WATER',
+    EXPLOSIVE: 'EXPLOSIVE',
+    FLAMMABLE: 'FLAMMABLE',
+    RADIOACTIVE: 'RADIOACTIVE',
+    INHALATION_HAZARD: 'INHALATION_HAZARD',
+    MEDICAL_WASTE: 'MEDICAL_WASTE',
+    OTHER: 'OTHER'
+} as const;
+export type HazardousMaterials = typeof HazardousMaterials[keyof typeof HazardousMaterials];
+
 
 export function HazardousMaterialsFromJSON(json: any): HazardousMaterials {
     return HazardousMaterialsFromJSONTyped(json, false);

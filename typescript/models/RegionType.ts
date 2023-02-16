@@ -12,19 +12,21 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * The region in this profile is designed for. It represents the characteristics of its region.
  * See the [profiles concept](./concepts/profiles) for details.
  * @export
- * @enum {string}
  */
-export enum RegionType {
-    EUROPE = 'EUROPE',
-    AMERICA = 'AMERICA',
-    AUSTRALIA = 'AUSTRALIA',
-    IMEA = 'IMEA',
-    WORLD = 'WORLD'
-}
+export const RegionType = {
+    EUROPE: 'EUROPE',
+    AMERICA: 'AMERICA',
+    AUSTRALIA: 'AUSTRALIA',
+    IMEA: 'IMEA',
+    WORLD: 'WORLD'
+} as const;
+export type RegionType = typeof RegionType[keyof typeof RegionType];
+
 
 export function RegionTypeFromJSON(json: any): RegionType {
     return RegionTypeFromJSONTyped(json, false);

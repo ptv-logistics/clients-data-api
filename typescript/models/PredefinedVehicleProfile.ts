@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { MonetaryCostOptions } from './MonetaryCostOptions';
 import {
-    MonetaryCostOptions,
     MonetaryCostOptionsFromJSON,
     MonetaryCostOptionsFromJSONTyped,
     MonetaryCostOptionsToJSON,
-    RegionType,
+} from './MonetaryCostOptions';
+import type { RegionType } from './RegionType';
+import {
     RegionTypeFromJSON,
     RegionTypeFromJSONTyped,
     RegionTypeToJSON,
-    Vehicle,
+} from './RegionType';
+import type { Vehicle } from './Vehicle';
+import {
     VehicleFromJSON,
     VehicleFromJSONTyped,
     VehicleToJSON,
-} from './';
+} from './Vehicle';
 
 /**
  * 
@@ -72,6 +76,19 @@ export interface PredefinedVehicleProfile {
     monetaryCostOptions?: MonetaryCostOptions;
 }
 
+/**
+ * Check if a given object implements the PredefinedVehicleProfile interface.
+ */
+export function instanceOfPredefinedVehicleProfile(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+    isInstance = isInstance && "description" in value;
+    isInstance = isInstance && "region" in value;
+    isInstance = isInstance && "currency" in value;
+
+    return isInstance;
+}
+
 export function PredefinedVehicleProfileFromJSON(json: any): PredefinedVehicleProfile {
     return PredefinedVehicleProfileFromJSONTyped(json, false);
 }
@@ -108,5 +125,4 @@ export function PredefinedVehicleProfileToJSON(value?: PredefinedVehicleProfile 
         'monetaryCostOptions': MonetaryCostOptionsToJSON(value.monetaryCostOptions),
     };
 }
-
 

@@ -12,21 +12,23 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * The particle reduction class (Partikelminderungsklasse) according to 'Anlage XIV zu &sect; 48 StVZO' (German law).
  * 
  * Supported for **engineType** _COMBUSTION_ and _HYBRID_. Relevant for `toll`.
  * @export
- * @enum {string}
  */
-export enum ParticleReductionClass {
-    PMK_0 = 'PMK_0',
-    PMK_1 = 'PMK_1',
-    PMK_2 = 'PMK_2',
-    PMK_3 = 'PMK_3',
-    PMK_4 = 'PMK_4',
-    NONE = 'NONE'
-}
+export const ParticleReductionClass = {
+    PMK_0: 'PMK_0',
+    PMK_1: 'PMK_1',
+    PMK_2: 'PMK_2',
+    PMK_3: 'PMK_3',
+    PMK_4: 'PMK_4',
+    NONE: 'NONE'
+} as const;
+export type ParticleReductionClass = typeof ParticleReductionClass[keyof typeof ParticleReductionClass];
+
 
 export function ParticleReductionClassFromJSON(json: any): ParticleReductionClass {
     return ParticleReductionClassFromJSONTyped(json, false);

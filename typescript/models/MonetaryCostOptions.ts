@@ -33,6 +33,17 @@ export interface MonetaryCostOptions {
     workingCostPerHour: number;
 }
 
+/**
+ * Check if a given object implements the MonetaryCostOptions interface.
+ */
+export function instanceOfMonetaryCostOptions(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "costPerKilometer" in value;
+    isInstance = isInstance && "workingCostPerHour" in value;
+
+    return isInstance;
+}
+
 export function MonetaryCostOptionsFromJSON(json: any): MonetaryCostOptions {
     return MonetaryCostOptionsFromJSONTyped(json, false);
 }
@@ -61,5 +72,4 @@ export function MonetaryCostOptionsToJSON(value?: MonetaryCostOptions | null): a
         'workingCostPerHour': value.workingCostPerHour,
     };
 }
-
 

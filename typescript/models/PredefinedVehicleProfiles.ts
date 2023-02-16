@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { PredefinedVehicleProfile } from './PredefinedVehicleProfile';
 import {
-    PredefinedVehicleProfile,
     PredefinedVehicleProfileFromJSON,
     PredefinedVehicleProfileFromJSONTyped,
     PredefinedVehicleProfileToJSON,
-} from './';
+} from './PredefinedVehicleProfile';
 
 /**
  * 
@@ -32,6 +32,16 @@ export interface PredefinedVehicleProfiles {
      * @memberof PredefinedVehicleProfiles
      */
     profiles: Array<PredefinedVehicleProfile>;
+}
+
+/**
+ * Check if a given object implements the PredefinedVehicleProfiles interface.
+ */
+export function instanceOfPredefinedVehicleProfiles(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "profiles" in value;
+
+    return isInstance;
 }
 
 export function PredefinedVehicleProfilesFromJSON(json: any): PredefinedVehicleProfiles {
@@ -60,5 +70,4 @@ export function PredefinedVehicleProfilesToJSON(value?: PredefinedVehicleProfile
         'profiles': ((value.profiles as Array<any>).map(PredefinedVehicleProfileToJSON)),
     };
 }
-
 

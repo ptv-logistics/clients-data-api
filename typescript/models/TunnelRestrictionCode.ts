@@ -12,20 +12,22 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * The tunnel restriction code according to ADR (European Agreement Concerning the International Carriage of Dangerous Goods by Road) depending on the load of the vehicle.
  * 
  * Relevant for `routing`.
  * @export
- * @enum {string}
  */
-export enum TunnelRestrictionCode {
-    NONE = 'NONE',
-    B = 'B',
-    C = 'C',
-    D = 'D',
-    E = 'E'
-}
+export const TunnelRestrictionCode = {
+    NONE: 'NONE',
+    B: 'B',
+    C: 'C',
+    D: 'D',
+    E: 'E'
+} as const;
+export type TunnelRestrictionCode = typeof TunnelRestrictionCode[keyof typeof TunnelRestrictionCode];
+
 
 export function TunnelRestrictionCodeFromJSON(json: any): TunnelRestrictionCode {
     return TunnelRestrictionCodeFromJSONTyped(json, false);
