@@ -18,7 +18,6 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.ptvgroup.developer.client.data.JSON;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;

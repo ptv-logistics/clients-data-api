@@ -28,7 +28,6 @@ import com.ptvgroup.developer.client.data.model.Vehicle;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.ptvgroup.developer.client.data.JSON;
 
 
 /**
@@ -42,7 +41,7 @@ import com.ptvgroup.developer.client.data.JSON;
   PredefinedVehicleProfile.JSON_PROPERTY_CURRENCY,
   PredefinedVehicleProfile.JSON_PROPERTY_MONETARY_COST_OPTIONS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-15T15:59:32.341301Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-16T12:34:54.664420Z[Etc/UTC]")
 public class PredefinedVehicleProfile {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -62,6 +61,8 @@ public class PredefinedVehicleProfile {
   public static final String JSON_PROPERTY_MONETARY_COST_OPTIONS = "monetaryCostOptions";
   private MonetaryCostOptions monetaryCostOptions;
 
+  public PredefinedVehicleProfile() { 
+  }
 
   public PredefinedVehicleProfile name(String name) {
     this.name = name;
@@ -72,6 +73,7 @@ public class PredefinedVehicleProfile {
    * The name of the predefined profile.
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the predefined profile.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -81,6 +83,8 @@ public class PredefinedVehicleProfile {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
@@ -95,6 +99,7 @@ public class PredefinedVehicleProfile {
    * The description of the predefined profile.
    * @return description
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The description of the predefined profile.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -104,6 +109,8 @@ public class PredefinedVehicleProfile {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDescription(String description) {
     this.description = description;
   }
@@ -118,6 +125,7 @@ public class PredefinedVehicleProfile {
    * Get region
    * @return region
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REGION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -127,6 +135,8 @@ public class PredefinedVehicleProfile {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REGION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRegion(RegionType region) {
     this.region = region;
   }
@@ -151,6 +161,8 @@ public class PredefinedVehicleProfile {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_VEHICLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVehicle(Vehicle vehicle) {
     this.vehicle = vehicle;
   }
@@ -165,6 +177,7 @@ public class PredefinedVehicleProfile {
    * The default currency for the predefined vehicle according to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).
    * @return currency
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The default currency for the predefined vehicle according to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -174,6 +187,8 @@ public class PredefinedVehicleProfile {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
@@ -198,6 +213,8 @@ public class PredefinedVehicleProfile {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MONETARY_COST_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMonetaryCostOptions(MonetaryCostOptions monetaryCostOptions) {
     this.monetaryCostOptions = monetaryCostOptions;
   }

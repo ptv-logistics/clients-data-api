@@ -13,7 +13,7 @@
 
 package com.ptvgroup.developer.client.data;
 
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-15T15:59:32.341301Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-16T12:34:54.664420Z[Etc/UTC]")
 public class Pair {
     private String name = "";
     private String value = "";
@@ -49,10 +49,6 @@ public class Pair {
 
     private boolean isValidString(String arg) {
         if (arg == null) {
-            return false;
-        }
-
-        if (arg.trim().isEmpty()) {
             return false;
         }
 

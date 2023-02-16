@@ -25,10 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.ptvgroup.developer.client.data.JSON;
 
 
 /**
@@ -40,7 +38,7 @@ import com.ptvgroup.developer.client.data.JSON;
   CausingError.JSON_PROPERTY_PARAMETER,
   CausingError.JSON_PROPERTY_DETAILS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-15T15:59:32.341301Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-16T12:34:54.664420Z[Etc/UTC]")
 public class CausingError {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -54,6 +52,8 @@ public class CausingError {
   public static final String JSON_PROPERTY_DETAILS = "details";
   private Map<String, Object> details = null;
 
+  public CausingError() { 
+  }
 
   public CausingError description(String description) {
     this.description = description;
@@ -64,6 +64,7 @@ public class CausingError {
    * A human readable message that describes the error.
    * @return description
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A human readable message that describes the error.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -73,6 +74,8 @@ public class CausingError {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDescription(String description) {
     this.description = description;
   }
@@ -87,6 +90,7 @@ public class CausingError {
    * A constant string that can be used to identify this error class programmatically. An errorCode can have **details** to provide information in additional properties which are described with the code they apply to. They are of type string unless otherwise specified. Note that additional errorCodes as well as the **details** of existing errorCodes may be added at any time. Furthermore, the **description** may change at any time.  **Error codes for** &#x60;GENERAL_VALIDATION_ERROR&#x60;  * &#x60;GENERAL_INVALID_VALUE&#x60; - A parameter is set to an invalid value.   * &#x60;value&#x60; - The invalid value. * &#x60;GENERAL_UNRECOGNIZED_PARAMETER&#x60; - A parameter is unknown. * &#x60;GENERAL_MISSING_PARAMETER&#x60; - A required parameter is missing. * &#x60;GENERAL_MINIMUM_LENGTH_VIOLATED&#x60; - The minimum length is violated.   * &#x60;minimumLength&#x60; - The minimum length (integer). * &#x60;GENERAL_MAXIMUM_LENGTH_VIOLATED&#x60; - The maximum length is violated.   * &#x60;maximumLength&#x60; - The maximum length (integer). * &#x60;GENERAL_MINIMUM_VALUE_VIOLATED&#x60; - The minimum value restriction is violated.   * &#x60;minimumValue&#x60; - The minimum value (integer or double). * &#x60;GENERAL_MAXIMUM_VALUE_VIOLATED&#x60; - The maximum value restriction is violated.   * &#x60;maximumValue&#x60; - The maximum value (integer or double). * &#x60;GENERAL_DUPLICATE_PARAMETER&#x60; - A parameter is duplicated. * &#x60;GENERAL_INVALID_LIST&#x60; - A list has an invalid format such as duplicate commas.   * &#x60;value&#x60; - The invalid list.  **Error codes for** &#x60;GENERAL_RESOURCE_NOT_FOUND&#x60;  * &#x60;GENERAL_INVALID_ID&#x60; - The ID does not exist.   * &#x60;value&#x60; - The invalid ID.
    * @return errorCode
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A constant string that can be used to identify this error class programmatically. An errorCode can have **details** to provide information in additional properties which are described with the code they apply to. They are of type string unless otherwise specified. Note that additional errorCodes as well as the **details** of existing errorCodes may be added at any time. Furthermore, the **description** may change at any time.  **Error codes for** `GENERAL_VALIDATION_ERROR`  * `GENERAL_INVALID_VALUE` - A parameter is set to an invalid value.   * `value` - The invalid value. * `GENERAL_UNRECOGNIZED_PARAMETER` - A parameter is unknown. * `GENERAL_MISSING_PARAMETER` - A required parameter is missing. * `GENERAL_MINIMUM_LENGTH_VIOLATED` - The minimum length is violated.   * `minimumLength` - The minimum length (integer). * `GENERAL_MAXIMUM_LENGTH_VIOLATED` - The maximum length is violated.   * `maximumLength` - The maximum length (integer). * `GENERAL_MINIMUM_VALUE_VIOLATED` - The minimum value restriction is violated.   * `minimumValue` - The minimum value (integer or double). * `GENERAL_MAXIMUM_VALUE_VIOLATED` - The maximum value restriction is violated.   * `maximumValue` - The maximum value (integer or double). * `GENERAL_DUPLICATE_PARAMETER` - A parameter is duplicated. * `GENERAL_INVALID_LIST` - A list has an invalid format such as duplicate commas.   * `value` - The invalid list.  **Error codes for** `GENERAL_RESOURCE_NOT_FOUND`  * `GENERAL_INVALID_ID` - The ID does not exist.   * `value` - The invalid ID.")
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -96,6 +100,8 @@ public class CausingError {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ERROR_CODE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
   }
@@ -120,6 +126,8 @@ public class CausingError {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PARAMETER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setParameter(String parameter) {
     this.parameter = parameter;
   }
@@ -152,6 +160,8 @@ public class CausingError {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DETAILS)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetails(Map<String, Object> details) {
     this.details = details;
   }

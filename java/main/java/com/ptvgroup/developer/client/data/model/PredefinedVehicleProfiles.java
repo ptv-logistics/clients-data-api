@@ -28,7 +28,6 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.ptvgroup.developer.client.data.JSON;
 
 
 /**
@@ -37,11 +36,13 @@ import com.ptvgroup.developer.client.data.JSON;
 @JsonPropertyOrder({
   PredefinedVehicleProfiles.JSON_PROPERTY_PROFILES
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-15T15:59:32.341301Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-16T12:34:54.664420Z[Etc/UTC]")
 public class PredefinedVehicleProfiles {
   public static final String JSON_PROPERTY_PROFILES = "profiles";
   private List<PredefinedVehicleProfile> profiles = new ArrayList<>();
 
+  public PredefinedVehicleProfiles() { 
+  }
 
   public PredefinedVehicleProfiles profiles(List<PredefinedVehicleProfile> profiles) {
     this.profiles = profiles;
@@ -57,6 +58,7 @@ public class PredefinedVehicleProfiles {
    * A list of predefined vehicle profiles.
    * @return profiles
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A list of predefined vehicle profiles.")
   @JsonProperty(JSON_PROPERTY_PROFILES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -66,6 +68,8 @@ public class PredefinedVehicleProfiles {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PROFILES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProfiles(List<PredefinedVehicleProfile> profiles) {
     this.profiles = profiles;
   }

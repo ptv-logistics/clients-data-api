@@ -25,7 +25,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.ptvgroup.developer.client.data.JSON;
 
 
 /**
@@ -35,7 +34,7 @@ import com.ptvgroup.developer.client.data.JSON;
   MonetaryCostOptions.JSON_PROPERTY_COST_PER_KILOMETER,
   MonetaryCostOptions.JSON_PROPERTY_WORKING_COST_PER_HOUR
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-15T15:59:32.341301Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-16T12:34:54.664420Z[Etc/UTC]")
 public class MonetaryCostOptions {
   public static final String JSON_PROPERTY_COST_PER_KILOMETER = "costPerKilometer";
   private Double costPerKilometer;
@@ -43,6 +42,8 @@ public class MonetaryCostOptions {
   public static final String JSON_PROPERTY_WORKING_COST_PER_HOUR = "workingCostPerHour";
   private Double workingCostPerHour;
 
+  public MonetaryCostOptions() { 
+  }
 
   public MonetaryCostOptions costPerKilometer(Double costPerKilometer) {
     this.costPerKilometer = costPerKilometer;
@@ -54,6 +55,7 @@ public class MonetaryCostOptions {
    * minimum: 0
    * @return costPerKilometer
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Specifies the cost per kilometer. The default value of a profile is used as an example and can change at any time.")
   @JsonProperty(JSON_PROPERTY_COST_PER_KILOMETER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -63,6 +65,8 @@ public class MonetaryCostOptions {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COST_PER_KILOMETER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCostPerKilometer(Double costPerKilometer) {
     this.costPerKilometer = costPerKilometer;
   }
@@ -78,6 +82,7 @@ public class MonetaryCostOptions {
    * minimum: 0
    * @return workingCostPerHour
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Specifies the cost per hour. It is not applied to service, break or rest periods. The default value of a profile is used as an example and can change at any time.")
   @JsonProperty(JSON_PROPERTY_WORKING_COST_PER_HOUR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -87,6 +92,8 @@ public class MonetaryCostOptions {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_WORKING_COST_PER_HOUR)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWorkingCostPerHour(Double workingCostPerHour) {
     this.workingCostPerHour = workingCostPerHour;
   }

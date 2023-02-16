@@ -36,11 +36,11 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.ptvgroup.developer.client.data.JSON;
 
 
 /**
@@ -76,7 +76,7 @@ import com.ptvgroup.developer.client.data.JSON;
   Vehicle.JSON_PROPERTY_COMMERCIAL,
   Vehicle.JSON_PROPERTY_ETC_SUBSCRIPTIONS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-15T15:59:32.341301Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-16T12:34:54.664420Z[Etc/UTC]")
 public class Vehicle {
   public static final String JSON_PROPERTY_ENGINE_TYPE = "engineType";
   private JsonNullable<EngineType> engineType = JsonNullable.<EngineType>undefined();
@@ -159,6 +159,8 @@ public class Vehicle {
   public static final String JSON_PROPERTY_ETC_SUBSCRIPTIONS = "etcSubscriptions";
   private JsonNullable<List<EtcSubscriptionTypes>> etcSubscriptions = JsonNullable.<List<EtcSubscriptionTypes>>undefined();
 
+  public Vehicle() { 
+  }
 
   public Vehicle engineType(EngineType engineType) {
     this.engineType = JsonNullable.<EngineType>of(engineType);
@@ -1157,38 +1159,49 @@ public class Vehicle {
       return false;
     }
     Vehicle vehicle = (Vehicle) o;
-    return Objects.equals(this.engineType, vehicle.engineType) &&
-        Objects.equals(this.fuelType, vehicle.fuelType) &&
-        Objects.equals(this.electricityType, vehicle.electricityType) &&
-        Objects.equals(this.averageFuelConsumption, vehicle.averageFuelConsumption) &&
-        Objects.equals(this.averageElectricityConsumption, vehicle.averageElectricityConsumption) &&
-        Objects.equals(this.bioFuelRatio, vehicle.bioFuelRatio) &&
-        Objects.equals(this.hybridRatio, vehicle.hybridRatio) &&
-        Objects.equals(this.dualFuelRatio, vehicle.dualFuelRatio) &&
-        Objects.equals(this.cylinderCapacity, vehicle.cylinderCapacity) &&
-        Objects.equals(this.emissionStandard, vehicle.emissionStandard) &&
-        Objects.equals(this.lowEmissionZoneTypes, vehicle.lowEmissionZoneTypes) &&
-        Objects.equals(this.particleReductionClass, vehicle.particleReductionClass) &&
-        Objects.equals(this.emptyWeight, vehicle.emptyWeight) &&
-        Objects.equals(this.loadWeight, vehicle.loadWeight) &&
-        Objects.equals(this.totalPermittedWeight, vehicle.totalPermittedWeight) &&
-        Objects.equals(this.axleWeight, vehicle.axleWeight) &&
-        Objects.equals(this.numberOfAxles, vehicle.numberOfAxles) &&
-        Objects.equals(this.numberOfTires, vehicle.numberOfTires) &&
-        Objects.equals(this.height, vehicle.height) &&
-        Objects.equals(this.heightAboveFrontAxle, vehicle.heightAboveFrontAxle) &&
-        Objects.equals(this.length, vehicle.length) &&
-        Objects.equals(this.width, vehicle.width) &&
-        Objects.equals(this.hazardousMaterials, vehicle.hazardousMaterials) &&
-        Objects.equals(this.tunnelRestrictionCode, vehicle.tunnelRestrictionCode) &&
-        Objects.equals(this.truckRoutes, vehicle.truckRoutes) &&
-        Objects.equals(this.commercial, vehicle.commercial) &&
-        Objects.equals(this.etcSubscriptions, vehicle.etcSubscriptions);
+    return equalsNullable(this.engineType, vehicle.engineType) &&
+        equalsNullable(this.fuelType, vehicle.fuelType) &&
+        equalsNullable(this.electricityType, vehicle.electricityType) &&
+        equalsNullable(this.averageFuelConsumption, vehicle.averageFuelConsumption) &&
+        equalsNullable(this.averageElectricityConsumption, vehicle.averageElectricityConsumption) &&
+        equalsNullable(this.bioFuelRatio, vehicle.bioFuelRatio) &&
+        equalsNullable(this.hybridRatio, vehicle.hybridRatio) &&
+        equalsNullable(this.dualFuelRatio, vehicle.dualFuelRatio) &&
+        equalsNullable(this.cylinderCapacity, vehicle.cylinderCapacity) &&
+        equalsNullable(this.emissionStandard, vehicle.emissionStandard) &&
+        equalsNullable(this.lowEmissionZoneTypes, vehicle.lowEmissionZoneTypes) &&
+        equalsNullable(this.particleReductionClass, vehicle.particleReductionClass) &&
+        equalsNullable(this.emptyWeight, vehicle.emptyWeight) &&
+        equalsNullable(this.loadWeight, vehicle.loadWeight) &&
+        equalsNullable(this.totalPermittedWeight, vehicle.totalPermittedWeight) &&
+        equalsNullable(this.axleWeight, vehicle.axleWeight) &&
+        equalsNullable(this.numberOfAxles, vehicle.numberOfAxles) &&
+        equalsNullable(this.numberOfTires, vehicle.numberOfTires) &&
+        equalsNullable(this.height, vehicle.height) &&
+        equalsNullable(this.heightAboveFrontAxle, vehicle.heightAboveFrontAxle) &&
+        equalsNullable(this.length, vehicle.length) &&
+        equalsNullable(this.width, vehicle.width) &&
+        equalsNullable(this.hazardousMaterials, vehicle.hazardousMaterials) &&
+        equalsNullable(this.tunnelRestrictionCode, vehicle.tunnelRestrictionCode) &&
+        equalsNullable(this.truckRoutes, vehicle.truckRoutes) &&
+        equalsNullable(this.commercial, vehicle.commercial) &&
+        equalsNullable(this.etcSubscriptions, vehicle.etcSubscriptions);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(engineType, fuelType, electricityType, averageFuelConsumption, averageElectricityConsumption, bioFuelRatio, hybridRatio, dualFuelRatio, cylinderCapacity, emissionStandard, lowEmissionZoneTypes, particleReductionClass, emptyWeight, loadWeight, totalPermittedWeight, axleWeight, numberOfAxles, numberOfTires, height, heightAboveFrontAxle, length, width, hazardousMaterials, tunnelRestrictionCode, truckRoutes, commercial, etcSubscriptions);
+    return Objects.hash(hashCodeNullable(engineType), hashCodeNullable(fuelType), hashCodeNullable(electricityType), hashCodeNullable(averageFuelConsumption), hashCodeNullable(averageElectricityConsumption), hashCodeNullable(bioFuelRatio), hashCodeNullable(hybridRatio), hashCodeNullable(dualFuelRatio), hashCodeNullable(cylinderCapacity), hashCodeNullable(emissionStandard), hashCodeNullable(lowEmissionZoneTypes), hashCodeNullable(particleReductionClass), hashCodeNullable(emptyWeight), hashCodeNullable(loadWeight), hashCodeNullable(totalPermittedWeight), hashCodeNullable(axleWeight), hashCodeNullable(numberOfAxles), hashCodeNullable(numberOfTires), hashCodeNullable(height), hashCodeNullable(heightAboveFrontAxle), hashCodeNullable(length), hashCodeNullable(width), hashCodeNullable(hazardousMaterials), hashCodeNullable(tunnelRestrictionCode), hashCodeNullable(truckRoutes), hashCodeNullable(commercial), hashCodeNullable(etcSubscriptions));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
