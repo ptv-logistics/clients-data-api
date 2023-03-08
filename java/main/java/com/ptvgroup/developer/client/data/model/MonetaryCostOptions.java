@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   MonetaryCostOptions.JSON_PROPERTY_COST_PER_KILOMETER,
   MonetaryCostOptions.JSON_PROPERTY_WORKING_COST_PER_HOUR
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-16T12:34:54.664420Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-03-08T07:22:40.201306Z[Etc/UTC]")
 public class MonetaryCostOptions {
   public static final String JSON_PROPERTY_COST_PER_KILOMETER = "costPerKilometer";
   private Double costPerKilometer;

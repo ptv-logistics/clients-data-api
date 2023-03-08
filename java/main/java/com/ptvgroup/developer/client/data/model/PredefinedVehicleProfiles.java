@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   PredefinedVehicleProfiles.JSON_PROPERTY_PROFILES
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-16T12:34:54.664420Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-03-08T07:22:40.201306Z[Etc/UTC]")
 public class PredefinedVehicleProfiles {
   public static final String JSON_PROPERTY_PROFILES = "profiles";
   private List<PredefinedVehicleProfile> profiles = new ArrayList<>();
