@@ -16,24 +16,24 @@
 import * as runtime from '../runtime';
 import type {
   ErrorResponse,
-  PredefinedVehicleProfiles,
+  MapInformationResponse,
 } from '../models';
 import {
     ErrorResponseFromJSON,
     ErrorResponseToJSON,
-    PredefinedVehicleProfilesFromJSON,
-    PredefinedVehicleProfilesToJSON,
+    MapInformationResponseFromJSON,
+    MapInformationResponseToJSON,
 } from '../models';
 
 /**
  * 
  */
-export class VehicleProfilesApi extends runtime.BaseAPI {
+export class MapInformationApi extends runtime.BaseAPI {
 
     /**
-     * Returns the predefined vehicle profiles for routing.
+     * Gets information about the map. See [here](./concepts/map-information) for more information.  This method is in an experimental state and may change at any time.
      */
-    async getPredefinedVehicleProfilesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PredefinedVehicleProfiles>> {
+    async getMapInformationRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MapInformationResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -44,20 +44,20 @@ export class VehicleProfilesApi extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/vehicle-profiles/predefined`,
+            path: `/map-information`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PredefinedVehicleProfilesFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => MapInformationResponseFromJSON(jsonValue));
     }
 
     /**
-     * Returns the predefined vehicle profiles for routing.
+     * Gets information about the map. See [here](./concepts/map-information) for more information.  This method is in an experimental state and may change at any time.
      */
-    async getPredefinedVehicleProfiles(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PredefinedVehicleProfiles> {
-        const response = await this.getPredefinedVehicleProfilesRaw(initOverrides);
+    async getMapInformation(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MapInformationResponse> {
+        const response = await this.getMapInformationRaw(initOverrides);
         return await response.value();
     }
 
