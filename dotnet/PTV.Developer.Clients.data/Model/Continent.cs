@@ -26,11 +26,11 @@ using OpenAPIDateConverter = PTV.Developer.Clients.data.Client.OpenAPIDateConver
 namespace PTV.Developer.Clients.data.Model
 {
     /// <summary>
-    /// The region in this profile is designed for. It represents the characteristics of its region. See the [profiles concept](./concepts/profiles) for details. 
+    /// The continent the geographical unit belongs to.
     /// </summary>
-    /// <value>The region in this profile is designed for. It represents the characteristics of its region. See the [profiles concept](./concepts/profiles) for details. </value>
+    /// <value>The continent the geographical unit belongs to.</value>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum RegionType
+    public enum Continent
     {
         /// <summary>
         /// Enum EUROPE for value: EUROPE
@@ -39,28 +39,34 @@ namespace PTV.Developer.Clients.data.Model
         EUROPE = 1,
 
         /// <summary>
-        /// Enum AMERICA for value: AMERICA
+        /// Enum NORTH_AMERICA for value: NORTH_AMERICA
         /// </summary>
-        [EnumMember(Value = "AMERICA")]
-        AMERICA = 2,
+        [EnumMember(Value = "NORTH_AMERICA")]
+        NORTH_AMERICA = 2,
 
         /// <summary>
-        /// Enum AUSTRALIA for value: AUSTRALIA
+        /// Enum SOUTH_AMERICA for value: SOUTH_AMERICA
         /// </summary>
-        [EnumMember(Value = "AUSTRALIA")]
-        AUSTRALIA = 3,
+        [EnumMember(Value = "SOUTH_AMERICA")]
+        SOUTH_AMERICA = 3,
 
         /// <summary>
-        /// Enum IMEA for value: IMEA
+        /// Enum AFRICA for value: AFRICA
         /// </summary>
-        [EnumMember(Value = "IMEA")]
-        IMEA = 4,
+        [EnumMember(Value = "AFRICA")]
+        AFRICA = 4,
 
         /// <summary>
-        /// Enum WORLD for value: WORLD
+        /// Enum ASIA for value: ASIA
         /// </summary>
-        [EnumMember(Value = "WORLD")]
-        WORLD = 5
+        [EnumMember(Value = "ASIA")]
+        ASIA = 5,
+
+        /// <summary>
+        /// Enum AUSTRALIA_OCEANIA for value: AUSTRALIA_OCEANIA
+        /// </summary>
+        [EnumMember(Value = "AUSTRALIA_OCEANIA")]
+        AUSTRALIA_OCEANIA = 6
 
     }
 

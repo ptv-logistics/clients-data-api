@@ -26,36 +26,36 @@ using OpenAPIDateConverter = PTV.Developer.Clients.data.Client.OpenAPIDateConver
 namespace PTV.Developer.Clients.data.Model
 {
     /// <summary>
-    /// PredefinedVehicleProfiles
+    /// MapInformationResponse
     /// </summary>
-    [DataContract(Name = "PredefinedVehicleProfiles")]
-    public partial class PredefinedVehicleProfiles : IEquatable<PredefinedVehicleProfiles>, IValidatableObject
+    [DataContract(Name = "MapInformationResponse")]
+    public partial class MapInformationResponse : IEquatable<MapInformationResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PredefinedVehicleProfiles" /> class.
+        /// Initializes a new instance of the <see cref="MapInformationResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PredefinedVehicleProfiles() { }
+        protected MapInformationResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PredefinedVehicleProfiles" /> class.
+        /// Initializes a new instance of the <see cref="MapInformationResponse" /> class.
         /// </summary>
-        /// <param name="profiles">A list of predefined vehicle profiles. (required).</param>
-        public PredefinedVehicleProfiles(List<PredefinedVehicleProfile> profiles = default(List<PredefinedVehicleProfile>))
+        /// <param name="geographicalUnits">Lists the available data and their features for each geographical unit, usually a country or a state, sorted by their ISO 3166 code. (required).</param>
+        public MapInformationResponse(List<GeographicalUnit> geographicalUnits = default(List<GeographicalUnit>))
         {
-            // to ensure "profiles" is required (not null)
-            if (profiles == null)
+            // to ensure "geographicalUnits" is required (not null)
+            if (geographicalUnits == null)
             {
-                throw new ArgumentNullException("profiles is a required property for PredefinedVehicleProfiles and cannot be null");
+                throw new ArgumentNullException("geographicalUnits is a required property for MapInformationResponse and cannot be null");
             }
-            this.Profiles = profiles;
+            this.GeographicalUnits = geographicalUnits;
         }
 
         /// <summary>
-        /// A list of predefined vehicle profiles.
+        /// Lists the available data and their features for each geographical unit, usually a country or a state, sorted by their ISO 3166 code.
         /// </summary>
-        /// <value>A list of predefined vehicle profiles.</value>
-        [DataMember(Name = "profiles", IsRequired = true, EmitDefaultValue = true)]
-        public List<PredefinedVehicleProfile> Profiles { get; set; }
+        /// <value>Lists the available data and their features for each geographical unit, usually a country or a state, sorted by their ISO 3166 code.</value>
+        [DataMember(Name = "geographicalUnits", IsRequired = true, EmitDefaultValue = true)]
+        public List<GeographicalUnit> GeographicalUnits { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +64,8 @@ namespace PTV.Developer.Clients.data.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PredefinedVehicleProfiles {\n");
-            sb.Append("  Profiles: ").Append(Profiles).Append("\n");
+            sb.Append("class MapInformationResponse {\n");
+            sb.Append("  GeographicalUnits: ").Append(GeographicalUnits).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,15 +86,15 @@ namespace PTV.Developer.Clients.data.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PredefinedVehicleProfiles);
+            return this.Equals(input as MapInformationResponse);
         }
 
         /// <summary>
-        /// Returns true if PredefinedVehicleProfiles instances are equal
+        /// Returns true if MapInformationResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PredefinedVehicleProfiles to be compared</param>
+        /// <param name="input">Instance of MapInformationResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PredefinedVehicleProfiles input)
+        public bool Equals(MapInformationResponse input)
         {
             if (input == null)
             {
@@ -102,10 +102,10 @@ namespace PTV.Developer.Clients.data.Model
             }
             return 
                 (
-                    this.Profiles == input.Profiles ||
-                    this.Profiles != null &&
-                    input.Profiles != null &&
-                    this.Profiles.SequenceEqual(input.Profiles)
+                    this.GeographicalUnits == input.GeographicalUnits ||
+                    this.GeographicalUnits != null &&
+                    input.GeographicalUnits != null &&
+                    this.GeographicalUnits.SequenceEqual(input.GeographicalUnits)
                 );
         }
 
@@ -118,9 +118,9 @@ namespace PTV.Developer.Clients.data.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Profiles != null)
+                if (this.GeographicalUnits != null)
                 {
-                    hashCode = (hashCode * 59) + this.Profiles.GetHashCode();
+                    hashCode = (hashCode * 59) + this.GeographicalUnits.GetHashCode();
                 }
                 return hashCode;
             }

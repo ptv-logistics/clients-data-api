@@ -26,36 +26,25 @@ using OpenAPIDateConverter = PTV.Developer.Clients.data.Client.OpenAPIDateConver
 namespace PTV.Developer.Clients.data.Model
 {
     /// <summary>
-    /// PredefinedVehicleProfiles
+    /// A list of custom road attribute scenarios.
     /// </summary>
-    [DataContract(Name = "PredefinedVehicleProfiles")]
-    public partial class PredefinedVehicleProfiles : IEquatable<PredefinedVehicleProfiles>, IValidatableObject
+    [DataContract(Name = "CustomRoadAttributeScenarioList")]
+    public partial class CustomRoadAttributeScenarioList : IEquatable<CustomRoadAttributeScenarioList>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PredefinedVehicleProfiles" /> class.
+        /// Initializes a new instance of the <see cref="CustomRoadAttributeScenarioList" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PredefinedVehicleProfiles() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PredefinedVehicleProfiles" /> class.
-        /// </summary>
-        /// <param name="profiles">A list of predefined vehicle profiles. (required).</param>
-        public PredefinedVehicleProfiles(List<PredefinedVehicleProfile> profiles = default(List<PredefinedVehicleProfile>))
+        /// <param name="customRoadAttributeScenarios">customRoadAttributeScenarios.</param>
+        public CustomRoadAttributeScenarioList(List<CustomRoadAttributeScenario> customRoadAttributeScenarios = default(List<CustomRoadAttributeScenario>))
         {
-            // to ensure "profiles" is required (not null)
-            if (profiles == null)
-            {
-                throw new ArgumentNullException("profiles is a required property for PredefinedVehicleProfiles and cannot be null");
-            }
-            this.Profiles = profiles;
+            this.CustomRoadAttributeScenarios = customRoadAttributeScenarios;
         }
 
         /// <summary>
-        /// A list of predefined vehicle profiles.
+        /// Gets or Sets CustomRoadAttributeScenarios
         /// </summary>
-        /// <value>A list of predefined vehicle profiles.</value>
-        [DataMember(Name = "profiles", IsRequired = true, EmitDefaultValue = true)]
-        public List<PredefinedVehicleProfile> Profiles { get; set; }
+        [DataMember(Name = "customRoadAttributeScenarios", EmitDefaultValue = false)]
+        public List<CustomRoadAttributeScenario> CustomRoadAttributeScenarios { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +53,8 @@ namespace PTV.Developer.Clients.data.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PredefinedVehicleProfiles {\n");
-            sb.Append("  Profiles: ").Append(Profiles).Append("\n");
+            sb.Append("class CustomRoadAttributeScenarioList {\n");
+            sb.Append("  CustomRoadAttributeScenarios: ").Append(CustomRoadAttributeScenarios).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,15 +75,15 @@ namespace PTV.Developer.Clients.data.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PredefinedVehicleProfiles);
+            return this.Equals(input as CustomRoadAttributeScenarioList);
         }
 
         /// <summary>
-        /// Returns true if PredefinedVehicleProfiles instances are equal
+        /// Returns true if CustomRoadAttributeScenarioList instances are equal
         /// </summary>
-        /// <param name="input">Instance of PredefinedVehicleProfiles to be compared</param>
+        /// <param name="input">Instance of CustomRoadAttributeScenarioList to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PredefinedVehicleProfiles input)
+        public bool Equals(CustomRoadAttributeScenarioList input)
         {
             if (input == null)
             {
@@ -102,10 +91,10 @@ namespace PTV.Developer.Clients.data.Model
             }
             return 
                 (
-                    this.Profiles == input.Profiles ||
-                    this.Profiles != null &&
-                    input.Profiles != null &&
-                    this.Profiles.SequenceEqual(input.Profiles)
+                    this.CustomRoadAttributeScenarios == input.CustomRoadAttributeScenarios ||
+                    this.CustomRoadAttributeScenarios != null &&
+                    input.CustomRoadAttributeScenarios != null &&
+                    this.CustomRoadAttributeScenarios.SequenceEqual(input.CustomRoadAttributeScenarios)
                 );
         }
 
@@ -118,9 +107,9 @@ namespace PTV.Developer.Clients.data.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Profiles != null)
+                if (this.CustomRoadAttributeScenarios != null)
                 {
-                    hashCode = (hashCode * 59) + this.Profiles.GetHashCode();
+                    hashCode = (hashCode * 59) + this.CustomRoadAttributeScenarios.GetHashCode();
                 }
                 return hashCode;
             }

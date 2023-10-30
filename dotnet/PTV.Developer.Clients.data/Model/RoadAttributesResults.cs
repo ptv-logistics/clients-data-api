@@ -26,29 +26,16 @@ using OpenAPIDateConverter = PTV.Developer.Clients.data.Client.OpenAPIDateConver
 namespace PTV.Developer.Clients.data.Model
 {
     /// <summary>
-    /// The electricity type of the vehicle.  Supported for **engineType** _ELECTRIC_ or _HYBRID_. Relevant for &#x60;emissions&#x60;. 
+    /// Defines RoadAttributesResults
     /// </summary>
-    /// <value>The electricity type of the vehicle.  Supported for **engineType** _ELECTRIC_ or _HYBRID_. Relevant for &#x60;emissions&#x60;. </value>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum ElectricityType
+    public enum RoadAttributesResults
     {
         /// <summary>
-        /// Enum BATTERY for value: BATTERY
+        /// Enum POLYLINES for value: POLYLINES
         /// </summary>
-        [EnumMember(Value = "BATTERY")]
-        BATTERY = 1,
-
-        /// <summary>
-        /// Enum HYDROGEN_FUEL_CELL for value: HYDROGEN_FUEL_CELL
-        /// </summary>
-        [EnumMember(Value = "HYDROGEN_FUEL_CELL")]
-        HYDROGEN_FUEL_CELL = 2,
-
-        /// <summary>
-        /// Enum NONE for value: NONE
-        /// </summary>
-        [EnumMember(Value = "NONE")]
-        NONE = 3
+        [EnumMember(Value = "POLYLINES")]
+        POLYLINES = 1
 
     }
 

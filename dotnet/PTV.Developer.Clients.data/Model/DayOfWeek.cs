@@ -26,41 +26,53 @@ using OpenAPIDateConverter = PTV.Developer.Clients.data.Client.OpenAPIDateConver
 namespace PTV.Developer.Clients.data.Model
 {
     /// <summary>
-    /// The region in this profile is designed for. It represents the characteristics of its region. See the [profiles concept](./concepts/profiles) for details. 
+    /// The day of week the schedule interval starts.
     /// </summary>
-    /// <value>The region in this profile is designed for. It represents the characteristics of its region. See the [profiles concept](./concepts/profiles) for details. </value>
+    /// <value>The day of week the schedule interval starts.</value>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum RegionType
+    public enum DayOfWeek
     {
         /// <summary>
-        /// Enum EUROPE for value: EUROPE
+        /// Enum MONDAY for value: MONDAY
         /// </summary>
-        [EnumMember(Value = "EUROPE")]
-        EUROPE = 1,
+        [EnumMember(Value = "MONDAY")]
+        MONDAY = 1,
 
         /// <summary>
-        /// Enum AMERICA for value: AMERICA
+        /// Enum TUESDAY for value: TUESDAY
         /// </summary>
-        [EnumMember(Value = "AMERICA")]
-        AMERICA = 2,
+        [EnumMember(Value = "TUESDAY")]
+        TUESDAY = 2,
 
         /// <summary>
-        /// Enum AUSTRALIA for value: AUSTRALIA
+        /// Enum WEDNESDAY for value: WEDNESDAY
         /// </summary>
-        [EnumMember(Value = "AUSTRALIA")]
-        AUSTRALIA = 3,
+        [EnumMember(Value = "WEDNESDAY")]
+        WEDNESDAY = 3,
 
         /// <summary>
-        /// Enum IMEA for value: IMEA
+        /// Enum THURSDAY for value: THURSDAY
         /// </summary>
-        [EnumMember(Value = "IMEA")]
-        IMEA = 4,
+        [EnumMember(Value = "THURSDAY")]
+        THURSDAY = 4,
 
         /// <summary>
-        /// Enum WORLD for value: WORLD
+        /// Enum FRIDAY for value: FRIDAY
         /// </summary>
-        [EnumMember(Value = "WORLD")]
-        WORLD = 5
+        [EnumMember(Value = "FRIDAY")]
+        FRIDAY = 5,
+
+        /// <summary>
+        /// Enum SATURDAY for value: SATURDAY
+        /// </summary>
+        [EnumMember(Value = "SATURDAY")]
+        SATURDAY = 6,
+
+        /// <summary>
+        /// Enum SUNDAY for value: SUNDAY
+        /// </summary>
+        [EnumMember(Value = "SUNDAY")]
+        SUNDAY = 7
 
     }
 

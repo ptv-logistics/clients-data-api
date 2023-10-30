@@ -26,36 +26,31 @@ using OpenAPIDateConverter = PTV.Developer.Clients.data.Client.OpenAPIDateConver
 namespace PTV.Developer.Clients.data.Model
 {
     /// <summary>
-    /// PredefinedVehicleProfiles
+    /// The features supported by this geographical unit. 
     /// </summary>
-    [DataContract(Name = "PredefinedVehicleProfiles")]
-    public partial class PredefinedVehicleProfiles : IEquatable<PredefinedVehicleProfiles>, IValidatableObject
+    [DataContract(Name = "MapFeatures")]
+    public partial class MapFeatures : IEquatable<MapFeatures>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PredefinedVehicleProfiles" /> class.
+        /// Initializes a new instance of the <see cref="MapFeatures" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PredefinedVehicleProfiles() { }
+        protected MapFeatures() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PredefinedVehicleProfiles" /> class.
+        /// Initializes a new instance of the <see cref="MapFeatures" /> class.
         /// </summary>
-        /// <param name="profiles">A list of predefined vehicle profiles. (required).</param>
-        public PredefinedVehicleProfiles(List<PredefinedVehicleProfile> profiles = default(List<PredefinedVehicleProfile>))
+        /// <param name="toll">If true, toll is supported in this geographical unit. False means that no toll data is available or toll does not apply in this geographical unit. Vignettes are not considered. (required).</param>
+        public MapFeatures(bool toll = default(bool))
         {
-            // to ensure "profiles" is required (not null)
-            if (profiles == null)
-            {
-                throw new ArgumentNullException("profiles is a required property for PredefinedVehicleProfiles and cannot be null");
-            }
-            this.Profiles = profiles;
+            this.Toll = toll;
         }
 
         /// <summary>
-        /// A list of predefined vehicle profiles.
+        /// If true, toll is supported in this geographical unit. False means that no toll data is available or toll does not apply in this geographical unit. Vignettes are not considered.
         /// </summary>
-        /// <value>A list of predefined vehicle profiles.</value>
-        [DataMember(Name = "profiles", IsRequired = true, EmitDefaultValue = true)]
-        public List<PredefinedVehicleProfile> Profiles { get; set; }
+        /// <value>If true, toll is supported in this geographical unit. False means that no toll data is available or toll does not apply in this geographical unit. Vignettes are not considered.</value>
+        [DataMember(Name = "toll", IsRequired = true, EmitDefaultValue = true)]
+        public bool Toll { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +59,8 @@ namespace PTV.Developer.Clients.data.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PredefinedVehicleProfiles {\n");
-            sb.Append("  Profiles: ").Append(Profiles).Append("\n");
+            sb.Append("class MapFeatures {\n");
+            sb.Append("  Toll: ").Append(Toll).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,15 +81,15 @@ namespace PTV.Developer.Clients.data.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PredefinedVehicleProfiles);
+            return this.Equals(input as MapFeatures);
         }
 
         /// <summary>
-        /// Returns true if PredefinedVehicleProfiles instances are equal
+        /// Returns true if MapFeatures instances are equal
         /// </summary>
-        /// <param name="input">Instance of PredefinedVehicleProfiles to be compared</param>
+        /// <param name="input">Instance of MapFeatures to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PredefinedVehicleProfiles input)
+        public bool Equals(MapFeatures input)
         {
             if (input == null)
             {
@@ -102,10 +97,8 @@ namespace PTV.Developer.Clients.data.Model
             }
             return 
                 (
-                    this.Profiles == input.Profiles ||
-                    this.Profiles != null &&
-                    input.Profiles != null &&
-                    this.Profiles.SequenceEqual(input.Profiles)
+                    this.Toll == input.Toll ||
+                    this.Toll.Equals(input.Toll)
                 );
         }
 
@@ -118,10 +111,7 @@ namespace PTV.Developer.Clients.data.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Profiles != null)
-                {
-                    hashCode = (hashCode * 59) + this.Profiles.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Toll.GetHashCode();
                 return hashCode;
             }
         }

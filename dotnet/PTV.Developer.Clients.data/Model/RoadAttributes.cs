@@ -26,36 +26,26 @@ using OpenAPIDateConverter = PTV.Developer.Clients.data.Client.OpenAPIDateConver
 namespace PTV.Developer.Clients.data.Model
 {
     /// <summary>
-    /// PredefinedVehicleProfiles
+    /// The attributes assigned to each of the selected roads.
     /// </summary>
-    [DataContract(Name = "PredefinedVehicleProfiles")]
-    public partial class PredefinedVehicleProfiles : IEquatable<PredefinedVehicleProfiles>, IValidatableObject
+    [DataContract(Name = "RoadAttributes")]
+    public partial class RoadAttributes : IEquatable<RoadAttributes>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PredefinedVehicleProfiles" /> class.
+        /// Initializes a new instance of the <see cref="RoadAttributes" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PredefinedVehicleProfiles() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PredefinedVehicleProfiles" /> class.
-        /// </summary>
-        /// <param name="profiles">A list of predefined vehicle profiles. (required).</param>
-        public PredefinedVehicleProfiles(List<PredefinedVehicleProfile> profiles = default(List<PredefinedVehicleProfile>))
+        /// <param name="prohibited">The road is prohibited, it will not be used in route calculation. Setting this value to false does not have a meaning..</param>
+        public RoadAttributes(bool prohibited = default(bool))
         {
-            // to ensure "profiles" is required (not null)
-            if (profiles == null)
-            {
-                throw new ArgumentNullException("profiles is a required property for PredefinedVehicleProfiles and cannot be null");
-            }
-            this.Profiles = profiles;
+            this.Prohibited = prohibited;
         }
 
         /// <summary>
-        /// A list of predefined vehicle profiles.
+        /// The road is prohibited, it will not be used in route calculation. Setting this value to false does not have a meaning.
         /// </summary>
-        /// <value>A list of predefined vehicle profiles.</value>
-        [DataMember(Name = "profiles", IsRequired = true, EmitDefaultValue = true)]
-        public List<PredefinedVehicleProfile> Profiles { get; set; }
+        /// <value>The road is prohibited, it will not be used in route calculation. Setting this value to false does not have a meaning.</value>
+        [DataMember(Name = "prohibited", EmitDefaultValue = true)]
+        public bool Prohibited { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +54,8 @@ namespace PTV.Developer.Clients.data.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PredefinedVehicleProfiles {\n");
-            sb.Append("  Profiles: ").Append(Profiles).Append("\n");
+            sb.Append("class RoadAttributes {\n");
+            sb.Append("  Prohibited: ").Append(Prohibited).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,15 +76,15 @@ namespace PTV.Developer.Clients.data.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PredefinedVehicleProfiles);
+            return this.Equals(input as RoadAttributes);
         }
 
         /// <summary>
-        /// Returns true if PredefinedVehicleProfiles instances are equal
+        /// Returns true if RoadAttributes instances are equal
         /// </summary>
-        /// <param name="input">Instance of PredefinedVehicleProfiles to be compared</param>
+        /// <param name="input">Instance of RoadAttributes to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PredefinedVehicleProfiles input)
+        public bool Equals(RoadAttributes input)
         {
             if (input == null)
             {
@@ -102,10 +92,8 @@ namespace PTV.Developer.Clients.data.Model
             }
             return 
                 (
-                    this.Profiles == input.Profiles ||
-                    this.Profiles != null &&
-                    input.Profiles != null &&
-                    this.Profiles.SequenceEqual(input.Profiles)
+                    this.Prohibited == input.Prohibited ||
+                    this.Prohibited.Equals(input.Prohibited)
                 );
         }
 
@@ -118,10 +106,7 @@ namespace PTV.Developer.Clients.data.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Profiles != null)
-                {
-                    hashCode = (hashCode * 59) + this.Profiles.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Prohibited.GetHashCode();
                 return hashCode;
             }
         }

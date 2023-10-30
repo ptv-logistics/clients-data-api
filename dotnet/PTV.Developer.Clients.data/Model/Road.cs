@@ -26,36 +26,26 @@ using OpenAPIDateConverter = PTV.Developer.Clients.data.Client.OpenAPIDateConver
 namespace PTV.Developer.Clients.data.Model
 {
     /// <summary>
-    /// PredefinedVehicleProfiles
+    /// Road
     /// </summary>
-    [DataContract(Name = "PredefinedVehicleProfiles")]
-    public partial class PredefinedVehicleProfiles : IEquatable<PredefinedVehicleProfiles>, IValidatableObject
+    [DataContract(Name = "Road")]
+    public partial class Road : IEquatable<Road>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PredefinedVehicleProfiles" /> class.
+        /// Initializes a new instance of the <see cref="Road" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PredefinedVehicleProfiles() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PredefinedVehicleProfiles" /> class.
-        /// </summary>
-        /// <param name="profiles">A list of predefined vehicle profiles. (required).</param>
-        public PredefinedVehicleProfiles(List<PredefinedVehicleProfile> profiles = default(List<PredefinedVehicleProfile>))
+        /// <param name="polyline">The polyline of the road in the format specified by **polylineFormat**..</param>
+        public Road(string polyline = default(string))
         {
-            // to ensure "profiles" is required (not null)
-            if (profiles == null)
-            {
-                throw new ArgumentNullException("profiles is a required property for PredefinedVehicleProfiles and cannot be null");
-            }
-            this.Profiles = profiles;
+            this.Polyline = polyline;
         }
 
         /// <summary>
-        /// A list of predefined vehicle profiles.
+        /// The polyline of the road in the format specified by **polylineFormat**.
         /// </summary>
-        /// <value>A list of predefined vehicle profiles.</value>
-        [DataMember(Name = "profiles", IsRequired = true, EmitDefaultValue = true)]
-        public List<PredefinedVehicleProfile> Profiles { get; set; }
+        /// <value>The polyline of the road in the format specified by **polylineFormat**.</value>
+        [DataMember(Name = "polyline", EmitDefaultValue = false)]
+        public string Polyline { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +54,8 @@ namespace PTV.Developer.Clients.data.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PredefinedVehicleProfiles {\n");
-            sb.Append("  Profiles: ").Append(Profiles).Append("\n");
+            sb.Append("class Road {\n");
+            sb.Append("  Polyline: ").Append(Polyline).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,15 +76,15 @@ namespace PTV.Developer.Clients.data.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PredefinedVehicleProfiles);
+            return this.Equals(input as Road);
         }
 
         /// <summary>
-        /// Returns true if PredefinedVehicleProfiles instances are equal
+        /// Returns true if Road instances are equal
         /// </summary>
-        /// <param name="input">Instance of PredefinedVehicleProfiles to be compared</param>
+        /// <param name="input">Instance of Road to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PredefinedVehicleProfiles input)
+        public bool Equals(Road input)
         {
             if (input == null)
             {
@@ -102,10 +92,9 @@ namespace PTV.Developer.Clients.data.Model
             }
             return 
                 (
-                    this.Profiles == input.Profiles ||
-                    this.Profiles != null &&
-                    input.Profiles != null &&
-                    this.Profiles.SequenceEqual(input.Profiles)
+                    this.Polyline == input.Polyline ||
+                    (this.Polyline != null &&
+                    this.Polyline.Equals(input.Polyline))
                 );
         }
 
@@ -118,9 +107,9 @@ namespace PTV.Developer.Clients.data.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Profiles != null)
+                if (this.Polyline != null)
                 {
-                    hashCode = (hashCode * 59) + this.Profiles.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Polyline.GetHashCode();
                 }
                 return hashCode;
             }
