@@ -22,61 +22,54 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.ptvgroup.developer.client.data.model.PredefinedVehicleProfile;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * PredefinedVehicleProfiles
+ * The attributes assigned to each of the selected roads.
  */
+@ApiModel(description = "The attributes assigned to each of the selected roads.")
 @JsonPropertyOrder({
-  PredefinedVehicleProfiles.JSON_PROPERTY_PROFILES
+  RoadAttributes.JSON_PROPERTY_PROHIBITED
 })
 @javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-30T06:51:07.244706Z[Etc/UTC]")
-public class PredefinedVehicleProfiles {
-  public static final String JSON_PROPERTY_PROFILES = "profiles";
-  private List<PredefinedVehicleProfile> profiles = new ArrayList<>();
+public class RoadAttributes {
+  public static final String JSON_PROPERTY_PROHIBITED = "prohibited";
+  private Boolean prohibited;
 
-  public PredefinedVehicleProfiles() { 
+  public RoadAttributes() { 
   }
 
-  public PredefinedVehicleProfiles profiles(List<PredefinedVehicleProfile> profiles) {
-    this.profiles = profiles;
-    return this;
-  }
-
-  public PredefinedVehicleProfiles addProfilesItem(PredefinedVehicleProfile profilesItem) {
-    this.profiles.add(profilesItem);
+  public RoadAttributes prohibited(Boolean prohibited) {
+    this.prohibited = prohibited;
     return this;
   }
 
    /**
-   * A list of predefined vehicle profiles.
-   * @return profiles
+   * The road is prohibited, it will not be used in route calculation. Setting this value to false does not have a meaning.
+   * @return prohibited
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A list of predefined vehicle profiles.")
-  @JsonProperty(JSON_PROPERTY_PROFILES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The road is prohibited, it will not be used in route calculation. Setting this value to false does not have a meaning.")
+  @JsonProperty(JSON_PROPERTY_PROHIBITED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<PredefinedVehicleProfile> getProfiles() {
-    return profiles;
+  public Boolean getProhibited() {
+    return prohibited;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROFILES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProfiles(List<PredefinedVehicleProfile> profiles) {
-    this.profiles = profiles;
+  @JsonProperty(JSON_PROPERTY_PROHIBITED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setProhibited(Boolean prohibited) {
+    this.prohibited = prohibited;
   }
 
 
   /**
-   * Return true if this PredefinedVehicleProfiles object is equal to o.
+   * Return true if this RoadAttributes object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -86,20 +79,20 @@ public class PredefinedVehicleProfiles {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PredefinedVehicleProfiles predefinedVehicleProfiles = (PredefinedVehicleProfiles) o;
-    return Objects.equals(this.profiles, predefinedVehicleProfiles.profiles);
+    RoadAttributes roadAttributes = (RoadAttributes) o;
+    return Objects.equals(this.prohibited, roadAttributes.prohibited);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(profiles);
+    return Objects.hash(prohibited);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PredefinedVehicleProfiles {\n");
-    sb.append("    profiles: ").append(toIndentedString(profiles)).append("\n");
+    sb.append("class RoadAttributes {\n");
+    sb.append("    prohibited: ").append(toIndentedString(prohibited)).append("\n");
     sb.append("}");
     return sb.toString();
   }

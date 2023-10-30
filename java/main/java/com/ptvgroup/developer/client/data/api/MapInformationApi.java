@@ -18,7 +18,7 @@ import com.ptvgroup.developer.client.data.ApiResponse;
 import com.ptvgroup.developer.client.data.Pair;
 
 import com.ptvgroup.developer.client.data.model.ErrorResponse;
-import com.ptvgroup.developer.client.data.model.PredefinedVehicleProfiles;
+import com.ptvgroup.developer.client.data.model.MapInformationResponse;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -39,7 +39,7 @@ import java.util.Set;
 import java.util.function.Consumer;
 
 @javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-30T06:51:07.244706Z[Etc/UTC]")
-public class VehicleProfilesApi {
+public class MapInformationApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
   private final String memberVarBaseUri;
@@ -48,11 +48,11 @@ public class VehicleProfilesApi {
   private final Consumer<HttpResponse<InputStream>> memberVarResponseInterceptor;
   private final Consumer<HttpResponse<String>> memberVarAsyncResponseInterceptor;
 
-  public VehicleProfilesApi() {
+  public MapInformationApi() {
     this(new ApiClient());
   }
 
-  public VehicleProfilesApi(ApiClient apiClient) {
+  public MapInformationApi(ApiClient apiClient) {
     memberVarHttpClient = apiClient.getHttpClient();
     memberVarObjectMapper = apiClient.getObjectMapper();
     memberVarBaseUri = apiClient.getBaseUri();
@@ -77,23 +77,23 @@ public class VehicleProfilesApi {
 
   /**
    * 
-   * Returns the predefined vehicle profiles for routing.
-   * @return PredefinedVehicleProfiles
+   * Gets information about the map. See [here](./concepts/map-information) for more information.  This method is in an experimental state and may change at any time.
+   * @return MapInformationResponse
    * @throws ApiException if fails to make API call
    */
-  public PredefinedVehicleProfiles getPredefinedVehicleProfiles() throws ApiException {
-    ApiResponse<PredefinedVehicleProfiles> localVarResponse = getPredefinedVehicleProfilesWithHttpInfo();
+  public MapInformationResponse getMapInformation() throws ApiException {
+    ApiResponse<MapInformationResponse> localVarResponse = getMapInformationWithHttpInfo();
     return localVarResponse.getData();
   }
 
   /**
    * 
-   * Returns the predefined vehicle profiles for routing.
-   * @return ApiResponse&lt;PredefinedVehicleProfiles&gt;
+   * Gets information about the map. See [here](./concepts/map-information) for more information.  This method is in an experimental state and may change at any time.
+   * @return ApiResponse&lt;MapInformationResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<PredefinedVehicleProfiles> getPredefinedVehicleProfilesWithHttpInfo() throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getPredefinedVehicleProfilesRequestBuilder();
+  public ApiResponse<MapInformationResponse> getMapInformationWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getMapInformationRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -103,12 +103,12 @@ public class VehicleProfilesApi {
       }
       try {
         if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("getPredefinedVehicleProfiles", localVarResponse);
+          throw getApiException("getMapInformation", localVarResponse);
         }
-        return new ApiResponse<PredefinedVehicleProfiles>(
+        return new ApiResponse<MapInformationResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<PredefinedVehicleProfiles>() {}) // closes the InputStream
+          memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<MapInformationResponse>() {}) // closes the InputStream
           
         );
       } finally {
@@ -122,12 +122,12 @@ public class VehicleProfilesApi {
     }
   }
 
-  private HttpRequest.Builder getPredefinedVehicleProfilesRequestBuilder() throws ApiException {
+  private HttpRequest.Builder getMapInformationRequestBuilder() throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 		localVarRequestBuilder.header("User-Agent","ptv-generated java client");
 
-    String localVarPath = "/vehicle-profiles/predefined";
+    String localVarPath = "/map-information";
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 

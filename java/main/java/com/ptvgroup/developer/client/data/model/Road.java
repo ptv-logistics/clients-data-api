@@ -22,61 +22,53 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.ptvgroup.developer.client.data.model.PredefinedVehicleProfile;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * PredefinedVehicleProfiles
+ * Road
  */
 @JsonPropertyOrder({
-  PredefinedVehicleProfiles.JSON_PROPERTY_PROFILES
+  Road.JSON_PROPERTY_POLYLINE
 })
 @javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-30T06:51:07.244706Z[Etc/UTC]")
-public class PredefinedVehicleProfiles {
-  public static final String JSON_PROPERTY_PROFILES = "profiles";
-  private List<PredefinedVehicleProfile> profiles = new ArrayList<>();
+public class Road {
+  public static final String JSON_PROPERTY_POLYLINE = "polyline";
+  private String polyline;
 
-  public PredefinedVehicleProfiles() { 
+  public Road() { 
   }
 
-  public PredefinedVehicleProfiles profiles(List<PredefinedVehicleProfile> profiles) {
-    this.profiles = profiles;
-    return this;
-  }
-
-  public PredefinedVehicleProfiles addProfilesItem(PredefinedVehicleProfile profilesItem) {
-    this.profiles.add(profilesItem);
+  public Road polyline(String polyline) {
+    this.polyline = polyline;
     return this;
   }
 
    /**
-   * A list of predefined vehicle profiles.
-   * @return profiles
+   * The polyline of the road in the format specified by **polylineFormat**.
+   * @return polyline
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A list of predefined vehicle profiles.")
-  @JsonProperty(JSON_PROPERTY_PROFILES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The polyline of the road in the format specified by **polylineFormat**.")
+  @JsonProperty(JSON_PROPERTY_POLYLINE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<PredefinedVehicleProfile> getProfiles() {
-    return profiles;
+  public String getPolyline() {
+    return polyline;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROFILES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProfiles(List<PredefinedVehicleProfile> profiles) {
-    this.profiles = profiles;
+  @JsonProperty(JSON_PROPERTY_POLYLINE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPolyline(String polyline) {
+    this.polyline = polyline;
   }
 
 
   /**
-   * Return true if this PredefinedVehicleProfiles object is equal to o.
+   * Return true if this Road object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -86,20 +78,20 @@ public class PredefinedVehicleProfiles {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PredefinedVehicleProfiles predefinedVehicleProfiles = (PredefinedVehicleProfiles) o;
-    return Objects.equals(this.profiles, predefinedVehicleProfiles.profiles);
+    Road road = (Road) o;
+    return Objects.equals(this.polyline, road.polyline);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(profiles);
+    return Objects.hash(polyline);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PredefinedVehicleProfiles {\n");
-    sb.append("    profiles: ").append(toIndentedString(profiles)).append("\n");
+    sb.append("class Road {\n");
+    sb.append("    polyline: ").append(toIndentedString(polyline)).append("\n");
     sb.append("}");
     return sb.toString();
   }

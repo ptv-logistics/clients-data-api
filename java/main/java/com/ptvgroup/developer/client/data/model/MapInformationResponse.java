@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.ptvgroup.developer.client.data.model.PredefinedVehicleProfile;
+import com.ptvgroup.developer.client.data.model.GeographicalUnit;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -31,52 +31,52 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * PredefinedVehicleProfiles
+ * MapInformationResponse
  */
 @JsonPropertyOrder({
-  PredefinedVehicleProfiles.JSON_PROPERTY_PROFILES
+  MapInformationResponse.JSON_PROPERTY_GEOGRAPHICAL_UNITS
 })
 @javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-30T06:51:07.244706Z[Etc/UTC]")
-public class PredefinedVehicleProfiles {
-  public static final String JSON_PROPERTY_PROFILES = "profiles";
-  private List<PredefinedVehicleProfile> profiles = new ArrayList<>();
+public class MapInformationResponse {
+  public static final String JSON_PROPERTY_GEOGRAPHICAL_UNITS = "geographicalUnits";
+  private List<GeographicalUnit> geographicalUnits = new ArrayList<>();
 
-  public PredefinedVehicleProfiles() { 
+  public MapInformationResponse() { 
   }
 
-  public PredefinedVehicleProfiles profiles(List<PredefinedVehicleProfile> profiles) {
-    this.profiles = profiles;
+  public MapInformationResponse geographicalUnits(List<GeographicalUnit> geographicalUnits) {
+    this.geographicalUnits = geographicalUnits;
     return this;
   }
 
-  public PredefinedVehicleProfiles addProfilesItem(PredefinedVehicleProfile profilesItem) {
-    this.profiles.add(profilesItem);
+  public MapInformationResponse addGeographicalUnitsItem(GeographicalUnit geographicalUnitsItem) {
+    this.geographicalUnits.add(geographicalUnitsItem);
     return this;
   }
 
    /**
-   * A list of predefined vehicle profiles.
-   * @return profiles
+   * Lists the available data and their features for each geographical unit, usually a country or a state, sorted by their ISO 3166 code.
+   * @return geographicalUnits
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A list of predefined vehicle profiles.")
-  @JsonProperty(JSON_PROPERTY_PROFILES)
+  @ApiModelProperty(required = true, value = "Lists the available data and their features for each geographical unit, usually a country or a state, sorted by their ISO 3166 code.")
+  @JsonProperty(JSON_PROPERTY_GEOGRAPHICAL_UNITS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<PredefinedVehicleProfile> getProfiles() {
-    return profiles;
+  public List<GeographicalUnit> getGeographicalUnits() {
+    return geographicalUnits;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROFILES)
+  @JsonProperty(JSON_PROPERTY_GEOGRAPHICAL_UNITS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProfiles(List<PredefinedVehicleProfile> profiles) {
-    this.profiles = profiles;
+  public void setGeographicalUnits(List<GeographicalUnit> geographicalUnits) {
+    this.geographicalUnits = geographicalUnits;
   }
 
 
   /**
-   * Return true if this PredefinedVehicleProfiles object is equal to o.
+   * Return true if this MapInformationResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -86,20 +86,20 @@ public class PredefinedVehicleProfiles {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PredefinedVehicleProfiles predefinedVehicleProfiles = (PredefinedVehicleProfiles) o;
-    return Objects.equals(this.profiles, predefinedVehicleProfiles.profiles);
+    MapInformationResponse mapInformationResponse = (MapInformationResponse) o;
+    return Objects.equals(this.geographicalUnits, mapInformationResponse.geographicalUnits);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(profiles);
+    return Objects.hash(geographicalUnits);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PredefinedVehicleProfiles {\n");
-    sb.append("    profiles: ").append(toIndentedString(profiles)).append("\n");
+    sb.append("class MapInformationResponse {\n");
+    sb.append("    geographicalUnits: ").append(toIndentedString(geographicalUnits)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.ptvgroup.developer.client.data.model.PredefinedVehicleProfile;
+import com.ptvgroup.developer.client.data.model.Road;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -31,52 +31,56 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * PredefinedVehicleProfiles
+ * The roads selected by the input.
  */
+@ApiModel(description = "The roads selected by the input.")
 @JsonPropertyOrder({
-  PredefinedVehicleProfiles.JSON_PROPERTY_PROFILES
+  RoadsResponse.JSON_PROPERTY_ROADS
 })
 @javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-30T06:51:07.244706Z[Etc/UTC]")
-public class PredefinedVehicleProfiles {
-  public static final String JSON_PROPERTY_PROFILES = "profiles";
-  private List<PredefinedVehicleProfile> profiles = new ArrayList<>();
+public class RoadsResponse {
+  public static final String JSON_PROPERTY_ROADS = "roads";
+  private List<Road> roads = null;
 
-  public PredefinedVehicleProfiles() { 
+  public RoadsResponse() { 
   }
 
-  public PredefinedVehicleProfiles profiles(List<PredefinedVehicleProfile> profiles) {
-    this.profiles = profiles;
+  public RoadsResponse roads(List<Road> roads) {
+    this.roads = roads;
     return this;
   }
 
-  public PredefinedVehicleProfiles addProfilesItem(PredefinedVehicleProfile profilesItem) {
-    this.profiles.add(profilesItem);
+  public RoadsResponse addRoadsItem(Road roadsItem) {
+    if (this.roads == null) {
+      this.roads = new ArrayList<>();
+    }
+    this.roads.add(roadsItem);
     return this;
   }
 
    /**
-   * A list of predefined vehicle profiles.
-   * @return profiles
+   * The list of selected roads according to the criteria specified in the request.
+   * @return roads
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A list of predefined vehicle profiles.")
-  @JsonProperty(JSON_PROPERTY_PROFILES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The list of selected roads according to the criteria specified in the request.")
+  @JsonProperty(JSON_PROPERTY_ROADS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<PredefinedVehicleProfile> getProfiles() {
-    return profiles;
+  public List<Road> getRoads() {
+    return roads;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROFILES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProfiles(List<PredefinedVehicleProfile> profiles) {
-    this.profiles = profiles;
+  @JsonProperty(JSON_PROPERTY_ROADS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRoads(List<Road> roads) {
+    this.roads = roads;
   }
 
 
   /**
-   * Return true if this PredefinedVehicleProfiles object is equal to o.
+   * Return true if this RoadsResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -86,20 +90,20 @@ public class PredefinedVehicleProfiles {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PredefinedVehicleProfiles predefinedVehicleProfiles = (PredefinedVehicleProfiles) o;
-    return Objects.equals(this.profiles, predefinedVehicleProfiles.profiles);
+    RoadsResponse roadsResponse = (RoadsResponse) o;
+    return Objects.equals(this.roads, roadsResponse.roads);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(profiles);
+    return Objects.hash(roads);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PredefinedVehicleProfiles {\n");
-    sb.append("    profiles: ").append(toIndentedString(profiles)).append("\n");
+    sb.append("class RoadsResponse {\n");
+    sb.append("    roads: ").append(toIndentedString(roads)).append("\n");
     sb.append("}");
     return sb.toString();
   }

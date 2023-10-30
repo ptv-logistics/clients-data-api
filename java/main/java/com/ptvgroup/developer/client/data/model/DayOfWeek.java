@@ -25,23 +25,27 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The tunnel restriction code according to ADR (European Agreement Concerning the International Carriage of Dangerous Goods by Road) depending on the load of the vehicle.  Relevant for &#x60;routing&#x60;. 
+ * The day of week the schedule interval starts.
  */
-public enum TunnelRestrictionCode {
+public enum DayOfWeek {
   
-  NONE("NONE"),
+  MONDAY("MONDAY"),
   
-  B("B"),
+  TUESDAY("TUESDAY"),
   
-  C("C"),
+  WEDNESDAY("WEDNESDAY"),
   
-  D("D"),
+  THURSDAY("THURSDAY"),
   
-  E("E");
+  FRIDAY("FRIDAY"),
+  
+  SATURDAY("SATURDAY"),
+  
+  SUNDAY("SUNDAY");
 
   private String value;
 
-  TunnelRestrictionCode(String value) {
+  DayOfWeek(String value) {
     this.value = value;
   }
 
@@ -56,13 +60,13 @@ public enum TunnelRestrictionCode {
   }
 
   @JsonCreator
-  public static TunnelRestrictionCode fromValue(String value) {
-    for (TunnelRestrictionCode b : TunnelRestrictionCode.values()) {
+  public static DayOfWeek fromValue(String value) {
+    for (DayOfWeek b : DayOfWeek.values()) {
       if (b.value.equals(value)) {
         return b;
       }
     }
-    return null;
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
 

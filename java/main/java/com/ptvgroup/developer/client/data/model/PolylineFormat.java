@@ -25,23 +25,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The tunnel restriction code according to ADR (European Agreement Concerning the International Carriage of Dangerous Goods by Road) depending on the load of the vehicle.  Relevant for &#x60;routing&#x60;. 
+ * Defines the format for polylines in the response.  * &#x60;GEO_JSON&#x60; - Polylines are returned in the [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON).  * &#x60;GOOGLE_ENCODED_POLYLINE&#x60; - Polylines are returned in [Google&#39;s Encoded Polyline](https://developers.google.com/maps/documentation/utilities/polylinealgorithm) format.
  */
-public enum TunnelRestrictionCode {
+public enum PolylineFormat {
   
-  NONE("NONE"),
+  GEO_JSON("GEO_JSON"),
   
-  B("B"),
-  
-  C("C"),
-  
-  D("D"),
-  
-  E("E");
+  GOOGLE_ENCODED_POLYLINE("GOOGLE_ENCODED_POLYLINE");
 
   private String value;
 
-  TunnelRestrictionCode(String value) {
+  PolylineFormat(String value) {
     this.value = value;
   }
 
@@ -56,13 +50,13 @@ public enum TunnelRestrictionCode {
   }
 
   @JsonCreator
-  public static TunnelRestrictionCode fromValue(String value) {
-    for (TunnelRestrictionCode b : TunnelRestrictionCode.values()) {
+  public static PolylineFormat fromValue(String value) {
+    for (PolylineFormat b : PolylineFormat.values()) {
       if (b.value.equals(value)) {
         return b;
       }
     }
-    return null;
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
 

@@ -25,23 +25,25 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The tunnel restriction code according to ADR (European Agreement Concerning the International Carriage of Dangerous Goods by Road) depending on the load of the vehicle.  Relevant for &#x60;routing&#x60;. 
+ * The continent the geographical unit belongs to.
  */
-public enum TunnelRestrictionCode {
+public enum Continent {
   
-  NONE("NONE"),
+  EUROPE("EUROPE"),
   
-  B("B"),
+  NORTH_AMERICA("NORTH_AMERICA"),
   
-  C("C"),
+  SOUTH_AMERICA("SOUTH_AMERICA"),
   
-  D("D"),
+  AFRICA("AFRICA"),
   
-  E("E");
+  ASIA("ASIA"),
+  
+  AUSTRALIA_OCEANIA("AUSTRALIA_OCEANIA");
 
   private String value;
 
-  TunnelRestrictionCode(String value) {
+  Continent(String value) {
     this.value = value;
   }
 
@@ -56,13 +58,13 @@ public enum TunnelRestrictionCode {
   }
 
   @JsonCreator
-  public static TunnelRestrictionCode fromValue(String value) {
-    for (TunnelRestrictionCode b : TunnelRestrictionCode.values()) {
+  public static Continent fromValue(String value) {
+    for (Continent b : Continent.values()) {
       if (b.value.equals(value)) {
         return b;
       }
     }
-    return null;
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
 

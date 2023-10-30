@@ -22,61 +22,54 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.ptvgroup.developer.client.data.model.PredefinedVehicleProfile;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * PredefinedVehicleProfiles
+ * The features supported by this geographical unit. 
  */
+@ApiModel(description = "The features supported by this geographical unit. ")
 @JsonPropertyOrder({
-  PredefinedVehicleProfiles.JSON_PROPERTY_PROFILES
+  MapFeatures.JSON_PROPERTY_TOLL
 })
 @javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-30T06:51:07.244706Z[Etc/UTC]")
-public class PredefinedVehicleProfiles {
-  public static final String JSON_PROPERTY_PROFILES = "profiles";
-  private List<PredefinedVehicleProfile> profiles = new ArrayList<>();
+public class MapFeatures {
+  public static final String JSON_PROPERTY_TOLL = "toll";
+  private Boolean toll;
 
-  public PredefinedVehicleProfiles() { 
+  public MapFeatures() { 
   }
 
-  public PredefinedVehicleProfiles profiles(List<PredefinedVehicleProfile> profiles) {
-    this.profiles = profiles;
-    return this;
-  }
-
-  public PredefinedVehicleProfiles addProfilesItem(PredefinedVehicleProfile profilesItem) {
-    this.profiles.add(profilesItem);
+  public MapFeatures toll(Boolean toll) {
+    this.toll = toll;
     return this;
   }
 
    /**
-   * A list of predefined vehicle profiles.
-   * @return profiles
+   * If true, toll is supported in this geographical unit. False means that no toll data is available or toll does not apply in this geographical unit. Vignettes are not considered.
+   * @return toll
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A list of predefined vehicle profiles.")
-  @JsonProperty(JSON_PROPERTY_PROFILES)
+  @ApiModelProperty(required = true, value = "If true, toll is supported in this geographical unit. False means that no toll data is available or toll does not apply in this geographical unit. Vignettes are not considered.")
+  @JsonProperty(JSON_PROPERTY_TOLL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<PredefinedVehicleProfile> getProfiles() {
-    return profiles;
+  public Boolean getToll() {
+    return toll;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROFILES)
+  @JsonProperty(JSON_PROPERTY_TOLL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProfiles(List<PredefinedVehicleProfile> profiles) {
-    this.profiles = profiles;
+  public void setToll(Boolean toll) {
+    this.toll = toll;
   }
 
 
   /**
-   * Return true if this PredefinedVehicleProfiles object is equal to o.
+   * Return true if this MapFeatures object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -86,20 +79,20 @@ public class PredefinedVehicleProfiles {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PredefinedVehicleProfiles predefinedVehicleProfiles = (PredefinedVehicleProfiles) o;
-    return Objects.equals(this.profiles, predefinedVehicleProfiles.profiles);
+    MapFeatures mapFeatures = (MapFeatures) o;
+    return Objects.equals(this.toll, mapFeatures.toll);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(profiles);
+    return Objects.hash(toll);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PredefinedVehicleProfiles {\n");
-    sb.append("    profiles: ").append(toIndentedString(profiles)).append("\n");
+    sb.append("class MapFeatures {\n");
+    sb.append("    toll: ").append(toIndentedString(toll)).append("\n");
     sb.append("}");
     return sb.toString();
   }

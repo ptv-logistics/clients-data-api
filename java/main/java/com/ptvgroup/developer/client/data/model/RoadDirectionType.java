@@ -25,23 +25,19 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The tunnel restriction code according to ADR (European Agreement Concerning the International Carriage of Dangerous Goods by Road) depending on the load of the vehicle.  Relevant for &#x60;routing&#x60;. 
+ * The direction of the road the attributes apply to.  * &#x60;POLYLINE_DIRECTION&#x60; - Describes the direction from the start node to the end node of the polyline of the road.  * &#x60;REVERSE_POLYLINE_DIRECTION&#x60; - Describes the direction from the end node to the start node of the polyline of the road.  * &#x60;BOTH&#x60; - Describes both directions.  If the selection contains more than one road and the direction is different from _BOTH_, an error will be returned.
  */
-public enum TunnelRestrictionCode {
+public enum RoadDirectionType {
   
-  NONE("NONE"),
+  POLYLINE_DIRECTION("POLYLINE_DIRECTION"),
   
-  B("B"),
+  REVERSE_POLYLINE_DIRECTION("REVERSE_POLYLINE_DIRECTION"),
   
-  C("C"),
-  
-  D("D"),
-  
-  E("E");
+  BOTH("BOTH");
 
   private String value;
 
-  TunnelRestrictionCode(String value) {
+  RoadDirectionType(String value) {
     this.value = value;
   }
 
@@ -56,13 +52,13 @@ public enum TunnelRestrictionCode {
   }
 
   @JsonCreator
-  public static TunnelRestrictionCode fromValue(String value) {
-    for (TunnelRestrictionCode b : TunnelRestrictionCode.values()) {
+  public static RoadDirectionType fromValue(String value) {
+    for (RoadDirectionType b : RoadDirectionType.values()) {
       if (b.value.equals(value)) {
         return b;
       }
     }
-    return null;
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
 

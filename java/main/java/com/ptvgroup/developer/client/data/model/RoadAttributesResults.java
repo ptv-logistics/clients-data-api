@@ -17,7 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -25,23 +24,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The tunnel restriction code according to ADR (European Agreement Concerning the International Carriage of Dangerous Goods by Road) depending on the load of the vehicle.  Relevant for &#x60;routing&#x60;. 
+ * Gets or Sets RoadAttributesResults
  */
-public enum TunnelRestrictionCode {
+public enum RoadAttributesResults {
   
-  NONE("NONE"),
-  
-  B("B"),
-  
-  C("C"),
-  
-  D("D"),
-  
-  E("E");
+  POLYLINES("POLYLINES");
 
   private String value;
 
-  TunnelRestrictionCode(String value) {
+  RoadAttributesResults(String value) {
     this.value = value;
   }
 
@@ -56,13 +47,13 @@ public enum TunnelRestrictionCode {
   }
 
   @JsonCreator
-  public static TunnelRestrictionCode fromValue(String value) {
-    for (TunnelRestrictionCode b : TunnelRestrictionCode.values()) {
+  public static RoadAttributesResults fromValue(String value) {
+    for (RoadAttributesResults b : RoadAttributesResults.values()) {
       if (b.value.equals(value)) {
         return b;
       }
     }
-    return null;
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
 
