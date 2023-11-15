@@ -16,6 +16,7 @@
 /**
  * The region in this profile is designed for. It represents the characteristics of its region.
  * See the [profiles concept](./concepts/profiles) for details.
+ * 
  * @export
  */
 export const RegionType = {

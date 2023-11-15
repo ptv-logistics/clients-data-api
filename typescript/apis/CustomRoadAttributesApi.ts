@@ -21,7 +21,7 @@ import type {
   PolylineFormat,
   RoadAttributesResults,
   RoadsResponse,
-} from '../models';
+} from '../models/index';
 import {
     CustomRoadAttributeScenarioFromJSON,
     CustomRoadAttributeScenarioToJSON,
@@ -35,7 +35,7 @@ import {
     RoadAttributesResultsToJSON,
     RoadsResponseFromJSON,
     RoadsResponseToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface CreateCustomRoadAttributeScenarioRequest {
     customRoadAttributeScenario: CustomRoadAttributeScenario;
@@ -76,7 +76,7 @@ export interface UpdateCustomRoadAttributeScenarioRequest {
 export class CustomRoadAttributesApi extends runtime.BaseAPI {
 
     /**
-     * Create a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+     * Create a custom road attribute scenario.
      */
     async createCustomRoadAttributeScenarioRaw(requestParameters: CreateCustomRoadAttributeScenarioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomRoadAttributeScenario>> {
         if (requestParameters.customRoadAttributeScenario === null || requestParameters.customRoadAttributeScenario === undefined) {
@@ -114,7 +114,7 @@ export class CustomRoadAttributesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Create a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+     * Create a custom road attribute scenario.
      */
     async createCustomRoadAttributeScenario(requestParameters: CreateCustomRoadAttributeScenarioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomRoadAttributeScenario> {
         const response = await this.createCustomRoadAttributeScenarioRaw(requestParameters, initOverrides);
@@ -122,7 +122,7 @@ export class CustomRoadAttributesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Delete a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+     * Delete a custom road attribute scenario.
      */
     async deleteCustomRoadAttributeScenarioRaw(requestParameters: DeleteCustomRoadAttributeScenarioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.scenarioId === null || requestParameters.scenarioId === undefined) {
@@ -149,14 +149,14 @@ export class CustomRoadAttributesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Delete a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+     * Delete a custom road attribute scenario.
      */
     async deleteCustomRoadAttributeScenario(requestParameters: DeleteCustomRoadAttributeScenarioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteCustomRoadAttributeScenarioRaw(requestParameters, initOverrides);
     }
 
     /**
-     * Get a list of all custom road attribute scenarios of the current user.  This method is in an experimental state and may change at any time.
+     * Get a list of all custom road attribute scenarios of the current user.
      */
     async getAllCustomRoadAttributeScenariosRaw(requestParameters: GetAllCustomRoadAttributeScenariosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomRoadAttributeScenarioList>> {
         const queryParameters: any = {};
@@ -187,7 +187,7 @@ export class CustomRoadAttributesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get a list of all custom road attribute scenarios of the current user.  This method is in an experimental state and may change at any time.
+     * Get a list of all custom road attribute scenarios of the current user.
      */
     async getAllCustomRoadAttributeScenarios(requestParameters: GetAllCustomRoadAttributeScenariosRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomRoadAttributeScenarioList> {
         const response = await this.getAllCustomRoadAttributeScenariosRaw(requestParameters, initOverrides);
@@ -195,7 +195,7 @@ export class CustomRoadAttributesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get a custom road attribute scenario by its ID.  This method is in an experimental state and may change at any time.
+     * Get a custom road attribute scenario by its ID.
      */
     async getCustomRoadAttributeScenarioRaw(requestParameters: GetCustomRoadAttributeScenarioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomRoadAttributeScenario>> {
         if (requestParameters.scenarioId === null || requestParameters.scenarioId === undefined) {
@@ -230,7 +230,7 @@ export class CustomRoadAttributesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get a custom road attribute scenario by its ID.  This method is in an experimental state and may change at any time.
+     * Get a custom road attribute scenario by its ID.
      */
     async getCustomRoadAttributeScenario(requestParameters: GetCustomRoadAttributeScenarioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomRoadAttributeScenario> {
         const response = await this.getCustomRoadAttributeScenarioRaw(requestParameters, initOverrides);
@@ -238,7 +238,7 @@ export class CustomRoadAttributesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get roads from (click) points on a map.  This method is in an experimental state and may change at any time.
+     * Get roads from (click) points on a map.
      */
     async getRoadsRaw(requestParameters: GetRoadsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoadsResponse>> {
         if (requestParameters.points === null || requestParameters.points === undefined) {
@@ -273,7 +273,7 @@ export class CustomRoadAttributesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get roads from (click) points on a map.  This method is in an experimental state and may change at any time.
+     * Get roads from (click) points on a map.
      */
     async getRoads(requestParameters: GetRoadsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoadsResponse> {
         const response = await this.getRoadsRaw(requestParameters, initOverrides);
@@ -281,7 +281,7 @@ export class CustomRoadAttributesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Perform a full update of an existing custom road attribute scenario.  This method is in an experimental state and may change at any time.
+     * Perform a full update of an existing custom road attribute scenario.
      */
     async updateCustomRoadAttributeScenarioRaw(requestParameters: UpdateCustomRoadAttributeScenarioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomRoadAttributeScenario>> {
         if (requestParameters.scenarioId === null || requestParameters.scenarioId === undefined) {
@@ -323,7 +323,7 @@ export class CustomRoadAttributesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Perform a full update of an existing custom road attribute scenario.  This method is in an experimental state and may change at any time.
+     * Perform a full update of an existing custom road attribute scenario.
      */
     async updateCustomRoadAttributeScenario(requestParameters: UpdateCustomRoadAttributeScenarioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomRoadAttributeScenario> {
         const response = await this.updateCustomRoadAttributeScenarioRaw(requestParameters, initOverrides);

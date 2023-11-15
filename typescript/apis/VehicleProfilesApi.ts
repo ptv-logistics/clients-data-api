@@ -17,13 +17,13 @@ import * as runtime from '../runtime';
 import type {
   ErrorResponse,
   PredefinedVehicleProfiles,
-} from '../models';
+} from '../models/index';
 import {
     ErrorResponseFromJSON,
     ErrorResponseToJSON,
     PredefinedVehicleProfilesFromJSON,
     PredefinedVehicleProfilesToJSON,
-} from '../models';
+} from '../models/index';
 
 /**
  * 

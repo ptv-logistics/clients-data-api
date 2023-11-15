@@ -18,6 +18,7 @@
  * The fuel types _CNG_GASOLINE_ and _LNG_GASOLINE_ are used for dual-fuel vehicles.
  * 
  * Supported for **engineType** _COMBUSTION_ and _HYBRID_. Relevant for `emissions`.
+ * 
  * @export
  */
 export const FuelType = {

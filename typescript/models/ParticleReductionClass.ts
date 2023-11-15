@@ -17,6 +17,7 @@
  * The particle reduction class (Partikelminderungsklasse) according to 'Anlage XIV zu &sect; 48 StVZO' (German law).
  * 
  * Supported for **engineType** _COMBUSTION_ and _HYBRID_. Relevant for `toll`.
+ * 
  * @export
  */
 export const ParticleReductionClass = {

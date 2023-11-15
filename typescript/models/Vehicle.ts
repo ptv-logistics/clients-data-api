@@ -88,194 +88,213 @@ export interface Vehicle {
      * @type {EngineType}
      * @memberof Vehicle
      */
-    engineType?: EngineType | null;
+    engineType?: EngineType;
     /**
      * 
      * @type {FuelType}
      * @memberof Vehicle
      */
-    fuelType?: FuelType | null;
+    fuelType?: FuelType;
     /**
      * 
      * @type {ElectricityType}
      * @memberof Vehicle
      */
-    electricityType?: ElectricityType | null;
+    electricityType?: ElectricityType;
     /**
      * The average fuel consumption of the vehicle.
      * Depending on the **fuelType** [l/100km] for liquid fuel types or [kg/100km] for gaseous fuel types.
      * 
      * Supported for **engineType** _COMBUSTION_  or _HYBRID_. Relevant for `emissions`.
+     * 
      * @type {number}
      * @memberof Vehicle
      */
-    averageFuelConsumption?: number | null;
+    averageFuelConsumption?: number;
     /**
      * The average power consumption of the vehicle [kWh/100km].
      * 
      * Supported for **engineType** _ELECTRIC_ or _HYBRID_. Relevant for `emissions`.
+     * 
      * @type {number}
      * @memberof Vehicle
      */
-    averageElectricityConsumption?: number | null;
+    averageElectricityConsumption?: number;
     /**
      * The ratio of biofuel to conventional fuel [%], i.e. 10 for E10 with 10% biofuel.
      * 
      * Supported for **engineType** _COMBUSTION_ or _HYBRID_ and only for the fuel types _GASOLINE_, _DIESEL_, _CNG_GASOLINE_ and _LNG_GASOLINE_.
      * Relevant for `emissions`.
+     * 
      * @type {number}
      * @memberof Vehicle
      */
-    bioFuelRatio?: number | null;
+    bioFuelRatio?: number;
     /**
      * Electric energy usage ratio from the total amount of energy consumed by the vehicle.
      * 
      * Supported for **engineType** _HYBRID_. Relevant for `emissions`.
+     * 
      * @type {number}
      * @memberof Vehicle
      */
-    hybridRatio?: number | null;
+    hybridRatio?: number;
     /**
      * Ratio of CNG or LPG usage from the total amount of fuel consumption.
      * 
      * Supported for **engineType** _COMBUSTION_ with **fuelType**  _CNG_GASOLINE_ or _LPG_GASOLINE_. Relevant for `emissions`.
+     * 
      * @type {number}
      * @memberof Vehicle
      */
-    dualFuelRatio?: number | null;
+    dualFuelRatio?: number;
     /**
      * The cylinder capacity of the vehicle [cm&#x00B3;].
      * 
      * Supported for **engineType** _COMBUSTION_ or _HYBRID_.
+     * 
      * @type {number}
      * @memberof Vehicle
      */
-    cylinderCapacity?: number | null;
+    cylinderCapacity?: number;
     /**
      * 
      * @type {EmissionStandard}
      * @memberof Vehicle
      */
-    emissionStandard?: EmissionStandard | null;
+    emissionStandard?: EmissionStandard;
     /**
      * The CO&#8322; emission class valid in the European Union. See also the 
-     * [Directive 1999/62/EC](http://data.europa.eu/eli/dir/1999/62) of the European Parliament and of the 
+     * [Directive 1999/62/EC](https://eur-lex.europa.eu/eli/dir/1999/62) of the European Parliament and of the 
      * Council on the charging of heavy goods vehicles for the use of certain infrastructures, article 7ga.
      * 
-     * This parameter is in an experimental state and may change at any time. Relevant for `toll`.
+     * Relevant for `toll`.
+     * 
      * @type {number}
      * @memberof Vehicle
      */
-    co2EmissionClass?: number | null;
+    co2EmissionClass?: number;
     /**
      * Comma-separated list of the low-emission zone types of the vehicle.
      * For now, types are available only for Germany, so using more than one value is not meaningful.
      * 
      * Relevant for `routing`.
+     * 
      * @type {Array<LowEmissionZoneTypes>}
      * @memberof Vehicle
      */
-    lowEmissionZoneTypes?: Array<LowEmissionZoneTypes> | null;
+    lowEmissionZoneTypes?: Array<LowEmissionZoneTypes>;
     /**
      * 
      * @type {ParticleReductionClass}
      * @memberof Vehicle
      */
-    particleReductionClass?: ParticleReductionClass | null;
+    particleReductionClass?: ParticleReductionClass;
     /**
      * The empty weight of the vehicle [kg].
      * 
      * Relevant for `routing`, `emissions`.
+     * 
      * @type {number}
      * @memberof Vehicle
      */
-    emptyWeight?: number | null;
+    emptyWeight?: number;
     /**
      * The weight of the vehicle's load [kg].
      * 
      * Relevant for `routing`, `emissions`.
+     * 
      * @type {number}
      * @memberof Vehicle
      */
-    loadWeight?: number | null;
+    loadWeight?: number;
     /**
      * The total permitted weight of the vehicle and load [kg].
      * 
      * Relevant for `routing`, `toll`, `emissions`.
+     * 
      * @type {number}
      * @memberof Vehicle
      */
-    totalPermittedWeight?: number | null;
+    totalPermittedWeight?: number;
     /**
      * The maximum distributed weight that may be supported by an axle of the vehicle [kg].
      * 
      * Relevant for `routing`, `toll`.
+     * 
      * @type {number}
      * @memberof Vehicle
      */
-    axleWeight?: number | null;
+    axleWeight?: number;
     /**
      * The total number of axles of the vehicle including the trailers.
      * 
      * Relevant for `toll`.
+     * 
      * @type {number}
      * @memberof Vehicle
      */
-    numberOfAxles?: number | null;
+    numberOfAxles?: number;
     /**
      * The total number of tires of the vehicle including the trailers.
      * 
      * Relevant for `toll`.
+     * 
      * @type {number}
      * @memberof Vehicle
      */
-    numberOfTires?: number | null;
+    numberOfTires?: number;
     /**
      * The height of the vehicle [cm].
      * 
      * Relevant for `routing`, `toll`.
+     * 
      * @type {number}
      * @memberof Vehicle
      */
-    height?: number | null;
+    height?: number;
     /**
      * The height above the front axle [cm].
      * 
      * Relevant for `toll`.
+     * 
      * @type {number}
      * @memberof Vehicle
      */
-    heightAboveFrontAxle?: number | null;
+    heightAboveFrontAxle?: number;
     /**
      * The length of the vehicle [cm].
      * 
      * Relevant for `routing`, `toll`.
+     * 
      * @type {number}
      * @memberof Vehicle
      */
-    length?: number | null;
+    length?: number;
     /**
      * The width of the vehicle [cm].
      * 
      * Relevant for `routing`, `toll`.
+     * 
      * @type {number}
      * @memberof Vehicle
      */
-    width?: number | null;
+    width?: number;
     /**
      * Comma-separated list of hazardous materials the vehicle has loaded.
      * 
      * Relevant for `routing`.
+     * 
      * @type {Array<HazardousMaterials>}
      * @memberof Vehicle
      */
-    hazardousMaterials?: Array<HazardousMaterials> | null;
+    hazardousMaterials?: Array<HazardousMaterials>;
     /**
      * 
      * @type {TunnelRestrictionCode}
      * @memberof Vehicle
      */
-    tunnelRestrictionCode?: TunnelRestrictionCode | null;
+    tunnelRestrictionCode?: TunnelRestrictionCode;
     /**
      * Comma-separated list of truck routes the vehicle has to follow.
      * This parameter will be ignored for non-truck profiles such as EUR_CAR, EUR_VAN, USA_1_PICKUP or AUS_LCV_LIGHT_COMMERCIAL.
@@ -312,34 +331,34 @@ export interface Vehicle {
      *  * `AU_AB_TRIPLE_HML`
      *  Routes for AB-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).
      *  * `NONE`
-     *  This value does not refer to a truck route. Use a list with only the _NONE_ value for the truck routes
-     *  at a waypoint to specify that no truck route must be used from that waypoint on. An empty list of truck routes
-     *  at a waypoint means that the truck routes don't change at the waypoint. If _NONE_ is specified along with other
-     *  truck routes it is ignored.
+     *  Not used.
      * 
      * Relevant for `routing`.
      * Cannot be used with **options[routingMode]=MONETARY**.
+     * 
      * @type {Array<TruckRoutes>}
      * @memberof Vehicle
      */
-    truckRoutes?: Array<TruckRoutes> | null;
+    truckRoutes?: Array<TruckRoutes>;
     /**
      * Specifies if the vehicle usage is commercial.
      * 
      * Relevant for `toll`.
+     * 
      * @type {boolean}
      * @memberof Vehicle
      */
-    commercial?: boolean | null;
+    commercial?: boolean;
     /**
      * A comma separated list of ETC Subscriptions.
      * See [here](../routing-api/concepts/electronic-toll-collection) for more information on available subscriptions.
      * 
      * Relevant for `toll`.
+     * 
      * @type {Array<EtcSubscriptionTypes>}
      * @memberof Vehicle
      */
-    etcSubscriptions?: Array<EtcSubscriptionTypes> | null;
+    etcSubscriptions?: Array<EtcSubscriptionTypes>;
 }
 
 /**
@@ -372,7 +391,7 @@ export function VehicleFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         'cylinderCapacity': !exists(json, 'cylinderCapacity') ? undefined : json['cylinderCapacity'],
         'emissionStandard': !exists(json, 'emissionStandard') ? undefined : EmissionStandardFromJSON(json['emissionStandard']),
         'co2EmissionClass': !exists(json, 'co2EmissionClass') ? undefined : json['co2EmissionClass'],
-        'lowEmissionZoneTypes': !exists(json, 'lowEmissionZoneTypes') ? undefined : (json['lowEmissionZoneTypes'] === null ? null : (json['lowEmissionZoneTypes'] as Array<any>).map(LowEmissionZoneTypesFromJSON)),
+        'lowEmissionZoneTypes': !exists(json, 'lowEmissionZoneTypes') ? undefined : ((json['lowEmissionZoneTypes'] as Array<any>).map(LowEmissionZoneTypesFromJSON)),
         'particleReductionClass': !exists(json, 'particleReductionClass') ? undefined : ParticleReductionClassFromJSON(json['particleReductionClass']),
         'emptyWeight': !exists(json, 'emptyWeight') ? undefined : json['emptyWeight'],
         'loadWeight': !exists(json, 'loadWeight') ? undefined : json['loadWeight'],
@@ -384,11 +403,11 @@ export function VehicleFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         'heightAboveFrontAxle': !exists(json, 'heightAboveFrontAxle') ? undefined : json['heightAboveFrontAxle'],
         'length': !exists(json, 'length') ? undefined : json['length'],
         'width': !exists(json, 'width') ? undefined : json['width'],
-        'hazardousMaterials': !exists(json, 'hazardousMaterials') ? undefined : (json['hazardousMaterials'] === null ? null : (json['hazardousMaterials'] as Array<any>).map(HazardousMaterialsFromJSON)),
+        'hazardousMaterials': !exists(json, 'hazardousMaterials') ? undefined : ((json['hazardousMaterials'] as Array<any>).map(HazardousMaterialsFromJSON)),
         'tunnelRestrictionCode': !exists(json, 'tunnelRestrictionCode') ? undefined : TunnelRestrictionCodeFromJSON(json['tunnelRestrictionCode']),
-        'truckRoutes': !exists(json, 'truckRoutes') ? undefined : (json['truckRoutes'] === null ? null : (json['truckRoutes'] as Array<any>).map(TruckRoutesFromJSON)),
+        'truckRoutes': !exists(json, 'truckRoutes') ? undefined : ((json['truckRoutes'] as Array<any>).map(TruckRoutesFromJSON)),
         'commercial': !exists(json, 'commercial') ? undefined : json['commercial'],
-        'etcSubscriptions': !exists(json, 'etcSubscriptions') ? undefined : (json['etcSubscriptions'] === null ? null : (json['etcSubscriptions'] as Array<any>).map(EtcSubscriptionTypesFromJSON)),
+        'etcSubscriptions': !exists(json, 'etcSubscriptions') ? undefined : ((json['etcSubscriptions'] as Array<any>).map(EtcSubscriptionTypesFromJSON)),
     };
 }
 
@@ -412,7 +431,7 @@ export function VehicleToJSON(value?: Vehicle | null): any {
         'cylinderCapacity': value.cylinderCapacity,
         'emissionStandard': EmissionStandardToJSON(value.emissionStandard),
         'co2EmissionClass': value.co2EmissionClass,
-        'lowEmissionZoneTypes': value.lowEmissionZoneTypes === undefined ? undefined : (value.lowEmissionZoneTypes === null ? null : (value.lowEmissionZoneTypes as Array<any>).map(LowEmissionZoneTypesToJSON)),
+        'lowEmissionZoneTypes': value.lowEmissionZoneTypes === undefined ? undefined : ((value.lowEmissionZoneTypes as Array<any>).map(LowEmissionZoneTypesToJSON)),
         'particleReductionClass': ParticleReductionClassToJSON(value.particleReductionClass),
         'emptyWeight': value.emptyWeight,
         'loadWeight': value.loadWeight,
@@ -424,11 +443,11 @@ export function VehicleToJSON(value?: Vehicle | null): any {
         'heightAboveFrontAxle': value.heightAboveFrontAxle,
         'length': value.length,
         'width': value.width,
-        'hazardousMaterials': value.hazardousMaterials === undefined ? undefined : (value.hazardousMaterials === null ? null : (value.hazardousMaterials as Array<any>).map(HazardousMaterialsToJSON)),
+        'hazardousMaterials': value.hazardousMaterials === undefined ? undefined : ((value.hazardousMaterials as Array<any>).map(HazardousMaterialsToJSON)),
         'tunnelRestrictionCode': TunnelRestrictionCodeToJSON(value.tunnelRestrictionCode),
-        'truckRoutes': value.truckRoutes === undefined ? undefined : (value.truckRoutes === null ? null : (value.truckRoutes as Array<any>).map(TruckRoutesToJSON)),
+        'truckRoutes': value.truckRoutes === undefined ? undefined : ((value.truckRoutes as Array<any>).map(TruckRoutesToJSON)),
         'commercial': value.commercial,
-        'etcSubscriptions': value.etcSubscriptions === undefined ? undefined : (value.etcSubscriptions === null ? null : (value.etcSubscriptions as Array<any>).map(EtcSubscriptionTypesToJSON)),
+        'etcSubscriptions': value.etcSubscriptions === undefined ? undefined : ((value.etcSubscriptions as Array<any>).map(EtcSubscriptionTypesToJSON)),
     };
 }
 

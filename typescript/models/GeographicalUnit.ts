@@ -30,6 +30,7 @@ import {
  * Base type for a geographical unit. Depending
  * on how the data are built up a country can have subdivisions, e.g. a state
  * in the US, or not.
+ * 
  * @export
  * @interface GeographicalUnit
  */

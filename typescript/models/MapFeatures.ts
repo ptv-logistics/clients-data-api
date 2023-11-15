@@ -15,6 +15,7 @@
 import { exists, mapValues } from '../runtime';
 /**
  * The features supported by this geographical unit.
+ * 
  * @export
  * @interface MapFeatures
  */

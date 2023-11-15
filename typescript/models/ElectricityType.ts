@@ -17,6 +17,7 @@
  * The electricity type of the vehicle.
  * 
  * Supported for **engineType** _ELECTRIC_ or _HYBRID_. Relevant for `emissions`.
+ * 
  * @export
  */
 export const ElectricityType = {

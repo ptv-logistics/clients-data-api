@@ -17,13 +17,13 @@ import * as runtime from '../runtime';
 import type {
   ErrorResponse,
   MapInformationResponse,
-} from '../models';
+} from '../models/index';
 import {
     ErrorResponseFromJSON,
     ErrorResponseToJSON,
     MapInformationResponseFromJSON,
     MapInformationResponseToJSON,
-} from '../models';
+} from '../models/index';
 
 /**
  * 

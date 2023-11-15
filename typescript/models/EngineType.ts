@@ -17,6 +17,7 @@
  * The engine type of the vehicle.
  * 
  * Relevant for `toll`, `emissions`.
+ * 
  * @export
  */
 export const EngineType = {

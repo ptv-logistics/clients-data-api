@@ -17,6 +17,7 @@
  * The tunnel restriction code according to ADR (European Agreement Concerning the International Carriage of Dangerous Goods by Road) depending on the load of the vehicle.
  * 
  * Relevant for `routing`.
+ * 
  * @export
  */
 export const TunnelRestrictionCode = {

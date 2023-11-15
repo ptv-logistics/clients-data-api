@@ -17,6 +17,7 @@
  * The emission standard of the vehicle valid in the European Union.
  * 
  * Values different from _NONE_ supported for **engineType** _COMBUSTION_ and _HBYRID_. Relevant for `toll`, `emissions`.
+ * 
  * @export
  */
 export const EmissionStandard = {
