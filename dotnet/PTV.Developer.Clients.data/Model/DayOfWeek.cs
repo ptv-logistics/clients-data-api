@@ -73,7 +73,6 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         [EnumMember(Value = "SUNDAY")]
         SUNDAY = 7
-
     }
 
 }

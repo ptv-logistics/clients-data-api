@@ -54,7 +54,6 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         [EnumMember(Value = "DE_NONE")]
         DE_NONE = 4
-
     }
 
 }

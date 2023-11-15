@@ -49,7 +49,6 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         [EnumMember(Value = "HYBRID")]
         HYBRID = 3
-
     }
 
 }

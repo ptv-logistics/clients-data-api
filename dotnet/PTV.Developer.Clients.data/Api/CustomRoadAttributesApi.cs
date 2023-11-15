@@ -30,7 +30,7 @@ namespace PTV.Developer.Clients.data.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Create a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        /// Create a custom road attribute scenario.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customRoadAttributeScenario">The roads to be attributed.</param>
@@ -38,13 +38,13 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CustomRoadAttributeScenario</returns>
-        CustomRoadAttributeScenario CreateCustomRoadAttributeScenario(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0);
+        CustomRoadAttributeScenario CreateCustomRoadAttributeScenario(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0);
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Create a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        /// Create a custom road attribute scenario.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customRoadAttributeScenario">The roads to be attributed.</param>
@@ -52,12 +52,12 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CustomRoadAttributeScenario</returns>
-        ApiResponse<CustomRoadAttributeScenario> CreateCustomRoadAttributeScenarioWithHttpInfo(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0);
+        ApiResponse<CustomRoadAttributeScenario> CreateCustomRoadAttributeScenarioWithHttpInfo(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Delete a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        /// Delete a custom road attribute scenario.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -69,7 +69,7 @@ namespace PTV.Developer.Clients.data.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Delete a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        /// Delete a custom road attribute scenario.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -80,32 +80,32 @@ namespace PTV.Developer.Clients.data.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Get a list of all custom road attribute scenarios of the current user.  This method is in an experimental state and may change at any time.
+        /// Get a list of all custom road attribute scenarios of the current user.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="results">Defines which results will be returned. (optional)</param>
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CustomRoadAttributeScenarioList</returns>
-        CustomRoadAttributeScenarioList GetAllCustomRoadAttributeScenarios(List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0);
+        CustomRoadAttributeScenarioList GetAllCustomRoadAttributeScenarios(List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0);
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Get a list of all custom road attribute scenarios of the current user.  This method is in an experimental state and may change at any time.
+        /// Get a list of all custom road attribute scenarios of the current user.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="results">Defines which results will be returned. (optional)</param>
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CustomRoadAttributeScenarioList</returns>
-        ApiResponse<CustomRoadAttributeScenarioList> GetAllCustomRoadAttributeScenariosWithHttpInfo(List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0);
+        ApiResponse<CustomRoadAttributeScenarioList> GetAllCustomRoadAttributeScenariosWithHttpInfo(List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Get a custom road attribute scenario by its ID.  This method is in an experimental state and may change at any time.
+        /// Get a custom road attribute scenario by its ID.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -113,13 +113,13 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CustomRoadAttributeScenario</returns>
-        CustomRoadAttributeScenario GetCustomRoadAttributeScenario(Guid scenarioId, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0);
+        CustomRoadAttributeScenario GetCustomRoadAttributeScenario(Guid scenarioId, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0);
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Get a custom road attribute scenario by its ID.  This method is in an experimental state and may change at any time.
+        /// Get a custom road attribute scenario by its ID.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -127,12 +127,12 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CustomRoadAttributeScenario</returns>
-        ApiResponse<CustomRoadAttributeScenario> GetCustomRoadAttributeScenarioWithHttpInfo(Guid scenarioId, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0);
+        ApiResponse<CustomRoadAttributeScenario> GetCustomRoadAttributeScenarioWithHttpInfo(Guid scenarioId, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Get roads from (click) points on a map.  This method is in an experimental state and may change at any time.
+        /// Get roads from (click) points on a map.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="points">A point or a polyline to select roads.  For a single point the road closest to this point will be returned. Several points will be considered a polyline and all roads intersected by this polyline will be returned. The polyline must not be closed, i.e. the first and the last point must be different. Ferries will not be selected.  Format: &#x60;&lt;point1_lat&gt;,&lt;point1_lon&gt;,...,&lt;pointN_lat&gt;,&lt;pointN_lon&gt;&#x60;.  A request will be rejected if it * does not contain an even number of coordinates, * contains a closed polyline, * contains invalid coordinates or * covers more than 5000 roads.</param>
@@ -145,7 +145,7 @@ namespace PTV.Developer.Clients.data.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Get roads from (click) points on a map.  This method is in an experimental state and may change at any time.
+        /// Get roads from (click) points on a map.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="points">A point or a polyline to select roads.  For a single point the road closest to this point will be returned. Several points will be considered a polyline and all roads intersected by this polyline will be returned. The polyline must not be closed, i.e. the first and the last point must be different. Ferries will not be selected.  Format: &#x60;&lt;point1_lat&gt;,&lt;point1_lon&gt;,...,&lt;pointN_lat&gt;,&lt;pointN_lon&gt;&#x60;.  A request will be rejected if it * does not contain an even number of coordinates, * contains a closed polyline, * contains invalid coordinates or * covers more than 5000 roads.</param>
@@ -157,7 +157,7 @@ namespace PTV.Developer.Clients.data.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Perform a full update of an existing custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        /// Perform a full update of an existing custom road attribute scenario.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -166,13 +166,13 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CustomRoadAttributeScenario</returns>
-        CustomRoadAttributeScenario UpdateCustomRoadAttributeScenario(Guid scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0);
+        CustomRoadAttributeScenario UpdateCustomRoadAttributeScenario(Guid scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0);
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Perform a full update of an existing custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        /// Perform a full update of an existing custom road attribute scenario.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -181,7 +181,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CustomRoadAttributeScenario</returns>
-        ApiResponse<CustomRoadAttributeScenario> UpdateCustomRoadAttributeScenarioWithHttpInfo(Guid scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0);
+        ApiResponse<CustomRoadAttributeScenario> UpdateCustomRoadAttributeScenarioWithHttpInfo(Guid scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -195,7 +195,7 @@ namespace PTV.Developer.Clients.data.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Create a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        /// Create a custom road attribute scenario.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customRoadAttributeScenario">The roads to be attributed.</param>
@@ -204,13 +204,13 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CustomRoadAttributeScenario</returns>
-        System.Threading.Tasks.Task<CustomRoadAttributeScenario> CreateCustomRoadAttributeScenarioAsync(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CustomRoadAttributeScenario> CreateCustomRoadAttributeScenarioAsync(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Create a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        /// Create a custom road attribute scenario.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customRoadAttributeScenario">The roads to be attributed.</param>
@@ -219,12 +219,12 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CustomRoadAttributeScenario)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomRoadAttributeScenario>> CreateCustomRoadAttributeScenarioWithHttpInfoAsync(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CustomRoadAttributeScenario>> CreateCustomRoadAttributeScenarioWithHttpInfoAsync(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Delete a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        /// Delete a custom road attribute scenario.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -237,7 +237,7 @@ namespace PTV.Developer.Clients.data.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Delete a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        /// Delete a custom road attribute scenario.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -249,7 +249,7 @@ namespace PTV.Developer.Clients.data.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Get a list of all custom road attribute scenarios of the current user.  This method is in an experimental state and may change at any time.
+        /// Get a list of all custom road attribute scenarios of the current user.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="results">Defines which results will be returned. (optional)</param>
@@ -257,13 +257,13 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CustomRoadAttributeScenarioList</returns>
-        System.Threading.Tasks.Task<CustomRoadAttributeScenarioList> GetAllCustomRoadAttributeScenariosAsync(List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CustomRoadAttributeScenarioList> GetAllCustomRoadAttributeScenariosAsync(List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Get a list of all custom road attribute scenarios of the current user.  This method is in an experimental state and may change at any time.
+        /// Get a list of all custom road attribute scenarios of the current user.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="results">Defines which results will be returned. (optional)</param>
@@ -271,12 +271,12 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CustomRoadAttributeScenarioList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomRoadAttributeScenarioList>> GetAllCustomRoadAttributeScenariosWithHttpInfoAsync(List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CustomRoadAttributeScenarioList>> GetAllCustomRoadAttributeScenariosWithHttpInfoAsync(List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Get a custom road attribute scenario by its ID.  This method is in an experimental state and may change at any time.
+        /// Get a custom road attribute scenario by its ID.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -285,13 +285,13 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CustomRoadAttributeScenario</returns>
-        System.Threading.Tasks.Task<CustomRoadAttributeScenario> GetCustomRoadAttributeScenarioAsync(Guid scenarioId, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CustomRoadAttributeScenario> GetCustomRoadAttributeScenarioAsync(Guid scenarioId, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Get a custom road attribute scenario by its ID.  This method is in an experimental state and may change at any time.
+        /// Get a custom road attribute scenario by its ID.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -300,12 +300,12 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CustomRoadAttributeScenario)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomRoadAttributeScenario>> GetCustomRoadAttributeScenarioWithHttpInfoAsync(Guid scenarioId, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CustomRoadAttributeScenario>> GetCustomRoadAttributeScenarioWithHttpInfoAsync(Guid scenarioId, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Get roads from (click) points on a map.  This method is in an experimental state and may change at any time.
+        /// Get roads from (click) points on a map.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="points">A point or a polyline to select roads.  For a single point the road closest to this point will be returned. Several points will be considered a polyline and all roads intersected by this polyline will be returned. The polyline must not be closed, i.e. the first and the last point must be different. Ferries will not be selected.  Format: &#x60;&lt;point1_lat&gt;,&lt;point1_lon&gt;,...,&lt;pointN_lat&gt;,&lt;pointN_lon&gt;&#x60;.  A request will be rejected if it * does not contain an even number of coordinates, * contains a closed polyline, * contains invalid coordinates or * covers more than 5000 roads.</param>
@@ -319,7 +319,7 @@ namespace PTV.Developer.Clients.data.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Get roads from (click) points on a map.  This method is in an experimental state and may change at any time.
+        /// Get roads from (click) points on a map.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="points">A point or a polyline to select roads.  For a single point the road closest to this point will be returned. Several points will be considered a polyline and all roads intersected by this polyline will be returned. The polyline must not be closed, i.e. the first and the last point must be different. Ferries will not be selected.  Format: &#x60;&lt;point1_lat&gt;,&lt;point1_lon&gt;,...,&lt;pointN_lat&gt;,&lt;pointN_lon&gt;&#x60;.  A request will be rejected if it * does not contain an even number of coordinates, * contains a closed polyline, * contains invalid coordinates or * covers more than 5000 roads.</param>
@@ -332,7 +332,7 @@ namespace PTV.Developer.Clients.data.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Perform a full update of an existing custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        /// Perform a full update of an existing custom road attribute scenario.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -342,13 +342,13 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CustomRoadAttributeScenario</returns>
-        System.Threading.Tasks.Task<CustomRoadAttributeScenario> UpdateCustomRoadAttributeScenarioAsync(Guid scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CustomRoadAttributeScenario> UpdateCustomRoadAttributeScenarioAsync(Guid scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Perform a full update of an existing custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        /// Perform a full update of an existing custom road attribute scenario.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -358,7 +358,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CustomRoadAttributeScenario)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomRoadAttributeScenario>> UpdateCustomRoadAttributeScenarioWithHttpInfoAsync(Guid scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CustomRoadAttributeScenario>> UpdateCustomRoadAttributeScenarioWithHttpInfoAsync(Guid scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -480,7 +480,7 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        ///  Create a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        ///  Create a custom road attribute scenario.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customRoadAttributeScenario">The roads to be attributed.</param>
@@ -488,14 +488,14 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CustomRoadAttributeScenario</returns>
-        public CustomRoadAttributeScenario CreateCustomRoadAttributeScenario(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0)
+        public CustomRoadAttributeScenario CreateCustomRoadAttributeScenario(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0)
         {
             PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenario> localVarResponse = CreateCustomRoadAttributeScenarioWithHttpInfo(customRoadAttributeScenario, results, polylineFormat);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Create a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        ///  Create a custom road attribute scenario.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customRoadAttributeScenario">The roads to be attributed.</param>
@@ -503,7 +503,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CustomRoadAttributeScenario</returns>
-        public PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenario> CreateCustomRoadAttributeScenarioWithHttpInfo(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0)
+        public PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenario> CreateCustomRoadAttributeScenarioWithHttpInfo(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0)
         {
             // verify the required parameter 'customRoadAttributeScenario' is set
             if (customRoadAttributeScenario == null)
@@ -568,7 +568,7 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        ///  Create a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        ///  Create a custom road attribute scenario.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customRoadAttributeScenario">The roads to be attributed.</param>
@@ -577,14 +577,14 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CustomRoadAttributeScenario</returns>
-        public async System.Threading.Tasks.Task<CustomRoadAttributeScenario> CreateCustomRoadAttributeScenarioAsync(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CustomRoadAttributeScenario> CreateCustomRoadAttributeScenarioAsync(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenario> localVarResponse = await CreateCustomRoadAttributeScenarioWithHttpInfoAsync(customRoadAttributeScenario, results, polylineFormat, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Create a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        ///  Create a custom road attribute scenario.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customRoadAttributeScenario">The roads to be attributed.</param>
@@ -593,7 +593,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CustomRoadAttributeScenario)</returns>
-        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenario>> CreateCustomRoadAttributeScenarioWithHttpInfoAsync(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenario>> CreateCustomRoadAttributeScenarioWithHttpInfoAsync(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'customRoadAttributeScenario' is set
             if (customRoadAttributeScenario == null)
@@ -660,7 +660,7 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        ///  Delete a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        ///  Delete a custom road attribute scenario.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -672,7 +672,7 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        ///  Delete a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        ///  Delete a custom road attribute scenario.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -728,7 +728,7 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        ///  Delete a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        ///  Delete a custom road attribute scenario.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -741,7 +741,7 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        ///  Delete a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        ///  Delete a custom road attribute scenario.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -800,28 +800,28 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        ///  Get a list of all custom road attribute scenarios of the current user.  This method is in an experimental state and may change at any time.
+        ///  Get a list of all custom road attribute scenarios of the current user.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="results">Defines which results will be returned. (optional)</param>
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CustomRoadAttributeScenarioList</returns>
-        public CustomRoadAttributeScenarioList GetAllCustomRoadAttributeScenarios(List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0)
+        public CustomRoadAttributeScenarioList GetAllCustomRoadAttributeScenarios(List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0)
         {
             PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenarioList> localVarResponse = GetAllCustomRoadAttributeScenariosWithHttpInfo(results, polylineFormat);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Get a list of all custom road attribute scenarios of the current user.  This method is in an experimental state and may change at any time.
+        ///  Get a list of all custom road attribute scenarios of the current user.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="results">Defines which results will be returned. (optional)</param>
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CustomRoadAttributeScenarioList</returns>
-        public PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenarioList> GetAllCustomRoadAttributeScenariosWithHttpInfo(List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0)
+        public PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenarioList> GetAllCustomRoadAttributeScenariosWithHttpInfo(List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0)
         {
             PTV.Developer.Clients.data.Client.RequestOptions localVarRequestOptions = new PTV.Developer.Clients.data.Client.RequestOptions();
 
@@ -878,7 +878,7 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        ///  Get a list of all custom road attribute scenarios of the current user.  This method is in an experimental state and may change at any time.
+        ///  Get a list of all custom road attribute scenarios of the current user.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="results">Defines which results will be returned. (optional)</param>
@@ -886,14 +886,14 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CustomRoadAttributeScenarioList</returns>
-        public async System.Threading.Tasks.Task<CustomRoadAttributeScenarioList> GetAllCustomRoadAttributeScenariosAsync(List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CustomRoadAttributeScenarioList> GetAllCustomRoadAttributeScenariosAsync(List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenarioList> localVarResponse = await GetAllCustomRoadAttributeScenariosWithHttpInfoAsync(results, polylineFormat, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Get a list of all custom road attribute scenarios of the current user.  This method is in an experimental state and may change at any time.
+        ///  Get a list of all custom road attribute scenarios of the current user.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="results">Defines which results will be returned. (optional)</param>
@@ -901,7 +901,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CustomRoadAttributeScenarioList)</returns>
-        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenarioList>> GetAllCustomRoadAttributeScenariosWithHttpInfoAsync(List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenarioList>> GetAllCustomRoadAttributeScenariosWithHttpInfoAsync(List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             PTV.Developer.Clients.data.Client.RequestOptions localVarRequestOptions = new PTV.Developer.Clients.data.Client.RequestOptions();
@@ -960,7 +960,7 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        ///  Get a custom road attribute scenario by its ID.  This method is in an experimental state and may change at any time.
+        ///  Get a custom road attribute scenario by its ID.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -968,14 +968,14 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CustomRoadAttributeScenario</returns>
-        public CustomRoadAttributeScenario GetCustomRoadAttributeScenario(Guid scenarioId, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0)
+        public CustomRoadAttributeScenario GetCustomRoadAttributeScenario(Guid scenarioId, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0)
         {
             PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenario> localVarResponse = GetCustomRoadAttributeScenarioWithHttpInfo(scenarioId, results, polylineFormat);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Get a custom road attribute scenario by its ID.  This method is in an experimental state and may change at any time.
+        ///  Get a custom road attribute scenario by its ID.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -983,7 +983,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CustomRoadAttributeScenario</returns>
-        public PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenario> GetCustomRoadAttributeScenarioWithHttpInfo(Guid scenarioId, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0)
+        public PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenario> GetCustomRoadAttributeScenarioWithHttpInfo(Guid scenarioId, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0)
         {
             PTV.Developer.Clients.data.Client.RequestOptions localVarRequestOptions = new PTV.Developer.Clients.data.Client.RequestOptions();
 
@@ -1041,7 +1041,7 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        ///  Get a custom road attribute scenario by its ID.  This method is in an experimental state and may change at any time.
+        ///  Get a custom road attribute scenario by its ID.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -1050,14 +1050,14 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CustomRoadAttributeScenario</returns>
-        public async System.Threading.Tasks.Task<CustomRoadAttributeScenario> GetCustomRoadAttributeScenarioAsync(Guid scenarioId, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CustomRoadAttributeScenario> GetCustomRoadAttributeScenarioAsync(Guid scenarioId, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenario> localVarResponse = await GetCustomRoadAttributeScenarioWithHttpInfoAsync(scenarioId, results, polylineFormat, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Get a custom road attribute scenario by its ID.  This method is in an experimental state and may change at any time.
+        ///  Get a custom road attribute scenario by its ID.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -1066,7 +1066,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CustomRoadAttributeScenario)</returns>
-        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenario>> GetCustomRoadAttributeScenarioWithHttpInfoAsync(Guid scenarioId, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenario>> GetCustomRoadAttributeScenarioWithHttpInfoAsync(Guid scenarioId, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             PTV.Developer.Clients.data.Client.RequestOptions localVarRequestOptions = new PTV.Developer.Clients.data.Client.RequestOptions();
@@ -1126,7 +1126,7 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        ///  Get roads from (click) points on a map.  This method is in an experimental state and may change at any time.
+        ///  Get roads from (click) points on a map.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="points">A point or a polyline to select roads.  For a single point the road closest to this point will be returned. Several points will be considered a polyline and all roads intersected by this polyline will be returned. The polyline must not be closed, i.e. the first and the last point must be different. Ferries will not be selected.  Format: &#x60;&lt;point1_lat&gt;,&lt;point1_lon&gt;,...,&lt;pointN_lat&gt;,&lt;pointN_lon&gt;&#x60;.  A request will be rejected if it * does not contain an even number of coordinates, * contains a closed polyline, * contains invalid coordinates or * covers more than 5000 roads.</param>
@@ -1140,7 +1140,7 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        ///  Get roads from (click) points on a map.  This method is in an experimental state and may change at any time.
+        ///  Get roads from (click) points on a map.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="points">A point or a polyline to select roads.  For a single point the road closest to this point will be returned. Several points will be considered a polyline and all roads intersected by this polyline will be returned. The polyline must not be closed, i.e. the first and the last point must be different. Ferries will not be selected.  Format: &#x60;&lt;point1_lat&gt;,&lt;point1_lon&gt;,...,&lt;pointN_lat&gt;,&lt;pointN_lon&gt;&#x60;.  A request will be rejected if it * does not contain an even number of coordinates, * contains a closed polyline, * contains invalid coordinates or * covers more than 5000 roads.</param>
@@ -1207,7 +1207,7 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        ///  Get roads from (click) points on a map.  This method is in an experimental state and may change at any time.
+        ///  Get roads from (click) points on a map.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="points">A point or a polyline to select roads.  For a single point the road closest to this point will be returned. Several points will be considered a polyline and all roads intersected by this polyline will be returned. The polyline must not be closed, i.e. the first and the last point must be different. Ferries will not be selected.  Format: &#x60;&lt;point1_lat&gt;,&lt;point1_lon&gt;,...,&lt;pointN_lat&gt;,&lt;pointN_lon&gt;&#x60;.  A request will be rejected if it * does not contain an even number of coordinates, * contains a closed polyline, * contains invalid coordinates or * covers more than 5000 roads.</param>
@@ -1222,7 +1222,7 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        ///  Get roads from (click) points on a map.  This method is in an experimental state and may change at any time.
+        ///  Get roads from (click) points on a map.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="points">A point or a polyline to select roads.  For a single point the road closest to this point will be returned. Several points will be considered a polyline and all roads intersected by this polyline will be returned. The polyline must not be closed, i.e. the first and the last point must be different. Ferries will not be selected.  Format: &#x60;&lt;point1_lat&gt;,&lt;point1_lon&gt;,...,&lt;pointN_lat&gt;,&lt;pointN_lon&gt;&#x60;.  A request will be rejected if it * does not contain an even number of coordinates, * contains a closed polyline, * contains invalid coordinates or * covers more than 5000 roads.</param>
@@ -1292,7 +1292,7 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        ///  Perform a full update of an existing custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        ///  Perform a full update of an existing custom road attribute scenario.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -1301,14 +1301,14 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CustomRoadAttributeScenario</returns>
-        public CustomRoadAttributeScenario UpdateCustomRoadAttributeScenario(Guid scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0)
+        public CustomRoadAttributeScenario UpdateCustomRoadAttributeScenario(Guid scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0)
         {
             PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenario> localVarResponse = UpdateCustomRoadAttributeScenarioWithHttpInfo(scenarioId, customRoadAttributeScenario, results, polylineFormat);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Perform a full update of an existing custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        ///  Perform a full update of an existing custom road attribute scenario.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -1317,7 +1317,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CustomRoadAttributeScenario</returns>
-        public PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenario> UpdateCustomRoadAttributeScenarioWithHttpInfo(Guid scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0)
+        public PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenario> UpdateCustomRoadAttributeScenarioWithHttpInfo(Guid scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0)
         {
             // verify the required parameter 'customRoadAttributeScenario' is set
             if (customRoadAttributeScenario == null)
@@ -1383,7 +1383,7 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        ///  Perform a full update of an existing custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        ///  Perform a full update of an existing custom road attribute scenario.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -1393,14 +1393,14 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CustomRoadAttributeScenario</returns>
-        public async System.Threading.Tasks.Task<CustomRoadAttributeScenario> UpdateCustomRoadAttributeScenarioAsync(Guid scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CustomRoadAttributeScenario> UpdateCustomRoadAttributeScenarioAsync(Guid scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenario> localVarResponse = await UpdateCustomRoadAttributeScenarioWithHttpInfoAsync(scenarioId, customRoadAttributeScenario, results, polylineFormat, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Perform a full update of an existing custom road attribute scenario.  This method is in an experimental state and may change at any time.
+        ///  Perform a full update of an existing custom road attribute scenario.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scenarioId">The ID of the custom road attribute scenario.</param>
@@ -1410,7 +1410,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CustomRoadAttributeScenario)</returns>
-        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenario>> UpdateCustomRoadAttributeScenarioWithHttpInfoAsync(Guid scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results = default(List<RoadAttributesResults>), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<CustomRoadAttributeScenario>> UpdateCustomRoadAttributeScenarioWithHttpInfoAsync(Guid scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults>? results = default(List<RoadAttributesResults>?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'customRoadAttributeScenario' is set
             if (customRoadAttributeScenario == null)

@@ -41,9 +41,9 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         /// <param name="description">A human readable message that describes the error. (required).</param>
         /// <param name="errorCode">A constant string that can be used to identify this error class programmatically. An errorCode can have **details** to provide information in additional properties which are described with the code they apply to. They are of type string unless otherwise specified. Note that additional errorCodes as well as the **details** of existing errorCodes may be added at any time. Furthermore, the **description** may change at any time.  **Error codes for** &#x60;GENERAL_VALIDATION_ERROR&#x60;  * &#x60;GENERAL_INVALID_VALUE&#x60; - A parameter is set to an invalid value.   * &#x60;value&#x60; - The invalid value. * &#x60;GENERAL_UNRECOGNIZED_PARAMETER&#x60; - A parameter is unknown. * &#x60;GENERAL_MISSING_PARAMETER&#x60; - A required parameter is missing. * &#x60;GENERAL_MINIMUM_LENGTH_VIOLATED&#x60; - The minimum length is violated.   * &#x60;minimumLength&#x60; - The minimum length (integer). * &#x60;GENERAL_MAXIMUM_LENGTH_VIOLATED&#x60; - The maximum length is violated.   * &#x60;maximumLength&#x60; - The maximum length (integer). * &#x60;GENERAL_MINIMUM_VALUE_VIOLATED&#x60; - The minimum value restriction is violated.   * &#x60;minimumValue&#x60; - The minimum value (integer or double). * &#x60;GENERAL_MAXIMUM_VALUE_VIOLATED&#x60; - The maximum value restriction is violated.   * &#x60;maximumValue&#x60; - The maximum value (integer or double). * &#x60;GENERAL_DUPLICATE_PARAMETER&#x60; - A parameter is duplicated. * &#x60;GENERAL_INVALID_LIST&#x60; - A list has an invalid format such as duplicate commas.   * &#x60;value&#x60; - The invalid list. * &#x60;GENERAL_INVALID_INTERVAL&#x60; - A time interval is invalid, i.e. start is greater than end. * &#x60;ROADATTRIBUTES_INVALID_NUMBER_OF_COORDINATES&#x60; - The points cannot be parsed because the number of coordinates is not even.   * &#x60;value&#x60; - The invalid parameter value. * &#x60;ROADATTRIBUTES_INVALID_COORDINATE&#x60; - The provided coordinate is not in the valid range or cannot be parsed.   * &#x60;value&#x60; - The invalid parameter value.   * &#x60;coordinateIndex&#x60; - The index denoting the erroneous coordinate within the polyline (integer). * &#x60;ROADATTRIBUTES_POLYLINE_MUST_NOT_BE_CLOSED&#x60; - The polyline must not be closed, i.e. first and last point must not be equal.   * &#x60;value&#x60; - The invalid parameter value. * &#x60;ROADATTRIBUTES_WEEKLY_SCHEDULE_EXCEEDS_ONE_WEEK&#x60; - The weekly schedule exceeds one week (168 hours).  **Error codes for** &#x60;ROADATTRIBUTES_RESTRICTION_EXCEEDED&#x60;  * &#x60;ROADATTRIBUTES_TOO_MANY_SCENARIOS&#x60; - Too many custom road attributes scenarios have been created. - _The **parameter** remains empty._   * &#x60;limit&#x60; - The maximum allowed number of custom road attribute scenarios (integer).  **Error codes for** &#x60;GENERAL_RESOURCE_NOT_FOUND&#x60;  * &#x60;GENERAL_INVALID_ID&#x60; - The ID does not exist.   * &#x60;value&#x60; - The invalid ID.  **Error codes for** &#x60;ROADATTRIBUTES_ERROR&#x60;  * &#x60;ROADATTRIBUTES_NO_ROAD_FOUND&#x60; - With the given points no road can be found.   * &#x60;value&#x60; - The invalid parameter value.   * &#x60;hint&#x60; - A hint how to solve the problem. * &#x60;ROADATTRIBUTES_DIRECTION_CANNOT_BE_APPLIED&#x60; - The direction cannot be applied to more than one road, use **direction** _BOTH_ instead.   * &#x60;value&#x60; - The invalid direction. * &#x60;ROADATTRIBUTES_UPDATE_NOT_MOST_RECENT_REVISION&#x60; - The scenario to be updated is not the most recent revision. Only the most recent revision can be updated. * &#x60;ROADATTRIBUTES_NAME_ALREADY_EXISTS&#x60; - A custom road attribute scenario with the same name already exists.   * &#x60;value&#x60; - The duplicate name. (required).</param>
-        /// <param name="_parameter">The name of the affected query or path parameter or a JSONPath to the affected property of the request..</param>
+        /// <param name="varParameter">The name of the affected query or path parameter or a JSONPath to the affected property of the request..</param>
         /// <param name="details">Additional properties specific to this error class..</param>
-        public CausingError(string description = default(string), string errorCode = default(string), string _parameter = default(string), Dictionary<string, Object> details = default(Dictionary<string, Object>))
+        public CausingError(string description = default(string), string errorCode = default(string), string varParameter = default(string), Dictionary<string, Object> details = default(Dictionary<string, Object>))
         {
             // to ensure "description" is required (not null)
             if (description == null)
@@ -57,7 +57,7 @@ namespace PTV.Developer.Clients.data.Model
                 throw new ArgumentNullException("errorCode is a required property for CausingError and cannot be null");
             }
             this.ErrorCode = errorCode;
-            this.Parameter = _parameter;
+            this.VarParameter = varParameter;
             this.Details = details;
         }
 
@@ -80,7 +80,7 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         /// <value>The name of the affected query or path parameter or a JSONPath to the affected property of the request.</value>
         [DataMember(Name = "parameter", EmitDefaultValue = false)]
-        public string Parameter { get; set; }
+        public string VarParameter { get; set; }
 
         /// <summary>
         /// Additional properties specific to this error class.
@@ -99,7 +99,7 @@ namespace PTV.Developer.Clients.data.Model
             sb.Append("class CausingError {\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  ErrorCode: ").Append(ErrorCode).Append("\n");
-            sb.Append("  Parameter: ").Append(Parameter).Append("\n");
+            sb.Append("  VarParameter: ").Append(VarParameter).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -147,9 +147,9 @@ namespace PTV.Developer.Clients.data.Model
                     this.ErrorCode.Equals(input.ErrorCode))
                 ) && 
                 (
-                    this.Parameter == input.Parameter ||
-                    (this.Parameter != null &&
-                    this.Parameter.Equals(input.Parameter))
+                    this.VarParameter == input.VarParameter ||
+                    (this.VarParameter != null &&
+                    this.VarParameter.Equals(input.VarParameter))
                 ) && 
                 (
                     this.Details == input.Details ||
@@ -176,9 +176,9 @@ namespace PTV.Developer.Clients.data.Model
                 {
                     hashCode = (hashCode * 59) + this.ErrorCode.GetHashCode();
                 }
-                if (this.Parameter != null)
+                if (this.VarParameter != null)
                 {
-                    hashCode = (hashCode * 59) + this.Parameter.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarParameter.GetHashCode();
                 }
                 if (this.Details != null)
                 {
@@ -193,7 +193,7 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

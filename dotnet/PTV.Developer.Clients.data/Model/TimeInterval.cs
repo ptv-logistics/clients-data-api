@@ -51,6 +51,7 @@ namespace PTV.Developer.Clients.data.Model
         /// The beginning of the time interval according to [RFC 3339](https://tools.ietf.org/html/rfc3339). The date must not be before 1970-01-01T00:00:00+00:00 nor after 2037-12-31T23:59:59+00:00. If the date-time string does not include an explicit offset to UTC, the time will be interpreted as the local time of the first road found.
         /// </summary>
         /// <value>The beginning of the time interval according to [RFC 3339](https://tools.ietf.org/html/rfc3339). The date must not be before 1970-01-01T00:00:00+00:00 nor after 2037-12-31T23:59:59+00:00. If the date-time string does not include an explicit offset to UTC, the time will be interpreted as the local time of the first road found.</value>
+        /// <example>2020-12-07T00:00Z</example>
         [DataMember(Name = "start", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset Start { get; set; }
 
@@ -58,6 +59,7 @@ namespace PTV.Developer.Clients.data.Model
         /// The end of the time interval according to [RFC 3339](https://tools.ietf.org/html/rfc3339). The date must not be before 1970-01-01T00:00:00+00:00 nor after 2037-12-31T23:59:59+00:00. It must not be before the start of the interval. If the date-time string does not include an explicit offset to UTC, the time will be interpreted as the local time of the first road found.
         /// </summary>
         /// <value>The end of the time interval according to [RFC 3339](https://tools.ietf.org/html/rfc3339). The date must not be before 1970-01-01T00:00:00+00:00 nor after 2037-12-31T23:59:59+00:00. It must not be before the start of the interval. If the date-time string does not include an explicit offset to UTC, the time will be interpreted as the local time of the first road found.</value>
+        /// <example>2020-12-07T01:00Z</example>
         [DataMember(Name = "end", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset End { get; set; }
 
@@ -144,7 +146,7 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

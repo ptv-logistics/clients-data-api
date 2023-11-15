@@ -67,7 +67,6 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         [EnumMember(Value = "AUSTRALIA_OCEANIA")]
         AUSTRALIA_OCEANIA = 6
-
     }
 
 }

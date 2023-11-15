@@ -35,37 +35,37 @@ namespace PTV.Developer.Clients.data.Model
         /// <summary>
         /// Gets or Sets EngineType
         /// </summary>
-        [DataMember(Name = "engineType", EmitDefaultValue = true)]
+        [DataMember(Name = "engineType", EmitDefaultValue = false)]
         public EngineType? EngineType { get; set; }
 
         /// <summary>
         /// Gets or Sets FuelType
         /// </summary>
-        [DataMember(Name = "fuelType", EmitDefaultValue = true)]
+        [DataMember(Name = "fuelType", EmitDefaultValue = false)]
         public FuelType? FuelType { get; set; }
 
         /// <summary>
         /// Gets or Sets ElectricityType
         /// </summary>
-        [DataMember(Name = "electricityType", EmitDefaultValue = true)]
+        [DataMember(Name = "electricityType", EmitDefaultValue = false)]
         public ElectricityType? ElectricityType { get; set; }
 
         /// <summary>
         /// Gets or Sets EmissionStandard
         /// </summary>
-        [DataMember(Name = "emissionStandard", EmitDefaultValue = true)]
+        [DataMember(Name = "emissionStandard", EmitDefaultValue = false)]
         public EmissionStandard? EmissionStandard { get; set; }
 
         /// <summary>
         /// Gets or Sets ParticleReductionClass
         /// </summary>
-        [DataMember(Name = "particleReductionClass", EmitDefaultValue = true)]
+        [DataMember(Name = "particleReductionClass", EmitDefaultValue = false)]
         public ParticleReductionClass? ParticleReductionClass { get; set; }
 
         /// <summary>
         /// Gets or Sets TunnelRestrictionCode
         /// </summary>
-        [DataMember(Name = "tunnelRestrictionCode", EmitDefaultValue = true)]
+        [DataMember(Name = "tunnelRestrictionCode", EmitDefaultValue = false)]
         public TunnelRestrictionCode? TunnelRestrictionCode { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Vehicle" /> class.
@@ -80,7 +80,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="dualFuelRatio">Ratio of CNG or LPG usage from the total amount of fuel consumption.  Supported for **engineType** _COMBUSTION_ with **fuelType**  _CNG_GASOLINE_ or _LPG_GASOLINE_. Relevant for &#x60;emissions&#x60;. .</param>
         /// <param name="cylinderCapacity">The cylinder capacity of the vehicle [cm&amp;#x00B3;].  Supported for **engineType** _COMBUSTION_ or _HYBRID_. .</param>
         /// <param name="emissionStandard">emissionStandard.</param>
-        /// <param name="co2EmissionClass">The CO&amp;#8322; emission class valid in the European Union. See also the  [Directive 1999/62/EC](http://data.europa.eu/eli/dir/1999/62) of the European Parliament and of the  Council on the charging of heavy goods vehicles for the use of certain infrastructures, article 7ga.  This parameter is in an experimental state and may change at any time. Relevant for &#x60;toll&#x60;. .</param>
+        /// <param name="co2EmissionClass">The CO&amp;#8322; emission class valid in the European Union. See also the  [Directive 1999/62/EC](https://eur-lex.europa.eu/eli/dir/1999/62) of the European Parliament and of the  Council on the charging of heavy goods vehicles for the use of certain infrastructures, article 7ga.  Relevant for &#x60;toll&#x60;. .</param>
         /// <param name="lowEmissionZoneTypes">Comma-separated list of the low-emission zone types of the vehicle. For now, types are available only for Germany, so using more than one value is not meaningful.  Relevant for &#x60;routing&#x60;. .</param>
         /// <param name="particleReductionClass">particleReductionClass.</param>
         /// <param name="emptyWeight">The empty weight of the vehicle [kg].  Relevant for &#x60;routing&#x60;, &#x60;emissions&#x60;. .</param>
@@ -95,10 +95,10 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="width">The width of the vehicle [cm].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;. .</param>
         /// <param name="hazardousMaterials">Comma-separated list of hazardous materials the vehicle has loaded.  Relevant for &#x60;routing&#x60;. .</param>
         /// <param name="tunnelRestrictionCode">tunnelRestrictionCode.</param>
-        /// <param name="truckRoutes">Comma-separated list of truck routes the vehicle has to follow. This parameter will be ignored for non-truck profiles such as EUR_CAR, EUR_VAN, USA_1_PICKUP or AUS_LCV_LIGHT_COMMERCIAL.  * &#x60;DE_LKWUEBERLSTVAUSNV&#x60;  Preferred routes for long trucks in Germany, also known as Lang-LKW.  * &#x60;NL_LZV&#x60;  Preferred routes for long trucks in the Netherlands, also known as LZV (Langere en Zwaardere Vrachtautocombinatie).  * &#x60;NZ_HPMV&#x60;  The network for High Productivity Motor Vehicles (HPMV) carrying the maximum loads available under a permit (New Zeland Transport Agency).  * &#x60;SE_BK_1&#x60;  Public roads and bridges that support up to 64 t total permitted weight (Swedish Transport Administration).  * &#x60;SE_BK_2&#x60;  Public roads and bridges that support up to 51.4 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * &#x60;SE_BK_3&#x60;  Public roads and bridges that support up to 37.5 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * &#x60;SE_BK_4&#x60;  Public roads and bridges that support up to 74 t total permitted weight (draft summer 2018, Swedish Transport Administration).  * &#x60;US_STAA&#x60;  Routes that belong to the highway network as defined by the Surface Transportation Assistance Act in the US.  * &#x60;US_TD&#x60;  Part of a state-designated highway network for trucks in the US.  * &#x60;AU_B_DOUBLE&#x60;  B-Double routes as defined in Australia.  * &#x60;AU_B_DOUBLE_HML&#x60;  Routes for B-Double vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;AU_B_TRIPLE&#x60;  B-Triple routes as defined in Australia.  * &#x60;AU_B_TRIPLE_HML&#x60;  Routes for B-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;AU_AB_TRIPLE&#x60;  Routes for AB-Triple vehicle combinations operating (Australian Transport Administration).  * &#x60;AU_AB_TRIPLE_HML&#x60;  Routes for AB-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;NONE&#x60;  This value does not refer to a truck route. Use a list with only the _NONE_ value for the truck routes  at a waypoint to specify that no truck route must be used from that waypoint on. An empty list of truck routes  at a waypoint means that the truck routes don&#39;t change at the waypoint. If _NONE_ is specified along with other  truck routes it is ignored.  Relevant for &#x60;routing&#x60;. Cannot be used with **options[routingMode]&#x3D;MONETARY**. .</param>
+        /// <param name="truckRoutes">Comma-separated list of truck routes the vehicle has to follow. This parameter will be ignored for non-truck profiles such as EUR_CAR, EUR_VAN, USA_1_PICKUP or AUS_LCV_LIGHT_COMMERCIAL.  * &#x60;DE_LKWUEBERLSTVAUSNV&#x60;  Preferred routes for long trucks in Germany, also known as Lang-LKW.  * &#x60;NL_LZV&#x60;  Preferred routes for long trucks in the Netherlands, also known as LZV (Langere en Zwaardere Vrachtautocombinatie).  * &#x60;NZ_HPMV&#x60;  The network for High Productivity Motor Vehicles (HPMV) carrying the maximum loads available under a permit (New Zeland Transport Agency).  * &#x60;SE_BK_1&#x60;  Public roads and bridges that support up to 64 t total permitted weight (Swedish Transport Administration).  * &#x60;SE_BK_2&#x60;  Public roads and bridges that support up to 51.4 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * &#x60;SE_BK_3&#x60;  Public roads and bridges that support up to 37.5 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * &#x60;SE_BK_4&#x60;  Public roads and bridges that support up to 74 t total permitted weight (draft summer 2018, Swedish Transport Administration).  * &#x60;US_STAA&#x60;  Routes that belong to the highway network as defined by the Surface Transportation Assistance Act in the US.  * &#x60;US_TD&#x60;  Part of a state-designated highway network for trucks in the US.  * &#x60;AU_B_DOUBLE&#x60;  B-Double routes as defined in Australia.  * &#x60;AU_B_DOUBLE_HML&#x60;  Routes for B-Double vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;AU_B_TRIPLE&#x60;  B-Triple routes as defined in Australia.  * &#x60;AU_B_TRIPLE_HML&#x60;  Routes for B-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;AU_AB_TRIPLE&#x60;  Routes for AB-Triple vehicle combinations operating (Australian Transport Administration).  * &#x60;AU_AB_TRIPLE_HML&#x60;  Routes for AB-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;NONE&#x60;  Not used.  Relevant for &#x60;routing&#x60;. Cannot be used with **options[routingMode]&#x3D;MONETARY**. .</param>
         /// <param name="commercial">Specifies if the vehicle usage is commercial.  Relevant for &#x60;toll&#x60;. .</param>
         /// <param name="etcSubscriptions">A comma separated list of ETC Subscriptions. See [here](../routing-api/concepts/electronic-toll-collection) for more information on available subscriptions.  Relevant for &#x60;toll&#x60;. .</param>
-        public Vehicle(EngineType? engineType = default(EngineType?), FuelType? fuelType = default(FuelType?), ElectricityType? electricityType = default(ElectricityType?), double? averageFuelConsumption = default(double?), double? averageElectricityConsumption = default(double?), int? bioFuelRatio = default(int?), int? hybridRatio = default(int?), int? dualFuelRatio = default(int?), int? cylinderCapacity = default(int?), EmissionStandard? emissionStandard = default(EmissionStandard?), int? co2EmissionClass = default(int?), List<LowEmissionZoneTypes> lowEmissionZoneTypes = default(List<LowEmissionZoneTypes>), ParticleReductionClass? particleReductionClass = default(ParticleReductionClass?), int? emptyWeight = default(int?), int? loadWeight = default(int?), int? totalPermittedWeight = default(int?), int? axleWeight = default(int?), int? numberOfAxles = default(int?), int? numberOfTires = default(int?), int? height = default(int?), int? heightAboveFrontAxle = default(int?), int? length = default(int?), int? width = default(int?), List<HazardousMaterials> hazardousMaterials = default(List<HazardousMaterials>), TunnelRestrictionCode? tunnelRestrictionCode = default(TunnelRestrictionCode?), List<TruckRoutes> truckRoutes = default(List<TruckRoutes>), bool? commercial = default(bool?), List<EtcSubscriptionTypes> etcSubscriptions = default(List<EtcSubscriptionTypes>))
+        public Vehicle(EngineType? engineType = default(EngineType?), FuelType? fuelType = default(FuelType?), ElectricityType? electricityType = default(ElectricityType?), double averageFuelConsumption = default(double), double averageElectricityConsumption = default(double), int bioFuelRatio = default(int), int hybridRatio = default(int), int dualFuelRatio = default(int), int cylinderCapacity = default(int), EmissionStandard? emissionStandard = default(EmissionStandard?), int co2EmissionClass = default(int), List<LowEmissionZoneTypes> lowEmissionZoneTypes = default(List<LowEmissionZoneTypes>), ParticleReductionClass? particleReductionClass = default(ParticleReductionClass?), int emptyWeight = default(int), int loadWeight = default(int), int totalPermittedWeight = default(int), int axleWeight = default(int), int numberOfAxles = default(int), int numberOfTires = default(int), int height = default(int), int heightAboveFrontAxle = default(int), int length = default(int), int width = default(int), List<HazardousMaterials> hazardousMaterials = default(List<HazardousMaterials>), TunnelRestrictionCode? tunnelRestrictionCode = default(TunnelRestrictionCode?), List<TruckRoutes> truckRoutes = default(List<TruckRoutes>), bool commercial = default(bool), List<EtcSubscriptionTypes> etcSubscriptions = default(List<EtcSubscriptionTypes>))
         {
             this.EngineType = engineType;
             this.FuelType = fuelType;
@@ -134,154 +134,172 @@ namespace PTV.Developer.Clients.data.Model
         /// The average fuel consumption of the vehicle. Depending on the **fuelType** [l/100km] for liquid fuel types or [kg/100km] for gaseous fuel types.  Supported for **engineType** _COMBUSTION_  or _HYBRID_. Relevant for &#x60;emissions&#x60;. 
         /// </summary>
         /// <value>The average fuel consumption of the vehicle. Depending on the **fuelType** [l/100km] for liquid fuel types or [kg/100km] for gaseous fuel types.  Supported for **engineType** _COMBUSTION_  or _HYBRID_. Relevant for &#x60;emissions&#x60;. </value>
-        [DataMember(Name = "averageFuelConsumption", EmitDefaultValue = true)]
-        public double? AverageFuelConsumption { get; set; }
+        /// <example>35</example>
+        [DataMember(Name = "averageFuelConsumption", EmitDefaultValue = false)]
+        public double AverageFuelConsumption { get; set; }
 
         /// <summary>
         /// The average power consumption of the vehicle [kWh/100km].  Supported for **engineType** _ELECTRIC_ or _HYBRID_. Relevant for &#x60;emissions&#x60;. 
         /// </summary>
         /// <value>The average power consumption of the vehicle [kWh/100km].  Supported for **engineType** _ELECTRIC_ or _HYBRID_. Relevant for &#x60;emissions&#x60;. </value>
-        [DataMember(Name = "averageElectricityConsumption", EmitDefaultValue = true)]
-        public double? AverageElectricityConsumption { get; set; }
+        /// <example>115</example>
+        [DataMember(Name = "averageElectricityConsumption", EmitDefaultValue = false)]
+        public double AverageElectricityConsumption { get; set; }
 
         /// <summary>
         /// The ratio of biofuel to conventional fuel [%], i.e. 10 for E10 with 10% biofuel.  Supported for **engineType** _COMBUSTION_ or _HYBRID_ and only for the fuel types _GASOLINE_, _DIESEL_, _CNG_GASOLINE_ and _LNG_GASOLINE_. Relevant for &#x60;emissions&#x60;. 
         /// </summary>
         /// <value>The ratio of biofuel to conventional fuel [%], i.e. 10 for E10 with 10% biofuel.  Supported for **engineType** _COMBUSTION_ or _HYBRID_ and only for the fuel types _GASOLINE_, _DIESEL_, _CNG_GASOLINE_ and _LNG_GASOLINE_. Relevant for &#x60;emissions&#x60;. </value>
-        [DataMember(Name = "bioFuelRatio", EmitDefaultValue = true)]
-        public int? BioFuelRatio { get; set; }
+        /// <example>0</example>
+        [DataMember(Name = "bioFuelRatio", EmitDefaultValue = false)]
+        public int BioFuelRatio { get; set; }
 
         /// <summary>
         /// Electric energy usage ratio from the total amount of energy consumed by the vehicle.  Supported for **engineType** _HYBRID_. Relevant for &#x60;emissions&#x60;. 
         /// </summary>
         /// <value>Electric energy usage ratio from the total amount of energy consumed by the vehicle.  Supported for **engineType** _HYBRID_. Relevant for &#x60;emissions&#x60;. </value>
-        [DataMember(Name = "hybridRatio", EmitDefaultValue = true)]
-        public int? HybridRatio { get; set; }
+        /// <example>50</example>
+        [DataMember(Name = "hybridRatio", EmitDefaultValue = false)]
+        public int HybridRatio { get; set; }
 
         /// <summary>
         /// Ratio of CNG or LPG usage from the total amount of fuel consumption.  Supported for **engineType** _COMBUSTION_ with **fuelType**  _CNG_GASOLINE_ or _LPG_GASOLINE_. Relevant for &#x60;emissions&#x60;. 
         /// </summary>
         /// <value>Ratio of CNG or LPG usage from the total amount of fuel consumption.  Supported for **engineType** _COMBUSTION_ with **fuelType**  _CNG_GASOLINE_ or _LPG_GASOLINE_. Relevant for &#x60;emissions&#x60;. </value>
-        [DataMember(Name = "dualFuelRatio", EmitDefaultValue = true)]
-        public int? DualFuelRatio { get; set; }
+        /// <example>50</example>
+        [DataMember(Name = "dualFuelRatio", EmitDefaultValue = false)]
+        public int DualFuelRatio { get; set; }
 
         /// <summary>
         /// The cylinder capacity of the vehicle [cm&amp;#x00B3;].  Supported for **engineType** _COMBUSTION_ or _HYBRID_. 
         /// </summary>
         /// <value>The cylinder capacity of the vehicle [cm&amp;#x00B3;].  Supported for **engineType** _COMBUSTION_ or _HYBRID_. </value>
-        [DataMember(Name = "cylinderCapacity", EmitDefaultValue = true)]
-        public int? CylinderCapacity { get; set; }
+        /// <example>12000</example>
+        [DataMember(Name = "cylinderCapacity", EmitDefaultValue = false)]
+        public int CylinderCapacity { get; set; }
 
         /// <summary>
-        /// The CO&amp;#8322; emission class valid in the European Union. See also the  [Directive 1999/62/EC](http://data.europa.eu/eli/dir/1999/62) of the European Parliament and of the  Council on the charging of heavy goods vehicles for the use of certain infrastructures, article 7ga.  This parameter is in an experimental state and may change at any time. Relevant for &#x60;toll&#x60;. 
+        /// The CO&amp;#8322; emission class valid in the European Union. See also the  [Directive 1999/62/EC](https://eur-lex.europa.eu/eli/dir/1999/62) of the European Parliament and of the  Council on the charging of heavy goods vehicles for the use of certain infrastructures, article 7ga.  Relevant for &#x60;toll&#x60;. 
         /// </summary>
-        /// <value>The CO&amp;#8322; emission class valid in the European Union. See also the  [Directive 1999/62/EC](http://data.europa.eu/eli/dir/1999/62) of the European Parliament and of the  Council on the charging of heavy goods vehicles for the use of certain infrastructures, article 7ga.  This parameter is in an experimental state and may change at any time. Relevant for &#x60;toll&#x60;. </value>
-        [DataMember(Name = "co2EmissionClass", EmitDefaultValue = true)]
-        public int? Co2EmissionClass { get; set; }
+        /// <value>The CO&amp;#8322; emission class valid in the European Union. See also the  [Directive 1999/62/EC](https://eur-lex.europa.eu/eli/dir/1999/62) of the European Parliament and of the  Council on the charging of heavy goods vehicles for the use of certain infrastructures, article 7ga.  Relevant for &#x60;toll&#x60;. </value>
+        /// <example>1</example>
+        [DataMember(Name = "co2EmissionClass", EmitDefaultValue = false)]
+        public int Co2EmissionClass { get; set; }
 
         /// <summary>
         /// Comma-separated list of the low-emission zone types of the vehicle. For now, types are available only for Germany, so using more than one value is not meaningful.  Relevant for &#x60;routing&#x60;. 
         /// </summary>
         /// <value>Comma-separated list of the low-emission zone types of the vehicle. For now, types are available only for Germany, so using more than one value is not meaningful.  Relevant for &#x60;routing&#x60;. </value>
-        [DataMember(Name = "lowEmissionZoneTypes", EmitDefaultValue = true)]
+        [DataMember(Name = "lowEmissionZoneTypes", EmitDefaultValue = false)]
         public List<LowEmissionZoneTypes> LowEmissionZoneTypes { get; set; }
 
         /// <summary>
         /// The empty weight of the vehicle [kg].  Relevant for &#x60;routing&#x60;, &#x60;emissions&#x60;. 
         /// </summary>
         /// <value>The empty weight of the vehicle [kg].  Relevant for &#x60;routing&#x60;, &#x60;emissions&#x60;. </value>
-        [DataMember(Name = "emptyWeight", EmitDefaultValue = true)]
-        public int? EmptyWeight { get; set; }
+        /// <example>15000</example>
+        [DataMember(Name = "emptyWeight", EmitDefaultValue = false)]
+        public int EmptyWeight { get; set; }
 
         /// <summary>
         /// The weight of the vehicle&#39;s load [kg].  Relevant for &#x60;routing&#x60;, &#x60;emissions&#x60;. 
         /// </summary>
         /// <value>The weight of the vehicle&#39;s load [kg].  Relevant for &#x60;routing&#x60;, &#x60;emissions&#x60;. </value>
-        [DataMember(Name = "loadWeight", EmitDefaultValue = true)]
-        public int? LoadWeight { get; set; }
+        /// <example>25000</example>
+        [DataMember(Name = "loadWeight", EmitDefaultValue = false)]
+        public int LoadWeight { get; set; }
 
         /// <summary>
         /// The total permitted weight of the vehicle and load [kg].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;, &#x60;emissions&#x60;. 
         /// </summary>
         /// <value>The total permitted weight of the vehicle and load [kg].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;, &#x60;emissions&#x60;. </value>
-        [DataMember(Name = "totalPermittedWeight", EmitDefaultValue = true)]
-        public int? TotalPermittedWeight { get; set; }
+        /// <example>40000</example>
+        [DataMember(Name = "totalPermittedWeight", EmitDefaultValue = false)]
+        public int TotalPermittedWeight { get; set; }
 
         /// <summary>
         /// The maximum distributed weight that may be supported by an axle of the vehicle [kg].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;. 
         /// </summary>
         /// <value>The maximum distributed weight that may be supported by an axle of the vehicle [kg].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;. </value>
-        [DataMember(Name = "axleWeight", EmitDefaultValue = true)]
-        public int? AxleWeight { get; set; }
+        /// <example>11500</example>
+        [DataMember(Name = "axleWeight", EmitDefaultValue = false)]
+        public int AxleWeight { get; set; }
 
         /// <summary>
         /// The total number of axles of the vehicle including the trailers.  Relevant for &#x60;toll&#x60;. 
         /// </summary>
         /// <value>The total number of axles of the vehicle including the trailers.  Relevant for &#x60;toll&#x60;. </value>
-        [DataMember(Name = "numberOfAxles", EmitDefaultValue = true)]
-        public int? NumberOfAxles { get; set; }
+        /// <example>5</example>
+        [DataMember(Name = "numberOfAxles", EmitDefaultValue = false)]
+        public int NumberOfAxles { get; set; }
 
         /// <summary>
         /// The total number of tires of the vehicle including the trailers.  Relevant for &#x60;toll&#x60;. 
         /// </summary>
         /// <value>The total number of tires of the vehicle including the trailers.  Relevant for &#x60;toll&#x60;. </value>
-        [DataMember(Name = "numberOfTires", EmitDefaultValue = true)]
-        public int? NumberOfTires { get; set; }
+        /// <example>10</example>
+        [DataMember(Name = "numberOfTires", EmitDefaultValue = false)]
+        public int NumberOfTires { get; set; }
 
         /// <summary>
         /// The height of the vehicle [cm].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;. 
         /// </summary>
         /// <value>The height of the vehicle [cm].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;. </value>
-        [DataMember(Name = "height", EmitDefaultValue = true)]
-        public int? Height { get; set; }
+        /// <example>400</example>
+        [DataMember(Name = "height", EmitDefaultValue = false)]
+        public int Height { get; set; }
 
         /// <summary>
         /// The height above the front axle [cm].  Relevant for &#x60;toll&#x60;. 
         /// </summary>
         /// <value>The height above the front axle [cm].  Relevant for &#x60;toll&#x60;. </value>
-        [DataMember(Name = "heightAboveFrontAxle", EmitDefaultValue = true)]
-        public int? HeightAboveFrontAxle { get; set; }
+        /// <example>400</example>
+        [DataMember(Name = "heightAboveFrontAxle", EmitDefaultValue = false)]
+        public int HeightAboveFrontAxle { get; set; }
 
         /// <summary>
         /// The length of the vehicle [cm].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;. 
         /// </summary>
         /// <value>The length of the vehicle [cm].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;. </value>
-        [DataMember(Name = "length", EmitDefaultValue = true)]
-        public int? Length { get; set; }
+        /// <example>1650</example>
+        [DataMember(Name = "length", EmitDefaultValue = false)]
+        public int Length { get; set; }
 
         /// <summary>
         /// The width of the vehicle [cm].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;. 
         /// </summary>
         /// <value>The width of the vehicle [cm].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;. </value>
-        [DataMember(Name = "width", EmitDefaultValue = true)]
-        public int? Width { get; set; }
+        /// <example>254</example>
+        [DataMember(Name = "width", EmitDefaultValue = false)]
+        public int Width { get; set; }
 
         /// <summary>
         /// Comma-separated list of hazardous materials the vehicle has loaded.  Relevant for &#x60;routing&#x60;. 
         /// </summary>
         /// <value>Comma-separated list of hazardous materials the vehicle has loaded.  Relevant for &#x60;routing&#x60;. </value>
-        [DataMember(Name = "hazardousMaterials", EmitDefaultValue = true)]
+        [DataMember(Name = "hazardousMaterials", EmitDefaultValue = false)]
         public List<HazardousMaterials> HazardousMaterials { get; set; }
 
         /// <summary>
-        /// Comma-separated list of truck routes the vehicle has to follow. This parameter will be ignored for non-truck profiles such as EUR_CAR, EUR_VAN, USA_1_PICKUP or AUS_LCV_LIGHT_COMMERCIAL.  * &#x60;DE_LKWUEBERLSTVAUSNV&#x60;  Preferred routes for long trucks in Germany, also known as Lang-LKW.  * &#x60;NL_LZV&#x60;  Preferred routes for long trucks in the Netherlands, also known as LZV (Langere en Zwaardere Vrachtautocombinatie).  * &#x60;NZ_HPMV&#x60;  The network for High Productivity Motor Vehicles (HPMV) carrying the maximum loads available under a permit (New Zeland Transport Agency).  * &#x60;SE_BK_1&#x60;  Public roads and bridges that support up to 64 t total permitted weight (Swedish Transport Administration).  * &#x60;SE_BK_2&#x60;  Public roads and bridges that support up to 51.4 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * &#x60;SE_BK_3&#x60;  Public roads and bridges that support up to 37.5 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * &#x60;SE_BK_4&#x60;  Public roads and bridges that support up to 74 t total permitted weight (draft summer 2018, Swedish Transport Administration).  * &#x60;US_STAA&#x60;  Routes that belong to the highway network as defined by the Surface Transportation Assistance Act in the US.  * &#x60;US_TD&#x60;  Part of a state-designated highway network for trucks in the US.  * &#x60;AU_B_DOUBLE&#x60;  B-Double routes as defined in Australia.  * &#x60;AU_B_DOUBLE_HML&#x60;  Routes for B-Double vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;AU_B_TRIPLE&#x60;  B-Triple routes as defined in Australia.  * &#x60;AU_B_TRIPLE_HML&#x60;  Routes for B-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;AU_AB_TRIPLE&#x60;  Routes for AB-Triple vehicle combinations operating (Australian Transport Administration).  * &#x60;AU_AB_TRIPLE_HML&#x60;  Routes for AB-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;NONE&#x60;  This value does not refer to a truck route. Use a list with only the _NONE_ value for the truck routes  at a waypoint to specify that no truck route must be used from that waypoint on. An empty list of truck routes  at a waypoint means that the truck routes don&#39;t change at the waypoint. If _NONE_ is specified along with other  truck routes it is ignored.  Relevant for &#x60;routing&#x60;. Cannot be used with **options[routingMode]&#x3D;MONETARY**. 
+        /// Comma-separated list of truck routes the vehicle has to follow. This parameter will be ignored for non-truck profiles such as EUR_CAR, EUR_VAN, USA_1_PICKUP or AUS_LCV_LIGHT_COMMERCIAL.  * &#x60;DE_LKWUEBERLSTVAUSNV&#x60;  Preferred routes for long trucks in Germany, also known as Lang-LKW.  * &#x60;NL_LZV&#x60;  Preferred routes for long trucks in the Netherlands, also known as LZV (Langere en Zwaardere Vrachtautocombinatie).  * &#x60;NZ_HPMV&#x60;  The network for High Productivity Motor Vehicles (HPMV) carrying the maximum loads available under a permit (New Zeland Transport Agency).  * &#x60;SE_BK_1&#x60;  Public roads and bridges that support up to 64 t total permitted weight (Swedish Transport Administration).  * &#x60;SE_BK_2&#x60;  Public roads and bridges that support up to 51.4 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * &#x60;SE_BK_3&#x60;  Public roads and bridges that support up to 37.5 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * &#x60;SE_BK_4&#x60;  Public roads and bridges that support up to 74 t total permitted weight (draft summer 2018, Swedish Transport Administration).  * &#x60;US_STAA&#x60;  Routes that belong to the highway network as defined by the Surface Transportation Assistance Act in the US.  * &#x60;US_TD&#x60;  Part of a state-designated highway network for trucks in the US.  * &#x60;AU_B_DOUBLE&#x60;  B-Double routes as defined in Australia.  * &#x60;AU_B_DOUBLE_HML&#x60;  Routes for B-Double vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;AU_B_TRIPLE&#x60;  B-Triple routes as defined in Australia.  * &#x60;AU_B_TRIPLE_HML&#x60;  Routes for B-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;AU_AB_TRIPLE&#x60;  Routes for AB-Triple vehicle combinations operating (Australian Transport Administration).  * &#x60;AU_AB_TRIPLE_HML&#x60;  Routes for AB-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;NONE&#x60;  Not used.  Relevant for &#x60;routing&#x60;. Cannot be used with **options[routingMode]&#x3D;MONETARY**. 
         /// </summary>
-        /// <value>Comma-separated list of truck routes the vehicle has to follow. This parameter will be ignored for non-truck profiles such as EUR_CAR, EUR_VAN, USA_1_PICKUP or AUS_LCV_LIGHT_COMMERCIAL.  * &#x60;DE_LKWUEBERLSTVAUSNV&#x60;  Preferred routes for long trucks in Germany, also known as Lang-LKW.  * &#x60;NL_LZV&#x60;  Preferred routes for long trucks in the Netherlands, also known as LZV (Langere en Zwaardere Vrachtautocombinatie).  * &#x60;NZ_HPMV&#x60;  The network for High Productivity Motor Vehicles (HPMV) carrying the maximum loads available under a permit (New Zeland Transport Agency).  * &#x60;SE_BK_1&#x60;  Public roads and bridges that support up to 64 t total permitted weight (Swedish Transport Administration).  * &#x60;SE_BK_2&#x60;  Public roads and bridges that support up to 51.4 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * &#x60;SE_BK_3&#x60;  Public roads and bridges that support up to 37.5 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * &#x60;SE_BK_4&#x60;  Public roads and bridges that support up to 74 t total permitted weight (draft summer 2018, Swedish Transport Administration).  * &#x60;US_STAA&#x60;  Routes that belong to the highway network as defined by the Surface Transportation Assistance Act in the US.  * &#x60;US_TD&#x60;  Part of a state-designated highway network for trucks in the US.  * &#x60;AU_B_DOUBLE&#x60;  B-Double routes as defined in Australia.  * &#x60;AU_B_DOUBLE_HML&#x60;  Routes for B-Double vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;AU_B_TRIPLE&#x60;  B-Triple routes as defined in Australia.  * &#x60;AU_B_TRIPLE_HML&#x60;  Routes for B-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;AU_AB_TRIPLE&#x60;  Routes for AB-Triple vehicle combinations operating (Australian Transport Administration).  * &#x60;AU_AB_TRIPLE_HML&#x60;  Routes for AB-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;NONE&#x60;  This value does not refer to a truck route. Use a list with only the _NONE_ value for the truck routes  at a waypoint to specify that no truck route must be used from that waypoint on. An empty list of truck routes  at a waypoint means that the truck routes don&#39;t change at the waypoint. If _NONE_ is specified along with other  truck routes it is ignored.  Relevant for &#x60;routing&#x60;. Cannot be used with **options[routingMode]&#x3D;MONETARY**. </value>
-        [DataMember(Name = "truckRoutes", EmitDefaultValue = true)]
+        /// <value>Comma-separated list of truck routes the vehicle has to follow. This parameter will be ignored for non-truck profiles such as EUR_CAR, EUR_VAN, USA_1_PICKUP or AUS_LCV_LIGHT_COMMERCIAL.  * &#x60;DE_LKWUEBERLSTVAUSNV&#x60;  Preferred routes for long trucks in Germany, also known as Lang-LKW.  * &#x60;NL_LZV&#x60;  Preferred routes for long trucks in the Netherlands, also known as LZV (Langere en Zwaardere Vrachtautocombinatie).  * &#x60;NZ_HPMV&#x60;  The network for High Productivity Motor Vehicles (HPMV) carrying the maximum loads available under a permit (New Zeland Transport Agency).  * &#x60;SE_BK_1&#x60;  Public roads and bridges that support up to 64 t total permitted weight (Swedish Transport Administration).  * &#x60;SE_BK_2&#x60;  Public roads and bridges that support up to 51.4 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * &#x60;SE_BK_3&#x60;  Public roads and bridges that support up to 37.5 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * &#x60;SE_BK_4&#x60;  Public roads and bridges that support up to 74 t total permitted weight (draft summer 2018, Swedish Transport Administration).  * &#x60;US_STAA&#x60;  Routes that belong to the highway network as defined by the Surface Transportation Assistance Act in the US.  * &#x60;US_TD&#x60;  Part of a state-designated highway network for trucks in the US.  * &#x60;AU_B_DOUBLE&#x60;  B-Double routes as defined in Australia.  * &#x60;AU_B_DOUBLE_HML&#x60;  Routes for B-Double vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;AU_B_TRIPLE&#x60;  B-Triple routes as defined in Australia.  * &#x60;AU_B_TRIPLE_HML&#x60;  Routes for B-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;AU_AB_TRIPLE&#x60;  Routes for AB-Triple vehicle combinations operating (Australian Transport Administration).  * &#x60;AU_AB_TRIPLE_HML&#x60;  Routes for AB-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;NONE&#x60;  Not used.  Relevant for &#x60;routing&#x60;. Cannot be used with **options[routingMode]&#x3D;MONETARY**. </value>
+        [DataMember(Name = "truckRoutes", EmitDefaultValue = false)]
         public List<TruckRoutes> TruckRoutes { get; set; }
 
         /// <summary>
         /// Specifies if the vehicle usage is commercial.  Relevant for &#x60;toll&#x60;. 
         /// </summary>
         /// <value>Specifies if the vehicle usage is commercial.  Relevant for &#x60;toll&#x60;. </value>
+        /// <example>false</example>
         [DataMember(Name = "commercial", EmitDefaultValue = true)]
-        public bool? Commercial { get; set; }
+        public bool Commercial { get; set; }
 
         /// <summary>
         /// A comma separated list of ETC Subscriptions. See [here](../routing-api/concepts/electronic-toll-collection) for more information on available subscriptions.  Relevant for &#x60;toll&#x60;. 
         /// </summary>
         /// <value>A comma separated list of ETC Subscriptions. See [here](../routing-api/concepts/electronic-toll-collection) for more information on available subscriptions.  Relevant for &#x60;toll&#x60;. </value>
-        [DataMember(Name = "etcSubscriptions", EmitDefaultValue = true)]
+        [DataMember(Name = "etcSubscriptions", EmitDefaultValue = false)]
         public List<EtcSubscriptionTypes> EtcSubscriptions { get; set; }
 
         /// <summary>
@@ -369,33 +387,27 @@ namespace PTV.Developer.Clients.data.Model
                 ) && 
                 (
                     this.AverageFuelConsumption == input.AverageFuelConsumption ||
-                    (this.AverageFuelConsumption != null &&
-                    this.AverageFuelConsumption.Equals(input.AverageFuelConsumption))
+                    this.AverageFuelConsumption.Equals(input.AverageFuelConsumption)
                 ) && 
                 (
                     this.AverageElectricityConsumption == input.AverageElectricityConsumption ||
-                    (this.AverageElectricityConsumption != null &&
-                    this.AverageElectricityConsumption.Equals(input.AverageElectricityConsumption))
+                    this.AverageElectricityConsumption.Equals(input.AverageElectricityConsumption)
                 ) && 
                 (
                     this.BioFuelRatio == input.BioFuelRatio ||
-                    (this.BioFuelRatio != null &&
-                    this.BioFuelRatio.Equals(input.BioFuelRatio))
+                    this.BioFuelRatio.Equals(input.BioFuelRatio)
                 ) && 
                 (
                     this.HybridRatio == input.HybridRatio ||
-                    (this.HybridRatio != null &&
-                    this.HybridRatio.Equals(input.HybridRatio))
+                    this.HybridRatio.Equals(input.HybridRatio)
                 ) && 
                 (
                     this.DualFuelRatio == input.DualFuelRatio ||
-                    (this.DualFuelRatio != null &&
-                    this.DualFuelRatio.Equals(input.DualFuelRatio))
+                    this.DualFuelRatio.Equals(input.DualFuelRatio)
                 ) && 
                 (
                     this.CylinderCapacity == input.CylinderCapacity ||
-                    (this.CylinderCapacity != null &&
-                    this.CylinderCapacity.Equals(input.CylinderCapacity))
+                    this.CylinderCapacity.Equals(input.CylinderCapacity)
                 ) && 
                 (
                     this.EmissionStandard == input.EmissionStandard ||
@@ -403,8 +415,7 @@ namespace PTV.Developer.Clients.data.Model
                 ) && 
                 (
                     this.Co2EmissionClass == input.Co2EmissionClass ||
-                    (this.Co2EmissionClass != null &&
-                    this.Co2EmissionClass.Equals(input.Co2EmissionClass))
+                    this.Co2EmissionClass.Equals(input.Co2EmissionClass)
                 ) && 
                 (
                     this.LowEmissionZoneTypes == input.LowEmissionZoneTypes ||
@@ -418,53 +429,43 @@ namespace PTV.Developer.Clients.data.Model
                 ) && 
                 (
                     this.EmptyWeight == input.EmptyWeight ||
-                    (this.EmptyWeight != null &&
-                    this.EmptyWeight.Equals(input.EmptyWeight))
+                    this.EmptyWeight.Equals(input.EmptyWeight)
                 ) && 
                 (
                     this.LoadWeight == input.LoadWeight ||
-                    (this.LoadWeight != null &&
-                    this.LoadWeight.Equals(input.LoadWeight))
+                    this.LoadWeight.Equals(input.LoadWeight)
                 ) && 
                 (
                     this.TotalPermittedWeight == input.TotalPermittedWeight ||
-                    (this.TotalPermittedWeight != null &&
-                    this.TotalPermittedWeight.Equals(input.TotalPermittedWeight))
+                    this.TotalPermittedWeight.Equals(input.TotalPermittedWeight)
                 ) && 
                 (
                     this.AxleWeight == input.AxleWeight ||
-                    (this.AxleWeight != null &&
-                    this.AxleWeight.Equals(input.AxleWeight))
+                    this.AxleWeight.Equals(input.AxleWeight)
                 ) && 
                 (
                     this.NumberOfAxles == input.NumberOfAxles ||
-                    (this.NumberOfAxles != null &&
-                    this.NumberOfAxles.Equals(input.NumberOfAxles))
+                    this.NumberOfAxles.Equals(input.NumberOfAxles)
                 ) && 
                 (
                     this.NumberOfTires == input.NumberOfTires ||
-                    (this.NumberOfTires != null &&
-                    this.NumberOfTires.Equals(input.NumberOfTires))
+                    this.NumberOfTires.Equals(input.NumberOfTires)
                 ) && 
                 (
                     this.Height == input.Height ||
-                    (this.Height != null &&
-                    this.Height.Equals(input.Height))
+                    this.Height.Equals(input.Height)
                 ) && 
                 (
                     this.HeightAboveFrontAxle == input.HeightAboveFrontAxle ||
-                    (this.HeightAboveFrontAxle != null &&
-                    this.HeightAboveFrontAxle.Equals(input.HeightAboveFrontAxle))
+                    this.HeightAboveFrontAxle.Equals(input.HeightAboveFrontAxle)
                 ) && 
                 (
                     this.Length == input.Length ||
-                    (this.Length != null &&
-                    this.Length.Equals(input.Length))
+                    this.Length.Equals(input.Length)
                 ) && 
                 (
                     this.Width == input.Width ||
-                    (this.Width != null &&
-                    this.Width.Equals(input.Width))
+                    this.Width.Equals(input.Width)
                 ) && 
                 (
                     this.HazardousMaterials == input.HazardousMaterials ||
@@ -484,8 +485,7 @@ namespace PTV.Developer.Clients.data.Model
                 ) && 
                 (
                     this.Commercial == input.Commercial ||
-                    (this.Commercial != null &&
-                    this.Commercial.Equals(input.Commercial))
+                    this.Commercial.Equals(input.Commercial)
                 ) && 
                 (
                     this.EtcSubscriptions == input.EtcSubscriptions ||
@@ -507,80 +507,29 @@ namespace PTV.Developer.Clients.data.Model
                 hashCode = (hashCode * 59) + this.EngineType.GetHashCode();
                 hashCode = (hashCode * 59) + this.FuelType.GetHashCode();
                 hashCode = (hashCode * 59) + this.ElectricityType.GetHashCode();
-                if (this.AverageFuelConsumption != null)
-                {
-                    hashCode = (hashCode * 59) + this.AverageFuelConsumption.GetHashCode();
-                }
-                if (this.AverageElectricityConsumption != null)
-                {
-                    hashCode = (hashCode * 59) + this.AverageElectricityConsumption.GetHashCode();
-                }
-                if (this.BioFuelRatio != null)
-                {
-                    hashCode = (hashCode * 59) + this.BioFuelRatio.GetHashCode();
-                }
-                if (this.HybridRatio != null)
-                {
-                    hashCode = (hashCode * 59) + this.HybridRatio.GetHashCode();
-                }
-                if (this.DualFuelRatio != null)
-                {
-                    hashCode = (hashCode * 59) + this.DualFuelRatio.GetHashCode();
-                }
-                if (this.CylinderCapacity != null)
-                {
-                    hashCode = (hashCode * 59) + this.CylinderCapacity.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.AverageFuelConsumption.GetHashCode();
+                hashCode = (hashCode * 59) + this.AverageElectricityConsumption.GetHashCode();
+                hashCode = (hashCode * 59) + this.BioFuelRatio.GetHashCode();
+                hashCode = (hashCode * 59) + this.HybridRatio.GetHashCode();
+                hashCode = (hashCode * 59) + this.DualFuelRatio.GetHashCode();
+                hashCode = (hashCode * 59) + this.CylinderCapacity.GetHashCode();
                 hashCode = (hashCode * 59) + this.EmissionStandard.GetHashCode();
-                if (this.Co2EmissionClass != null)
-                {
-                    hashCode = (hashCode * 59) + this.Co2EmissionClass.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Co2EmissionClass.GetHashCode();
                 if (this.LowEmissionZoneTypes != null)
                 {
                     hashCode = (hashCode * 59) + this.LowEmissionZoneTypes.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ParticleReductionClass.GetHashCode();
-                if (this.EmptyWeight != null)
-                {
-                    hashCode = (hashCode * 59) + this.EmptyWeight.GetHashCode();
-                }
-                if (this.LoadWeight != null)
-                {
-                    hashCode = (hashCode * 59) + this.LoadWeight.GetHashCode();
-                }
-                if (this.TotalPermittedWeight != null)
-                {
-                    hashCode = (hashCode * 59) + this.TotalPermittedWeight.GetHashCode();
-                }
-                if (this.AxleWeight != null)
-                {
-                    hashCode = (hashCode * 59) + this.AxleWeight.GetHashCode();
-                }
-                if (this.NumberOfAxles != null)
-                {
-                    hashCode = (hashCode * 59) + this.NumberOfAxles.GetHashCode();
-                }
-                if (this.NumberOfTires != null)
-                {
-                    hashCode = (hashCode * 59) + this.NumberOfTires.GetHashCode();
-                }
-                if (this.Height != null)
-                {
-                    hashCode = (hashCode * 59) + this.Height.GetHashCode();
-                }
-                if (this.HeightAboveFrontAxle != null)
-                {
-                    hashCode = (hashCode * 59) + this.HeightAboveFrontAxle.GetHashCode();
-                }
-                if (this.Length != null)
-                {
-                    hashCode = (hashCode * 59) + this.Length.GetHashCode();
-                }
-                if (this.Width != null)
-                {
-                    hashCode = (hashCode * 59) + this.Width.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.EmptyWeight.GetHashCode();
+                hashCode = (hashCode * 59) + this.LoadWeight.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalPermittedWeight.GetHashCode();
+                hashCode = (hashCode * 59) + this.AxleWeight.GetHashCode();
+                hashCode = (hashCode * 59) + this.NumberOfAxles.GetHashCode();
+                hashCode = (hashCode * 59) + this.NumberOfTires.GetHashCode();
+                hashCode = (hashCode * 59) + this.Height.GetHashCode();
+                hashCode = (hashCode * 59) + this.HeightAboveFrontAxle.GetHashCode();
+                hashCode = (hashCode * 59) + this.Length.GetHashCode();
+                hashCode = (hashCode * 59) + this.Width.GetHashCode();
                 if (this.HazardousMaterials != null)
                 {
                     hashCode = (hashCode * 59) + this.HazardousMaterials.GetHashCode();
@@ -590,10 +539,7 @@ namespace PTV.Developer.Clients.data.Model
                 {
                     hashCode = (hashCode * 59) + this.TruckRoutes.GetHashCode();
                 }
-                if (this.Commercial != null)
-                {
-                    hashCode = (hashCode * 59) + this.Commercial.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Commercial.GetHashCode();
                 if (this.EtcSubscriptions != null)
                 {
                     hashCode = (hashCode * 59) + this.EtcSubscriptions.GetHashCode();
@@ -607,130 +553,130 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AverageFuelConsumption (double?) minimum
-            if (this.AverageFuelConsumption < (double?)0)
+            // AverageFuelConsumption (double) minimum
+            if (this.AverageFuelConsumption < (double)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AverageFuelConsumption, must be a value greater than or equal to 0.", new [] { "AverageFuelConsumption" });
             }
 
-            // AverageElectricityConsumption (double?) minimum
-            if (this.AverageElectricityConsumption < (double?)0)
+            // AverageElectricityConsumption (double) minimum
+            if (this.AverageElectricityConsumption < (double)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AverageElectricityConsumption, must be a value greater than or equal to 0.", new [] { "AverageElectricityConsumption" });
             }
 
-            // BioFuelRatio (int?) maximum
-            if (this.BioFuelRatio > (int?)100)
+            // BioFuelRatio (int) maximum
+            if (this.BioFuelRatio > (int)100)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BioFuelRatio, must be a value less than or equal to 100.", new [] { "BioFuelRatio" });
             }
 
-            // BioFuelRatio (int?) minimum
-            if (this.BioFuelRatio < (int?)0)
+            // BioFuelRatio (int) minimum
+            if (this.BioFuelRatio < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BioFuelRatio, must be a value greater than or equal to 0.", new [] { "BioFuelRatio" });
             }
 
-            // HybridRatio (int?) maximum
-            if (this.HybridRatio > (int?)99)
+            // HybridRatio (int) maximum
+            if (this.HybridRatio > (int)99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HybridRatio, must be a value less than or equal to 99.", new [] { "HybridRatio" });
             }
 
-            // HybridRatio (int?) minimum
-            if (this.HybridRatio < (int?)1)
+            // HybridRatio (int) minimum
+            if (this.HybridRatio < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HybridRatio, must be a value greater than or equal to 1.", new [] { "HybridRatio" });
             }
 
-            // DualFuelRatio (int?) maximum
-            if (this.DualFuelRatio > (int?)99)
+            // DualFuelRatio (int) maximum
+            if (this.DualFuelRatio > (int)99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DualFuelRatio, must be a value less than or equal to 99.", new [] { "DualFuelRatio" });
             }
 
-            // DualFuelRatio (int?) minimum
-            if (this.DualFuelRatio < (int?)1)
+            // DualFuelRatio (int) minimum
+            if (this.DualFuelRatio < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DualFuelRatio, must be a value greater than or equal to 1.", new [] { "DualFuelRatio" });
             }
 
-            // CylinderCapacity (int?) minimum
-            if (this.CylinderCapacity < (int?)1)
+            // CylinderCapacity (int) minimum
+            if (this.CylinderCapacity < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CylinderCapacity, must be a value greater than or equal to 1.", new [] { "CylinderCapacity" });
             }
 
-            // Co2EmissionClass (int?) maximum
-            if (this.Co2EmissionClass > (int?)5)
+            // Co2EmissionClass (int) maximum
+            if (this.Co2EmissionClass > (int)5)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Co2EmissionClass, must be a value less than or equal to 5.", new [] { "Co2EmissionClass" });
             }
 
-            // Co2EmissionClass (int?) minimum
-            if (this.Co2EmissionClass < (int?)1)
+            // Co2EmissionClass (int) minimum
+            if (this.Co2EmissionClass < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Co2EmissionClass, must be a value greater than or equal to 1.", new [] { "Co2EmissionClass" });
             }
 
-            // EmptyWeight (int?) minimum
-            if (this.EmptyWeight < (int?)1)
+            // EmptyWeight (int) minimum
+            if (this.EmptyWeight < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EmptyWeight, must be a value greater than or equal to 1.", new [] { "EmptyWeight" });
             }
 
-            // LoadWeight (int?) minimum
-            if (this.LoadWeight < (int?)0)
+            // LoadWeight (int) minimum
+            if (this.LoadWeight < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoadWeight, must be a value greater than or equal to 0.", new [] { "LoadWeight" });
             }
 
-            // TotalPermittedWeight (int?) minimum
-            if (this.TotalPermittedWeight < (int?)1)
+            // TotalPermittedWeight (int) minimum
+            if (this.TotalPermittedWeight < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalPermittedWeight, must be a value greater than or equal to 1.", new [] { "TotalPermittedWeight" });
             }
 
-            // AxleWeight (int?) minimum
-            if (this.AxleWeight < (int?)1)
+            // AxleWeight (int) minimum
+            if (this.AxleWeight < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AxleWeight, must be a value greater than or equal to 1.", new [] { "AxleWeight" });
             }
 
-            // NumberOfAxles (int?) minimum
-            if (this.NumberOfAxles < (int?)1)
+            // NumberOfAxles (int) minimum
+            if (this.NumberOfAxles < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfAxles, must be a value greater than or equal to 1.", new [] { "NumberOfAxles" });
             }
 
-            // NumberOfTires (int?) minimum
-            if (this.NumberOfTires < (int?)1)
+            // NumberOfTires (int) minimum
+            if (this.NumberOfTires < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfTires, must be a value greater than or equal to 1.", new [] { "NumberOfTires" });
             }
 
-            // Height (int?) minimum
-            if (this.Height < (int?)1)
+            // Height (int) minimum
+            if (this.Height < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Height, must be a value greater than or equal to 1.", new [] { "Height" });
             }
 
-            // HeightAboveFrontAxle (int?) minimum
-            if (this.HeightAboveFrontAxle < (int?)1)
+            // HeightAboveFrontAxle (int) minimum
+            if (this.HeightAboveFrontAxle < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeightAboveFrontAxle, must be a value greater than or equal to 1.", new [] { "HeightAboveFrontAxle" });
             }
 
-            // Length (int?) minimum
-            if (this.Length < (int?)1)
+            // Length (int) minimum
+            if (this.Length < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Length, must be a value greater than or equal to 1.", new [] { "Length" });
             }
 
-            // Width (int?) minimum
-            if (this.Width < (int?)1)
+            // Width (int) minimum
+            if (this.Width < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Width, must be a value greater than or equal to 1.", new [] { "Width" });
             }

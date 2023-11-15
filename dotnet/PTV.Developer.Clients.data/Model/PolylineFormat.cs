@@ -43,7 +43,6 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         [EnumMember(Value = "GOOGLE_ENCODED_POLYLINE")]
         GOOGLE_ENCODED_POLYLINE = 2
-
     }
 
 }

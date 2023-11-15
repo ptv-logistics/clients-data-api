@@ -354,7 +354,6 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         [EnumMember(Value = "US_EZPASS_PAYBYPLATE")]
         US_EZPASS_PAYBYPLATE = 54
-
     }
 
 }

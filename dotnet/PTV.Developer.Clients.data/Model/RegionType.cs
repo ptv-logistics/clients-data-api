@@ -61,7 +61,6 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         [EnumMember(Value = "WORLD")]
         WORLD = 5
-
     }
 
 }

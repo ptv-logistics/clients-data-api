@@ -61,6 +61,7 @@ namespace PTV.Developer.Clients.data.Model
         /// The hour the schedule interval starts.
         /// </summary>
         /// <value>The hour the schedule interval starts.</value>
+        /// <example>12</example>
         [DataMember(Name = "hour", IsRequired = true, EmitDefaultValue = true)]
         public int Hour { get; set; }
 
@@ -68,6 +69,7 @@ namespace PTV.Developer.Clients.data.Model
         /// The minutes of hours the schedule interval starts.
         /// </summary>
         /// <value>The minutes of hours the schedule interval starts.</value>
+        /// <example>30</example>
         [DataMember(Name = "minute", IsRequired = true, EmitDefaultValue = true)]
         public int Minute { get; set; }
 
@@ -75,6 +77,7 @@ namespace PTV.Developer.Clients.data.Model
         /// The duration of the schedule interval in [min].
         /// </summary>
         /// <value>The duration of the schedule interval in [min].</value>
+        /// <example>360</example>
         [DataMember(Name = "duration", IsRequired = true, EmitDefaultValue = true)]
         public int Duration { get; set; }
 
@@ -165,7 +168,7 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Hour (int) maximum
             if (this.Hour > (int)23)

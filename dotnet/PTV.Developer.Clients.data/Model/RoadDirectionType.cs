@@ -49,7 +49,6 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         [EnumMember(Value = "BOTH")]
         BOTH = 3
-
     }
 
 }

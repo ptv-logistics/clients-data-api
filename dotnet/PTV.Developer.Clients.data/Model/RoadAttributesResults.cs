@@ -36,7 +36,6 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         [EnumMember(Value = "POLYLINES")]
         POLYLINES = 1
-
     }
 
 }

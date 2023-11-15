@@ -115,7 +115,6 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         [EnumMember(Value = "EURO_7")]
         EURO_7 = 14
-
     }
 
 }
