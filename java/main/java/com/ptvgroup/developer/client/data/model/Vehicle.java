@@ -13,8 +13,10 @@
 
 package com.ptvgroup.developer.client.data.model;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -32,21 +34,15 @@ import com.ptvgroup.developer.client.data.model.LowEmissionZoneTypes;
 import com.ptvgroup.developer.client.data.model.ParticleReductionClass;
 import com.ptvgroup.developer.client.data.model.TruckRoutes;
 import com.ptvgroup.developer.client.data.model.TunnelRestrictionCode;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
  * Physical and legal properties of the vehicle such as its dimensions.  These parameters are not supported for non-motorized profiles such as _BICYCLE_ or _PEDESTRIAN_. Unsupported parameters such as **electricityType** for combustion vehicles will not be present in the response.
  */
-@ApiModel(description = "Physical and legal properties of the vehicle such as its dimensions.  These parameters are not supported for non-motorized profiles such as _BICYCLE_ or _PEDESTRIAN_. Unsupported parameters such as **electricityType** for combustion vehicles will not be present in the response.")
 @JsonPropertyOrder({
   Vehicle.JSON_PROPERTY_ENGINE_TYPE,
   Vehicle.JSON_PROPERTY_FUEL_TYPE,
@@ -77,97 +73,97 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Vehicle.JSON_PROPERTY_COMMERCIAL,
   Vehicle.JSON_PROPERTY_ETC_SUBSCRIPTIONS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-30T06:51:07.244706Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-15T14:24:16.580606Z[Etc/UTC]")
 public class Vehicle {
   public static final String JSON_PROPERTY_ENGINE_TYPE = "engineType";
-  private JsonNullable<EngineType> engineType = JsonNullable.<EngineType>undefined();
+  private EngineType engineType;
 
   public static final String JSON_PROPERTY_FUEL_TYPE = "fuelType";
-  private JsonNullable<FuelType> fuelType = JsonNullable.<FuelType>undefined();
+  private FuelType fuelType;
 
   public static final String JSON_PROPERTY_ELECTRICITY_TYPE = "electricityType";
-  private JsonNullable<ElectricityType> electricityType = JsonNullable.<ElectricityType>undefined();
+  private ElectricityType electricityType;
 
   public static final String JSON_PROPERTY_AVERAGE_FUEL_CONSUMPTION = "averageFuelConsumption";
-  private JsonNullable<Double> averageFuelConsumption = JsonNullable.<Double>undefined();
+  private Double averageFuelConsumption;
 
   public static final String JSON_PROPERTY_AVERAGE_ELECTRICITY_CONSUMPTION = "averageElectricityConsumption";
-  private JsonNullable<Double> averageElectricityConsumption = JsonNullable.<Double>undefined();
+  private Double averageElectricityConsumption;
 
   public static final String JSON_PROPERTY_BIO_FUEL_RATIO = "bioFuelRatio";
-  private JsonNullable<Integer> bioFuelRatio = JsonNullable.<Integer>undefined();
+  private Integer bioFuelRatio;
 
   public static final String JSON_PROPERTY_HYBRID_RATIO = "hybridRatio";
-  private JsonNullable<Integer> hybridRatio = JsonNullable.<Integer>undefined();
+  private Integer hybridRatio;
 
   public static final String JSON_PROPERTY_DUAL_FUEL_RATIO = "dualFuelRatio";
-  private JsonNullable<Integer> dualFuelRatio = JsonNullable.<Integer>undefined();
+  private Integer dualFuelRatio;
 
   public static final String JSON_PROPERTY_CYLINDER_CAPACITY = "cylinderCapacity";
-  private JsonNullable<Integer> cylinderCapacity = JsonNullable.<Integer>undefined();
+  private Integer cylinderCapacity;
 
   public static final String JSON_PROPERTY_EMISSION_STANDARD = "emissionStandard";
-  private JsonNullable<EmissionStandard> emissionStandard = JsonNullable.<EmissionStandard>undefined();
+  private EmissionStandard emissionStandard;
 
   public static final String JSON_PROPERTY_CO2_EMISSION_CLASS = "co2EmissionClass";
-  private JsonNullable<Integer> co2EmissionClass = JsonNullable.<Integer>undefined();
+  private Integer co2EmissionClass;
 
   public static final String JSON_PROPERTY_LOW_EMISSION_ZONE_TYPES = "lowEmissionZoneTypes";
-  private JsonNullable<List<LowEmissionZoneTypes>> lowEmissionZoneTypes = JsonNullable.<List<LowEmissionZoneTypes>>undefined();
+  private List<LowEmissionZoneTypes> lowEmissionZoneTypes;
 
   public static final String JSON_PROPERTY_PARTICLE_REDUCTION_CLASS = "particleReductionClass";
-  private JsonNullable<ParticleReductionClass> particleReductionClass = JsonNullable.<ParticleReductionClass>undefined();
+  private ParticleReductionClass particleReductionClass;
 
   public static final String JSON_PROPERTY_EMPTY_WEIGHT = "emptyWeight";
-  private JsonNullable<Integer> emptyWeight = JsonNullable.<Integer>undefined();
+  private Integer emptyWeight;
 
   public static final String JSON_PROPERTY_LOAD_WEIGHT = "loadWeight";
-  private JsonNullable<Integer> loadWeight = JsonNullable.<Integer>undefined();
+  private Integer loadWeight;
 
   public static final String JSON_PROPERTY_TOTAL_PERMITTED_WEIGHT = "totalPermittedWeight";
-  private JsonNullable<Integer> totalPermittedWeight = JsonNullable.<Integer>undefined();
+  private Integer totalPermittedWeight;
 
   public static final String JSON_PROPERTY_AXLE_WEIGHT = "axleWeight";
-  private JsonNullable<Integer> axleWeight = JsonNullable.<Integer>undefined();
+  private Integer axleWeight;
 
   public static final String JSON_PROPERTY_NUMBER_OF_AXLES = "numberOfAxles";
-  private JsonNullable<Integer> numberOfAxles = JsonNullable.<Integer>undefined();
+  private Integer numberOfAxles;
 
   public static final String JSON_PROPERTY_NUMBER_OF_TIRES = "numberOfTires";
-  private JsonNullable<Integer> numberOfTires = JsonNullable.<Integer>undefined();
+  private Integer numberOfTires;
 
   public static final String JSON_PROPERTY_HEIGHT = "height";
-  private JsonNullable<Integer> height = JsonNullable.<Integer>undefined();
+  private Integer height;
 
   public static final String JSON_PROPERTY_HEIGHT_ABOVE_FRONT_AXLE = "heightAboveFrontAxle";
-  private JsonNullable<Integer> heightAboveFrontAxle = JsonNullable.<Integer>undefined();
+  private Integer heightAboveFrontAxle;
 
   public static final String JSON_PROPERTY_LENGTH = "length";
-  private JsonNullable<Integer> length = JsonNullable.<Integer>undefined();
+  private Integer length;
 
   public static final String JSON_PROPERTY_WIDTH = "width";
-  private JsonNullable<Integer> width = JsonNullable.<Integer>undefined();
+  private Integer width;
 
   public static final String JSON_PROPERTY_HAZARDOUS_MATERIALS = "hazardousMaterials";
-  private JsonNullable<List<HazardousMaterials>> hazardousMaterials = JsonNullable.<List<HazardousMaterials>>undefined();
+  private List<HazardousMaterials> hazardousMaterials;
 
   public static final String JSON_PROPERTY_TUNNEL_RESTRICTION_CODE = "tunnelRestrictionCode";
-  private JsonNullable<TunnelRestrictionCode> tunnelRestrictionCode = JsonNullable.<TunnelRestrictionCode>undefined();
+  private TunnelRestrictionCode tunnelRestrictionCode;
 
   public static final String JSON_PROPERTY_TRUCK_ROUTES = "truckRoutes";
-  private JsonNullable<List<TruckRoutes>> truckRoutes = JsonNullable.<List<TruckRoutes>>undefined();
+  private List<TruckRoutes> truckRoutes;
 
   public static final String JSON_PROPERTY_COMMERCIAL = "commercial";
-  private JsonNullable<Boolean> commercial = JsonNullable.<Boolean>undefined();
+  private Boolean commercial;
 
   public static final String JSON_PROPERTY_ETC_SUBSCRIPTIONS = "etcSubscriptions";
-  private JsonNullable<List<EtcSubscriptionTypes>> etcSubscriptions = JsonNullable.<List<EtcSubscriptionTypes>>undefined();
+  private List<EtcSubscriptionTypes> etcSubscriptions;
 
   public Vehicle() { 
   }
 
   public Vehicle engineType(EngineType engineType) {
-    this.engineType = JsonNullable.<EngineType>of(engineType);
+    this.engineType = engineType;
     return this;
   }
 
@@ -176,32 +172,23 @@ public class Vehicle {
    * @return engineType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public EngineType getEngineType() {
-        return engineType.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_ENGINE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<EngineType> getEngineType_JsonNullable() {
+  public EngineType getEngineType() {
     return engineType;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ENGINE_TYPE)
-  public void setEngineType_JsonNullable(JsonNullable<EngineType> engineType) {
-    this.engineType = engineType;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_ENGINE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEngineType(EngineType engineType) {
-    this.engineType = JsonNullable.<EngineType>of(engineType);
+    this.engineType = engineType;
   }
 
 
   public Vehicle fuelType(FuelType fuelType) {
-    this.fuelType = JsonNullable.<FuelType>of(fuelType);
+    this.fuelType = fuelType;
     return this;
   }
 
@@ -210,32 +197,23 @@ public class Vehicle {
    * @return fuelType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public FuelType getFuelType() {
-        return fuelType.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_FUEL_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<FuelType> getFuelType_JsonNullable() {
+  public FuelType getFuelType() {
     return fuelType;
   }
-  
-  @JsonProperty(JSON_PROPERTY_FUEL_TYPE)
-  public void setFuelType_JsonNullable(JsonNullable<FuelType> fuelType) {
-    this.fuelType = fuelType;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_FUEL_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFuelType(FuelType fuelType) {
-    this.fuelType = JsonNullable.<FuelType>of(fuelType);
+    this.fuelType = fuelType;
   }
 
 
   public Vehicle electricityType(ElectricityType electricityType) {
-    this.electricityType = JsonNullable.<ElectricityType>of(electricityType);
+    this.electricityType = electricityType;
     return this;
   }
 
@@ -244,32 +222,23 @@ public class Vehicle {
    * @return electricityType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public ElectricityType getElectricityType() {
-        return electricityType.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_ELECTRICITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<ElectricityType> getElectricityType_JsonNullable() {
+  public ElectricityType getElectricityType() {
     return electricityType;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ELECTRICITY_TYPE)
-  public void setElectricityType_JsonNullable(JsonNullable<ElectricityType> electricityType) {
-    this.electricityType = electricityType;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_ELECTRICITY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setElectricityType(ElectricityType electricityType) {
-    this.electricityType = JsonNullable.<ElectricityType>of(electricityType);
+    this.electricityType = electricityType;
   }
 
 
   public Vehicle averageFuelConsumption(Double averageFuelConsumption) {
-    this.averageFuelConsumption = JsonNullable.<Double>of(averageFuelConsumption);
+    this.averageFuelConsumption = averageFuelConsumption;
     return this;
   }
 
@@ -279,32 +248,23 @@ public class Vehicle {
    * @return averageFuelConsumption
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "35", value = "The average fuel consumption of the vehicle. Depending on the **fuelType** [l/100km] for liquid fuel types or [kg/100km] for gaseous fuel types.  Supported for **engineType** _COMBUSTION_  or _HYBRID_. Relevant for `emissions`. ")
-  @JsonIgnore
-
-  public Double getAverageFuelConsumption() {
-        return averageFuelConsumption.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_AVERAGE_FUEL_CONSUMPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Double> getAverageFuelConsumption_JsonNullable() {
+  public Double getAverageFuelConsumption() {
     return averageFuelConsumption;
   }
-  
-  @JsonProperty(JSON_PROPERTY_AVERAGE_FUEL_CONSUMPTION)
-  public void setAverageFuelConsumption_JsonNullable(JsonNullable<Double> averageFuelConsumption) {
-    this.averageFuelConsumption = averageFuelConsumption;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_AVERAGE_FUEL_CONSUMPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAverageFuelConsumption(Double averageFuelConsumption) {
-    this.averageFuelConsumption = JsonNullable.<Double>of(averageFuelConsumption);
+    this.averageFuelConsumption = averageFuelConsumption;
   }
 
 
   public Vehicle averageElectricityConsumption(Double averageElectricityConsumption) {
-    this.averageElectricityConsumption = JsonNullable.<Double>of(averageElectricityConsumption);
+    this.averageElectricityConsumption = averageElectricityConsumption;
     return this;
   }
 
@@ -314,32 +274,23 @@ public class Vehicle {
    * @return averageElectricityConsumption
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "115", value = "The average power consumption of the vehicle [kWh/100km].  Supported for **engineType** _ELECTRIC_ or _HYBRID_. Relevant for `emissions`. ")
-  @JsonIgnore
-
-  public Double getAverageElectricityConsumption() {
-        return averageElectricityConsumption.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_AVERAGE_ELECTRICITY_CONSUMPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Double> getAverageElectricityConsumption_JsonNullable() {
+  public Double getAverageElectricityConsumption() {
     return averageElectricityConsumption;
   }
-  
-  @JsonProperty(JSON_PROPERTY_AVERAGE_ELECTRICITY_CONSUMPTION)
-  public void setAverageElectricityConsumption_JsonNullable(JsonNullable<Double> averageElectricityConsumption) {
-    this.averageElectricityConsumption = averageElectricityConsumption;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_AVERAGE_ELECTRICITY_CONSUMPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAverageElectricityConsumption(Double averageElectricityConsumption) {
-    this.averageElectricityConsumption = JsonNullable.<Double>of(averageElectricityConsumption);
+    this.averageElectricityConsumption = averageElectricityConsumption;
   }
 
 
   public Vehicle bioFuelRatio(Integer bioFuelRatio) {
-    this.bioFuelRatio = JsonNullable.<Integer>of(bioFuelRatio);
+    this.bioFuelRatio = bioFuelRatio;
     return this;
   }
 
@@ -350,32 +301,23 @@ public class Vehicle {
    * @return bioFuelRatio
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0", value = "The ratio of biofuel to conventional fuel [%], i.e. 10 for E10 with 10% biofuel.  Supported for **engineType** _COMBUSTION_ or _HYBRID_ and only for the fuel types _GASOLINE_, _DIESEL_, _CNG_GASOLINE_ and _LNG_GASOLINE_. Relevant for `emissions`. ")
-  @JsonIgnore
-
-  public Integer getBioFuelRatio() {
-        return bioFuelRatio.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_BIO_FUEL_RATIO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getBioFuelRatio_JsonNullable() {
+  public Integer getBioFuelRatio() {
     return bioFuelRatio;
   }
-  
-  @JsonProperty(JSON_PROPERTY_BIO_FUEL_RATIO)
-  public void setBioFuelRatio_JsonNullable(JsonNullable<Integer> bioFuelRatio) {
-    this.bioFuelRatio = bioFuelRatio;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_BIO_FUEL_RATIO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBioFuelRatio(Integer bioFuelRatio) {
-    this.bioFuelRatio = JsonNullable.<Integer>of(bioFuelRatio);
+    this.bioFuelRatio = bioFuelRatio;
   }
 
 
   public Vehicle hybridRatio(Integer hybridRatio) {
-    this.hybridRatio = JsonNullable.<Integer>of(hybridRatio);
+    this.hybridRatio = hybridRatio;
     return this;
   }
 
@@ -386,32 +328,23 @@ public class Vehicle {
    * @return hybridRatio
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "50", value = "Electric energy usage ratio from the total amount of energy consumed by the vehicle.  Supported for **engineType** _HYBRID_. Relevant for `emissions`. ")
-  @JsonIgnore
-
-  public Integer getHybridRatio() {
-        return hybridRatio.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_HYBRID_RATIO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getHybridRatio_JsonNullable() {
+  public Integer getHybridRatio() {
     return hybridRatio;
   }
-  
-  @JsonProperty(JSON_PROPERTY_HYBRID_RATIO)
-  public void setHybridRatio_JsonNullable(JsonNullable<Integer> hybridRatio) {
-    this.hybridRatio = hybridRatio;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_HYBRID_RATIO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHybridRatio(Integer hybridRatio) {
-    this.hybridRatio = JsonNullable.<Integer>of(hybridRatio);
+    this.hybridRatio = hybridRatio;
   }
 
 
   public Vehicle dualFuelRatio(Integer dualFuelRatio) {
-    this.dualFuelRatio = JsonNullable.<Integer>of(dualFuelRatio);
+    this.dualFuelRatio = dualFuelRatio;
     return this;
   }
 
@@ -422,32 +355,23 @@ public class Vehicle {
    * @return dualFuelRatio
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "50", value = "Ratio of CNG or LPG usage from the total amount of fuel consumption.  Supported for **engineType** _COMBUSTION_ with **fuelType**  _CNG_GASOLINE_ or _LPG_GASOLINE_. Relevant for `emissions`. ")
-  @JsonIgnore
-
-  public Integer getDualFuelRatio() {
-        return dualFuelRatio.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_DUAL_FUEL_RATIO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getDualFuelRatio_JsonNullable() {
+  public Integer getDualFuelRatio() {
     return dualFuelRatio;
   }
-  
-  @JsonProperty(JSON_PROPERTY_DUAL_FUEL_RATIO)
-  public void setDualFuelRatio_JsonNullable(JsonNullable<Integer> dualFuelRatio) {
-    this.dualFuelRatio = dualFuelRatio;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_DUAL_FUEL_RATIO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDualFuelRatio(Integer dualFuelRatio) {
-    this.dualFuelRatio = JsonNullable.<Integer>of(dualFuelRatio);
+    this.dualFuelRatio = dualFuelRatio;
   }
 
 
   public Vehicle cylinderCapacity(Integer cylinderCapacity) {
-    this.cylinderCapacity = JsonNullable.<Integer>of(cylinderCapacity);
+    this.cylinderCapacity = cylinderCapacity;
     return this;
   }
 
@@ -457,32 +381,23 @@ public class Vehicle {
    * @return cylinderCapacity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "12000", value = "The cylinder capacity of the vehicle [cm&#x00B3;].  Supported for **engineType** _COMBUSTION_ or _HYBRID_. ")
-  @JsonIgnore
-
-  public Integer getCylinderCapacity() {
-        return cylinderCapacity.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CYLINDER_CAPACITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getCylinderCapacity_JsonNullable() {
+  public Integer getCylinderCapacity() {
     return cylinderCapacity;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CYLINDER_CAPACITY)
-  public void setCylinderCapacity_JsonNullable(JsonNullable<Integer> cylinderCapacity) {
-    this.cylinderCapacity = cylinderCapacity;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CYLINDER_CAPACITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCylinderCapacity(Integer cylinderCapacity) {
-    this.cylinderCapacity = JsonNullable.<Integer>of(cylinderCapacity);
+    this.cylinderCapacity = cylinderCapacity;
   }
 
 
   public Vehicle emissionStandard(EmissionStandard emissionStandard) {
-    this.emissionStandard = JsonNullable.<EmissionStandard>of(emissionStandard);
+    this.emissionStandard = emissionStandard;
     return this;
   }
 
@@ -491,80 +406,58 @@ public class Vehicle {
    * @return emissionStandard
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public EmissionStandard getEmissionStandard() {
-        return emissionStandard.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_EMISSION_STANDARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<EmissionStandard> getEmissionStandard_JsonNullable() {
+  public EmissionStandard getEmissionStandard() {
     return emissionStandard;
   }
-  
-  @JsonProperty(JSON_PROPERTY_EMISSION_STANDARD)
-  public void setEmissionStandard_JsonNullable(JsonNullable<EmissionStandard> emissionStandard) {
-    this.emissionStandard = emissionStandard;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_EMISSION_STANDARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmissionStandard(EmissionStandard emissionStandard) {
-    this.emissionStandard = JsonNullable.<EmissionStandard>of(emissionStandard);
+    this.emissionStandard = emissionStandard;
   }
 
 
   public Vehicle co2EmissionClass(Integer co2EmissionClass) {
-    this.co2EmissionClass = JsonNullable.<Integer>of(co2EmissionClass);
+    this.co2EmissionClass = co2EmissionClass;
     return this;
   }
 
    /**
-   * The CO&amp;#8322; emission class valid in the European Union. See also the  [Directive 1999/62/EC](http://data.europa.eu/eli/dir/1999/62) of the European Parliament and of the  Council on the charging of heavy goods vehicles for the use of certain infrastructures, article 7ga.  This parameter is in an experimental state and may change at any time. Relevant for &#x60;toll&#x60;. 
+   * The CO&amp;#8322; emission class valid in the European Union. See also the  [Directive 1999/62/EC](https://eur-lex.europa.eu/eli/dir/1999/62) of the European Parliament and of the  Council on the charging of heavy goods vehicles for the use of certain infrastructures, article 7ga.  Relevant for &#x60;toll&#x60;. 
    * minimum: 1
    * maximum: 5
    * @return co2EmissionClass
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "The CO&#8322; emission class valid in the European Union. See also the  [Directive 1999/62/EC](http://data.europa.eu/eli/dir/1999/62) of the European Parliament and of the  Council on the charging of heavy goods vehicles for the use of certain infrastructures, article 7ga.  This parameter is in an experimental state and may change at any time. Relevant for `toll`. ")
-  @JsonIgnore
-
-  public Integer getCo2EmissionClass() {
-        return co2EmissionClass.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CO2_EMISSION_CLASS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getCo2EmissionClass_JsonNullable() {
+  public Integer getCo2EmissionClass() {
     return co2EmissionClass;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CO2_EMISSION_CLASS)
-  public void setCo2EmissionClass_JsonNullable(JsonNullable<Integer> co2EmissionClass) {
-    this.co2EmissionClass = co2EmissionClass;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CO2_EMISSION_CLASS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCo2EmissionClass(Integer co2EmissionClass) {
-    this.co2EmissionClass = JsonNullable.<Integer>of(co2EmissionClass);
+    this.co2EmissionClass = co2EmissionClass;
   }
 
 
   public Vehicle lowEmissionZoneTypes(List<LowEmissionZoneTypes> lowEmissionZoneTypes) {
-    this.lowEmissionZoneTypes = JsonNullable.<List<LowEmissionZoneTypes>>of(lowEmissionZoneTypes);
+    this.lowEmissionZoneTypes = lowEmissionZoneTypes;
     return this;
   }
 
   public Vehicle addLowEmissionZoneTypesItem(LowEmissionZoneTypes lowEmissionZoneTypesItem) {
-    if (this.lowEmissionZoneTypes == null || !this.lowEmissionZoneTypes.isPresent()) {
-      this.lowEmissionZoneTypes = JsonNullable.<List<LowEmissionZoneTypes>>of(new ArrayList<>());
+    if (this.lowEmissionZoneTypes == null) {
+      this.lowEmissionZoneTypes = new ArrayList<>();
     }
-    try {
-      this.lowEmissionZoneTypes.get().add(lowEmissionZoneTypesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.lowEmissionZoneTypes.add(lowEmissionZoneTypesItem);
     return this;
   }
 
@@ -573,32 +466,23 @@ public class Vehicle {
    * @return lowEmissionZoneTypes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comma-separated list of the low-emission zone types of the vehicle. For now, types are available only for Germany, so using more than one value is not meaningful.  Relevant for `routing`. ")
-  @JsonIgnore
-
-  public List<LowEmissionZoneTypes> getLowEmissionZoneTypes() {
-        return lowEmissionZoneTypes.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_LOW_EMISSION_ZONE_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<LowEmissionZoneTypes>> getLowEmissionZoneTypes_JsonNullable() {
+  public List<LowEmissionZoneTypes> getLowEmissionZoneTypes() {
     return lowEmissionZoneTypes;
   }
-  
-  @JsonProperty(JSON_PROPERTY_LOW_EMISSION_ZONE_TYPES)
-  public void setLowEmissionZoneTypes_JsonNullable(JsonNullable<List<LowEmissionZoneTypes>> lowEmissionZoneTypes) {
-    this.lowEmissionZoneTypes = lowEmissionZoneTypes;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_LOW_EMISSION_ZONE_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLowEmissionZoneTypes(List<LowEmissionZoneTypes> lowEmissionZoneTypes) {
-    this.lowEmissionZoneTypes = JsonNullable.<List<LowEmissionZoneTypes>>of(lowEmissionZoneTypes);
+    this.lowEmissionZoneTypes = lowEmissionZoneTypes;
   }
 
 
   public Vehicle particleReductionClass(ParticleReductionClass particleReductionClass) {
-    this.particleReductionClass = JsonNullable.<ParticleReductionClass>of(particleReductionClass);
+    this.particleReductionClass = particleReductionClass;
     return this;
   }
 
@@ -607,32 +491,23 @@ public class Vehicle {
    * @return particleReductionClass
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public ParticleReductionClass getParticleReductionClass() {
-        return particleReductionClass.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_PARTICLE_REDUCTION_CLASS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<ParticleReductionClass> getParticleReductionClass_JsonNullable() {
+  public ParticleReductionClass getParticleReductionClass() {
     return particleReductionClass;
   }
-  
-  @JsonProperty(JSON_PROPERTY_PARTICLE_REDUCTION_CLASS)
-  public void setParticleReductionClass_JsonNullable(JsonNullable<ParticleReductionClass> particleReductionClass) {
-    this.particleReductionClass = particleReductionClass;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_PARTICLE_REDUCTION_CLASS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setParticleReductionClass(ParticleReductionClass particleReductionClass) {
-    this.particleReductionClass = JsonNullable.<ParticleReductionClass>of(particleReductionClass);
+    this.particleReductionClass = particleReductionClass;
   }
 
 
   public Vehicle emptyWeight(Integer emptyWeight) {
-    this.emptyWeight = JsonNullable.<Integer>of(emptyWeight);
+    this.emptyWeight = emptyWeight;
     return this;
   }
 
@@ -642,32 +517,23 @@ public class Vehicle {
    * @return emptyWeight
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "15000", value = "The empty weight of the vehicle [kg].  Relevant for `routing`, `emissions`. ")
-  @JsonIgnore
-
-  public Integer getEmptyWeight() {
-        return emptyWeight.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_EMPTY_WEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getEmptyWeight_JsonNullable() {
+  public Integer getEmptyWeight() {
     return emptyWeight;
   }
-  
-  @JsonProperty(JSON_PROPERTY_EMPTY_WEIGHT)
-  public void setEmptyWeight_JsonNullable(JsonNullable<Integer> emptyWeight) {
-    this.emptyWeight = emptyWeight;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_EMPTY_WEIGHT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmptyWeight(Integer emptyWeight) {
-    this.emptyWeight = JsonNullable.<Integer>of(emptyWeight);
+    this.emptyWeight = emptyWeight;
   }
 
 
   public Vehicle loadWeight(Integer loadWeight) {
-    this.loadWeight = JsonNullable.<Integer>of(loadWeight);
+    this.loadWeight = loadWeight;
     return this;
   }
 
@@ -677,32 +543,23 @@ public class Vehicle {
    * @return loadWeight
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "25000", value = "The weight of the vehicle's load [kg].  Relevant for `routing`, `emissions`. ")
-  @JsonIgnore
-
-  public Integer getLoadWeight() {
-        return loadWeight.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_LOAD_WEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getLoadWeight_JsonNullable() {
+  public Integer getLoadWeight() {
     return loadWeight;
   }
-  
-  @JsonProperty(JSON_PROPERTY_LOAD_WEIGHT)
-  public void setLoadWeight_JsonNullable(JsonNullable<Integer> loadWeight) {
-    this.loadWeight = loadWeight;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_LOAD_WEIGHT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLoadWeight(Integer loadWeight) {
-    this.loadWeight = JsonNullable.<Integer>of(loadWeight);
+    this.loadWeight = loadWeight;
   }
 
 
   public Vehicle totalPermittedWeight(Integer totalPermittedWeight) {
-    this.totalPermittedWeight = JsonNullable.<Integer>of(totalPermittedWeight);
+    this.totalPermittedWeight = totalPermittedWeight;
     return this;
   }
 
@@ -712,32 +569,23 @@ public class Vehicle {
    * @return totalPermittedWeight
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "40000", value = "The total permitted weight of the vehicle and load [kg].  Relevant for `routing`, `toll`, `emissions`. ")
-  @JsonIgnore
-
-  public Integer getTotalPermittedWeight() {
-        return totalPermittedWeight.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_TOTAL_PERMITTED_WEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getTotalPermittedWeight_JsonNullable() {
+  public Integer getTotalPermittedWeight() {
     return totalPermittedWeight;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TOTAL_PERMITTED_WEIGHT)
-  public void setTotalPermittedWeight_JsonNullable(JsonNullable<Integer> totalPermittedWeight) {
-    this.totalPermittedWeight = totalPermittedWeight;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_TOTAL_PERMITTED_WEIGHT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalPermittedWeight(Integer totalPermittedWeight) {
-    this.totalPermittedWeight = JsonNullable.<Integer>of(totalPermittedWeight);
+    this.totalPermittedWeight = totalPermittedWeight;
   }
 
 
   public Vehicle axleWeight(Integer axleWeight) {
-    this.axleWeight = JsonNullable.<Integer>of(axleWeight);
+    this.axleWeight = axleWeight;
     return this;
   }
 
@@ -747,32 +595,23 @@ public class Vehicle {
    * @return axleWeight
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "11500", value = "The maximum distributed weight that may be supported by an axle of the vehicle [kg].  Relevant for `routing`, `toll`. ")
-  @JsonIgnore
-
-  public Integer getAxleWeight() {
-        return axleWeight.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_AXLE_WEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getAxleWeight_JsonNullable() {
+  public Integer getAxleWeight() {
     return axleWeight;
   }
-  
-  @JsonProperty(JSON_PROPERTY_AXLE_WEIGHT)
-  public void setAxleWeight_JsonNullable(JsonNullable<Integer> axleWeight) {
-    this.axleWeight = axleWeight;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_AXLE_WEIGHT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAxleWeight(Integer axleWeight) {
-    this.axleWeight = JsonNullable.<Integer>of(axleWeight);
+    this.axleWeight = axleWeight;
   }
 
 
   public Vehicle numberOfAxles(Integer numberOfAxles) {
-    this.numberOfAxles = JsonNullable.<Integer>of(numberOfAxles);
+    this.numberOfAxles = numberOfAxles;
     return this;
   }
 
@@ -782,32 +621,23 @@ public class Vehicle {
    * @return numberOfAxles
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "5", value = "The total number of axles of the vehicle including the trailers.  Relevant for `toll`. ")
-  @JsonIgnore
-
-  public Integer getNumberOfAxles() {
-        return numberOfAxles.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_AXLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getNumberOfAxles_JsonNullable() {
+  public Integer getNumberOfAxles() {
     return numberOfAxles;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NUMBER_OF_AXLES)
-  public void setNumberOfAxles_JsonNullable(JsonNullable<Integer> numberOfAxles) {
-    this.numberOfAxles = numberOfAxles;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_NUMBER_OF_AXLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumberOfAxles(Integer numberOfAxles) {
-    this.numberOfAxles = JsonNullable.<Integer>of(numberOfAxles);
+    this.numberOfAxles = numberOfAxles;
   }
 
 
   public Vehicle numberOfTires(Integer numberOfTires) {
-    this.numberOfTires = JsonNullable.<Integer>of(numberOfTires);
+    this.numberOfTires = numberOfTires;
     return this;
   }
 
@@ -817,32 +647,23 @@ public class Vehicle {
    * @return numberOfTires
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10", value = "The total number of tires of the vehicle including the trailers.  Relevant for `toll`. ")
-  @JsonIgnore
-
-  public Integer getNumberOfTires() {
-        return numberOfTires.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_TIRES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getNumberOfTires_JsonNullable() {
+  public Integer getNumberOfTires() {
     return numberOfTires;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NUMBER_OF_TIRES)
-  public void setNumberOfTires_JsonNullable(JsonNullable<Integer> numberOfTires) {
-    this.numberOfTires = numberOfTires;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_NUMBER_OF_TIRES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumberOfTires(Integer numberOfTires) {
-    this.numberOfTires = JsonNullable.<Integer>of(numberOfTires);
+    this.numberOfTires = numberOfTires;
   }
 
 
   public Vehicle height(Integer height) {
-    this.height = JsonNullable.<Integer>of(height);
+    this.height = height;
     return this;
   }
 
@@ -852,32 +673,23 @@ public class Vehicle {
    * @return height
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "400", value = "The height of the vehicle [cm].  Relevant for `routing`, `toll`. ")
-  @JsonIgnore
-
-  public Integer getHeight() {
-        return height.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getHeight_JsonNullable() {
+  public Integer getHeight() {
     return height;
   }
-  
-  @JsonProperty(JSON_PROPERTY_HEIGHT)
-  public void setHeight_JsonNullable(JsonNullable<Integer> height) {
-    this.height = height;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_HEIGHT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHeight(Integer height) {
-    this.height = JsonNullable.<Integer>of(height);
+    this.height = height;
   }
 
 
   public Vehicle heightAboveFrontAxle(Integer heightAboveFrontAxle) {
-    this.heightAboveFrontAxle = JsonNullable.<Integer>of(heightAboveFrontAxle);
+    this.heightAboveFrontAxle = heightAboveFrontAxle;
     return this;
   }
 
@@ -887,32 +699,23 @@ public class Vehicle {
    * @return heightAboveFrontAxle
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "400", value = "The height above the front axle [cm].  Relevant for `toll`. ")
-  @JsonIgnore
-
-  public Integer getHeightAboveFrontAxle() {
-        return heightAboveFrontAxle.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_HEIGHT_ABOVE_FRONT_AXLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getHeightAboveFrontAxle_JsonNullable() {
+  public Integer getHeightAboveFrontAxle() {
     return heightAboveFrontAxle;
   }
-  
-  @JsonProperty(JSON_PROPERTY_HEIGHT_ABOVE_FRONT_AXLE)
-  public void setHeightAboveFrontAxle_JsonNullable(JsonNullable<Integer> heightAboveFrontAxle) {
-    this.heightAboveFrontAxle = heightAboveFrontAxle;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_HEIGHT_ABOVE_FRONT_AXLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHeightAboveFrontAxle(Integer heightAboveFrontAxle) {
-    this.heightAboveFrontAxle = JsonNullable.<Integer>of(heightAboveFrontAxle);
+    this.heightAboveFrontAxle = heightAboveFrontAxle;
   }
 
 
   public Vehicle length(Integer length) {
-    this.length = JsonNullable.<Integer>of(length);
+    this.length = length;
     return this;
   }
 
@@ -922,32 +725,23 @@ public class Vehicle {
    * @return length
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1650", value = "The length of the vehicle [cm].  Relevant for `routing`, `toll`. ")
-  @JsonIgnore
-
-  public Integer getLength() {
-        return length.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_LENGTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getLength_JsonNullable() {
+  public Integer getLength() {
     return length;
   }
-  
-  @JsonProperty(JSON_PROPERTY_LENGTH)
-  public void setLength_JsonNullable(JsonNullable<Integer> length) {
-    this.length = length;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_LENGTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLength(Integer length) {
-    this.length = JsonNullable.<Integer>of(length);
+    this.length = length;
   }
 
 
   public Vehicle width(Integer width) {
-    this.width = JsonNullable.<Integer>of(width);
+    this.width = width;
     return this;
   }
 
@@ -957,44 +751,31 @@ public class Vehicle {
    * @return width
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "254", value = "The width of the vehicle [cm].  Relevant for `routing`, `toll`. ")
-  @JsonIgnore
-
-  public Integer getWidth() {
-        return width.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_WIDTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getWidth_JsonNullable() {
+  public Integer getWidth() {
     return width;
   }
-  
-  @JsonProperty(JSON_PROPERTY_WIDTH)
-  public void setWidth_JsonNullable(JsonNullable<Integer> width) {
-    this.width = width;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_WIDTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWidth(Integer width) {
-    this.width = JsonNullable.<Integer>of(width);
+    this.width = width;
   }
 
 
   public Vehicle hazardousMaterials(List<HazardousMaterials> hazardousMaterials) {
-    this.hazardousMaterials = JsonNullable.<List<HazardousMaterials>>of(hazardousMaterials);
+    this.hazardousMaterials = hazardousMaterials;
     return this;
   }
 
   public Vehicle addHazardousMaterialsItem(HazardousMaterials hazardousMaterialsItem) {
-    if (this.hazardousMaterials == null || !this.hazardousMaterials.isPresent()) {
-      this.hazardousMaterials = JsonNullable.<List<HazardousMaterials>>of(new ArrayList<>());
+    if (this.hazardousMaterials == null) {
+      this.hazardousMaterials = new ArrayList<>();
     }
-    try {
-      this.hazardousMaterials.get().add(hazardousMaterialsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.hazardousMaterials.add(hazardousMaterialsItem);
     return this;
   }
 
@@ -1003,32 +784,23 @@ public class Vehicle {
    * @return hazardousMaterials
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comma-separated list of hazardous materials the vehicle has loaded.  Relevant for `routing`. ")
-  @JsonIgnore
-
-  public List<HazardousMaterials> getHazardousMaterials() {
-        return hazardousMaterials.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_HAZARDOUS_MATERIALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<HazardousMaterials>> getHazardousMaterials_JsonNullable() {
+  public List<HazardousMaterials> getHazardousMaterials() {
     return hazardousMaterials;
   }
-  
-  @JsonProperty(JSON_PROPERTY_HAZARDOUS_MATERIALS)
-  public void setHazardousMaterials_JsonNullable(JsonNullable<List<HazardousMaterials>> hazardousMaterials) {
-    this.hazardousMaterials = hazardousMaterials;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_HAZARDOUS_MATERIALS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHazardousMaterials(List<HazardousMaterials> hazardousMaterials) {
-    this.hazardousMaterials = JsonNullable.<List<HazardousMaterials>>of(hazardousMaterials);
+    this.hazardousMaterials = hazardousMaterials;
   }
 
 
   public Vehicle tunnelRestrictionCode(TunnelRestrictionCode tunnelRestrictionCode) {
-    this.tunnelRestrictionCode = JsonNullable.<TunnelRestrictionCode>of(tunnelRestrictionCode);
+    this.tunnelRestrictionCode = tunnelRestrictionCode;
     return this;
   }
 
@@ -1037,78 +809,56 @@ public class Vehicle {
    * @return tunnelRestrictionCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public TunnelRestrictionCode getTunnelRestrictionCode() {
-        return tunnelRestrictionCode.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_TUNNEL_RESTRICTION_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<TunnelRestrictionCode> getTunnelRestrictionCode_JsonNullable() {
+  public TunnelRestrictionCode getTunnelRestrictionCode() {
     return tunnelRestrictionCode;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TUNNEL_RESTRICTION_CODE)
-  public void setTunnelRestrictionCode_JsonNullable(JsonNullable<TunnelRestrictionCode> tunnelRestrictionCode) {
-    this.tunnelRestrictionCode = tunnelRestrictionCode;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_TUNNEL_RESTRICTION_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTunnelRestrictionCode(TunnelRestrictionCode tunnelRestrictionCode) {
-    this.tunnelRestrictionCode = JsonNullable.<TunnelRestrictionCode>of(tunnelRestrictionCode);
+    this.tunnelRestrictionCode = tunnelRestrictionCode;
   }
 
 
   public Vehicle truckRoutes(List<TruckRoutes> truckRoutes) {
-    this.truckRoutes = JsonNullable.<List<TruckRoutes>>of(truckRoutes);
+    this.truckRoutes = truckRoutes;
     return this;
   }
 
   public Vehicle addTruckRoutesItem(TruckRoutes truckRoutesItem) {
-    if (this.truckRoutes == null || !this.truckRoutes.isPresent()) {
-      this.truckRoutes = JsonNullable.<List<TruckRoutes>>of(new ArrayList<>());
+    if (this.truckRoutes == null) {
+      this.truckRoutes = new ArrayList<>();
     }
-    try {
-      this.truckRoutes.get().add(truckRoutesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.truckRoutes.add(truckRoutesItem);
     return this;
   }
 
    /**
-   * Comma-separated list of truck routes the vehicle has to follow. This parameter will be ignored for non-truck profiles such as EUR_CAR, EUR_VAN, USA_1_PICKUP or AUS_LCV_LIGHT_COMMERCIAL.  * &#x60;DE_LKWUEBERLSTVAUSNV&#x60;  Preferred routes for long trucks in Germany, also known as Lang-LKW.  * &#x60;NL_LZV&#x60;  Preferred routes for long trucks in the Netherlands, also known as LZV (Langere en Zwaardere Vrachtautocombinatie).  * &#x60;NZ_HPMV&#x60;  The network for High Productivity Motor Vehicles (HPMV) carrying the maximum loads available under a permit (New Zeland Transport Agency).  * &#x60;SE_BK_1&#x60;  Public roads and bridges that support up to 64 t total permitted weight (Swedish Transport Administration).  * &#x60;SE_BK_2&#x60;  Public roads and bridges that support up to 51.4 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * &#x60;SE_BK_3&#x60;  Public roads and bridges that support up to 37.5 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * &#x60;SE_BK_4&#x60;  Public roads and bridges that support up to 74 t total permitted weight (draft summer 2018, Swedish Transport Administration).  * &#x60;US_STAA&#x60;  Routes that belong to the highway network as defined by the Surface Transportation Assistance Act in the US.  * &#x60;US_TD&#x60;  Part of a state-designated highway network for trucks in the US.  * &#x60;AU_B_DOUBLE&#x60;  B-Double routes as defined in Australia.  * &#x60;AU_B_DOUBLE_HML&#x60;  Routes for B-Double vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;AU_B_TRIPLE&#x60;  B-Triple routes as defined in Australia.  * &#x60;AU_B_TRIPLE_HML&#x60;  Routes for B-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;AU_AB_TRIPLE&#x60;  Routes for AB-Triple vehicle combinations operating (Australian Transport Administration).  * &#x60;AU_AB_TRIPLE_HML&#x60;  Routes for AB-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;NONE&#x60;  This value does not refer to a truck route. Use a list with only the _NONE_ value for the truck routes  at a waypoint to specify that no truck route must be used from that waypoint on. An empty list of truck routes  at a waypoint means that the truck routes don&#39;t change at the waypoint. If _NONE_ is specified along with other  truck routes it is ignored.  Relevant for &#x60;routing&#x60;. Cannot be used with **options[routingMode]&#x3D;MONETARY**. 
+   * Comma-separated list of truck routes the vehicle has to follow. This parameter will be ignored for non-truck profiles such as EUR_CAR, EUR_VAN, USA_1_PICKUP or AUS_LCV_LIGHT_COMMERCIAL.  * &#x60;DE_LKWUEBERLSTVAUSNV&#x60;  Preferred routes for long trucks in Germany, also known as Lang-LKW.  * &#x60;NL_LZV&#x60;  Preferred routes for long trucks in the Netherlands, also known as LZV (Langere en Zwaardere Vrachtautocombinatie).  * &#x60;NZ_HPMV&#x60;  The network for High Productivity Motor Vehicles (HPMV) carrying the maximum loads available under a permit (New Zeland Transport Agency).  * &#x60;SE_BK_1&#x60;  Public roads and bridges that support up to 64 t total permitted weight (Swedish Transport Administration).  * &#x60;SE_BK_2&#x60;  Public roads and bridges that support up to 51.4 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * &#x60;SE_BK_3&#x60;  Public roads and bridges that support up to 37.5 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * &#x60;SE_BK_4&#x60;  Public roads and bridges that support up to 74 t total permitted weight (draft summer 2018, Swedish Transport Administration).  * &#x60;US_STAA&#x60;  Routes that belong to the highway network as defined by the Surface Transportation Assistance Act in the US.  * &#x60;US_TD&#x60;  Part of a state-designated highway network for trucks in the US.  * &#x60;AU_B_DOUBLE&#x60;  B-Double routes as defined in Australia.  * &#x60;AU_B_DOUBLE_HML&#x60;  Routes for B-Double vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;AU_B_TRIPLE&#x60;  B-Triple routes as defined in Australia.  * &#x60;AU_B_TRIPLE_HML&#x60;  Routes for B-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;AU_AB_TRIPLE&#x60;  Routes for AB-Triple vehicle combinations operating (Australian Transport Administration).  * &#x60;AU_AB_TRIPLE_HML&#x60;  Routes for AB-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;NONE&#x60;  Not used.  Relevant for &#x60;routing&#x60;. Cannot be used with **options[routingMode]&#x3D;MONETARY**. 
    * @return truckRoutes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comma-separated list of truck routes the vehicle has to follow. This parameter will be ignored for non-truck profiles such as EUR_CAR, EUR_VAN, USA_1_PICKUP or AUS_LCV_LIGHT_COMMERCIAL.  * `DE_LKWUEBERLSTVAUSNV`  Preferred routes for long trucks in Germany, also known as Lang-LKW.  * `NL_LZV`  Preferred routes for long trucks in the Netherlands, also known as LZV (Langere en Zwaardere Vrachtautocombinatie).  * `NZ_HPMV`  The network for High Productivity Motor Vehicles (HPMV) carrying the maximum loads available under a permit (New Zeland Transport Agency).  * `SE_BK_1`  Public roads and bridges that support up to 64 t total permitted weight (Swedish Transport Administration).  * `SE_BK_2`  Public roads and bridges that support up to 51.4 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * `SE_BK_3`  Public roads and bridges that support up to 37.5 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * `SE_BK_4`  Public roads and bridges that support up to 74 t total permitted weight (draft summer 2018, Swedish Transport Administration).  * `US_STAA`  Routes that belong to the highway network as defined by the Surface Transportation Assistance Act in the US.  * `US_TD`  Part of a state-designated highway network for trucks in the US.  * `AU_B_DOUBLE`  B-Double routes as defined in Australia.  * `AU_B_DOUBLE_HML`  Routes for B-Double vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * `AU_B_TRIPLE`  B-Triple routes as defined in Australia.  * `AU_B_TRIPLE_HML`  Routes for B-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * `AU_AB_TRIPLE`  Routes for AB-Triple vehicle combinations operating (Australian Transport Administration).  * `AU_AB_TRIPLE_HML`  Routes for AB-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * `NONE`  This value does not refer to a truck route. Use a list with only the _NONE_ value for the truck routes  at a waypoint to specify that no truck route must be used from that waypoint on. An empty list of truck routes  at a waypoint means that the truck routes don't change at the waypoint. If _NONE_ is specified along with other  truck routes it is ignored.  Relevant for `routing`. Cannot be used with **options[routingMode]=MONETARY**. ")
-  @JsonIgnore
-
-  public List<TruckRoutes> getTruckRoutes() {
-        return truckRoutes.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_TRUCK_ROUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<TruckRoutes>> getTruckRoutes_JsonNullable() {
+  public List<TruckRoutes> getTruckRoutes() {
     return truckRoutes;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TRUCK_ROUTES)
-  public void setTruckRoutes_JsonNullable(JsonNullable<List<TruckRoutes>> truckRoutes) {
-    this.truckRoutes = truckRoutes;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_TRUCK_ROUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTruckRoutes(List<TruckRoutes> truckRoutes) {
-    this.truckRoutes = JsonNullable.<List<TruckRoutes>>of(truckRoutes);
+    this.truckRoutes = truckRoutes;
   }
 
 
   public Vehicle commercial(Boolean commercial) {
-    this.commercial = JsonNullable.<Boolean>of(commercial);
+    this.commercial = commercial;
     return this;
   }
 
@@ -1117,44 +867,31 @@ public class Vehicle {
    * @return commercial
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "Specifies if the vehicle usage is commercial.  Relevant for `toll`. ")
-  @JsonIgnore
-
-  public Boolean getCommercial() {
-        return commercial.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_COMMERCIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Boolean> getCommercial_JsonNullable() {
+  public Boolean getCommercial() {
     return commercial;
   }
-  
-  @JsonProperty(JSON_PROPERTY_COMMERCIAL)
-  public void setCommercial_JsonNullable(JsonNullable<Boolean> commercial) {
-    this.commercial = commercial;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_COMMERCIAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommercial(Boolean commercial) {
-    this.commercial = JsonNullable.<Boolean>of(commercial);
+    this.commercial = commercial;
   }
 
 
   public Vehicle etcSubscriptions(List<EtcSubscriptionTypes> etcSubscriptions) {
-    this.etcSubscriptions = JsonNullable.<List<EtcSubscriptionTypes>>of(etcSubscriptions);
+    this.etcSubscriptions = etcSubscriptions;
     return this;
   }
 
   public Vehicle addEtcSubscriptionsItem(EtcSubscriptionTypes etcSubscriptionsItem) {
-    if (this.etcSubscriptions == null || !this.etcSubscriptions.isPresent()) {
-      this.etcSubscriptions = JsonNullable.<List<EtcSubscriptionTypes>>of(new ArrayList<>());
+    if (this.etcSubscriptions == null) {
+      this.etcSubscriptions = new ArrayList<>();
     }
-    try {
-      this.etcSubscriptions.get().add(etcSubscriptionsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.etcSubscriptions.add(etcSubscriptionsItem);
     return this;
   }
 
@@ -1163,27 +900,18 @@ public class Vehicle {
    * @return etcSubscriptions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A comma separated list of ETC Subscriptions. See [here](../routing-api/concepts/electronic-toll-collection) for more information on available subscriptions.  Relevant for `toll`. ")
-  @JsonIgnore
-
-  public List<EtcSubscriptionTypes> getEtcSubscriptions() {
-        return etcSubscriptions.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_ETC_SUBSCRIPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<EtcSubscriptionTypes>> getEtcSubscriptions_JsonNullable() {
+  public List<EtcSubscriptionTypes> getEtcSubscriptions() {
     return etcSubscriptions;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ETC_SUBSCRIPTIONS)
-  public void setEtcSubscriptions_JsonNullable(JsonNullable<List<EtcSubscriptionTypes>> etcSubscriptions) {
-    this.etcSubscriptions = etcSubscriptions;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_ETC_SUBSCRIPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEtcSubscriptions(List<EtcSubscriptionTypes> etcSubscriptions) {
-    this.etcSubscriptions = JsonNullable.<List<EtcSubscriptionTypes>>of(etcSubscriptions);
+    this.etcSubscriptions = etcSubscriptions;
   }
 
 
@@ -1199,50 +927,39 @@ public class Vehicle {
       return false;
     }
     Vehicle vehicle = (Vehicle) o;
-    return equalsNullable(this.engineType, vehicle.engineType) &&
-        equalsNullable(this.fuelType, vehicle.fuelType) &&
-        equalsNullable(this.electricityType, vehicle.electricityType) &&
-        equalsNullable(this.averageFuelConsumption, vehicle.averageFuelConsumption) &&
-        equalsNullable(this.averageElectricityConsumption, vehicle.averageElectricityConsumption) &&
-        equalsNullable(this.bioFuelRatio, vehicle.bioFuelRatio) &&
-        equalsNullable(this.hybridRatio, vehicle.hybridRatio) &&
-        equalsNullable(this.dualFuelRatio, vehicle.dualFuelRatio) &&
-        equalsNullable(this.cylinderCapacity, vehicle.cylinderCapacity) &&
-        equalsNullable(this.emissionStandard, vehicle.emissionStandard) &&
-        equalsNullable(this.co2EmissionClass, vehicle.co2EmissionClass) &&
-        equalsNullable(this.lowEmissionZoneTypes, vehicle.lowEmissionZoneTypes) &&
-        equalsNullable(this.particleReductionClass, vehicle.particleReductionClass) &&
-        equalsNullable(this.emptyWeight, vehicle.emptyWeight) &&
-        equalsNullable(this.loadWeight, vehicle.loadWeight) &&
-        equalsNullable(this.totalPermittedWeight, vehicle.totalPermittedWeight) &&
-        equalsNullable(this.axleWeight, vehicle.axleWeight) &&
-        equalsNullable(this.numberOfAxles, vehicle.numberOfAxles) &&
-        equalsNullable(this.numberOfTires, vehicle.numberOfTires) &&
-        equalsNullable(this.height, vehicle.height) &&
-        equalsNullable(this.heightAboveFrontAxle, vehicle.heightAboveFrontAxle) &&
-        equalsNullable(this.length, vehicle.length) &&
-        equalsNullable(this.width, vehicle.width) &&
-        equalsNullable(this.hazardousMaterials, vehicle.hazardousMaterials) &&
-        equalsNullable(this.tunnelRestrictionCode, vehicle.tunnelRestrictionCode) &&
-        equalsNullable(this.truckRoutes, vehicle.truckRoutes) &&
-        equalsNullable(this.commercial, vehicle.commercial) &&
-        equalsNullable(this.etcSubscriptions, vehicle.etcSubscriptions);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.engineType, vehicle.engineType) &&
+        Objects.equals(this.fuelType, vehicle.fuelType) &&
+        Objects.equals(this.electricityType, vehicle.electricityType) &&
+        Objects.equals(this.averageFuelConsumption, vehicle.averageFuelConsumption) &&
+        Objects.equals(this.averageElectricityConsumption, vehicle.averageElectricityConsumption) &&
+        Objects.equals(this.bioFuelRatio, vehicle.bioFuelRatio) &&
+        Objects.equals(this.hybridRatio, vehicle.hybridRatio) &&
+        Objects.equals(this.dualFuelRatio, vehicle.dualFuelRatio) &&
+        Objects.equals(this.cylinderCapacity, vehicle.cylinderCapacity) &&
+        Objects.equals(this.emissionStandard, vehicle.emissionStandard) &&
+        Objects.equals(this.co2EmissionClass, vehicle.co2EmissionClass) &&
+        Objects.equals(this.lowEmissionZoneTypes, vehicle.lowEmissionZoneTypes) &&
+        Objects.equals(this.particleReductionClass, vehicle.particleReductionClass) &&
+        Objects.equals(this.emptyWeight, vehicle.emptyWeight) &&
+        Objects.equals(this.loadWeight, vehicle.loadWeight) &&
+        Objects.equals(this.totalPermittedWeight, vehicle.totalPermittedWeight) &&
+        Objects.equals(this.axleWeight, vehicle.axleWeight) &&
+        Objects.equals(this.numberOfAxles, vehicle.numberOfAxles) &&
+        Objects.equals(this.numberOfTires, vehicle.numberOfTires) &&
+        Objects.equals(this.height, vehicle.height) &&
+        Objects.equals(this.heightAboveFrontAxle, vehicle.heightAboveFrontAxle) &&
+        Objects.equals(this.length, vehicle.length) &&
+        Objects.equals(this.width, vehicle.width) &&
+        Objects.equals(this.hazardousMaterials, vehicle.hazardousMaterials) &&
+        Objects.equals(this.tunnelRestrictionCode, vehicle.tunnelRestrictionCode) &&
+        Objects.equals(this.truckRoutes, vehicle.truckRoutes) &&
+        Objects.equals(this.commercial, vehicle.commercial) &&
+        Objects.equals(this.etcSubscriptions, vehicle.etcSubscriptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(engineType), hashCodeNullable(fuelType), hashCodeNullable(electricityType), hashCodeNullable(averageFuelConsumption), hashCodeNullable(averageElectricityConsumption), hashCodeNullable(bioFuelRatio), hashCodeNullable(hybridRatio), hashCodeNullable(dualFuelRatio), hashCodeNullable(cylinderCapacity), hashCodeNullable(emissionStandard), hashCodeNullable(co2EmissionClass), hashCodeNullable(lowEmissionZoneTypes), hashCodeNullable(particleReductionClass), hashCodeNullable(emptyWeight), hashCodeNullable(loadWeight), hashCodeNullable(totalPermittedWeight), hashCodeNullable(axleWeight), hashCodeNullable(numberOfAxles), hashCodeNullable(numberOfTires), hashCodeNullable(height), hashCodeNullable(heightAboveFrontAxle), hashCodeNullable(length), hashCodeNullable(width), hashCodeNullable(hazardousMaterials), hashCodeNullable(tunnelRestrictionCode), hashCodeNullable(truckRoutes), hashCodeNullable(commercial), hashCodeNullable(etcSubscriptions));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(engineType, fuelType, electricityType, averageFuelConsumption, averageElectricityConsumption, bioFuelRatio, hybridRatio, dualFuelRatio, cylinderCapacity, emissionStandard, co2EmissionClass, lowEmissionZoneTypes, particleReductionClass, emptyWeight, loadWeight, totalPermittedWeight, axleWeight, numberOfAxles, numberOfTires, height, heightAboveFrontAxle, length, width, hazardousMaterials, tunnelRestrictionCode, truckRoutes, commercial, etcSubscriptions);
   }
 
   @Override
@@ -1292,5 +1009,203 @@ public class Vehicle {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `engineType` to the URL query string
+    if (getEngineType() != null) {
+      joiner.add(String.format("%sengineType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEngineType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `fuelType` to the URL query string
+    if (getFuelType() != null) {
+      joiner.add(String.format("%sfuelType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFuelType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `electricityType` to the URL query string
+    if (getElectricityType() != null) {
+      joiner.add(String.format("%selectricityType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getElectricityType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `averageFuelConsumption` to the URL query string
+    if (getAverageFuelConsumption() != null) {
+      joiner.add(String.format("%saverageFuelConsumption%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAverageFuelConsumption()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `averageElectricityConsumption` to the URL query string
+    if (getAverageElectricityConsumption() != null) {
+      joiner.add(String.format("%saverageElectricityConsumption%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAverageElectricityConsumption()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `bioFuelRatio` to the URL query string
+    if (getBioFuelRatio() != null) {
+      joiner.add(String.format("%sbioFuelRatio%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBioFuelRatio()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `hybridRatio` to the URL query string
+    if (getHybridRatio() != null) {
+      joiner.add(String.format("%shybridRatio%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHybridRatio()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `dualFuelRatio` to the URL query string
+    if (getDualFuelRatio() != null) {
+      joiner.add(String.format("%sdualFuelRatio%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDualFuelRatio()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `cylinderCapacity` to the URL query string
+    if (getCylinderCapacity() != null) {
+      joiner.add(String.format("%scylinderCapacity%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCylinderCapacity()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `emissionStandard` to the URL query string
+    if (getEmissionStandard() != null) {
+      joiner.add(String.format("%semissionStandard%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmissionStandard()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `co2EmissionClass` to the URL query string
+    if (getCo2EmissionClass() != null) {
+      joiner.add(String.format("%sco2EmissionClass%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCo2EmissionClass()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `lowEmissionZoneTypes` to the URL query string
+    if (getLowEmissionZoneTypes() != null) {
+      for (int i = 0; i < getLowEmissionZoneTypes().size(); i++) {
+        if (getLowEmissionZoneTypes().get(i) != null) {
+          joiner.add(String.format("%slowEmissionZoneTypes%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getLowEmissionZoneTypes().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `particleReductionClass` to the URL query string
+    if (getParticleReductionClass() != null) {
+      joiner.add(String.format("%sparticleReductionClass%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getParticleReductionClass()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `emptyWeight` to the URL query string
+    if (getEmptyWeight() != null) {
+      joiner.add(String.format("%semptyWeight%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmptyWeight()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `loadWeight` to the URL query string
+    if (getLoadWeight() != null) {
+      joiner.add(String.format("%sloadWeight%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLoadWeight()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `totalPermittedWeight` to the URL query string
+    if (getTotalPermittedWeight() != null) {
+      joiner.add(String.format("%stotalPermittedWeight%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTotalPermittedWeight()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `axleWeight` to the URL query string
+    if (getAxleWeight() != null) {
+      joiner.add(String.format("%saxleWeight%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAxleWeight()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `numberOfAxles` to the URL query string
+    if (getNumberOfAxles() != null) {
+      joiner.add(String.format("%snumberOfAxles%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNumberOfAxles()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `numberOfTires` to the URL query string
+    if (getNumberOfTires() != null) {
+      joiner.add(String.format("%snumberOfTires%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNumberOfTires()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `height` to the URL query string
+    if (getHeight() != null) {
+      joiner.add(String.format("%sheight%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHeight()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `heightAboveFrontAxle` to the URL query string
+    if (getHeightAboveFrontAxle() != null) {
+      joiner.add(String.format("%sheightAboveFrontAxle%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHeightAboveFrontAxle()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `length` to the URL query string
+    if (getLength() != null) {
+      joiner.add(String.format("%slength%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLength()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `width` to the URL query string
+    if (getWidth() != null) {
+      joiner.add(String.format("%swidth%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getWidth()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `hazardousMaterials` to the URL query string
+    if (getHazardousMaterials() != null) {
+      for (int i = 0; i < getHazardousMaterials().size(); i++) {
+        if (getHazardousMaterials().get(i) != null) {
+          joiner.add(String.format("%shazardousMaterials%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getHazardousMaterials().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `tunnelRestrictionCode` to the URL query string
+    if (getTunnelRestrictionCode() != null) {
+      joiner.add(String.format("%stunnelRestrictionCode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTunnelRestrictionCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `truckRoutes` to the URL query string
+    if (getTruckRoutes() != null) {
+      for (int i = 0; i < getTruckRoutes().size(); i++) {
+        if (getTruckRoutes().get(i) != null) {
+          joiner.add(String.format("%struckRoutes%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getTruckRoutes().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `commercial` to the URL query string
+    if (getCommercial() != null) {
+      joiner.add(String.format("%scommercial%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCommercial()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `etcSubscriptions` to the URL query string
+    if (getEtcSubscriptions() != null) {
+      for (int i = 0; i < getEtcSubscriptions().size(); i++) {
+        if (getEtcSubscriptions().get(i) != null) {
+          joiner.add(String.format("%setcSubscriptions%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getEtcSubscriptions().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    return joiner.toString();
+  }
 }
 

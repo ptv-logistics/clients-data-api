@@ -13,8 +13,10 @@
 
 package com.ptvgroup.developer.client.data.model;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,19 +24,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
  * The attributes assigned to each of the selected roads.
  */
-@ApiModel(description = "The attributes assigned to each of the selected roads.")
 @JsonPropertyOrder({
   RoadAttributes.JSON_PROPERTY_PROHIBITED
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-30T06:51:07.244706Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-15T14:24:16.580606Z[Etc/UTC]")
 public class RoadAttributes {
   public static final String JSON_PROPERTY_PROHIBITED = "prohibited";
   private Boolean prohibited;
@@ -52,7 +52,6 @@ public class RoadAttributes {
    * @return prohibited
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The road is prohibited, it will not be used in route calculation. Setting this value to false does not have a meaning.")
   @JsonProperty(JSON_PROPERTY_PROHIBITED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -108,5 +107,44 @@ public class RoadAttributes {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `prohibited` to the URL query string
+    if (getProhibited() != null) {
+      joiner.add(String.format("%sprohibited%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getProhibited()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

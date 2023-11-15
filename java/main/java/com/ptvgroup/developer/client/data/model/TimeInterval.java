@@ -13,8 +13,10 @@
 
 package com.ptvgroup.developer.client.data.model;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,21 +24,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
  * A period during which the road attributes are valid.
  */
-@ApiModel(description = "A period during which the road attributes are valid.")
 @JsonPropertyOrder({
   TimeInterval.JSON_PROPERTY_START,
   TimeInterval.JSON_PROPERTY_END
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-30T06:51:07.244706Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-15T14:24:16.580606Z[Etc/UTC]")
 public class TimeInterval {
   public static final String JSON_PROPERTY_START = "start";
   private OffsetDateTime start;
@@ -57,7 +57,6 @@ public class TimeInterval {
    * @return start
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "2020-12-07T00:00Z", required = true, value = "The beginning of the time interval according to [RFC 3339](https://tools.ietf.org/html/rfc3339). The date must not be before 1970-01-01T00:00:00+00:00 nor after 2037-12-31T23:59:59+00:00. If the date-time string does not include an explicit offset to UTC, the time will be interpreted as the local time of the first road found.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -83,7 +82,6 @@ public class TimeInterval {
    * @return end
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "2020-12-07T01:00Z", required = true, value = "The end of the time interval according to [RFC 3339](https://tools.ietf.org/html/rfc3339). The date must not be before 1970-01-01T00:00:00+00:00 nor after 2037-12-31T23:59:59+00:00. It must not be before the start of the interval. If the date-time string does not include an explicit offset to UTC, the time will be interpreted as the local time of the first road found.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -141,5 +139,49 @@ public class TimeInterval {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `start` to the URL query string
+    if (getStart() != null) {
+      joiner.add(String.format("%sstart%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStart()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `end` to the URL query string
+    if (getEnd() != null) {
+      joiner.add(String.format("%send%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEnd()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

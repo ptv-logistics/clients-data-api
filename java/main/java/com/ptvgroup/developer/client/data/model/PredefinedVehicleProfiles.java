@@ -13,8 +13,10 @@
 
 package com.ptvgroup.developer.client.data.model;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -23,9 +25,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.ptvgroup.developer.client.data.model.PredefinedVehicleProfile;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -36,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   PredefinedVehicleProfiles.JSON_PROPERTY_PROFILES
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-30T06:51:07.244706Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-15T14:24:16.580606Z[Etc/UTC]")
 public class PredefinedVehicleProfiles {
   public static final String JSON_PROPERTY_PROFILES = "profiles";
   private List<PredefinedVehicleProfile> profiles = new ArrayList<>();
@@ -50,6 +51,9 @@ public class PredefinedVehicleProfiles {
   }
 
   public PredefinedVehicleProfiles addProfilesItem(PredefinedVehicleProfile profilesItem) {
+    if (this.profiles == null) {
+      this.profiles = new ArrayList<>();
+    }
     this.profiles.add(profilesItem);
     return this;
   }
@@ -59,7 +63,6 @@ public class PredefinedVehicleProfiles {
    * @return profiles
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A list of predefined vehicle profiles.")
   @JsonProperty(JSON_PROPERTY_PROFILES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -115,5 +118,49 @@ public class PredefinedVehicleProfiles {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `profiles` to the URL query string
+    if (getProfiles() != null) {
+      for (int i = 0; i < getProfiles().size(); i++) {
+        if (getProfiles().get(i) != null) {
+          joiner.add(getProfiles().get(i).toUrlQueryString(String.format("%sprofiles%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    return joiner.toString();
+  }
 }
 

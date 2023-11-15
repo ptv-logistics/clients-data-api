@@ -28,8 +28,15 @@ import java.util.UUID;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.IOException;
 import java.io.InputStream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.http.HttpRequest;
+import java.nio.channels.Channels;
+import java.nio.channels.Pipe;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -43,7 +50,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-30T06:51:07.244706Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-15T14:24:16.580606Z[Etc/UTC]")
 public class CustomRoadAttributesApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
@@ -82,7 +89,7 @@ public class CustomRoadAttributesApi {
 
   /**
    * 
-   * Create a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+   * Create a custom road attribute scenario.
    * @param customRoadAttributeScenario The roads to be attributed. (required)
    * @param results Defines which results will be returned. (optional
    * @param polylineFormat  (optional, default to GEO_JSON)
@@ -96,7 +103,7 @@ public class CustomRoadAttributesApi {
 
   /**
    * 
-   * Create a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+   * Create a custom road attribute scenario.
    * @param customRoadAttributeScenario The roads to be attributed. (required)
    * @param results Defines which results will be returned. (optional
    * @param polylineFormat  (optional, default to GEO_JSON)
@@ -119,8 +126,7 @@ public class CustomRoadAttributesApi {
         return new ApiResponse<CustomRoadAttributeScenario>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CustomRoadAttributeScenario>() {}) // closes the InputStream
-          
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CustomRoadAttributeScenario>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -145,12 +151,19 @@ public class CustomRoadAttributesApi {
     String localVarPath = "/road-attributes";
 
     List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "results";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("multi", "results", results));
+    localVarQueryParameterBaseName = "polylineFormat";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("polylineFormat", polylineFormat));
 
-    if (!localVarQueryParams.isEmpty()) {
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");
       localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
       localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
     } else {
       localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
@@ -175,7 +188,7 @@ public class CustomRoadAttributesApi {
   }
   /**
    * 
-   * Delete a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+   * Delete a custom road attribute scenario.
    * @param scenarioId The ID of the custom road attribute scenario. (required)
    * @throws ApiException if fails to make API call
    */
@@ -185,7 +198,7 @@ public class CustomRoadAttributesApi {
 
   /**
    * 
-   * Delete a custom road attribute scenario.  This method is in an experimental state and may change at any time.
+   * Delete a custom road attribute scenario.
    * @param scenarioId The ID of the custom road attribute scenario. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -206,7 +219,6 @@ public class CustomRoadAttributesApi {
         return new ApiResponse<Void>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          
           null
         );
       } finally {
@@ -252,7 +264,7 @@ public class CustomRoadAttributesApi {
   }
   /**
    * 
-   * Get a list of all custom road attribute scenarios of the current user.  This method is in an experimental state and may change at any time.
+   * Get a list of all custom road attribute scenarios of the current user.
    * @param results Defines which results will be returned. (optional
    * @param polylineFormat  (optional, default to GEO_JSON)
    * @return CustomRoadAttributeScenarioList
@@ -265,7 +277,7 @@ public class CustomRoadAttributesApi {
 
   /**
    * 
-   * Get a list of all custom road attribute scenarios of the current user.  This method is in an experimental state and may change at any time.
+   * Get a list of all custom road attribute scenarios of the current user.
    * @param results Defines which results will be returned. (optional
    * @param polylineFormat  (optional, default to GEO_JSON)
    * @return ApiResponse&lt;CustomRoadAttributeScenarioList&gt;
@@ -287,8 +299,7 @@ public class CustomRoadAttributesApi {
         return new ApiResponse<CustomRoadAttributeScenarioList>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CustomRoadAttributeScenarioList>() {}) // closes the InputStream
-          
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CustomRoadAttributeScenarioList>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -309,12 +320,19 @@ public class CustomRoadAttributesApi {
     String localVarPath = "/road-attributes";
 
     List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "results";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("multi", "results", results));
+    localVarQueryParameterBaseName = "polylineFormat";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("polylineFormat", polylineFormat));
 
-    if (!localVarQueryParams.isEmpty()) {
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");
       localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
       localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
     } else {
       localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
@@ -333,7 +351,7 @@ public class CustomRoadAttributesApi {
   }
   /**
    * 
-   * Get a custom road attribute scenario by its ID.  This method is in an experimental state and may change at any time.
+   * Get a custom road attribute scenario by its ID.
    * @param scenarioId The ID of the custom road attribute scenario. (required)
    * @param results Defines which results will be returned. (optional
    * @param polylineFormat  (optional, default to GEO_JSON)
@@ -347,7 +365,7 @@ public class CustomRoadAttributesApi {
 
   /**
    * 
-   * Get a custom road attribute scenario by its ID.  This method is in an experimental state and may change at any time.
+   * Get a custom road attribute scenario by its ID.
    * @param scenarioId The ID of the custom road attribute scenario. (required)
    * @param results Defines which results will be returned. (optional
    * @param polylineFormat  (optional, default to GEO_JSON)
@@ -370,8 +388,7 @@ public class CustomRoadAttributesApi {
         return new ApiResponse<CustomRoadAttributeScenario>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CustomRoadAttributeScenario>() {}) // closes the InputStream
-          
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CustomRoadAttributeScenario>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -397,12 +414,19 @@ public class CustomRoadAttributesApi {
         .replace("{scenarioId}", ApiClient.urlEncode(scenarioId.toString()));
 
     List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "results";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("multi", "results", results));
+    localVarQueryParameterBaseName = "polylineFormat";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("polylineFormat", polylineFormat));
 
-    if (!localVarQueryParams.isEmpty()) {
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");
       localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
       localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
     } else {
       localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
@@ -421,7 +445,7 @@ public class CustomRoadAttributesApi {
   }
   /**
    * 
-   * Get roads from (click) points on a map.  This method is in an experimental state and may change at any time.
+   * Get roads from (click) points on a map.
    * @param points A point or a polyline to select roads.  For a single point the road closest to this point will be returned. Several points will be considered a polyline and all roads intersected by this polyline will be returned. The polyline must not be closed, i.e. the first and the last point must be different. Ferries will not be selected.  Format: &#x60;&lt;point1_lat&gt;,&lt;point1_lon&gt;,...,&lt;pointN_lat&gt;,&lt;pointN_lon&gt;&#x60;.  A request will be rejected if it * does not contain an even number of coordinates, * contains a closed polyline, * contains invalid coordinates or * covers more than 5000 roads. (required)
    * @param polylineFormat  (optional, default to GEO_JSON)
    * @return RoadsResponse
@@ -434,7 +458,7 @@ public class CustomRoadAttributesApi {
 
   /**
    * 
-   * Get roads from (click) points on a map.  This method is in an experimental state and may change at any time.
+   * Get roads from (click) points on a map.
    * @param points A point or a polyline to select roads.  For a single point the road closest to this point will be returned. Several points will be considered a polyline and all roads intersected by this polyline will be returned. The polyline must not be closed, i.e. the first and the last point must be different. Ferries will not be selected.  Format: &#x60;&lt;point1_lat&gt;,&lt;point1_lon&gt;,...,&lt;pointN_lat&gt;,&lt;pointN_lon&gt;&#x60;.  A request will be rejected if it * does not contain an even number of coordinates, * contains a closed polyline, * contains invalid coordinates or * covers more than 5000 roads. (required)
    * @param polylineFormat  (optional, default to GEO_JSON)
    * @return ApiResponse&lt;RoadsResponse&gt;
@@ -456,8 +480,7 @@ public class CustomRoadAttributesApi {
         return new ApiResponse<RoadsResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<RoadsResponse>() {}) // closes the InputStream
-          
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<RoadsResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -482,12 +505,19 @@ public class CustomRoadAttributesApi {
     String localVarPath = "/roads";
 
     List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "polylineFormat";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("polylineFormat", polylineFormat));
+    localVarQueryParameterBaseName = "points";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("points", points));
 
-    if (!localVarQueryParams.isEmpty()) {
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");
       localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
       localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
     } else {
       localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
@@ -506,7 +536,7 @@ public class CustomRoadAttributesApi {
   }
   /**
    * 
-   * Perform a full update of an existing custom road attribute scenario.  This method is in an experimental state and may change at any time.
+   * Perform a full update of an existing custom road attribute scenario.
    * @param scenarioId The ID of the custom road attribute scenario. (required)
    * @param customRoadAttributeScenario The custom road attribute scenario to be updated. (required)
    * @param results Defines which results will be returned. (optional
@@ -521,7 +551,7 @@ public class CustomRoadAttributesApi {
 
   /**
    * 
-   * Perform a full update of an existing custom road attribute scenario.  This method is in an experimental state and may change at any time.
+   * Perform a full update of an existing custom road attribute scenario.
    * @param scenarioId The ID of the custom road attribute scenario. (required)
    * @param customRoadAttributeScenario The custom road attribute scenario to be updated. (required)
    * @param results Defines which results will be returned. (optional
@@ -545,8 +575,7 @@ public class CustomRoadAttributesApi {
         return new ApiResponse<CustomRoadAttributeScenario>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CustomRoadAttributeScenario>() {}) // closes the InputStream
-          
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CustomRoadAttributeScenario>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -576,12 +605,19 @@ public class CustomRoadAttributesApi {
         .replace("{scenarioId}", ApiClient.urlEncode(scenarioId.toString()));
 
     List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "results";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("multi", "results", results));
+    localVarQueryParameterBaseName = "polylineFormat";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("polylineFormat", polylineFormat));
 
-    if (!localVarQueryParams.isEmpty()) {
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");
       localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
       localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
     } else {
       localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));

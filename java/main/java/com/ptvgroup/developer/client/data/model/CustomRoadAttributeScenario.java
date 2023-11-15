@@ -13,8 +13,10 @@
 
 package com.ptvgroup.developer.client.data.model;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -23,9 +25,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.ptvgroup.developer.client.data.model.RoadsToBeAttributed;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,7 +35,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 /**
  * A custom road attribute scenario.
  */
-@ApiModel(description = "A custom road attribute scenario.")
 @JsonPropertyOrder({
   CustomRoadAttributeScenario.JSON_PROPERTY_ID,
   CustomRoadAttributeScenario.JSON_PROPERTY_NAME,
@@ -43,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CustomRoadAttributeScenario.JSON_PROPERTY_ACTIVE,
   CustomRoadAttributeScenario.JSON_PROPERTY_REVISION
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-30T06:51:07.244706Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-15T14:24:16.580606Z[Etc/UTC]")
 public class CustomRoadAttributeScenario {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
@@ -79,7 +79,6 @@ public class CustomRoadAttributeScenario {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the custom road attribute scenario.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -100,7 +99,6 @@ public class CustomRoadAttributeScenario {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A user-defined name of the custom road attribute scenario. If specified, it must be unique for the current user. This name can be used in other APIs instead of its ID, then it must not contain a comma.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -122,6 +120,9 @@ public class CustomRoadAttributeScenario {
   }
 
   public CustomRoadAttributeScenario addRoadsToBeAttributedItem(RoadsToBeAttributed roadsToBeAttributedItem) {
+    if (this.roadsToBeAttributed == null) {
+      this.roadsToBeAttributed = new ArrayList<>();
+    }
     this.roadsToBeAttributed.add(roadsToBeAttributedItem);
     return this;
   }
@@ -131,7 +132,6 @@ public class CustomRoadAttributeScenario {
    * @return roadsToBeAttributed
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A collection of roads to be attributed.")
   @JsonProperty(JSON_PROPERTY_ROADS_TO_BE_ATTRIBUTED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -157,7 +157,6 @@ public class CustomRoadAttributeScenario {
    * @return shared
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If true, this custom road attribute scenario can be used by every user by its ID. Other users than the owner cannot modify or delete it nor will it be listed with **getAllCustomRoadAttributeScenarios**.")
   @JsonProperty(JSON_PROPERTY_SHARED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -183,7 +182,6 @@ public class CustomRoadAttributeScenario {
    * @return active
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If false, this custom road attribute scenario will be marked inactive and not used for subsequent route calculations until set active again. This is useful to ignore the scenario without deleting its contents.")
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -210,7 +208,6 @@ public class CustomRoadAttributeScenario {
    * @return revision
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The revision number of the custom road attribute scenario which will automatically be maintained by the server. In responses it will contain the number of updates of this specific scenario. When creating a scenario, it will be ignored. When updating a scenario, pass the number which you got from the server in the corresponding get request to make sure that the scenario has not been changed in the meantime. The server will reject updates for which the revision number does not match the revision stored in the database. When left empty in an update request, any changes will be overwritten.")
   @JsonProperty(JSON_PROPERTY_REVISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -276,5 +273,74 @@ public class CustomRoadAttributeScenario {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `id` to the URL query string
+    if (getId() != null) {
+      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `roadsToBeAttributed` to the URL query string
+    if (getRoadsToBeAttributed() != null) {
+      for (int i = 0; i < getRoadsToBeAttributed().size(); i++) {
+        if (getRoadsToBeAttributed().get(i) != null) {
+          joiner.add(getRoadsToBeAttributed().get(i).toUrlQueryString(String.format("%sroadsToBeAttributed%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `shared` to the URL query string
+    if (getShared() != null) {
+      joiner.add(String.format("%sshared%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getShared()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `active` to the URL query string
+    if (getActive() != null) {
+      joiner.add(String.format("%sactive%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getActive()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `revision` to the URL query string
+    if (getRevision() != null) {
+      joiner.add(String.format("%srevision%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRevision()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

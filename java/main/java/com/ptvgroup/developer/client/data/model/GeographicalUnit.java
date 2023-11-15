@@ -13,8 +13,10 @@
 
 package com.ptvgroup.developer.client.data.model;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,15 +26,13 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.ptvgroup.developer.client.data.model.Continent;
 import com.ptvgroup.developer.client.data.model.MapFeatures;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
  * Base type for a geographical unit. Depending on how the data are built up a country can have subdivisions, e.g. a state in the US, or not. 
  */
-@ApiModel(description = "Base type for a geographical unit. Depending on how the data are built up a country can have subdivisions, e.g. a state in the US, or not. ")
 @JsonPropertyOrder({
   GeographicalUnit.JSON_PROPERTY_CODE,
   GeographicalUnit.JSON_PROPERTY_COUNTRY,
@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GeographicalUnit.JSON_PROPERTY_CONTINENT,
   GeographicalUnit.JSON_PROPERTY_FEATURES
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-30T06:51:07.244706Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-15T14:24:16.580606Z[Etc/UTC]")
 public class GeographicalUnit {
   public static final String JSON_PROPERTY_CODE = "code";
   private String code;
@@ -70,7 +70,6 @@ public class GeographicalUnit {
    * @return code
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The code of the geographical unit represented by its code according to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) if referring to a subdivision.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -96,7 +95,6 @@ public class GeographicalUnit {
    * @return country
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The name of the country this geographical unit represents or belongs to.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -122,7 +120,6 @@ public class GeographicalUnit {
    * @return state
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the state this geographical unit represents. Not present if it represents a country.")
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -148,7 +145,6 @@ public class GeographicalUnit {
    * @return continent
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CONTINENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -174,7 +170,6 @@ public class GeographicalUnit {
    * @return features
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FEATURES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -238,5 +233,64 @@ public class GeographicalUnit {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `code` to the URL query string
+    if (getCode() != null) {
+      joiner.add(String.format("%scode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `country` to the URL query string
+    if (getCountry() != null) {
+      joiner.add(String.format("%scountry%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCountry()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `state` to the URL query string
+    if (getState() != null) {
+      joiner.add(String.format("%sstate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getState()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `continent` to the URL query string
+    if (getContinent() != null) {
+      joiner.add(String.format("%scontinent%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getContinent()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `features` to the URL query string
+    if (getFeatures() != null) {
+      joiner.add(getFeatures().toUrlQueryString(prefix + "features" + suffix));
+    }
+
+    return joiner.toString();
+  }
 }
 

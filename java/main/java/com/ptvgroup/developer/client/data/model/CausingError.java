@@ -13,8 +13,10 @@
 
 package com.ptvgroup.developer.client.data.model;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,8 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CausingError.JSON_PROPERTY_PARAMETER,
   CausingError.JSON_PROPERTY_DETAILS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-30T06:51:07.244706Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-15T14:24:16.580606Z[Etc/UTC]")
 public class CausingError {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -50,7 +51,7 @@ public class CausingError {
   private String parameter;
 
   public static final String JSON_PROPERTY_DETAILS = "details";
-  private Map<String, Object> details = null;
+  private Map<String, Object> details = new HashMap<>();
 
   public CausingError() { 
   }
@@ -65,7 +66,6 @@ public class CausingError {
    * @return description
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A human readable message that describes the error.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -91,7 +91,6 @@ public class CausingError {
    * @return errorCode
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A constant string that can be used to identify this error class programmatically. An errorCode can have **details** to provide information in additional properties which are described with the code they apply to. They are of type string unless otherwise specified. Note that additional errorCodes as well as the **details** of existing errorCodes may be added at any time. Furthermore, the **description** may change at any time.  **Error codes for** `GENERAL_VALIDATION_ERROR`  * `GENERAL_INVALID_VALUE` - A parameter is set to an invalid value.   * `value` - The invalid value. * `GENERAL_UNRECOGNIZED_PARAMETER` - A parameter is unknown. * `GENERAL_MISSING_PARAMETER` - A required parameter is missing. * `GENERAL_MINIMUM_LENGTH_VIOLATED` - The minimum length is violated.   * `minimumLength` - The minimum length (integer). * `GENERAL_MAXIMUM_LENGTH_VIOLATED` - The maximum length is violated.   * `maximumLength` - The maximum length (integer). * `GENERAL_MINIMUM_VALUE_VIOLATED` - The minimum value restriction is violated.   * `minimumValue` - The minimum value (integer or double). * `GENERAL_MAXIMUM_VALUE_VIOLATED` - The maximum value restriction is violated.   * `maximumValue` - The maximum value (integer or double). * `GENERAL_DUPLICATE_PARAMETER` - A parameter is duplicated. * `GENERAL_INVALID_LIST` - A list has an invalid format such as duplicate commas.   * `value` - The invalid list. * `GENERAL_INVALID_INTERVAL` - A time interval is invalid, i.e. start is greater than end. * `ROADATTRIBUTES_INVALID_NUMBER_OF_COORDINATES` - The points cannot be parsed because the number of coordinates is not even.   * `value` - The invalid parameter value. * `ROADATTRIBUTES_INVALID_COORDINATE` - The provided coordinate is not in the valid range or cannot be parsed.   * `value` - The invalid parameter value.   * `coordinateIndex` - The index denoting the erroneous coordinate within the polyline (integer). * `ROADATTRIBUTES_POLYLINE_MUST_NOT_BE_CLOSED` - The polyline must not be closed, i.e. first and last point must not be equal.   * `value` - The invalid parameter value. * `ROADATTRIBUTES_WEEKLY_SCHEDULE_EXCEEDS_ONE_WEEK` - The weekly schedule exceeds one week (168 hours).  **Error codes for** `ROADATTRIBUTES_RESTRICTION_EXCEEDED`  * `ROADATTRIBUTES_TOO_MANY_SCENARIOS` - Too many custom road attributes scenarios have been created. - _The **parameter** remains empty._   * `limit` - The maximum allowed number of custom road attribute scenarios (integer).  **Error codes for** `GENERAL_RESOURCE_NOT_FOUND`  * `GENERAL_INVALID_ID` - The ID does not exist.   * `value` - The invalid ID.  **Error codes for** `ROADATTRIBUTES_ERROR`  * `ROADATTRIBUTES_NO_ROAD_FOUND` - With the given points no road can be found.   * `value` - The invalid parameter value.   * `hint` - A hint how to solve the problem. * `ROADATTRIBUTES_DIRECTION_CANNOT_BE_APPLIED` - The direction cannot be applied to more than one road, use **direction** _BOTH_ instead.   * `value` - The invalid direction. * `ROADATTRIBUTES_UPDATE_NOT_MOST_RECENT_REVISION` - The scenario to be updated is not the most recent revision. Only the most recent revision can be updated. * `ROADATTRIBUTES_NAME_ALREADY_EXISTS` - A custom road attribute scenario with the same name already exists.   * `value` - The duplicate name.")
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -117,7 +116,6 @@ public class CausingError {
    * @return parameter
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the affected query or path parameter or a JSONPath to the affected property of the request.")
   @JsonProperty(JSON_PROPERTY_PARAMETER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -151,7 +149,6 @@ public class CausingError {
    * @return details
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Additional properties specific to this error class.")
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -213,5 +210,63 @@ public class CausingError {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `description` to the URL query string
+    if (getDescription() != null) {
+      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `errorCode` to the URL query string
+    if (getErrorCode() != null) {
+      joiner.add(String.format("%serrorCode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getErrorCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `parameter` to the URL query string
+    if (getParameter() != null) {
+      joiner.add(String.format("%sparameter%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getParameter()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `details` to the URL query string
+    if (getDetails() != null) {
+      for (String _key : getDetails().keySet()) {
+        joiner.add(String.format("%sdetails%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+            getDetails().get(_key), URLEncoder.encode(String.valueOf(getDetails().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    return joiner.toString();
+  }
 }
 

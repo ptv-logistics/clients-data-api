@@ -13,11 +13,12 @@
 
 package com.ptvgroup.developer.client.data.model;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -68,5 +69,20 @@ public enum DayOfWeek {
     }
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    if (prefix == null) {
+      prefix = "";
+    }
+
+    return String.format("%s=%s", prefix, this.toString());
+  }
+
 }
 

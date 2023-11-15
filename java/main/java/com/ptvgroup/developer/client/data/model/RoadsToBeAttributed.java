@@ -13,8 +13,10 @@
 
 package com.ptvgroup.developer.client.data.model;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -25,9 +27,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.ptvgroup.developer.client.data.model.RoadAttributes;
 import com.ptvgroup.developer.client.data.model.RoadDirectionType;
 import com.ptvgroup.developer.client.data.model.Validity;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -35,7 +36,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 /**
  * A collection of roads and attributes to be assigned.
  */
-@ApiModel(description = "A collection of roads and attributes to be assigned.")
 @JsonPropertyOrder({
   RoadsToBeAttributed.JSON_PROPERTY_POINTS,
   RoadsToBeAttributed.JSON_PROPERTY_POLYLINES,
@@ -44,13 +44,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RoadsToBeAttributed.JSON_PROPERTY_VALIDITY,
   RoadsToBeAttributed.JSON_PROPERTY_UNMATCHED_AFTER_MAP_UPDATE
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-30T06:51:07.244706Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-15T14:24:16.580606Z[Etc/UTC]")
 public class RoadsToBeAttributed {
   public static final String JSON_PROPERTY_POINTS = "points";
   private String points;
 
   public static final String JSON_PROPERTY_POLYLINES = "polylines";
-  private List<String> polylines = null;
+  private List<String> polylines;
 
   public static final String JSON_PROPERTY_DIRECTION = "direction";
   private RoadDirectionType direction = RoadDirectionType.BOTH;
@@ -77,7 +77,6 @@ public class RoadsToBeAttributed {
    * @return points
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A point or a polyline to select roads.  For a single point the road closest to this point will be selected. Several points will be considered a polyline and all roads intersected by this polyline will be selected. The polyline must not be closed, i.e. the first and the last point must be different. To obtain best results a polyline should not cover more than one time zone. Ferries will not be selected.  Format: `<point1_lat>,<point1_lon>,...,<pointN_lat>,<pointN_lon>`.  A request will be rejected if it * does not contain an even number of coordinates, * contains a closed polyline, * contains invalid coordinates, * covers no road or * covers more than 5000 roads.")
   @JsonProperty(JSON_PROPERTY_POINTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -111,7 +110,6 @@ public class RoadsToBeAttributed {
    * @return polylines
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The polylines of the roads in the format specified by **polylineFormat**.  Only present in responses, will be ignored in requests.")
   @JsonProperty(JSON_PROPERTY_POLYLINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -137,7 +135,6 @@ public class RoadsToBeAttributed {
    * @return direction
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -163,7 +160,6 @@ public class RoadsToBeAttributed {
    * @return attributes
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -189,7 +185,6 @@ public class RoadsToBeAttributed {
    * @return validity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALIDITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -215,7 +210,6 @@ public class RoadsToBeAttributed {
    * @return unmatchedAfterMapUpdate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If **roadsToBeAttributed** could not be matched to a new map after an update they are marked with this boolean flag. Unmatched **roadsToBeAttributed** might cause some unwanted changes of behavior for the scenario. This parameter must not be true if it is sent as part of a request.")
   @JsonProperty(JSON_PROPERTY_UNMATCHED_AFTER_MAP_UPDATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -281,5 +275,73 @@ public class RoadsToBeAttributed {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `points` to the URL query string
+    if (getPoints() != null) {
+      joiner.add(String.format("%spoints%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPoints()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `polylines` to the URL query string
+    if (getPolylines() != null) {
+      for (int i = 0; i < getPolylines().size(); i++) {
+        joiner.add(String.format("%spolylines%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(getPolylines().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `direction` to the URL query string
+    if (getDirection() != null) {
+      joiner.add(String.format("%sdirection%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDirection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `attributes` to the URL query string
+    if (getAttributes() != null) {
+      joiner.add(getAttributes().toUrlQueryString(prefix + "attributes" + suffix));
+    }
+
+    // add `validity` to the URL query string
+    if (getValidity() != null) {
+      joiner.add(getValidity().toUrlQueryString(prefix + "validity" + suffix));
+    }
+
+    // add `unmatchedAfterMapUpdate` to the URL query string
+    if (getUnmatchedAfterMapUpdate() != null) {
+      joiner.add(String.format("%sunmatchedAfterMapUpdate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUnmatchedAfterMapUpdate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

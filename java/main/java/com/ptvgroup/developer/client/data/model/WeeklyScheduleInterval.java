@@ -13,8 +13,10 @@
 
 package com.ptvgroup.developer.client.data.model;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -23,8 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.ptvgroup.developer.client.data.model.DayOfWeek;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -37,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   WeeklyScheduleInterval.JSON_PROPERTY_MINUTE,
   WeeklyScheduleInterval.JSON_PROPERTY_DURATION
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-30T06:51:07.244706Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-15T14:24:16.580606Z[Etc/UTC]")
 public class WeeklyScheduleInterval {
   public static final String JSON_PROPERTY_DAY_OF_WEEK = "dayOfWeek";
   private DayOfWeek dayOfWeek;
@@ -64,7 +65,6 @@ public class WeeklyScheduleInterval {
    * @return dayOfWeek
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DAY_OF_WEEK)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -92,7 +92,6 @@ public class WeeklyScheduleInterval {
    * @return hour
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "12", required = true, value = "The hour the schedule interval starts.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -120,7 +119,6 @@ public class WeeklyScheduleInterval {
    * @return minute
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "30", required = true, value = "The minutes of hours the schedule interval starts.")
   @JsonProperty(JSON_PROPERTY_MINUTE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -148,7 +146,6 @@ public class WeeklyScheduleInterval {
    * @return duration
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "360", required = true, value = "The duration of the schedule interval in [min].")
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -210,5 +207,59 @@ public class WeeklyScheduleInterval {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `dayOfWeek` to the URL query string
+    if (getDayOfWeek() != null) {
+      joiner.add(String.format("%sdayOfWeek%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDayOfWeek()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `hour` to the URL query string
+    if (getHour() != null) {
+      joiner.add(String.format("%shour%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHour()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `minute` to the URL query string
+    if (getMinute() != null) {
+      joiner.add(String.format("%sminute%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMinute()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `duration` to the URL query string
+    if (getDuration() != null) {
+      joiner.add(String.format("%sduration%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDuration()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

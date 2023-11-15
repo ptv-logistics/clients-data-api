@@ -13,8 +13,10 @@
 
 package com.ptvgroup.developer.client.data.model;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,9 +26,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.ptvgroup.developer.client.data.model.TimeInterval;
 import com.ptvgroup.developer.client.data.model.WeeklyScheduleInterval;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -34,18 +35,17 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 /**
  * The periods during which the attributes are valid. If both time intervals and weekly schedule are specified, the attributes are valid only during the weekly schedule within the time intervals. If there is no such period, the attributes are never valid. If not specified, the attributes are always valid.
  */
-@ApiModel(description = "The periods during which the attributes are valid. If both time intervals and weekly schedule are specified, the attributes are valid only during the weekly schedule within the time intervals. If there is no such period, the attributes are never valid. If not specified, the attributes are always valid.")
 @JsonPropertyOrder({
   Validity.JSON_PROPERTY_TIME_INTERVALS,
   Validity.JSON_PROPERTY_WEEKLY_SCHEDULE
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-30T06:51:07.244706Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-15T14:24:16.580606Z[Etc/UTC]")
 public class Validity {
   public static final String JSON_PROPERTY_TIME_INTERVALS = "timeIntervals";
-  private List<TimeInterval> timeIntervals = null;
+  private List<TimeInterval> timeIntervals;
 
   public static final String JSON_PROPERTY_WEEKLY_SCHEDULE = "weeklySchedule";
-  private List<WeeklyScheduleInterval> weeklySchedule = null;
+  private List<WeeklyScheduleInterval> weeklySchedule;
 
   public Validity() { 
   }
@@ -68,7 +68,6 @@ public class Validity {
    * @return timeIntervals
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If the attributes are valid during specific periods, specify concrete time intervals. Each time interval has an explicit start and end date. Overlapping intervals will be merged.")
   @JsonProperty(JSON_PROPERTY_TIME_INTERVALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -102,7 +101,6 @@ public class Validity {
    * @return weeklySchedule
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If the attributes are valid in a regular manner, i.e. at specific times and/or days of week, specify a weekly schedule. Each interval is specified by the starting point in time and the duration. The starting points of the intervals must be in local time and in ascending order. Overlapping intervals will be merged. The total duration of all intervals must not exceed one week (168 hours).")
   @JsonProperty(JSON_PROPERTY_WEEKLY_SCHEDULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -160,5 +158,59 @@ public class Validity {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `timeIntervals` to the URL query string
+    if (getTimeIntervals() != null) {
+      for (int i = 0; i < getTimeIntervals().size(); i++) {
+        if (getTimeIntervals().get(i) != null) {
+          joiner.add(getTimeIntervals().get(i).toUrlQueryString(String.format("%stimeIntervals%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `weeklySchedule` to the URL query string
+    if (getWeeklySchedule() != null) {
+      for (int i = 0; i < getWeeklySchedule().size(); i++) {
+        if (getWeeklySchedule().get(i) != null) {
+          joiner.add(getWeeklySchedule().get(i).toUrlQueryString(String.format("%sweeklySchedule%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    return joiner.toString();
+  }
 }
 

@@ -13,8 +13,10 @@
 
 package com.ptvgroup.developer.client.data.model;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -25,8 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.ptvgroup.developer.client.data.model.MonetaryCostOptions;
 import com.ptvgroup.developer.client.data.model.RegionType;
 import com.ptvgroup.developer.client.data.model.Vehicle;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -41,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   PredefinedVehicleProfile.JSON_PROPERTY_CURRENCY,
   PredefinedVehicleProfile.JSON_PROPERTY_MONETARY_COST_OPTIONS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-30T06:51:07.244706Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-15T14:24:16.580606Z[Etc/UTC]")
 public class PredefinedVehicleProfile {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -74,7 +75,6 @@ public class PredefinedVehicleProfile {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The name of the predefined profile.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -100,7 +100,6 @@ public class PredefinedVehicleProfile {
    * @return description
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The description of the predefined profile.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -126,7 +125,6 @@ public class PredefinedVehicleProfile {
    * @return region
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REGION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -152,7 +150,6 @@ public class PredefinedVehicleProfile {
    * @return vehicle
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VEHICLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -178,7 +175,6 @@ public class PredefinedVehicleProfile {
    * @return currency
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The default currency for the predefined vehicle according to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -204,7 +200,6 @@ public class PredefinedVehicleProfile {
    * @return monetaryCostOptions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MONETARY_COST_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -270,5 +265,69 @@ public class PredefinedVehicleProfile {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `description` to the URL query string
+    if (getDescription() != null) {
+      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `region` to the URL query string
+    if (getRegion() != null) {
+      joiner.add(String.format("%sregion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRegion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `vehicle` to the URL query string
+    if (getVehicle() != null) {
+      joiner.add(getVehicle().toUrlQueryString(prefix + "vehicle" + suffix));
+    }
+
+    // add `currency` to the URL query string
+    if (getCurrency() != null) {
+      joiner.add(String.format("%scurrency%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCurrency()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `monetaryCostOptions` to the URL query string
+    if (getMonetaryCostOptions() != null) {
+      joiner.add(getMonetaryCostOptions().toUrlQueryString(prefix + "monetaryCostOptions" + suffix));
+    }
+
+    return joiner.toString();
+  }
 }
 
