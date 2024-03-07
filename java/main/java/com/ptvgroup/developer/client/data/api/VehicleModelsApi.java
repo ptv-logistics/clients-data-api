@@ -18,7 +18,7 @@ import com.ptvgroup.developer.client.data.ApiResponse;
 import com.ptvgroup.developer.client.data.Pair;
 
 import com.ptvgroup.developer.client.data.model.ErrorResponse;
-import com.ptvgroup.developer.client.data.model.MapInformationResponse;
+import com.ptvgroup.developer.client.data.model.VehicleModels;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -46,7 +46,7 @@ import java.util.Set;
 import java.util.function.Consumer;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-07T08:38:04.736506Z[Etc/UTC]")
-public class MapInformationApi {
+public class VehicleModelsApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
   private final String memberVarBaseUri;
@@ -55,11 +55,11 @@ public class MapInformationApi {
   private final Consumer<HttpResponse<InputStream>> memberVarResponseInterceptor;
   private final Consumer<HttpResponse<String>> memberVarAsyncResponseInterceptor;
 
-  public MapInformationApi() {
+  public VehicleModelsApi() {
     this(new ApiClient());
   }
 
-  public MapInformationApi(ApiClient apiClient) {
+  public VehicleModelsApi(ApiClient apiClient) {
     memberVarHttpClient = apiClient.getHttpClient();
     memberVarObjectMapper = apiClient.getObjectMapper();
     memberVarBaseUri = apiClient.getBaseUri();
@@ -84,23 +84,27 @@ public class MapInformationApi {
 
   /**
    * 
-   * Gets information about the map. See [here](./concepts/map-information) for more information.
-   * @return MapInformationResponse
+   * A list of **VehicleModel** objects. Only vehicle models matching all filters are returned. In case that no vehicle model is found an empty list is returned. In case no filters are applied, all available vehicle models are returned.  This method is in a preview state, the API is stable, feature changes could be introduced in future.
+   * @param identification String which must be contained in the vehicle model or the vehicle variant. See **commercial** in the response. (optional)
+   * @param vehicleTypes A comma-separated list of vehicle types. See **vehicleType** in the response. The following vehicle types are supported.  Tractor-like vehicle types: * &#x60;TRUCK&#x60; - Truck. Total permitted weight &gt; 7.5t. * &#x60;LCV&#x60; - Light Commercial Vehicle. Total permitted weight &lt; 7.5t. * &#x60;SCV&#x60; - Small Commercial Vehicle. Total permitted weight &lt; 3.5t.  Trailer-like vehicle types: * &#x60;TRAILER&#x60; - Trailer * &#x60;SEMI_TRAILER&#x60; - Semi-trailer * &#x60;BODY&#x60; - Body  This list can be extended at any time. (optional
+   * @return VehicleModels
    * @throws ApiException if fails to make API call
    */
-  public MapInformationResponse getMapInformation() throws ApiException {
-    ApiResponse<MapInformationResponse> localVarResponse = getMapInformationWithHttpInfo();
+  public VehicleModels getVehicleModels(String identification, List<String> vehicleTypes) throws ApiException {
+    ApiResponse<VehicleModels> localVarResponse = getVehicleModelsWithHttpInfo(identification, vehicleTypes);
     return localVarResponse.getData();
   }
 
   /**
    * 
-   * Gets information about the map. See [here](./concepts/map-information) for more information.
-   * @return ApiResponse&lt;MapInformationResponse&gt;
+   * A list of **VehicleModel** objects. Only vehicle models matching all filters are returned. In case that no vehicle model is found an empty list is returned. In case no filters are applied, all available vehicle models are returned.  This method is in a preview state, the API is stable, feature changes could be introduced in future.
+   * @param identification String which must be contained in the vehicle model or the vehicle variant. See **commercial** in the response. (optional)
+   * @param vehicleTypes A comma-separated list of vehicle types. See **vehicleType** in the response. The following vehicle types are supported.  Tractor-like vehicle types: * &#x60;TRUCK&#x60; - Truck. Total permitted weight &gt; 7.5t. * &#x60;LCV&#x60; - Light Commercial Vehicle. Total permitted weight &lt; 7.5t. * &#x60;SCV&#x60; - Small Commercial Vehicle. Total permitted weight &lt; 3.5t.  Trailer-like vehicle types: * &#x60;TRAILER&#x60; - Trailer * &#x60;SEMI_TRAILER&#x60; - Semi-trailer * &#x60;BODY&#x60; - Body  This list can be extended at any time. (optional
+   * @return ApiResponse&lt;VehicleModels&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<MapInformationResponse> getMapInformationWithHttpInfo() throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getMapInformationRequestBuilder();
+  public ApiResponse<VehicleModels> getVehicleModelsWithHttpInfo(String identification, List<String> vehicleTypes) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getVehicleModelsRequestBuilder(identification, vehicleTypes);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -110,12 +114,12 @@ public class MapInformationApi {
       }
       try {
         if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("getMapInformation", localVarResponse);
+          throw getApiException("getVehicleModels", localVarResponse);
         }
-        return new ApiResponse<MapInformationResponse>(
+        return new ApiResponse<VehicleModels>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<MapInformationResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<VehicleModels>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -128,14 +132,31 @@ public class MapInformationApi {
     }
   }
 
-  private HttpRequest.Builder getMapInformationRequestBuilder() throws ApiException {
+  private HttpRequest.Builder getVehicleModelsRequestBuilder(String identification, List<String> vehicleTypes) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 		localVarRequestBuilder.header("User-Agent","ptv-generated java client");
 
-    String localVarPath = "/map-information";
+    String localVarPath = "/vehicle-models";
 
-    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "identification";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("identification", identification));
+    localVarQueryParameterBaseName = "vehicleTypes";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("csv", "vehicleTypes", vehicleTypes));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
 
     localVarRequestBuilder.header("Accept", "application/json");
 

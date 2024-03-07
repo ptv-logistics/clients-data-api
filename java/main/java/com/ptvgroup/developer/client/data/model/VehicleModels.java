@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.ptvgroup.developer.client.data.model.Road;
+import com.ptvgroup.developer.client.data.model.VehicleModel;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,54 +32,54 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * The roads selected by the input.
+ * VehicleModels
  */
 @JsonPropertyOrder({
-  RoadsResponse.JSON_PROPERTY_ROADS
+  VehicleModels.JSON_PROPERTY_VEHICLE_MODELS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-07T08:38:04.736506Z[Etc/UTC]")
-public class RoadsResponse {
-  public static final String JSON_PROPERTY_ROADS = "roads";
-  private List<Road> roads;
+public class VehicleModels {
+  public static final String JSON_PROPERTY_VEHICLE_MODELS = "vehicleModels";
+  private List<VehicleModel> vehicleModels = new ArrayList<>();
 
-  public RoadsResponse() { 
+  public VehicleModels() { 
   }
 
-  public RoadsResponse roads(List<Road> roads) {
-    this.roads = roads;
+  public VehicleModels vehicleModels(List<VehicleModel> vehicleModels) {
+    this.vehicleModels = vehicleModels;
     return this;
   }
 
-  public RoadsResponse addRoadsItem(Road roadsItem) {
-    if (this.roads == null) {
-      this.roads = new ArrayList<>();
+  public VehicleModels addVehicleModelsItem(VehicleModel vehicleModelsItem) {
+    if (this.vehicleModels == null) {
+      this.vehicleModels = new ArrayList<>();
     }
-    this.roads.add(roadsItem);
+    this.vehicleModels.add(vehicleModelsItem);
     return this;
   }
 
    /**
-   * The list of selected roads according to the criteria specified in the request.
-   * @return roads
+   * A list of model-based vehicles.
+   * @return vehicleModels
   **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROADS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_VEHICLE_MODELS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<Road> getRoads() {
-    return roads;
+  public List<VehicleModel> getVehicleModels() {
+    return vehicleModels;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROADS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRoads(List<Road> roads) {
-    this.roads = roads;
+  @JsonProperty(JSON_PROPERTY_VEHICLE_MODELS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setVehicleModels(List<VehicleModel> vehicleModels) {
+    this.vehicleModels = vehicleModels;
   }
 
 
   /**
-   * Return true if this RoadsResponse object is equal to o.
+   * Return true if this VehicleModels object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -89,20 +89,20 @@ public class RoadsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RoadsResponse roadsResponse = (RoadsResponse) o;
-    return Objects.equals(this.roads, roadsResponse.roads);
+    VehicleModels vehicleModels = (VehicleModels) o;
+    return Objects.equals(this.vehicleModels, vehicleModels.vehicleModels);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(roads);
+    return Objects.hash(vehicleModels);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RoadsResponse {\n");
-    sb.append("    roads: ").append(toIndentedString(roads)).append("\n");
+    sb.append("class VehicleModels {\n");
+    sb.append("    vehicleModels: ").append(toIndentedString(vehicleModels)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -150,11 +150,11 @@ public class RoadsResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `roads` to the URL query string
-    if (getRoads() != null) {
-      for (int i = 0; i < getRoads().size(); i++) {
-        if (getRoads().get(i) != null) {
-          joiner.add(getRoads().get(i).toUrlQueryString(String.format("%sroads%s%s", prefix, suffix,
+    // add `vehicleModels` to the URL query string
+    if (getVehicleModels() != null) {
+      for (int i = 0; i < getVehicleModels().size(); i++) {
+        if (getVehicleModels().get(i) != null) {
+          joiner.add(getVehicleModels().get(i).toUrlQueryString(String.format("%svehicleModels%s%s", prefix, suffix,
           "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }

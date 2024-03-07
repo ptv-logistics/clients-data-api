@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.ptvgroup.developer.client.data.model.Road;
+import com.ptvgroup.developer.client.data.model.TollSystem;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,54 +32,54 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * The roads selected by the input.
+ * The toll features contained by this geographical unit. 
  */
 @JsonPropertyOrder({
-  RoadsResponse.JSON_PROPERTY_ROADS
+  TollFeatures.JSON_PROPERTY_TOLL_SYSTEMS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-07T08:38:04.736506Z[Etc/UTC]")
-public class RoadsResponse {
-  public static final String JSON_PROPERTY_ROADS = "roads";
-  private List<Road> roads;
+public class TollFeatures {
+  public static final String JSON_PROPERTY_TOLL_SYSTEMS = "tollSystems";
+  private List<TollSystem> tollSystems = new ArrayList<>();
 
-  public RoadsResponse() { 
+  public TollFeatures() { 
   }
 
-  public RoadsResponse roads(List<Road> roads) {
-    this.roads = roads;
+  public TollFeatures tollSystems(List<TollSystem> tollSystems) {
+    this.tollSystems = tollSystems;
     return this;
   }
 
-  public RoadsResponse addRoadsItem(Road roadsItem) {
-    if (this.roads == null) {
-      this.roads = new ArrayList<>();
+  public TollFeatures addTollSystemsItem(TollSystem tollSystemsItem) {
+    if (this.tollSystems == null) {
+      this.tollSystems = new ArrayList<>();
     }
-    this.roads.add(roadsItem);
+    this.tollSystems.add(tollSystemsItem);
     return this;
   }
 
    /**
-   * The list of selected roads according to the criteria specified in the request.
-   * @return roads
+   * The list of toll systems contained by this geographical unit.
+   * @return tollSystems
   **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROADS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TOLL_SYSTEMS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<Road> getRoads() {
-    return roads;
+  public List<TollSystem> getTollSystems() {
+    return tollSystems;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROADS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRoads(List<Road> roads) {
-    this.roads = roads;
+  @JsonProperty(JSON_PROPERTY_TOLL_SYSTEMS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTollSystems(List<TollSystem> tollSystems) {
+    this.tollSystems = tollSystems;
   }
 
 
   /**
-   * Return true if this RoadsResponse object is equal to o.
+   * Return true if this TollFeatures object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -89,20 +89,20 @@ public class RoadsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RoadsResponse roadsResponse = (RoadsResponse) o;
-    return Objects.equals(this.roads, roadsResponse.roads);
+    TollFeatures tollFeatures = (TollFeatures) o;
+    return Objects.equals(this.tollSystems, tollFeatures.tollSystems);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(roads);
+    return Objects.hash(tollSystems);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RoadsResponse {\n");
-    sb.append("    roads: ").append(toIndentedString(roads)).append("\n");
+    sb.append("class TollFeatures {\n");
+    sb.append("    tollSystems: ").append(toIndentedString(tollSystems)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -150,11 +150,11 @@ public class RoadsResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `roads` to the URL query string
-    if (getRoads() != null) {
-      for (int i = 0; i < getRoads().size(); i++) {
-        if (getRoads().get(i) != null) {
-          joiner.add(getRoads().get(i).toUrlQueryString(String.format("%sroads%s%s", prefix, suffix,
+    // add `tollSystems` to the URL query string
+    if (getTollSystems() != null) {
+      for (int i = 0; i < getTollSystems().size(); i++) {
+        if (getTollSystems().get(i) != null) {
+          joiner.add(getTollSystems().get(i).toUrlQueryString(String.format("%stollSystems%s%s", prefix, suffix,
           "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
