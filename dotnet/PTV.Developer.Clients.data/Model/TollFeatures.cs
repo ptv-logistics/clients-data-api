@@ -26,25 +26,36 @@ using OpenAPIDateConverter = PTV.Developer.Clients.data.Client.OpenAPIDateConver
 namespace PTV.Developer.Clients.data.Model
 {
     /// <summary>
-    /// A list of custom road attribute scenarios.
+    /// The toll features contained by this geographical unit. 
     /// </summary>
-    [DataContract(Name = "CustomRoadAttributeScenarioList")]
-    public partial class CustomRoadAttributeScenarioList : IEquatable<CustomRoadAttributeScenarioList>, IValidatableObject
+    [DataContract(Name = "TollFeatures")]
+    public partial class TollFeatures : IEquatable<TollFeatures>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CustomRoadAttributeScenarioList" /> class.
+        /// Initializes a new instance of the <see cref="TollFeatures" /> class.
         /// </summary>
-        /// <param name="customRoadAttributeScenarios">customRoadAttributeScenarios.</param>
-        public CustomRoadAttributeScenarioList(List<CustomRoadAttributeScenario> customRoadAttributeScenarios = default(List<CustomRoadAttributeScenario>))
+        [JsonConstructorAttribute]
+        protected TollFeatures() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TollFeatures" /> class.
+        /// </summary>
+        /// <param name="tollSystems">The list of toll systems contained by this geographical unit. (required).</param>
+        public TollFeatures(List<TollSystem> tollSystems = default(List<TollSystem>))
         {
-            this.CustomRoadAttributeScenarios = customRoadAttributeScenarios;
+            // to ensure "tollSystems" is required (not null)
+            if (tollSystems == null)
+            {
+                throw new ArgumentNullException("tollSystems is a required property for TollFeatures and cannot be null");
+            }
+            this.TollSystems = tollSystems;
         }
 
         /// <summary>
-        /// Gets or Sets CustomRoadAttributeScenarios
+        /// The list of toll systems contained by this geographical unit.
         /// </summary>
-        [DataMember(Name = "customRoadAttributeScenarios", EmitDefaultValue = false)]
-        public List<CustomRoadAttributeScenario> CustomRoadAttributeScenarios { get; set; }
+        /// <value>The list of toll systems contained by this geographical unit.</value>
+        [DataMember(Name = "tollSystems", IsRequired = true, EmitDefaultValue = true)]
+        public List<TollSystem> TollSystems { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,8 +64,8 @@ namespace PTV.Developer.Clients.data.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CustomRoadAttributeScenarioList {\n");
-            sb.Append("  CustomRoadAttributeScenarios: ").Append(CustomRoadAttributeScenarios).Append("\n");
+            sb.Append("class TollFeatures {\n");
+            sb.Append("  TollSystems: ").Append(TollSystems).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,15 +86,15 @@ namespace PTV.Developer.Clients.data.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CustomRoadAttributeScenarioList);
+            return this.Equals(input as TollFeatures);
         }
 
         /// <summary>
-        /// Returns true if CustomRoadAttributeScenarioList instances are equal
+        /// Returns true if TollFeatures instances are equal
         /// </summary>
-        /// <param name="input">Instance of CustomRoadAttributeScenarioList to be compared</param>
+        /// <param name="input">Instance of TollFeatures to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CustomRoadAttributeScenarioList input)
+        public bool Equals(TollFeatures input)
         {
             if (input == null)
             {
@@ -91,10 +102,10 @@ namespace PTV.Developer.Clients.data.Model
             }
             return 
                 (
-                    this.CustomRoadAttributeScenarios == input.CustomRoadAttributeScenarios ||
-                    this.CustomRoadAttributeScenarios != null &&
-                    input.CustomRoadAttributeScenarios != null &&
-                    this.CustomRoadAttributeScenarios.SequenceEqual(input.CustomRoadAttributeScenarios)
+                    this.TollSystems == input.TollSystems ||
+                    this.TollSystems != null &&
+                    input.TollSystems != null &&
+                    this.TollSystems.SequenceEqual(input.TollSystems)
                 );
         }
 
@@ -107,9 +118,9 @@ namespace PTV.Developer.Clients.data.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.CustomRoadAttributeScenarios != null)
+                if (this.TollSystems != null)
                 {
-                    hashCode = (hashCode * 59) + this.CustomRoadAttributeScenarios.GetHashCode();
+                    hashCode = (hashCode * 59) + this.TollSystems.GetHashCode();
                 }
                 return hashCode;
             }
