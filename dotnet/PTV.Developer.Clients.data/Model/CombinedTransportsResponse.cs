@@ -26,36 +26,36 @@ using OpenAPIDateConverter = PTV.Developer.Clients.data.Client.OpenAPIDateConver
 namespace PTV.Developer.Clients.data.Model
 {
     /// <summary>
-    /// VehicleModels
+    /// The combined transports selected by the input parameters.
     /// </summary>
-    [DataContract(Name = "VehicleModels")]
-    public partial class VehicleModels : IEquatable<VehicleModels>, IValidatableObject
+    [DataContract(Name = "CombinedTransportsResponse")]
+    public partial class CombinedTransportsResponse : IEquatable<CombinedTransportsResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VehicleModels" /> class.
+        /// Initializes a new instance of the <see cref="CombinedTransportsResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected VehicleModels() { }
+        protected CombinedTransportsResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="VehicleModels" /> class.
+        /// Initializes a new instance of the <see cref="CombinedTransportsResponse" /> class.
         /// </summary>
-        /// <param name="varVehicleModels">A list of model-based vehicles. (required).</param>
-        public VehicleModels(List<VehicleModel> varVehicleModels = default(List<VehicleModel>))
+        /// <param name="combinedTransports">The list of selected combined transports sorted by ascending distance to the input coordinate. (required).</param>
+        public CombinedTransportsResponse(List<CombinedTransport> combinedTransports = default(List<CombinedTransport>))
         {
-            // to ensure "varVehicleModels" is required (not null)
-            if (varVehicleModels == null)
+            // to ensure "combinedTransports" is required (not null)
+            if (combinedTransports == null)
             {
-                throw new ArgumentNullException("varVehicleModels is a required property for VehicleModels and cannot be null");
+                throw new ArgumentNullException("combinedTransports is a required property for CombinedTransportsResponse and cannot be null");
             }
-            this.VarVehicleModels = varVehicleModels;
+            this.CombinedTransports = combinedTransports;
         }
 
         /// <summary>
-        /// A list of model-based vehicles.
+        /// The list of selected combined transports sorted by ascending distance to the input coordinate.
         /// </summary>
-        /// <value>A list of model-based vehicles.</value>
-        [DataMember(Name = "vehicleModels", IsRequired = true, EmitDefaultValue = true)]
-        public List<VehicleModel> VarVehicleModels { get; set; }
+        /// <value>The list of selected combined transports sorted by ascending distance to the input coordinate.</value>
+        [DataMember(Name = "combinedTransports", IsRequired = true, EmitDefaultValue = true)]
+        public List<CombinedTransport> CombinedTransports { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +64,8 @@ namespace PTV.Developer.Clients.data.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class VehicleModels {\n");
-            sb.Append("  VarVehicleModels: ").Append(VarVehicleModels).Append("\n");
+            sb.Append("class CombinedTransportsResponse {\n");
+            sb.Append("  CombinedTransports: ").Append(CombinedTransports).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,15 +86,15 @@ namespace PTV.Developer.Clients.data.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as VehicleModels);
+            return this.Equals(input as CombinedTransportsResponse);
         }
 
         /// <summary>
-        /// Returns true if VehicleModels instances are equal
+        /// Returns true if CombinedTransportsResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of VehicleModels to be compared</param>
+        /// <param name="input">Instance of CombinedTransportsResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VehicleModels input)
+        public bool Equals(CombinedTransportsResponse input)
         {
             if (input == null)
             {
@@ -102,10 +102,10 @@ namespace PTV.Developer.Clients.data.Model
             }
             return 
                 (
-                    this.VarVehicleModels == input.VarVehicleModels ||
-                    this.VarVehicleModels != null &&
-                    input.VarVehicleModels != null &&
-                    this.VarVehicleModels.SequenceEqual(input.VarVehicleModels)
+                    this.CombinedTransports == input.CombinedTransports ||
+                    this.CombinedTransports != null &&
+                    input.CombinedTransports != null &&
+                    this.CombinedTransports.SequenceEqual(input.CombinedTransports)
                 );
         }
 
@@ -118,9 +118,9 @@ namespace PTV.Developer.Clients.data.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.VarVehicleModels != null)
+                if (this.CombinedTransports != null)
                 {
-                    hashCode = (hashCode * 59) + this.VarVehicleModels.GetHashCode();
+                    hashCode = (hashCode * 59) + this.CombinedTransports.GetHashCode();
                 }
                 return hashCode;
             }
