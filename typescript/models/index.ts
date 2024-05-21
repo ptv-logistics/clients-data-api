@@ -2,6 +2,10 @@
 /* eslint-disable */
 export * from './Battery';
 export * from './CausingError';
+export * from './CombinedTransport';
+export * from './CombinedTransportByPosition';
+export * from './CombinedTransportLocation';
+export * from './CombinedTransportsResponse';
 export * from './Commercial';
 export * from './Continent';
 export * from './CustomRoadAttributeScenario';
