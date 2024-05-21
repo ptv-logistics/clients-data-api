@@ -24,51 +24,62 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.ptvgroup.developer.client.data.model.CombinedTransport;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Road
+ * The combined transports selected by the input parameters.
  */
 @JsonPropertyOrder({
-  Road.JSON_PROPERTY_POLYLINE
+  CombinedTransportsResponse.JSON_PROPERTY_COMBINED_TRANSPORTS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T16:33:49.194831Z[Etc/UTC]")
-public class Road {
-  public static final String JSON_PROPERTY_POLYLINE = "polyline";
-  private String polyline;
+public class CombinedTransportsResponse {
+  public static final String JSON_PROPERTY_COMBINED_TRANSPORTS = "combinedTransports";
+  private List<CombinedTransport> combinedTransports = new ArrayList<>();
 
-  public Road() { 
+  public CombinedTransportsResponse() { 
   }
 
-  public Road polyline(String polyline) {
-    this.polyline = polyline;
+  public CombinedTransportsResponse combinedTransports(List<CombinedTransport> combinedTransports) {
+    this.combinedTransports = combinedTransports;
+    return this;
+  }
+
+  public CombinedTransportsResponse addCombinedTransportsItem(CombinedTransport combinedTransportsItem) {
+    if (this.combinedTransports == null) {
+      this.combinedTransports = new ArrayList<>();
+    }
+    this.combinedTransports.add(combinedTransportsItem);
     return this;
   }
 
    /**
-   * The polyline of the road in the format specified by **polylineFormat**.
-   * @return polyline
+   * The list of selected combined transports sorted by ascending distance to the input coordinate.
+   * @return combinedTransports
   **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POLYLINE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_COMBINED_TRANSPORTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getPolyline() {
-    return polyline;
+  public List<CombinedTransport> getCombinedTransports() {
+    return combinedTransports;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_POLYLINE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPolyline(String polyline) {
-    this.polyline = polyline;
+  @JsonProperty(JSON_PROPERTY_COMBINED_TRANSPORTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCombinedTransports(List<CombinedTransport> combinedTransports) {
+    this.combinedTransports = combinedTransports;
   }
 
 
   /**
-   * Return true if this Road object is equal to o.
+   * Return true if this CombinedTransportsResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -78,20 +89,20 @@ public class Road {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Road road = (Road) o;
-    return Objects.equals(this.polyline, road.polyline);
+    CombinedTransportsResponse combinedTransportsResponse = (CombinedTransportsResponse) o;
+    return Objects.equals(this.combinedTransports, combinedTransportsResponse.combinedTransports);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(polyline);
+    return Objects.hash(combinedTransports);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Road {\n");
-    sb.append("    polyline: ").append(toIndentedString(polyline)).append("\n");
+    sb.append("class CombinedTransportsResponse {\n");
+    sb.append("    combinedTransports: ").append(toIndentedString(combinedTransports)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -139,9 +150,14 @@ public class Road {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `polyline` to the URL query string
-    if (getPolyline() != null) {
-      joiner.add(String.format("%spolyline%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPolyline()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `combinedTransports` to the URL query string
+    if (getCombinedTransports() != null) {
+      for (int i = 0; i < getCombinedTransports().size(); i++) {
+        if (getCombinedTransports().get(i) != null) {
+          joiner.add(getCombinedTransports().get(i).toUrlQueryString(String.format("%scombinedTransports%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
     }
 
     return joiner.toString();
