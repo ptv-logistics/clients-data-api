@@ -26,31 +26,23 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The fuel type of the vehicle. The fuel types _CNG_GASOLINE_ and _LNG_GASOLINE_ are used for dual-fuel vehicles.  Supported for **engineType** _COMBUSTION_ and _HYBRID_. Relevant for &#x60;emissions&#x60;. 
+ * The type of the API change.
  */
-public enum FuelType {
+public enum ApiChangeType {
   
-  GASOLINE("GASOLINE"),
+  FEATURE("FEATURE"),
   
-  DIESEL("DIESEL"),
+  IMPROVEMENT("IMPROVEMENT"),
   
-  COMPRESSED_NATURAL_GAS("COMPRESSED_NATURAL_GAS"),
+  BUGFIX("BUGFIX"),
   
-  LIQUEFIED_PETROLEUM_GAS("LIQUEFIED_PETROLEUM_GAS"),
+  DISCONTINUATION("DISCONTINUATION"),
   
-  LIQUEFIED_NATURAL_GAS("LIQUEFIED_NATURAL_GAS"),
-  
-  CNG_GASOLINE("CNG_GASOLINE"),
-  
-  LPG_GASOLINE("LPG_GASOLINE"),
-  
-  ETHANOL("ETHANOL"),
-  
-  NONE("NONE");
+  ANNOUNCEMENT("ANNOUNCEMENT");
 
   private String value;
 
-  FuelType(String value) {
+  ApiChangeType(String value) {
     this.value = value;
   }
 
@@ -65,8 +57,8 @@ public enum FuelType {
   }
 
   @JsonCreator
-  public static FuelType fromValue(String value) {
-    for (FuelType b : FuelType.values()) {
+  public static ApiChangeType fromValue(String value) {
+    for (ApiChangeType b : ApiChangeType.values()) {
       if (b.value.equals(value)) {
         return b;
       }

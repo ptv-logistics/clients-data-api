@@ -17,8 +17,8 @@ import com.ptvgroup.developer.client.data.ApiException;
 import com.ptvgroup.developer.client.data.ApiResponse;
 import com.ptvgroup.developer.client.data.Pair;
 
+import com.ptvgroup.developer.client.data.model.ApiChanges;
 import com.ptvgroup.developer.client.data.model.ErrorResponse;
-import com.ptvgroup.developer.client.data.model.PredefinedVehicleProfiles;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -46,7 +46,7 @@ import java.util.Set;
 import java.util.function.Consumer;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-12T07:34:48.896153411Z[Etc/UTC]", comments = "Generator version: 7.8.0")
-public class VehicleProfilesApi {
+public class ApiChangesApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
   private final String memberVarBaseUri;
@@ -55,11 +55,11 @@ public class VehicleProfilesApi {
   private final Consumer<HttpResponse<InputStream>> memberVarResponseInterceptor;
   private final Consumer<HttpResponse<String>> memberVarAsyncResponseInterceptor;
 
-  public VehicleProfilesApi() {
+  public ApiChangesApi() {
     this(new ApiClient());
   }
 
-  public VehicleProfilesApi(ApiClient apiClient) {
+  public ApiChangesApi(ApiClient apiClient) {
     memberVarHttpClient = apiClient.getHttpClient();
     memberVarObjectMapper = apiClient.getObjectMapper();
     memberVarBaseUri = apiClient.getBaseUri();
@@ -84,23 +84,23 @@ public class VehicleProfilesApi {
 
   /**
    * 
-   * Returns the predefined vehicle profiles for routing.
-   * @return PredefinedVehicleProfiles
+   * Get all API changes for PTV Developer.
+   * @return ApiChanges
    * @throws ApiException if fails to make API call
    */
-  public PredefinedVehicleProfiles getPredefinedVehicleProfiles() throws ApiException {
-    ApiResponse<PredefinedVehicleProfiles> localVarResponse = getPredefinedVehicleProfilesWithHttpInfo();
+  public ApiChanges getApiChanges() throws ApiException {
+    ApiResponse<ApiChanges> localVarResponse = getApiChangesWithHttpInfo();
     return localVarResponse.getData();
   }
 
   /**
    * 
-   * Returns the predefined vehicle profiles for routing.
-   * @return ApiResponse&lt;PredefinedVehicleProfiles&gt;
+   * Get all API changes for PTV Developer.
+   * @return ApiResponse&lt;ApiChanges&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<PredefinedVehicleProfiles> getPredefinedVehicleProfilesWithHttpInfo() throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getPredefinedVehicleProfilesRequestBuilder();
+  public ApiResponse<ApiChanges> getApiChangesWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getApiChangesRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -110,12 +110,12 @@ public class VehicleProfilesApi {
       }
       try {
         if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("getPredefinedVehicleProfiles", localVarResponse);
+          throw getApiException("getApiChanges", localVarResponse);
         }
-        return new ApiResponse<PredefinedVehicleProfiles>(
+        return new ApiResponse<ApiChanges>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<PredefinedVehicleProfiles>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ApiChanges>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -128,11 +128,11 @@ public class VehicleProfilesApi {
     }
   }
 
-  private HttpRequest.Builder getPredefinedVehicleProfilesRequestBuilder() throws ApiException {
+  private HttpRequest.Builder getApiChangesRequestBuilder() throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/vehicle-profiles/predefined";
+    String localVarPath = "/api-changes";
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 

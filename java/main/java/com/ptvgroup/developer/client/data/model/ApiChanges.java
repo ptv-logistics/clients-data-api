@@ -24,51 +24,62 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.ptvgroup.developer.client.data.model.ApiChange;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 import com.ptvgroup.developer.client.data.ApiClient;
 /**
- * Road
+ * ApiChanges
  */
 @JsonPropertyOrder({
-  Road.JSON_PROPERTY_POLYLINE
+  ApiChanges.JSON_PROPERTY_API_CHANGES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-12T07:34:48.896153411Z[Etc/UTC]", comments = "Generator version: 7.8.0")
-public class Road {
-  public static final String JSON_PROPERTY_POLYLINE = "polyline";
-  private String polyline;
+public class ApiChanges {
+  public static final String JSON_PROPERTY_API_CHANGES = "apiChanges";
+  private List<ApiChange> apiChanges = new ArrayList<>();
 
-  public Road() { 
+  public ApiChanges() { 
   }
 
-  public Road polyline(String polyline) {
-    this.polyline = polyline;
+  public ApiChanges apiChanges(List<ApiChange> apiChanges) {
+    this.apiChanges = apiChanges;
+    return this;
+  }
+
+  public ApiChanges addApiChangesItem(ApiChange apiChangesItem) {
+    if (this.apiChanges == null) {
+      this.apiChanges = new ArrayList<>();
+    }
+    this.apiChanges.add(apiChangesItem);
     return this;
   }
 
   /**
-   * The polyline of the road in the format specified by **polylineFormat**.
-   * @return polyline
+   * A list of API changes.
+   * @return apiChanges
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POLYLINE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPolyline() {
-    return polyline;
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_API_CHANGES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<ApiChange> getApiChanges() {
+    return apiChanges;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_POLYLINE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPolyline(String polyline) {
-    this.polyline = polyline;
+  @JsonProperty(JSON_PROPERTY_API_CHANGES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setApiChanges(List<ApiChange> apiChanges) {
+    this.apiChanges = apiChanges;
   }
 
 
   /**
-   * Return true if this Road object is equal to o.
+   * Return true if this ApiChanges object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -78,20 +89,20 @@ public class Road {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Road road = (Road) o;
-    return Objects.equals(this.polyline, road.polyline);
+    ApiChanges apiChanges = (ApiChanges) o;
+    return Objects.equals(this.apiChanges, apiChanges.apiChanges);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(polyline);
+    return Objects.hash(apiChanges);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Road {\n");
-    sb.append("    polyline: ").append(toIndentedString(polyline)).append("\n");
+    sb.append("class ApiChanges {\n");
+    sb.append("    apiChanges: ").append(toIndentedString(apiChanges)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -139,9 +150,14 @@ public class Road {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `polyline` to the URL query string
-    if (getPolyline() != null) {
-      joiner.add(String.format("%spolyline%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPolyline()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `apiChanges` to the URL query string
+    if (getApiChanges() != null) {
+      for (int i = 0; i < getApiChanges().size(); i++) {
+        if (getApiChanges().get(i) != null) {
+          joiner.add(getApiChanges().get(i).toUrlQueryString(String.format("%sapiChanges%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
     }
 
     return joiner.toString();
