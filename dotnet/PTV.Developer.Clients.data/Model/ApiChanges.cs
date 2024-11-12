@@ -26,36 +26,36 @@ using OpenAPIDateConverter = PTV.Developer.Clients.data.Client.OpenAPIDateConver
 namespace PTV.Developer.Clients.data.Model
 {
     /// <summary>
-    /// PredefinedVehicleProfiles
+    /// ApiChanges
     /// </summary>
-    [DataContract(Name = "PredefinedVehicleProfiles")]
-    public partial class PredefinedVehicleProfiles : IValidatableObject
+    [DataContract(Name = "ApiChanges")]
+    public partial class ApiChanges : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PredefinedVehicleProfiles" /> class.
+        /// Initializes a new instance of the <see cref="ApiChanges" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PredefinedVehicleProfiles() { }
+        protected ApiChanges() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PredefinedVehicleProfiles" /> class.
+        /// Initializes a new instance of the <see cref="ApiChanges" /> class.
         /// </summary>
-        /// <param name="profiles">A list of predefined vehicle profiles. (required).</param>
-        public PredefinedVehicleProfiles(List<PredefinedVehicleProfile> profiles = default(List<PredefinedVehicleProfile>))
+        /// <param name="varApiChanges">A list of API changes. (required).</param>
+        public ApiChanges(List<ApiChange> varApiChanges = default(List<ApiChange>))
         {
-            // to ensure "profiles" is required (not null)
-            if (profiles == null)
+            // to ensure "varApiChanges" is required (not null)
+            if (varApiChanges == null)
             {
-                throw new ArgumentNullException("profiles is a required property for PredefinedVehicleProfiles and cannot be null");
+                throw new ArgumentNullException("varApiChanges is a required property for ApiChanges and cannot be null");
             }
-            this.Profiles = profiles;
+            this.VarApiChanges = varApiChanges;
         }
 
         /// <summary>
-        /// A list of predefined vehicle profiles.
+        /// A list of API changes.
         /// </summary>
-        /// <value>A list of predefined vehicle profiles.</value>
-        [DataMember(Name = "profiles", IsRequired = true, EmitDefaultValue = true)]
-        public List<PredefinedVehicleProfile> Profiles { get; set; }
+        /// <value>A list of API changes.</value>
+        [DataMember(Name = "apiChanges", IsRequired = true, EmitDefaultValue = true)]
+        public List<ApiChange> VarApiChanges { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +64,8 @@ namespace PTV.Developer.Clients.data.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PredefinedVehicleProfiles {\n");
-            sb.Append("  Profiles: ").Append(Profiles).Append("\n");
+            sb.Append("class ApiChanges {\n");
+            sb.Append("  VarApiChanges: ").Append(VarApiChanges).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -23,69 +23,69 @@ namespace PTV.Developer.Clients.data.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IVehicleProfilesApiSync : IApiAccessor
+    public interface IAPIChangesApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Returns the predefined vehicle profiles for routing.
+        /// Get all API changes for PTV Developer.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>PredefinedVehicleProfiles</returns>
-        PredefinedVehicleProfiles GetPredefinedVehicleProfiles(int operationIndex = 0);
+        /// <returns>ApiChanges</returns>
+        ApiChanges GetApiChanges(int operationIndex = 0);
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Returns the predefined vehicle profiles for routing.
+        /// Get all API changes for PTV Developer.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of PredefinedVehicleProfiles</returns>
-        ApiResponse<PredefinedVehicleProfiles> GetPredefinedVehicleProfilesWithHttpInfo(int operationIndex = 0);
+        /// <returns>ApiResponse of ApiChanges</returns>
+        ApiResponse<ApiChanges> GetApiChangesWithHttpInfo(int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IVehicleProfilesApiAsync : IApiAccessor
+    public interface IAPIChangesApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Returns the predefined vehicle profiles for routing.
+        /// Get all API changes for PTV Developer.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PredefinedVehicleProfiles</returns>
-        System.Threading.Tasks.Task<PredefinedVehicleProfiles> GetPredefinedVehicleProfilesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiChanges</returns>
+        System.Threading.Tasks.Task<ApiChanges> GetApiChangesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Returns the predefined vehicle profiles for routing.
+        /// Get all API changes for PTV Developer.
         /// </remarks>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PredefinedVehicleProfiles)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PredefinedVehicleProfiles>> GetPredefinedVehicleProfilesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ApiChanges)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiChanges>> GetApiChangesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IVehicleProfilesApi : IVehicleProfilesApiSync, IVehicleProfilesApiAsync
+    public interface IAPIChangesApi : IAPIChangesApiSync, IAPIChangesApiAsync
     {
 
     }
@@ -93,23 +93,23 @@ namespace PTV.Developer.Clients.data.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class VehicleProfilesApi : IVehicleProfilesApi
+    public partial class APIChangesApi : IAPIChangesApi
     {
         private PTV.Developer.Clients.data.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VehicleProfilesApi"/> class.
+        /// Initializes a new instance of the <see cref="APIChangesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public VehicleProfilesApi() : this((string)null)
+        public APIChangesApi() : this((string)null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VehicleProfilesApi"/> class.
+        /// Initializes a new instance of the <see cref="APIChangesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public VehicleProfilesApi(string basePath)
+        public APIChangesApi(string basePath)
         {
             this.Configuration = PTV.Developer.Clients.data.Client.Configuration.MergeConfigurations(
                 PTV.Developer.Clients.data.Client.GlobalConfiguration.Instance,
@@ -121,12 +121,12 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VehicleProfilesApi"/> class
+        /// Initializes a new instance of the <see cref="APIChangesApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public VehicleProfilesApi(PTV.Developer.Clients.data.Client.Configuration configuration)
+        public APIChangesApi(PTV.Developer.Clients.data.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
@@ -140,13 +140,13 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VehicleProfilesApi"/> class
+        /// Initializes a new instance of the <see cref="APIChangesApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public VehicleProfilesApi(PTV.Developer.Clients.data.Client.ISynchronousClient client, PTV.Developer.Clients.data.Client.IAsynchronousClient asyncClient, PTV.Developer.Clients.data.Client.IReadableConfiguration configuration)
+        public APIChangesApi(PTV.Developer.Clients.data.Client.ISynchronousClient client, PTV.Developer.Clients.data.Client.IAsynchronousClient asyncClient, PTV.Developer.Clients.data.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -200,24 +200,24 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        ///  Returns the predefined vehicle profiles for routing.
+        ///  Get all API changes for PTV Developer.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>PredefinedVehicleProfiles</returns>
-        public PredefinedVehicleProfiles GetPredefinedVehicleProfiles(int operationIndex = 0)
+        /// <returns>ApiChanges</returns>
+        public ApiChanges GetApiChanges(int operationIndex = 0)
         {
-            PTV.Developer.Clients.data.Client.ApiResponse<PredefinedVehicleProfiles> localVarResponse = GetPredefinedVehicleProfilesWithHttpInfo();
+            PTV.Developer.Clients.data.Client.ApiResponse<ApiChanges> localVarResponse = GetApiChangesWithHttpInfo();
             return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Returns the predefined vehicle profiles for routing.
+        ///  Get all API changes for PTV Developer.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of PredefinedVehicleProfiles</returns>
-        public PTV.Developer.Clients.data.Client.ApiResponse<PredefinedVehicleProfiles> GetPredefinedVehicleProfilesWithHttpInfo(int operationIndex = 0)
+        /// <returns>ApiResponse of ApiChanges</returns>
+        public PTV.Developer.Clients.data.Client.ApiResponse<ApiChanges> GetApiChangesWithHttpInfo(int operationIndex = 0)
         {
             PTV.Developer.Clients.data.Client.RequestOptions localVarRequestOptions = new PTV.Developer.Clients.data.Client.RequestOptions();
 
@@ -242,7 +242,7 @@ namespace PTV.Developer.Clients.data.Api
             }
 
 
-            localVarRequestOptions.Operation = "VehicleProfilesApi.GetPredefinedVehicleProfiles";
+            localVarRequestOptions.Operation = "APIChangesApi.GetApiChanges";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyAuth) required
@@ -252,10 +252,10 @@ namespace PTV.Developer.Clients.data.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PredefinedVehicleProfiles>("/vehicle-profiles/predefined", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ApiChanges>("/api-changes", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetPredefinedVehicleProfiles", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetApiChanges", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -266,26 +266,26 @@ namespace PTV.Developer.Clients.data.Api
         }
 
         /// <summary>
-        ///  Returns the predefined vehicle profiles for routing.
+        ///  Get all API changes for PTV Developer.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PredefinedVehicleProfiles</returns>
-        public async System.Threading.Tasks.Task<PredefinedVehicleProfiles> GetPredefinedVehicleProfilesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiChanges</returns>
+        public async System.Threading.Tasks.Task<ApiChanges> GetApiChangesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            PTV.Developer.Clients.data.Client.ApiResponse<PredefinedVehicleProfiles> localVarResponse = await GetPredefinedVehicleProfilesWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            PTV.Developer.Clients.data.Client.ApiResponse<ApiChanges> localVarResponse = await GetApiChangesWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Returns the predefined vehicle profiles for routing.
+        ///  Get all API changes for PTV Developer.
         /// </summary>
         /// <exception cref="PTV.Developer.Clients.data.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PredefinedVehicleProfiles)</returns>
-        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<PredefinedVehicleProfiles>> GetPredefinedVehicleProfilesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (ApiChanges)</returns>
+        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<ApiChanges>> GetApiChangesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             PTV.Developer.Clients.data.Client.RequestOptions localVarRequestOptions = new PTV.Developer.Clients.data.Client.RequestOptions();
@@ -311,7 +311,7 @@ namespace PTV.Developer.Clients.data.Api
             }
 
 
-            localVarRequestOptions.Operation = "VehicleProfilesApi.GetPredefinedVehicleProfiles";
+            localVarRequestOptions.Operation = "APIChangesApi.GetApiChanges";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyAuth) required
@@ -321,11 +321,11 @@ namespace PTV.Developer.Clients.data.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PredefinedVehicleProfiles>("/vehicle-profiles/predefined", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ApiChanges>("/api-changes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetPredefinedVehicleProfiles", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetApiChanges", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

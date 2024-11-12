@@ -26,41 +26,41 @@ using OpenAPIDateConverter = PTV.Developer.Clients.data.Client.OpenAPIDateConver
 namespace PTV.Developer.Clients.data.Model
 {
     /// <summary>
-    /// The tunnel restriction code according to ADR (European Agreement Concerning the International Carriage of Dangerous Goods by Road) depending on the load of the vehicle.  Relevant for &#x60;routing&#x60;. 
+    /// The type of the API change.
     /// </summary>
-    /// <value>The tunnel restriction code according to ADR (European Agreement Concerning the International Carriage of Dangerous Goods by Road) depending on the load of the vehicle.  Relevant for &#x60;routing&#x60;. </value>
+    /// <value>The type of the API change.</value>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum TunnelRestrictionCode
+    public enum ApiChangeType
     {
         /// <summary>
-        /// Enum NONE for value: NONE
+        /// Enum FEATURE for value: FEATURE
         /// </summary>
-        [EnumMember(Value = "NONE")]
-        NONE = 1,
+        [EnumMember(Value = "FEATURE")]
+        FEATURE = 1,
 
         /// <summary>
-        /// Enum B for value: B
+        /// Enum IMPROVEMENT for value: IMPROVEMENT
         /// </summary>
-        [EnumMember(Value = "B")]
-        B = 2,
+        [EnumMember(Value = "IMPROVEMENT")]
+        IMPROVEMENT = 2,
 
         /// <summary>
-        /// Enum C for value: C
+        /// Enum BUGFIX for value: BUGFIX
         /// </summary>
-        [EnumMember(Value = "C")]
-        C = 3,
+        [EnumMember(Value = "BUGFIX")]
+        BUGFIX = 3,
 
         /// <summary>
-        /// Enum D for value: D
+        /// Enum DISCONTINUATION for value: DISCONTINUATION
         /// </summary>
-        [EnumMember(Value = "D")]
-        D = 4,
+        [EnumMember(Value = "DISCONTINUATION")]
+        DISCONTINUATION = 4,
 
         /// <summary>
-        /// Enum E for value: E
+        /// Enum ANNOUNCEMENT for value: ANNOUNCEMENT
         /// </summary>
-        [EnumMember(Value = "E")]
-        E = 5
+        [EnumMember(Value = "ANNOUNCEMENT")]
+        ANNOUNCEMENT = 5
     }
 
 }
