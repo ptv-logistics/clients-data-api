@@ -1,5 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
+export * from './ApiChange';
+export * from './ApiChangeType';
+export * from './ApiChanges';
 export * from './Battery';
 export * from './CausingError';
 export * from './CombinedTransport';

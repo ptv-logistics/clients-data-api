@@ -15,25 +15,25 @@
 
 import * as runtime from '../runtime';
 import type {
+  ApiChanges,
   ErrorResponse,
-  PredefinedVehicleProfiles,
 } from '../models/index';
 import {
+    ApiChangesFromJSON,
+    ApiChangesToJSON,
     ErrorResponseFromJSON,
     ErrorResponseToJSON,
-    PredefinedVehicleProfilesFromJSON,
-    PredefinedVehicleProfilesToJSON,
 } from '../models/index';
 
 /**
  * 
  */
-export class VehicleProfilesApi extends runtime.BaseAPI {
+export class APIChangesApi extends runtime.BaseAPI {
 
     /**
-     * Returns the predefined vehicle profiles for routing.
+     * Get all API changes for PTV Developer.
      */
-    async getPredefinedVehicleProfilesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PredefinedVehicleProfiles>> {
+    async getApiChangesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiChanges>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -44,20 +44,20 @@ export class VehicleProfilesApi extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/vehicle-profiles/predefined`,
+            path: `/api-changes`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PredefinedVehicleProfilesFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiChangesFromJSON(jsonValue));
     }
 
     /**
-     * Returns the predefined vehicle profiles for routing.
+     * Get all API changes for PTV Developer.
      */
-    async getPredefinedVehicleProfiles(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PredefinedVehicleProfiles> {
-        const response = await this.getPredefinedVehicleProfilesRaw(initOverrides);
+    async getApiChanges(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiChanges> {
+        const response = await this.getApiChangesRaw(initOverrides);
         return await response.value();
     }
 
