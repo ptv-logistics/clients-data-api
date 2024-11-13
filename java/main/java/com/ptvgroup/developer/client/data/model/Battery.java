@@ -40,7 +40,7 @@ import com.ptvgroup.developer.client.data.ApiClient;
   Battery.JSON_PROPERTY_DC_CHARGING_POWER,
   Battery.JSON_PROPERTY_PLUGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-12T07:34:48.896153411Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-13T09:18:43.600692627Z[Etc/UTC]", comments = "Generator version: 7.8.0")
 public class Battery {
   public static final String JSON_PROPERTY_TOTAL_CAPACITY = "totalCapacity";
   private Double totalCapacity;

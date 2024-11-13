@@ -37,7 +37,7 @@ import com.ptvgroup.developer.client.data.ApiClient;
   TimeInterval.JSON_PROPERTY_START,
   TimeInterval.JSON_PROPERTY_END
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-12T07:34:48.896153411Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-13T09:18:43.600692627Z[Etc/UTC]", comments = "Generator version: 7.8.0")
 public class TimeInterval {
   public static final String JSON_PROPERTY_START = "start";
   private OffsetDateTime start;
