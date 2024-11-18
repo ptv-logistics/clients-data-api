@@ -30,6 +30,7 @@ export * from './MapInformationResponse';
 export * from './MonetaryCostOptions';
 export * from './ParticleReductionClass';
 export * from './PolylineFormat';
+export * from './PolylineMapType';
 export * from './PredefinedVehicleProfile';
 export * from './PredefinedVehicleProfiles';
 export * from './RegionType';
