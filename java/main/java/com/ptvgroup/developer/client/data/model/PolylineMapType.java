@@ -26,45 +26,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Gets or Sets TruckRoutes
+ * Gets or Sets PolylineMapType
  */
-public enum TruckRoutes {
+public enum PolylineMapType {
   
-  DE_LKWUEBERLSTVAUSNV("DE_LKWUEBERLSTVAUSNV"),
+  RASTER("RASTER"),
   
-  NL_LZV("NL_LZV"),
-  
-  NZ_HPMV("NZ_HPMV"),
-  
-  SE_BK_1("SE_BK_1"),
-  
-  SE_BK_2("SE_BK_2"),
-  
-  SE_BK_3("SE_BK_3"),
-  
-  SE_BK_4("SE_BK_4"),
-  
-  US_STAA("US_STAA"),
-  
-  US_TD("US_TD"),
-  
-  AU_B_DOUBLE("AU_B_DOUBLE"),
-  
-  AU_B_DOUBLE_HML("AU_B_DOUBLE_HML"),
-  
-  AU_B_TRIPLE("AU_B_TRIPLE"),
-  
-  AU_B_TRIPLE_HML("AU_B_TRIPLE_HML"),
-  
-  AU_AB_TRIPLE("AU_AB_TRIPLE"),
-  
-  AU_AB_TRIPLE_HML("AU_AB_TRIPLE_HML"),
-  
-  NONE("NONE");
+  VECTOR("VECTOR");
 
   private String value;
 
-  TruckRoutes(String value) {
+  PolylineMapType(String value) {
     this.value = value;
   }
 
@@ -79,8 +51,8 @@ public enum TruckRoutes {
   }
 
   @JsonCreator
-  public static TruckRoutes fromValue(String value) {
-    for (TruckRoutes b : TruckRoutes.values()) {
+  public static PolylineMapType fromValue(String value) {
+    for (PolylineMapType b : PolylineMapType.values()) {
       if (b.value.equals(value)) {
         return b;
       }
