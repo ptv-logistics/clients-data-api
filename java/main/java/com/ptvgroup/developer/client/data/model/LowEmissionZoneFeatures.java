@@ -24,7 +24,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.ptvgroup.developer.client.data.model.TollSystem;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,53 +32,53 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import com.ptvgroup.developer.client.data.ApiClient;
 /**
- * The toll features available in this geographical unit. 
+ * The low-emission zone features available in the map. 
  */
 @JsonPropertyOrder({
-  TollFeatures.JSON_PROPERTY_TOLL_SYSTEMS
+  LowEmissionZoneFeatures.JSON_PROPERTY_EXEMPTIBLE_LOW_EMISSION_ZONES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-29T11:47:47.660663945Z[Etc/UTC]", comments = "Generator version: 7.8.0")
-public class TollFeatures {
-  public static final String JSON_PROPERTY_TOLL_SYSTEMS = "tollSystems";
-  private List<TollSystem> tollSystems = new ArrayList<>();
+public class LowEmissionZoneFeatures {
+  public static final String JSON_PROPERTY_EXEMPTIBLE_LOW_EMISSION_ZONES = "exemptibleLowEmissionZones";
+  private List<String> exemptibleLowEmissionZones = new ArrayList<>();
 
-  public TollFeatures() { 
+  public LowEmissionZoneFeatures() { 
   }
 
-  public TollFeatures tollSystems(List<TollSystem> tollSystems) {
-    this.tollSystems = tollSystems;
+  public LowEmissionZoneFeatures exemptibleLowEmissionZones(List<String> exemptibleLowEmissionZones) {
+    this.exemptibleLowEmissionZones = exemptibleLowEmissionZones;
     return this;
   }
 
-  public TollFeatures addTollSystemsItem(TollSystem tollSystemsItem) {
-    if (this.tollSystems == null) {
-      this.tollSystems = new ArrayList<>();
+  public LowEmissionZoneFeatures addExemptibleLowEmissionZonesItem(String exemptibleLowEmissionZonesItem) {
+    if (this.exemptibleLowEmissionZones == null) {
+      this.exemptibleLowEmissionZones = new ArrayList<>();
     }
-    this.tollSystems.add(tollSystemsItem);
+    this.exemptibleLowEmissionZones.add(exemptibleLowEmissionZonesItem);
     return this;
   }
 
   /**
-   * The list of toll systems available in this geographical unit.
-   * @return tollSystems
+   * The list of low-emission zones that can be exempted. The values can be specified in the vehicle object of the Routing API to allow driving within the specified low-emission zones. This list can be extended at any time, clients should handle unknown values properly.
+   * @return exemptibleLowEmissionZones
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TOLL_SYSTEMS)
+  @JsonProperty(JSON_PROPERTY_EXEMPTIBLE_LOW_EMISSION_ZONES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<TollSystem> getTollSystems() {
-    return tollSystems;
+  public List<String> getExemptibleLowEmissionZones() {
+    return exemptibleLowEmissionZones;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOLL_SYSTEMS)
+  @JsonProperty(JSON_PROPERTY_EXEMPTIBLE_LOW_EMISSION_ZONES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTollSystems(List<TollSystem> tollSystems) {
-    this.tollSystems = tollSystems;
+  public void setExemptibleLowEmissionZones(List<String> exemptibleLowEmissionZones) {
+    this.exemptibleLowEmissionZones = exemptibleLowEmissionZones;
   }
 
 
   /**
-   * Return true if this TollFeatures object is equal to o.
+   * Return true if this LowEmissionZoneFeatures object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -89,20 +88,20 @@ public class TollFeatures {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TollFeatures tollFeatures = (TollFeatures) o;
-    return Objects.equals(this.tollSystems, tollFeatures.tollSystems);
+    LowEmissionZoneFeatures lowEmissionZoneFeatures = (LowEmissionZoneFeatures) o;
+    return Objects.equals(this.exemptibleLowEmissionZones, lowEmissionZoneFeatures.exemptibleLowEmissionZones);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tollSystems);
+    return Objects.hash(exemptibleLowEmissionZones);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TollFeatures {\n");
-    sb.append("    tollSystems: ").append(toIndentedString(tollSystems)).append("\n");
+    sb.append("class LowEmissionZoneFeatures {\n");
+    sb.append("    exemptibleLowEmissionZones: ").append(toIndentedString(exemptibleLowEmissionZones)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -150,13 +149,12 @@ public class TollFeatures {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `tollSystems` to the URL query string
-    if (getTollSystems() != null) {
-      for (int i = 0; i < getTollSystems().size(); i++) {
-        if (getTollSystems().get(i) != null) {
-          joiner.add(getTollSystems().get(i).toUrlQueryString(String.format("%stollSystems%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
-        }
+    // add `exemptibleLowEmissionZones` to the URL query string
+    if (getExemptibleLowEmissionZones() != null) {
+      for (int i = 0; i < getExemptibleLowEmissionZones().size(); i++) {
+        joiner.add(String.format("%sexemptibleLowEmissionZones%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(ApiClient.valueToString(getExemptibleLowEmissionZones().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 

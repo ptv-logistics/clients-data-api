@@ -24,62 +24,83 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.ptvgroup.developer.client.data.model.TollSystem;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 import com.ptvgroup.developer.client.data.ApiClient;
 /**
- * The toll features available in this geographical unit. 
+ * Represents the start or destination location of a combined transport, e.g. the port.
  */
 @JsonPropertyOrder({
-  TollFeatures.JSON_PROPERTY_TOLL_SYSTEMS
+  Location.JSON_PROPERTY_LATITUDE,
+  Location.JSON_PROPERTY_LONGITUDE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-29T11:47:47.660663945Z[Etc/UTC]", comments = "Generator version: 7.8.0")
-public class TollFeatures {
-  public static final String JSON_PROPERTY_TOLL_SYSTEMS = "tollSystems";
-  private List<TollSystem> tollSystems = new ArrayList<>();
+public class Location {
+  public static final String JSON_PROPERTY_LATITUDE = "latitude";
+  private Double latitude;
 
-  public TollFeatures() { 
+  public static final String JSON_PROPERTY_LONGITUDE = "longitude";
+  private Double longitude;
+
+  public Location() { 
   }
 
-  public TollFeatures tollSystems(List<TollSystem> tollSystems) {
-    this.tollSystems = tollSystems;
-    return this;
-  }
-
-  public TollFeatures addTollSystemsItem(TollSystem tollSystemsItem) {
-    if (this.tollSystems == null) {
-      this.tollSystems = new ArrayList<>();
-    }
-    this.tollSystems.add(tollSystemsItem);
+  public Location latitude(Double latitude) {
+    this.latitude = latitude;
     return this;
   }
 
   /**
-   * The list of toll systems available in this geographical unit.
-   * @return tollSystems
+   * The latitude value in degrees (WGS84/EPSG:4326) from south to north.
+   * minimum: -90
+   * maximum: 90
+   * @return latitude
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TOLL_SYSTEMS)
+  @JsonProperty(JSON_PROPERTY_LATITUDE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<TollSystem> getTollSystems() {
-    return tollSystems;
+  public Double getLatitude() {
+    return latitude;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOLL_SYSTEMS)
+  @JsonProperty(JSON_PROPERTY_LATITUDE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTollSystems(List<TollSystem> tollSystems) {
-    this.tollSystems = tollSystems;
+  public void setLatitude(Double latitude) {
+    this.latitude = latitude;
+  }
+
+
+  public Location longitude(Double longitude) {
+    this.longitude = longitude;
+    return this;
+  }
+
+  /**
+   * The longitude value in degrees (WGS84/EPSG:4326) from west to east.
+   * minimum: -180
+   * maximum: 180
+   * @return longitude
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_LONGITUDE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Double getLongitude() {
+    return longitude;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LONGITUDE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setLongitude(Double longitude) {
+    this.longitude = longitude;
   }
 
 
   /**
-   * Return true if this TollFeatures object is equal to o.
+   * Return true if this Location object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -89,20 +110,22 @@ public class TollFeatures {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TollFeatures tollFeatures = (TollFeatures) o;
-    return Objects.equals(this.tollSystems, tollFeatures.tollSystems);
+    Location location = (Location) o;
+    return Objects.equals(this.latitude, location.latitude) &&
+        Objects.equals(this.longitude, location.longitude);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tollSystems);
+    return Objects.hash(latitude, longitude);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TollFeatures {\n");
-    sb.append("    tollSystems: ").append(toIndentedString(tollSystems)).append("\n");
+    sb.append("class Location {\n");
+    sb.append("    latitude: ").append(toIndentedString(latitude)).append("\n");
+    sb.append("    longitude: ").append(toIndentedString(longitude)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -150,14 +173,14 @@ public class TollFeatures {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `tollSystems` to the URL query string
-    if (getTollSystems() != null) {
-      for (int i = 0; i < getTollSystems().size(); i++) {
-        if (getTollSystems().get(i) != null) {
-          joiner.add(getTollSystems().get(i).toUrlQueryString(String.format("%stollSystems%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
-        }
-      }
+    // add `latitude` to the URL query string
+    if (getLatitude() != null) {
+      joiner.add(String.format("%slatitude%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLatitude()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `longitude` to the URL query string
+    if (getLongitude() != null) {
+      joiner.add(String.format("%slongitude%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLongitude()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

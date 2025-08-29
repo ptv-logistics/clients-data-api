@@ -24,62 +24,51 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.ptvgroup.developer.client.data.model.TollSystem;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 import com.ptvgroup.developer.client.data.ApiClient;
 /**
- * The toll features available in this geographical unit. 
+ * The attributes assigned to each of the selected combined transports.
  */
 @JsonPropertyOrder({
-  TollFeatures.JSON_PROPERTY_TOLL_SYSTEMS
+  CombinedTransportAttributes.JSON_PROPERTY_PROHIBITED
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-29T11:47:47.660663945Z[Etc/UTC]", comments = "Generator version: 7.8.0")
-public class TollFeatures {
-  public static final String JSON_PROPERTY_TOLL_SYSTEMS = "tollSystems";
-  private List<TollSystem> tollSystems = new ArrayList<>();
+public class CombinedTransportAttributes {
+  public static final String JSON_PROPERTY_PROHIBITED = "prohibited";
+  private Boolean prohibited;
 
-  public TollFeatures() { 
+  public CombinedTransportAttributes() { 
   }
 
-  public TollFeatures tollSystems(List<TollSystem> tollSystems) {
-    this.tollSystems = tollSystems;
-    return this;
-  }
-
-  public TollFeatures addTollSystemsItem(TollSystem tollSystemsItem) {
-    if (this.tollSystems == null) {
-      this.tollSystems = new ArrayList<>();
-    }
-    this.tollSystems.add(tollSystemsItem);
+  public CombinedTransportAttributes prohibited(Boolean prohibited) {
+    this.prohibited = prohibited;
     return this;
   }
 
   /**
-   * The list of toll systems available in this geographical unit.
-   * @return tollSystems
+   * The combined transports is prohibited, it will not be used in route calculation. Setting this value to false does not have a meaning.
+   * @return prohibited
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TOLL_SYSTEMS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<TollSystem> getTollSystems() {
-    return tollSystems;
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROHIBITED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getProhibited() {
+    return prohibited;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOLL_SYSTEMS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTollSystems(List<TollSystem> tollSystems) {
-    this.tollSystems = tollSystems;
+  @JsonProperty(JSON_PROPERTY_PROHIBITED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setProhibited(Boolean prohibited) {
+    this.prohibited = prohibited;
   }
 
 
   /**
-   * Return true if this TollFeatures object is equal to o.
+   * Return true if this CombinedTransportAttributes object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -89,20 +78,20 @@ public class TollFeatures {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TollFeatures tollFeatures = (TollFeatures) o;
-    return Objects.equals(this.tollSystems, tollFeatures.tollSystems);
+    CombinedTransportAttributes combinedTransportAttributes = (CombinedTransportAttributes) o;
+    return Objects.equals(this.prohibited, combinedTransportAttributes.prohibited);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tollSystems);
+    return Objects.hash(prohibited);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TollFeatures {\n");
-    sb.append("    tollSystems: ").append(toIndentedString(tollSystems)).append("\n");
+    sb.append("class CombinedTransportAttributes {\n");
+    sb.append("    prohibited: ").append(toIndentedString(prohibited)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -150,14 +139,9 @@ public class TollFeatures {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `tollSystems` to the URL query string
-    if (getTollSystems() != null) {
-      for (int i = 0; i < getTollSystems().size(); i++) {
-        if (getTollSystems().get(i) != null) {
-          joiner.add(getTollSystems().get(i).toUrlQueryString(String.format("%stollSystems%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
-        }
-      }
+    // add `prohibited` to the URL query string
+    if (getProhibited() != null) {
+      joiner.add(String.format("%sprohibited%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getProhibited()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();
