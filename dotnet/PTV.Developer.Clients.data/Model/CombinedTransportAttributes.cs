@@ -26,36 +26,26 @@ using OpenAPIDateConverter = PTV.Developer.Clients.data.Client.OpenAPIDateConver
 namespace PTV.Developer.Clients.data.Model
 {
     /// <summary>
-    /// PredefinedVehicleProfiles
+    /// The attributes assigned to each of the selected combined transports.
     /// </summary>
-    [DataContract(Name = "PredefinedVehicleProfiles")]
-    public partial class PredefinedVehicleProfiles : IValidatableObject
+    [DataContract(Name = "CombinedTransportAttributes")]
+    public partial class CombinedTransportAttributes : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PredefinedVehicleProfiles" /> class.
+        /// Initializes a new instance of the <see cref="CombinedTransportAttributes" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PredefinedVehicleProfiles() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PredefinedVehicleProfiles" /> class.
-        /// </summary>
-        /// <param name="profiles">A list of predefined vehicle profiles. (required).</param>
-        public PredefinedVehicleProfiles(List<PredefinedVehicleProfile> profiles = default(List<PredefinedVehicleProfile>))
+        /// <param name="prohibited">The combined transports is prohibited, it will not be used in route calculation. Setting this value to false does not have a meaning..</param>
+        public CombinedTransportAttributes(bool? prohibited = default(bool?))
         {
-            // to ensure "profiles" is required (not null)
-            if (profiles == null)
-            {
-                throw new ArgumentNullException("profiles is a required property for PredefinedVehicleProfiles and cannot be null");
-            }
-            this.Profiles = profiles;
+            this.Prohibited = prohibited;
         }
 
         /// <summary>
-        /// A list of predefined vehicle profiles.
+        /// The combined transports is prohibited, it will not be used in route calculation. Setting this value to false does not have a meaning.
         /// </summary>
-        /// <value>A list of predefined vehicle profiles.</value>
-        [DataMember(Name = "profiles", IsRequired = true, EmitDefaultValue = true)]
-        public List<PredefinedVehicleProfile> Profiles { get; set; }
+        /// <value>The combined transports is prohibited, it will not be used in route calculation. Setting this value to false does not have a meaning.</value>
+        [DataMember(Name = "prohibited", EmitDefaultValue = true)]
+        public bool? Prohibited { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +54,8 @@ namespace PTV.Developer.Clients.data.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PredefinedVehicleProfiles {\n");
-            sb.Append("  Profiles: ").Append(Profiles).Append("\n");
+            sb.Append("class CombinedTransportAttributes {\n");
+            sb.Append("  Prohibited: ").Append(Prohibited).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

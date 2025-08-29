@@ -26,49 +26,35 @@ using OpenAPIDateConverter = PTV.Developer.Clients.data.Client.OpenAPIDateConver
 namespace PTV.Developer.Clients.data.Model
 {
     /// <summary>
-    /// Represents the start or destination location of a combined transport, e.g. the port. The fields **latitude** and **longitude**  can be used as input for combined transport waypoints in the method **calculateRoutePost** of the Routing API.
+    /// Represents the start or destination location of a combined transport, e.g. the port.
     /// </summary>
-    [DataContract(Name = "CombinedTransportLocation")]
-    public partial class CombinedTransportLocation : IValidatableObject
+    [DataContract(Name = "Location")]
+    public partial class Location : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CombinedTransportLocation" /> class.
+        /// Initializes a new instance of the <see cref="Location" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CombinedTransportLocation() { }
+        protected Location() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CombinedTransportLocation" /> class.
+        /// Initializes a new instance of the <see cref="Location" /> class.
         /// </summary>
         /// <param name="latitude">The latitude value in degrees (WGS84/EPSG:4326) from south to north. (required).</param>
         /// <param name="longitude">The longitude value in degrees (WGS84/EPSG:4326) from west to east. (required).</param>
-        /// <param name="name">The name of the location, usually refers to the district to which the location is assigned. (required).</param>
-        /// <param name="countryCode">The country or subdivision of this location represented by its code according to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) if referring to a subdivision. (required).</param>
-        public CombinedTransportLocation(double? latitude = default(double?), double? longitude = default(double?), string name = default(string), string countryCode = default(string))
+        public Location(double? latitude = default(double?), double? longitude = default(double?))
         {
             // to ensure "latitude" is required (not null)
             if (latitude == null)
             {
-                throw new ArgumentNullException("latitude is a required property for CombinedTransportLocation and cannot be null");
+                throw new ArgumentNullException("latitude is a required property for Location and cannot be null");
             }
             this.Latitude = latitude;
             // to ensure "longitude" is required (not null)
             if (longitude == null)
             {
-                throw new ArgumentNullException("longitude is a required property for CombinedTransportLocation and cannot be null");
+                throw new ArgumentNullException("longitude is a required property for Location and cannot be null");
             }
             this.Longitude = longitude;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for CombinedTransportLocation and cannot be null");
-            }
-            this.Name = name;
-            // to ensure "countryCode" is required (not null)
-            if (countryCode == null)
-            {
-                throw new ArgumentNullException("countryCode is a required property for CombinedTransportLocation and cannot be null");
-            }
-            this.CountryCode = countryCode;
         }
 
         /// <summary>
@@ -88,31 +74,15 @@ namespace PTV.Developer.Clients.data.Model
         public double? Longitude { get; set; }
 
         /// <summary>
-        /// The name of the location, usually refers to the district to which the location is assigned.
-        /// </summary>
-        /// <value>The name of the location, usually refers to the district to which the location is assigned.</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// The country or subdivision of this location represented by its code according to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) if referring to a subdivision.
-        /// </summary>
-        /// <value>The country or subdivision of this location represented by its code according to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) if referring to a subdivision.</value>
-        [DataMember(Name = "countryCode", IsRequired = true, EmitDefaultValue = true)]
-        public string CountryCode { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CombinedTransportLocation {\n");
+            sb.Append("class Location {\n");
             sb.Append("  Latitude: ").Append(Latitude).Append("\n");
             sb.Append("  Longitude: ").Append(Longitude).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

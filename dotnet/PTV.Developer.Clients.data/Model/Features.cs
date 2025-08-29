@@ -26,36 +26,35 @@ using OpenAPIDateConverter = PTV.Developer.Clients.data.Client.OpenAPIDateConver
 namespace PTV.Developer.Clients.data.Model
 {
     /// <summary>
-    /// PredefinedVehicleProfiles
+    /// Lists the available data and their features for the map.
     /// </summary>
-    [DataContract(Name = "PredefinedVehicleProfiles")]
-    public partial class PredefinedVehicleProfiles : IValidatableObject
+    [DataContract(Name = "Features")]
+    public partial class Features : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PredefinedVehicleProfiles" /> class.
+        /// Initializes a new instance of the <see cref="Features" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PredefinedVehicleProfiles() { }
+        protected Features() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PredefinedVehicleProfiles" /> class.
+        /// Initializes a new instance of the <see cref="Features" /> class.
         /// </summary>
-        /// <param name="profiles">A list of predefined vehicle profiles. (required).</param>
-        public PredefinedVehicleProfiles(List<PredefinedVehicleProfile> profiles = default(List<PredefinedVehicleProfile>))
+        /// <param name="lowEmissionZoneFeatures">lowEmissionZoneFeatures (required).</param>
+        public Features(LowEmissionZoneFeatures lowEmissionZoneFeatures = default(LowEmissionZoneFeatures))
         {
-            // to ensure "profiles" is required (not null)
-            if (profiles == null)
+            // to ensure "lowEmissionZoneFeatures" is required (not null)
+            if (lowEmissionZoneFeatures == null)
             {
-                throw new ArgumentNullException("profiles is a required property for PredefinedVehicleProfiles and cannot be null");
+                throw new ArgumentNullException("lowEmissionZoneFeatures is a required property for Features and cannot be null");
             }
-            this.Profiles = profiles;
+            this.LowEmissionZoneFeatures = lowEmissionZoneFeatures;
         }
 
         /// <summary>
-        /// A list of predefined vehicle profiles.
+        /// Gets or Sets LowEmissionZoneFeatures
         /// </summary>
-        /// <value>A list of predefined vehicle profiles.</value>
-        [DataMember(Name = "profiles", IsRequired = true, EmitDefaultValue = true)]
-        public List<PredefinedVehicleProfile> Profiles { get; set; }
+        [DataMember(Name = "lowEmissionZoneFeatures", IsRequired = true, EmitDefaultValue = true)]
+        public LowEmissionZoneFeatures LowEmissionZoneFeatures { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +63,8 @@ namespace PTV.Developer.Clients.data.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PredefinedVehicleProfiles {\n");
-            sb.Append("  Profiles: ").Append(Profiles).Append("\n");
+            sb.Append("class Features {\n");
+            sb.Append("  LowEmissionZoneFeatures: ").Append(LowEmissionZoneFeatures).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
