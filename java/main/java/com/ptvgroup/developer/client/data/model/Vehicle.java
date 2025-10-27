@@ -77,7 +77,7 @@ import com.ptvgroup.developer.client.data.ApiClient;
   Vehicle.JSON_PROPERTY_COMMERCIAL,
   Vehicle.JSON_PROPERTY_ETC_SUBSCRIPTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-29T11:47:47.660663945Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-27T08:41:14.325284564Z[Etc/UTC]", comments = "Generator version: 7.8.0")
 public class Vehicle {
   public static final String JSON_PROPERTY_ENGINE_TYPE = "engineType";
   private EngineType engineType;
@@ -113,13 +113,13 @@ public class Vehicle {
   private Integer co2EmissionClass;
 
   public static final String JSON_PROPERTY_LOW_EMISSION_ZONE_TYPES = "lowEmissionZoneTypes";
-  private List<LowEmissionZoneTypes> lowEmissionZoneTypes = new ArrayList<>();
+  private List<LowEmissionZoneTypes> lowEmissionZoneTypes;
 
   public static final String JSON_PROPERTY_LOW_EMISSION_ZONE_APPROVALS = "lowEmissionZoneApprovals";
-  private List<String> lowEmissionZoneApprovals = new ArrayList<>();
+  private List<String> lowEmissionZoneApprovals;
 
   public static final String JSON_PROPERTY_LOW_EMISSION_ZONE_EXEMPTIONS = "lowEmissionZoneExemptions";
-  private List<String> lowEmissionZoneExemptions = new ArrayList<>();
+  private List<String> lowEmissionZoneExemptions;
 
   public static final String JSON_PROPERTY_PARTICLE_REDUCTION_CLASS = "particleReductionClass";
   private ParticleReductionClass particleReductionClass;
@@ -158,19 +158,19 @@ public class Vehicle {
   private Integer width;
 
   public static final String JSON_PROPERTY_HAZARDOUS_MATERIALS = "hazardousMaterials";
-  private List<HazardousMaterials> hazardousMaterials = new ArrayList<>();
+  private List<HazardousMaterials> hazardousMaterials;
 
   public static final String JSON_PROPERTY_TUNNEL_RESTRICTION_CODE = "tunnelRestrictionCode";
   private TunnelRestrictionCode tunnelRestrictionCode;
 
   public static final String JSON_PROPERTY_TRUCK_ROUTES = "truckRoutes";
-  private List<TruckRoutes> truckRoutes = new ArrayList<>();
+  private List<TruckRoutes> truckRoutes;
 
   public static final String JSON_PROPERTY_COMMERCIAL = "commercial";
   private Boolean commercial;
 
   public static final String JSON_PROPERTY_ETC_SUBSCRIPTIONS = "etcSubscriptions";
-  private List<EtcSubscriptionTypes> etcSubscriptions = new ArrayList<>();
+  private List<EtcSubscriptionTypes> etcSubscriptions;
 
   public Vehicle() { 
   }

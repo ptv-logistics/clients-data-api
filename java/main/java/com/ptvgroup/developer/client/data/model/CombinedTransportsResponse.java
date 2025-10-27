@@ -40,13 +40,13 @@ import com.ptvgroup.developer.client.data.ApiClient;
   CombinedTransportsResponse.JSON_PROPERTY_COMBINED_TRANSPORTS,
   CombinedTransportsResponse.JSON_PROPERTY_WARNINGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-29T11:47:47.660663945Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-27T08:41:14.325284564Z[Etc/UTC]", comments = "Generator version: 7.8.0")
 public class CombinedTransportsResponse {
   public static final String JSON_PROPERTY_COMBINED_TRANSPORTS = "combinedTransports";
-  private List<CombinedTransport> combinedTransports = new ArrayList<>();
+  private List<CombinedTransport> combinedTransports;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<Warning> warnings = new ArrayList<>();
+  private List<Warning> warnings;
 
   public CombinedTransportsResponse() { 
   }

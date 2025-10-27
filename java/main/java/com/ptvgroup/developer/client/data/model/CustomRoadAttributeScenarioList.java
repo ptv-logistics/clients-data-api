@@ -38,10 +38,10 @@ import com.ptvgroup.developer.client.data.ApiClient;
 @JsonPropertyOrder({
   CustomRoadAttributeScenarioList.JSON_PROPERTY_CUSTOM_ROAD_ATTRIBUTE_SCENARIOS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-29T11:47:47.660663945Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-27T08:41:14.325284564Z[Etc/UTC]", comments = "Generator version: 7.8.0")
 public class CustomRoadAttributeScenarioList {
   public static final String JSON_PROPERTY_CUSTOM_ROAD_ATTRIBUTE_SCENARIOS = "customRoadAttributeScenarios";
-  private List<CustomRoadAttributeScenario> customRoadAttributeScenarios = new ArrayList<>();
+  private List<CustomRoadAttributeScenario> customRoadAttributeScenarios;
 
   public CustomRoadAttributeScenarioList() { 
   }

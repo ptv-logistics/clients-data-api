@@ -40,13 +40,13 @@ import com.ptvgroup.developer.client.data.ApiClient;
   Validity.JSON_PROPERTY_TIME_INTERVALS,
   Validity.JSON_PROPERTY_WEEKLY_SCHEDULE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-29T11:47:47.660663945Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-27T08:41:14.325284564Z[Etc/UTC]", comments = "Generator version: 7.8.0")
 public class Validity {
   public static final String JSON_PROPERTY_TIME_INTERVALS = "timeIntervals";
-  private List<TimeInterval> timeIntervals = new ArrayList<>();
+  private List<TimeInterval> timeIntervals;
 
   public static final String JSON_PROPERTY_WEEKLY_SCHEDULE = "weeklySchedule";
-  private List<WeeklyScheduleInterval> weeklySchedule = new ArrayList<>();
+  private List<WeeklyScheduleInterval> weeklySchedule;
 
   public Validity() { 
   }

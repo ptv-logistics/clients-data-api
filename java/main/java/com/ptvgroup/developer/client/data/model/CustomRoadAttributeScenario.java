@@ -47,7 +47,7 @@ import com.ptvgroup.developer.client.data.ApiClient;
   CustomRoadAttributeScenario.JSON_PROPERTY_ACTIVE,
   CustomRoadAttributeScenario.JSON_PROPERTY_REVISION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-29T11:47:47.660663945Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-27T08:41:14.325284564Z[Etc/UTC]", comments = "Generator version: 7.8.0")
 public class CustomRoadAttributeScenario {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
@@ -59,10 +59,10 @@ public class CustomRoadAttributeScenario {
   private String description;
 
   public static final String JSON_PROPERTY_ROADS_TO_BE_ATTRIBUTED = "roadsToBeAttributed";
-  private List<RoadsToBeAttributed> roadsToBeAttributed = new ArrayList<>();
+  private List<RoadsToBeAttributed> roadsToBeAttributed;
 
   public static final String JSON_PROPERTY_COMBINED_TRANSPORTS_TO_BE_ATTRIBUTED = "combinedTransportsToBeAttributed";
-  private List<CombinedTransportToBeAttributed> combinedTransportsToBeAttributed = new ArrayList<>();
+  private List<CombinedTransportToBeAttributed> combinedTransportsToBeAttributed;
 
   public static final String JSON_PROPERTY_SHARED = "shared";
   private Boolean shared = false;
