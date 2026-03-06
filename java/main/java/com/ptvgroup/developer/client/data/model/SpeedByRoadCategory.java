@@ -24,61 +24,83 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 import com.ptvgroup.developer.client.data.ApiClient;
 /**
- * The low-emission zone features available in the map. 
+ * SpeedByRoadCategory
  */
 @JsonPropertyOrder({
-  LowEmissionZoneFeatures.JSON_PROPERTY_EXEMPTIBLE_LOW_EMISSION_ZONES
+  SpeedByRoadCategory.JSON_PROPERTY_MINIMUM_SPEED,
+  SpeedByRoadCategory.JSON_PROPERTY_MAXIMUM_SPEED
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-06T07:39:27.938609701Z[Etc/UTC]", comments = "Generator version: 7.8.0")
-public class LowEmissionZoneFeatures {
-  public static final String JSON_PROPERTY_EXEMPTIBLE_LOW_EMISSION_ZONES = "exemptibleLowEmissionZones";
-  private List<String> exemptibleLowEmissionZones;
+public class SpeedByRoadCategory {
+  public static final String JSON_PROPERTY_MINIMUM_SPEED = "minimumSpeed";
+  private Integer minimumSpeed;
 
-  public LowEmissionZoneFeatures() { 
+  public static final String JSON_PROPERTY_MAXIMUM_SPEED = "maximumSpeed";
+  private Integer maximumSpeed;
+
+  public SpeedByRoadCategory() { 
   }
 
-  public LowEmissionZoneFeatures exemptibleLowEmissionZones(List<String> exemptibleLowEmissionZones) {
-    this.exemptibleLowEmissionZones = exemptibleLowEmissionZones;
-    return this;
-  }
-
-  public LowEmissionZoneFeatures addExemptibleLowEmissionZonesItem(String exemptibleLowEmissionZonesItem) {
-    if (this.exemptibleLowEmissionZones == null) {
-      this.exemptibleLowEmissionZones = new ArrayList<>();
-    }
-    this.exemptibleLowEmissionZones.add(exemptibleLowEmissionZonesItem);
+  public SpeedByRoadCategory minimumSpeed(Integer minimumSpeed) {
+    this.minimumSpeed = minimumSpeed;
     return this;
   }
 
   /**
-   * The list of low-emission zones that can be exempted. The values can be specified in the vehicle object of the Routing API to allow driving within the specified low-emission zones. This list can be extended at any time, clients should handle unknown values properly.
-   * @return exemptibleLowEmissionZones
+   * The minimum speed of the vehicle [km/h] for roads of this road category.
+   * minimum: 1
+   * maximum: 255
+   * @return minimumSpeed
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EXEMPTIBLE_LOW_EMISSION_ZONES)
+  @JsonProperty(JSON_PROPERTY_MINIMUM_SPEED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getExemptibleLowEmissionZones() {
-    return exemptibleLowEmissionZones;
+  public Integer getMinimumSpeed() {
+    return minimumSpeed;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXEMPTIBLE_LOW_EMISSION_ZONES)
+  @JsonProperty(JSON_PROPERTY_MINIMUM_SPEED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExemptibleLowEmissionZones(List<String> exemptibleLowEmissionZones) {
-    this.exemptibleLowEmissionZones = exemptibleLowEmissionZones;
+  public void setMinimumSpeed(Integer minimumSpeed) {
+    this.minimumSpeed = minimumSpeed;
+  }
+
+
+  public SpeedByRoadCategory maximumSpeed(Integer maximumSpeed) {
+    this.maximumSpeed = maximumSpeed;
+    return this;
+  }
+
+  /**
+   * The maximum speed of the vehicle [km/h] for roads of this road category.
+   * minimum: 1
+   * maximum: 255
+   * @return maximumSpeed
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_MAXIMUM_SPEED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Integer getMaximumSpeed() {
+    return maximumSpeed;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MAXIMUM_SPEED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setMaximumSpeed(Integer maximumSpeed) {
+    this.maximumSpeed = maximumSpeed;
   }
 
 
   /**
-   * Return true if this LowEmissionZoneFeatures object is equal to o.
+   * Return true if this SpeedByRoadCategory object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -88,20 +110,22 @@ public class LowEmissionZoneFeatures {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LowEmissionZoneFeatures lowEmissionZoneFeatures = (LowEmissionZoneFeatures) o;
-    return Objects.equals(this.exemptibleLowEmissionZones, lowEmissionZoneFeatures.exemptibleLowEmissionZones);
+    SpeedByRoadCategory speedByRoadCategory = (SpeedByRoadCategory) o;
+    return Objects.equals(this.minimumSpeed, speedByRoadCategory.minimumSpeed) &&
+        Objects.equals(this.maximumSpeed, speedByRoadCategory.maximumSpeed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(exemptibleLowEmissionZones);
+    return Objects.hash(minimumSpeed, maximumSpeed);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LowEmissionZoneFeatures {\n");
-    sb.append("    exemptibleLowEmissionZones: ").append(toIndentedString(exemptibleLowEmissionZones)).append("\n");
+    sb.append("class SpeedByRoadCategory {\n");
+    sb.append("    minimumSpeed: ").append(toIndentedString(minimumSpeed)).append("\n");
+    sb.append("    maximumSpeed: ").append(toIndentedString(maximumSpeed)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -149,13 +173,14 @@ public class LowEmissionZoneFeatures {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `exemptibleLowEmissionZones` to the URL query string
-    if (getExemptibleLowEmissionZones() != null) {
-      for (int i = 0; i < getExemptibleLowEmissionZones().size(); i++) {
-        joiner.add(String.format("%sexemptibleLowEmissionZones%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(ApiClient.valueToString(getExemptibleLowEmissionZones().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-      }
+    // add `minimumSpeed` to the URL query string
+    if (getMinimumSpeed() != null) {
+      joiner.add(String.format("%sminimumSpeed%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMinimumSpeed()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `maximumSpeed` to the URL query string
+    if (getMaximumSpeed() != null) {
+      joiner.add(String.format("%smaximumSpeed%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMaximumSpeed()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();
