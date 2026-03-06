@@ -47,6 +47,8 @@ export * from './RoadAttributesResults';
 export * from './RoadDirectionType';
 export * from './RoadsResponse';
 export * from './RoadsToBeAttributed';
+export * from './RouteOptions';
+export * from './SpeedByRoadCategory';
 export * from './TariffVersion';
 export * from './TimeInterval';
 export * from './TollFeatures';
