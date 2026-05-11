@@ -550,7 +550,7 @@ namespace PTV.Developer.Clients.data.Api
 
             if (results != null)
             {
-                localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.data.Client.ClientUtils.ParameterToMultiMap("multi", "results", results));
+                localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.data.Client.ClientUtils.ParameterToMultiMap("csv", "results", results));
             }
             if (polylineFormat != null)
             {
@@ -647,7 +647,7 @@ namespace PTV.Developer.Clients.data.Api
 
             if (results != null)
             {
-                localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.data.Client.ClientUtils.ParameterToMultiMap("multi", "results", results));
+                localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.data.Client.ClientUtils.ParameterToMultiMap("csv", "results", results));
             }
             if (polylineFormat != null)
             {
@@ -883,7 +883,7 @@ namespace PTV.Developer.Clients.data.Api
 
             if (results != null)
             {
-                localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.data.Client.ClientUtils.ParameterToMultiMap("multi", "results", results));
+                localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.data.Client.ClientUtils.ParameterToMultiMap("csv", "results", results));
             }
             if (polylineFormat != null)
             {
@@ -964,7 +964,7 @@ namespace PTV.Developer.Clients.data.Api
 
             if (results != null)
             {
-                localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.data.Client.ClientUtils.ParameterToMultiMap("multi", "results", results));
+                localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.data.Client.ClientUtils.ParameterToMultiMap("csv", "results", results));
             }
             if (polylineFormat != null)
             {
@@ -1052,7 +1052,7 @@ namespace PTV.Developer.Clients.data.Api
             localVarRequestOptions.PathParameters.Add("scenarioId", PTV.Developer.Clients.data.Client.ClientUtils.ParameterToString(scenarioId)); // path parameter
             if (results != null)
             {
-                localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.data.Client.ClientUtils.ParameterToMultiMap("multi", "results", results));
+                localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.data.Client.ClientUtils.ParameterToMultiMap("csv", "results", results));
             }
             if (polylineFormat != null)
             {
@@ -1142,7 +1142,7 @@ namespace PTV.Developer.Clients.data.Api
             localVarRequestOptions.PathParameters.Add("scenarioId", PTV.Developer.Clients.data.Client.ClientUtils.ParameterToString(scenarioId)); // path parameter
             if (results != null)
             {
-                localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.data.Client.ClientUtils.ParameterToMultiMap("multi", "results", results));
+                localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.data.Client.ClientUtils.ParameterToMultiMap("csv", "results", results));
             }
             if (polylineFormat != null)
             {
@@ -1419,7 +1419,7 @@ namespace PTV.Developer.Clients.data.Api
             localVarRequestOptions.PathParameters.Add("scenarioId", PTV.Developer.Clients.data.Client.ClientUtils.ParameterToString(scenarioId)); // path parameter
             if (results != null)
             {
-                localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.data.Client.ClientUtils.ParameterToMultiMap("multi", "results", results));
+                localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.data.Client.ClientUtils.ParameterToMultiMap("csv", "results", results));
             }
             if (polylineFormat != null)
             {
@@ -1525,7 +1525,7 @@ namespace PTV.Developer.Clients.data.Api
             localVarRequestOptions.PathParameters.Add("scenarioId", PTV.Developer.Clients.data.Client.ClientUtils.ParameterToString(scenarioId)); // path parameter
             if (results != null)
             {
-                localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.data.Client.ClientUtils.ParameterToMultiMap("multi", "results", results));
+                localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.data.Client.ClientUtils.ParameterToMultiMap("csv", "results", results));
             }
             if (polylineFormat != null)
             {
