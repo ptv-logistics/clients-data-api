@@ -45,7 +45,7 @@ import com.ptvgroup.developer.client.data.ApiClient;
   PredefinedVehicleProfile.JSON_PROPERTY_MONETARY_COST_OPTIONS,
   PredefinedVehicleProfile.JSON_PROPERTY_ROUTE_OPTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-06T07:39:27.938609701Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-11T12:01:15.197597589Z[Etc/UTC]", comments = "Generator version: 7.8.0")
 public class PredefinedVehicleProfile {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;

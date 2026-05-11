@@ -36,7 +36,7 @@ import com.ptvgroup.developer.client.data.ApiClient;
   CombinedTransportByText.JSON_PROPERTY_QUERY,
   CombinedTransportByText.JSON_PROPERTY_ALLOWED_COUNTRIES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-06T07:39:27.938609701Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-11T12:01:15.197597589Z[Etc/UTC]", comments = "Generator version: 7.8.0")
 public class CombinedTransportByText {
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;

@@ -40,7 +40,7 @@ import com.ptvgroup.developer.client.data.ApiClient;
   RouteOptions.JSON_PROPERTY_SPEEDS_BY_ROAD_CATEGORY,
   RouteOptions.JSON_PROPERTY_TIME_PREFERENCE_OVER_DISTANCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-06T07:39:27.938609701Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-11T12:01:15.197597589Z[Etc/UTC]", comments = "Generator version: 7.8.0")
 public class RouteOptions {
   public static final String JSON_PROPERTY_MAXIMUM_SPEED = "maximumSpeed";
   private Integer maximumSpeed;
