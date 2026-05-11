@@ -95,7 +95,7 @@ export class CustomRoadAttributesApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters['results'] != null) {
-            queryParameters['results'] = requestParameters['results'];
+            queryParameters['results'] = requestParameters['results']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['polylineFormat'] != null) {
@@ -176,7 +176,7 @@ export class CustomRoadAttributesApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters['results'] != null) {
-            queryParameters['results'] = requestParameters['results'];
+            queryParameters['results'] = requestParameters['results']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['polylineFormat'] != null) {
@@ -221,7 +221,7 @@ export class CustomRoadAttributesApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters['results'] != null) {
-            queryParameters['results'] = requestParameters['results'];
+            queryParameters['results'] = requestParameters['results']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['polylineFormat'] != null) {
@@ -322,7 +322,7 @@ export class CustomRoadAttributesApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters['results'] != null) {
-            queryParameters['results'] = requestParameters['results'];
+            queryParameters['results'] = requestParameters['results']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['polylineFormat'] != null) {
