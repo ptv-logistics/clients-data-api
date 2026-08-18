@@ -47,7 +47,7 @@ import com.ptvgroup.developer.client.data.ApiClient;
   CustomRoadAttributeScenario.JSON_PROPERTY_ACTIVE,
   CustomRoadAttributeScenario.JSON_PROPERTY_REVISION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T10:43:59.419218577Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
 public class CustomRoadAttributeScenario {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
