@@ -18,12 +18,14 @@ import {
     GeographicalUnitFromJSON,
     GeographicalUnitFromJSONTyped,
     GeographicalUnitToJSON,
+    GeographicalUnitToJSONTyped,
 } from './GeographicalUnit';
 import type { Features } from './Features';
 import {
     FeaturesFromJSON,
     FeaturesFromJSONTyped,
     FeaturesToJSON,
+    FeaturesToJSONTyped,
 } from './Features';
 
 /**
@@ -70,10 +72,15 @@ export function MapInformationResponseFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-export function MapInformationResponseToJSON(value?: MapInformationResponse | null): any {
+export function MapInformationResponseToJSON(json: any): MapInformationResponse {
+    return MapInformationResponseToJSONTyped(json, false);
+}
+
+export function MapInformationResponseToJSONTyped(value?: MapInformationResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'features': FeaturesToJSON(value['features']),

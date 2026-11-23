@@ -18,12 +18,14 @@ import {
     TimeIntervalFromJSON,
     TimeIntervalFromJSONTyped,
     TimeIntervalToJSON,
+    TimeIntervalToJSONTyped,
 } from './TimeInterval';
 import type { WeeklyScheduleInterval } from './WeeklyScheduleInterval';
 import {
     WeeklyScheduleIntervalFromJSON,
     WeeklyScheduleIntervalFromJSONTyped,
     WeeklyScheduleIntervalToJSON,
+    WeeklyScheduleIntervalToJSONTyped,
 } from './WeeklyScheduleInterval';
 
 /**
@@ -76,10 +78,15 @@ export function ValidityFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     };
 }
 
-export function ValidityToJSON(value?: Validity | null): any {
+export function ValidityToJSON(json: any): Validity {
+    return ValidityToJSONTyped(json, false);
+}
+
+export function ValidityToJSONTyped(value?: Validity | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'timeIntervals': value['timeIntervals'] == null ? undefined : ((value['timeIntervals'] as Array<any>).map(TimeIntervalToJSON)),

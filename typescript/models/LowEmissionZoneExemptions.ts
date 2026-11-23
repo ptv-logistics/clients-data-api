@@ -169,3 +169,7 @@ export function LowEmissionZoneExemptionsToJSON(value?: LowEmissionZoneExemption
     return value as any;
 }
 
+export function LowEmissionZoneExemptionsToJSONTyped(value: any, ignoreDiscriminator: boolean): LowEmissionZoneExemptions {
+    return value as LowEmissionZoneExemptions;
+}
+

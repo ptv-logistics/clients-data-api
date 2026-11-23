@@ -12,18 +12,17 @@
  * Do not edit the class manually.
  */
 
-
 import * as runtime from '../runtime';
-import type {
-  ErrorResponse,
-  PredefinedVehicleProfiles,
-} from '../models/index';
 import {
+    type ErrorResponse,
     ErrorResponseFromJSON,
     ErrorResponseToJSON,
+} from '../models/ErrorResponse';
+import {
+    type PredefinedVehicleProfiles,
     PredefinedVehicleProfilesFromJSON,
     PredefinedVehicleProfilesToJSON,
-} from '../models/index';
+} from '../models/PredefinedVehicleProfiles';
 
 /**
  * 
@@ -31,9 +30,9 @@ import {
 export class VehicleProfilesApi extends runtime.BaseAPI {
 
     /**
-     * Returns the predefined vehicle profiles for routing.
+     * Creates request options for getPredefinedVehicleProfiles without sending the request
      */
-    async getPredefinedVehicleProfilesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PredefinedVehicleProfiles>> {
+    async getPredefinedVehicleProfilesRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -42,12 +41,23 @@ export class VehicleProfilesApi extends runtime.BaseAPI {
             headerParameters["apiKey"] = await this.configuration.apiKey("apiKey"); // apiKeyAuth authentication
         }
 
-        const response = await this.request({
-            path: `/vehicle-profiles/predefined`,
+
+        let urlPath = `/vehicle-profiles/predefined`;
+
+        return {
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Returns the predefined vehicle profiles for routing.
+     */
+    async getPredefinedVehicleProfilesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PredefinedVehicleProfiles>> {
+        const requestOptions = await this.getPredefinedVehicleProfilesRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PredefinedVehicleProfilesFromJSON(jsonValue));
     }

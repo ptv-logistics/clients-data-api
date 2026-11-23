@@ -51,10 +51,15 @@ export function LowEmissionZoneFeaturesFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-export function LowEmissionZoneFeaturesToJSON(value?: LowEmissionZoneFeatures | null): any {
+export function LowEmissionZoneFeaturesToJSON(json: any): LowEmissionZoneFeatures {
+    return LowEmissionZoneFeaturesToJSONTyped(json, false);
+}
+
+export function LowEmissionZoneFeaturesToJSONTyped(value?: LowEmissionZoneFeatures | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'exemptibleLowEmissionZones': value['exemptibleLowEmissionZones'],

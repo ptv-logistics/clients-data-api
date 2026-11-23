@@ -61,10 +61,15 @@ export function CombinedTransportByTextFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-export function CombinedTransportByTextToJSON(value?: CombinedTransportByText | null): any {
+export function CombinedTransportByTextToJSON(json: any): CombinedTransportByText {
+    return CombinedTransportByTextToJSONTyped(json, false);
+}
+
+export function CombinedTransportByTextToJSONTyped(value?: CombinedTransportByText | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'query': value['query'],

@@ -18,60 +18,70 @@ import {
     LowEmissionZoneTypesFromJSON,
     LowEmissionZoneTypesFromJSONTyped,
     LowEmissionZoneTypesToJSON,
+    LowEmissionZoneTypesToJSONTyped,
 } from './LowEmissionZoneTypes';
 import type { HazardousMaterials } from './HazardousMaterials';
 import {
     HazardousMaterialsFromJSON,
     HazardousMaterialsFromJSONTyped,
     HazardousMaterialsToJSON,
+    HazardousMaterialsToJSONTyped,
 } from './HazardousMaterials';
 import type { EmissionStandard } from './EmissionStandard';
 import {
     EmissionStandardFromJSON,
     EmissionStandardFromJSONTyped,
     EmissionStandardToJSON,
+    EmissionStandardToJSONTyped,
 } from './EmissionStandard';
 import type { EtcSubscriptionTypes } from './EtcSubscriptionTypes';
 import {
     EtcSubscriptionTypesFromJSON,
     EtcSubscriptionTypesFromJSONTyped,
     EtcSubscriptionTypesToJSON,
+    EtcSubscriptionTypesToJSONTyped,
 } from './EtcSubscriptionTypes';
 import type { ParticleReductionClass } from './ParticleReductionClass';
 import {
     ParticleReductionClassFromJSON,
     ParticleReductionClassFromJSONTyped,
     ParticleReductionClassToJSON,
+    ParticleReductionClassToJSONTyped,
 } from './ParticleReductionClass';
 import type { EngineType } from './EngineType';
 import {
     EngineTypeFromJSON,
     EngineTypeFromJSONTyped,
     EngineTypeToJSON,
+    EngineTypeToJSONTyped,
 } from './EngineType';
 import type { TunnelRestrictionCode } from './TunnelRestrictionCode';
 import {
     TunnelRestrictionCodeFromJSON,
     TunnelRestrictionCodeFromJSONTyped,
     TunnelRestrictionCodeToJSON,
+    TunnelRestrictionCodeToJSONTyped,
 } from './TunnelRestrictionCode';
 import type { TruckRoutes } from './TruckRoutes';
 import {
     TruckRoutesFromJSON,
     TruckRoutesFromJSONTyped,
     TruckRoutesToJSON,
+    TruckRoutesToJSONTyped,
 } from './TruckRoutes';
 import type { ElectricityType } from './ElectricityType';
 import {
     ElectricityTypeFromJSON,
     ElectricityTypeFromJSONTyped,
     ElectricityTypeToJSON,
+    ElectricityTypeToJSONTyped,
 } from './ElectricityType';
 import type { FuelType } from './FuelType';
 import {
     FuelTypeFromJSON,
     FuelTypeFromJSONTyped,
     FuelTypeToJSON,
+    FuelTypeToJSONTyped,
 } from './FuelType';
 
 /**
@@ -123,7 +133,7 @@ export interface Vehicle {
     /**
      * The ratio of biofuel to conventional fuel [%], i.e. 10 for E10 with 10% biofuel.
      * 
-     * Supported for **engineType** _COMBUSTION_ or _HYBRID_ and only for the fuel types _GASOLINE_, _DIESEL_, _CNG_GASOLINE_ and _LNG_GASOLINE_.
+     * Supported for **engineType** _COMBUSTION_ or _HYBRID_ and only for the fuel types _GASOLINE_, _DIESEL_, _CNG_GASOLINE_, _LPG_GASOLINE_, _COMPRESSED_NATURAL_GAS_ and _LIQUEFIED_NATURAL_GAS_.
      * Relevant for `emissions`.
      * 
      * @type {number}
@@ -149,7 +159,8 @@ export interface Vehicle {
      */
     dualFuelRatio?: number;
     /**
-     * The cylinder capacity of the vehicle [cm&#x00B3;].
+     * The cylinder capacity of the vehicle [cm&#x00B3;]. This value is present for compatibility reasons and does not influence
+     * any of the results.
      * 
      * Supported for **engineType** _COMBUSTION_ or _HYBRID_.
      * 
@@ -167,6 +178,9 @@ export interface Vehicle {
      * The CO&#8322; emission class valid in the European Union. See also the 
      * [Directive 1999/62/EC](https://eur-lex.europa.eu/eli/dir/1999/62/2022-03-24) of the European Parliament and 
      * of the Council on the charging of heavy goods vehicles for the use of certain infrastructures, Article 7ga.
+     * 
+     * Must be 1 for combustion and hybrid vehicles with any **emissionStandard**, 2-4 for combustion and hybrid vehicles with **emissionStandard**
+     * of at least _EURO_6_, and 5 for electric vehicles.
      * 
      * Relevant for `toll`.
      * 
@@ -465,10 +479,15 @@ export function VehicleFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
     };
 }
 
-export function VehicleToJSON(value?: Vehicle | null): any {
+export function VehicleToJSON(json: any): Vehicle {
+    return VehicleToJSONTyped(json, false);
+}
+
+export function VehicleToJSONTyped(value?: Vehicle | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'engineType': EngineTypeToJSON(value['engineType']),

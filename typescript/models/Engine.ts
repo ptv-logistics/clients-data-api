@@ -18,12 +18,14 @@ import {
     EmissionStandardFromJSON,
     EmissionStandardFromJSONTyped,
     EmissionStandardToJSON,
+    EmissionStandardToJSONTyped,
 } from './EmissionStandard';
 import type { EngineType } from './EngineType';
 import {
     EngineTypeFromJSON,
     EngineTypeFromJSONTyped,
     EngineTypeToJSON,
+    EngineTypeToJSONTyped,
 } from './EngineType';
 
 /**
@@ -108,10 +110,15 @@ export function EngineFromJSONTyped(json: any, ignoreDiscriminator: boolean): En
     };
 }
 
-export function EngineToJSON(value?: Engine | null): any {
+export function EngineToJSON(json: any): Engine {
+    return EngineToJSONTyped(json, false);
+}
+
+export function EngineToJSONTyped(value?: Engine | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'engineType': EngineTypeToJSON(value['engineType']),

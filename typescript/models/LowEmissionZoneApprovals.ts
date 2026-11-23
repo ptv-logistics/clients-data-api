@@ -66,3 +66,7 @@ export function LowEmissionZoneApprovalsToJSON(value?: LowEmissionZoneApprovals 
     return value as any;
 }
 
+export function LowEmissionZoneApprovalsToJSONTyped(value: any, ignoreDiscriminator: boolean): LowEmissionZoneApprovals {
+    return value as LowEmissionZoneApprovals;
+}
+

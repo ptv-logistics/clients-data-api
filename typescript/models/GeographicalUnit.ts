@@ -18,12 +18,14 @@ import {
     ContinentFromJSON,
     ContinentFromJSONTyped,
     ContinentToJSON,
+    ContinentToJSONTyped,
 } from './Continent';
 import type { MapFeatures } from './MapFeatures';
 import {
     MapFeaturesFromJSON,
     MapFeaturesFromJSONTyped,
     MapFeaturesToJSON,
+    MapFeaturesToJSONTyped,
 } from './MapFeatures';
 
 /**
@@ -98,10 +100,15 @@ export function GeographicalUnitFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-export function GeographicalUnitToJSON(value?: GeographicalUnit | null): any {
+export function GeographicalUnitToJSON(json: any): GeographicalUnit {
+    return GeographicalUnitToJSONTyped(json, false);
+}
+
+export function GeographicalUnitToJSONTyped(value?: GeographicalUnit | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

@@ -18,6 +18,7 @@ import {
     CombinedTransportLocationFromJSON,
     CombinedTransportLocationFromJSONTyped,
     CombinedTransportLocationToJSON,
+    CombinedTransportLocationToJSONTyped,
 } from './CombinedTransportLocation';
 
 /**
@@ -120,10 +121,15 @@ export function CombinedTransportFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-export function CombinedTransportToJSON(value?: CombinedTransport | null): any {
+export function CombinedTransportToJSON(json: any): CombinedTransport {
+    return CombinedTransportToJSONTyped(json, false);
+}
+
+export function CombinedTransportToJSONTyped(value?: CombinedTransport | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'polyline': value['polyline'],

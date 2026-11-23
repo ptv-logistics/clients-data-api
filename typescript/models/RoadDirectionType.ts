@@ -53,3 +53,7 @@ export function RoadDirectionTypeToJSON(value?: RoadDirectionType | null): any {
     return value as any;
 }
 
+export function RoadDirectionTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): RoadDirectionType {
+    return value as RoadDirectionType;
+}
+

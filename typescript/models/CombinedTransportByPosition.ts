@@ -64,10 +64,15 @@ export function CombinedTransportByPositionFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-export function CombinedTransportByPositionToJSON(value?: CombinedTransportByPosition | null): any {
+export function CombinedTransportByPositionToJSON(json: any): CombinedTransportByPosition {
+    return CombinedTransportByPositionToJSONTyped(json, false);
+}
+
+export function CombinedTransportByPositionToJSONTyped(value?: CombinedTransportByPosition | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'latitude': value['latitude'],

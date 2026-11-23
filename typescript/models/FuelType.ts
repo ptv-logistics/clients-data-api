@@ -15,7 +15,8 @@
 
 /**
  * The fuel type of the vehicle.
- * The fuel types _CNG_GASOLINE_ and _LNG_GASOLINE_ are used for dual-fuel vehicles.
+ * The fuel types _CNG_GASOLINE_ and _LPG_GASOLINE_ are used for dual-fuel vehicles, therefore the **dualFuelRatio**
+ * has to be specified. These fuel types cannot be used with hybrid vehicles.
  * 
  * Supported for **engineType** _COMBUSTION_ and _HYBRID_. Relevant for `emissions`.
  * 
@@ -24,6 +25,7 @@
 export const FuelType = {
     GASOLINE: 'GASOLINE',
     DIESEL: 'DIESEL',
+    HVO: 'HVO',
     COMPRESSED_NATURAL_GAS: 'COMPRESSED_NATURAL_GAS',
     LIQUEFIED_PETROLEUM_GAS: 'LIQUEFIED_PETROLEUM_GAS',
     LIQUEFIED_NATURAL_GAS: 'LIQUEFIED_NATURAL_GAS',
@@ -56,5 +58,9 @@ export function FuelTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
 
 export function FuelTypeToJSON(value?: FuelType | null): any {
     return value as any;
+}
+
+export function FuelTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): FuelType {
+    return value as FuelType;
 }
 

@@ -51,3 +51,7 @@ export function ContinentToJSON(value?: Continent | null): any {
     return value as any;
 }
 
+export function ContinentToJSONTyped(value: any, ignoreDiscriminator: boolean): Continent {
+    return value as Continent;
+}
+

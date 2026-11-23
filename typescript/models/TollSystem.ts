@@ -18,6 +18,7 @@ import {
     TariffVersionFromJSON,
     TariffVersionFromJSONTyped,
     TariffVersionToJSON,
+    TariffVersionToJSONTyped,
 } from './TariffVersion';
 
 /**
@@ -72,10 +73,15 @@ export function TollSystemFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     };
 }
 
-export function TollSystemToJSON(value?: TollSystem | null): any {
+export function TollSystemToJSON(json: any): TollSystem {
+    return TollSystemToJSONTyped(json, false);
+}
+
+export function TollSystemToJSONTyped(value?: TollSystem | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],

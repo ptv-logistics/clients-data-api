@@ -18,6 +18,7 @@ import {
     CustomRoadAttributeScenarioFromJSON,
     CustomRoadAttributeScenarioFromJSONTyped,
     CustomRoadAttributeScenarioToJSON,
+    CustomRoadAttributeScenarioToJSONTyped,
 } from './CustomRoadAttributeScenario';
 
 /**
@@ -55,10 +56,15 @@ export function CustomRoadAttributeScenarioListFromJSONTyped(json: any, ignoreDi
     };
 }
 
-export function CustomRoadAttributeScenarioListToJSON(value?: CustomRoadAttributeScenarioList | null): any {
+export function CustomRoadAttributeScenarioListToJSON(json: any): CustomRoadAttributeScenarioList {
+    return CustomRoadAttributeScenarioListToJSONTyped(json, false);
+}
+
+export function CustomRoadAttributeScenarioListToJSONTyped(value?: CustomRoadAttributeScenarioList | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'customRoadAttributeScenarios': value['customRoadAttributeScenarios'] == null ? undefined : ((value['customRoadAttributeScenarios'] as Array<any>).map(CustomRoadAttributeScenarioToJSON)),

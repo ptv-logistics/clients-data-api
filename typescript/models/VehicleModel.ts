@@ -18,18 +18,21 @@ import {
     CommercialFromJSON,
     CommercialFromJSONTyped,
     CommercialToJSON,
+    CommercialToJSONTyped,
 } from './Commercial';
 import type { Battery } from './Battery';
 import {
     BatteryFromJSON,
     BatteryFromJSONTyped,
     BatteryToJSON,
+    BatteryToJSONTyped,
 } from './Battery';
 import type { Engine } from './Engine';
 import {
     EngineFromJSON,
     EngineFromJSONTyped,
     EngineToJSON,
+    EngineToJSONTyped,
 } from './Engine';
 
 /**
@@ -119,10 +122,15 @@ export function VehicleModelFromJSONTyped(json: any, ignoreDiscriminator: boolea
     };
 }
 
-export function VehicleModelToJSON(value?: Omit<VehicleModel, 'id'> | null): any {
+export function VehicleModelToJSON(json: any): VehicleModel {
+    return VehicleModelToJSONTyped(json, false);
+}
+
+export function VehicleModelToJSONTyped(value?: Omit<VehicleModel, 'id'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'predefinedProfile': value['predefinedProfile'],

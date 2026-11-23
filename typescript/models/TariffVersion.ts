@@ -65,15 +65,20 @@ export function TariffVersionFromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-export function TariffVersionToJSON(value?: TariffVersion | null): any {
+export function TariffVersionToJSON(json: any): TariffVersion {
+    return TariffVersionToJSONTyped(json, false);
+}
+
+export function TariffVersionToJSONTyped(value?: TariffVersion | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'version': value['version'],
         'description': value['description'],
-        'validFrom': ((value['validFrom']).toISOString().substring(0,10)),
+        'validFrom': value['validFrom'].toISOString().substring(0,10),
     };
 }
 

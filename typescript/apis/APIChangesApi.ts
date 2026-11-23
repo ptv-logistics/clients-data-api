@@ -12,18 +12,17 @@
  * Do not edit the class manually.
  */
 
-
 import * as runtime from '../runtime';
-import type {
-  ApiChanges,
-  ErrorResponse,
-} from '../models/index';
 import {
+    type ApiChanges,
     ApiChangesFromJSON,
     ApiChangesToJSON,
+} from '../models/ApiChanges';
+import {
+    type ErrorResponse,
     ErrorResponseFromJSON,
     ErrorResponseToJSON,
-} from '../models/index';
+} from '../models/ErrorResponse';
 
 /**
  * 
@@ -31,9 +30,9 @@ import {
 export class APIChangesApi extends runtime.BaseAPI {
 
     /**
-     * Get all API changes for PTV Developer.
+     * Creates request options for getApiChanges without sending the request
      */
-    async getApiChangesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiChanges>> {
+    async getApiChangesRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -42,12 +41,23 @@ export class APIChangesApi extends runtime.BaseAPI {
             headerParameters["apiKey"] = await this.configuration.apiKey("apiKey"); // apiKeyAuth authentication
         }
 
-        const response = await this.request({
-            path: `/api-changes`,
+
+        let urlPath = `/api-changes`;
+
+        return {
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Get all API changes for PTV Developer.
+     */
+    async getApiChangesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiChanges>> {
+        const requestOptions = await this.getApiChangesRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiChangesFromJSON(jsonValue));
     }

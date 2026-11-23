@@ -18,24 +18,28 @@ import {
     VehicleFromJSON,
     VehicleFromJSONTyped,
     VehicleToJSON,
+    VehicleToJSONTyped,
 } from './Vehicle';
 import type { RegionType } from './RegionType';
 import {
     RegionTypeFromJSON,
     RegionTypeFromJSONTyped,
     RegionTypeToJSON,
+    RegionTypeToJSONTyped,
 } from './RegionType';
 import type { MonetaryCostOptions } from './MonetaryCostOptions';
 import {
     MonetaryCostOptionsFromJSON,
     MonetaryCostOptionsFromJSONTyped,
     MonetaryCostOptionsToJSON,
+    MonetaryCostOptionsToJSONTyped,
 } from './MonetaryCostOptions';
 import type { RouteOptions } from './RouteOptions';
 import {
     RouteOptionsFromJSON,
     RouteOptionsFromJSONTyped,
     RouteOptionsToJSON,
+    RouteOptionsToJSONTyped,
 } from './RouteOptions';
 
 /**
@@ -121,10 +125,15 @@ export function PredefinedVehicleProfileFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-export function PredefinedVehicleProfileToJSON(value?: PredefinedVehicleProfile | null): any {
+export function PredefinedVehicleProfileToJSON(json: any): PredefinedVehicleProfile {
+    return PredefinedVehicleProfileToJSONTyped(json, false);
+}
+
+export function PredefinedVehicleProfileToJSONTyped(value?: PredefinedVehicleProfile | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],

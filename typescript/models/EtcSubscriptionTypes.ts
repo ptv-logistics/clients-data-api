@@ -99,3 +99,7 @@ export function EtcSubscriptionTypesToJSON(value?: EtcSubscriptionTypes | null):
     return value as any;
 }
 
+export function EtcSubscriptionTypesToJSONTyped(value: any, ignoreDiscriminator: boolean): EtcSubscriptionTypes {
+    return value as EtcSubscriptionTypes;
+}
+

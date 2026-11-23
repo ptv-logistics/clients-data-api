@@ -12,18 +12,17 @@
  * Do not edit the class manually.
  */
 
-
 import * as runtime from '../runtime';
-import type {
-  ErrorResponse,
-  VehicleModels,
-} from '../models/index';
 import {
+    type ErrorResponse,
     ErrorResponseFromJSON,
     ErrorResponseToJSON,
+} from '../models/ErrorResponse';
+import {
+    type VehicleModels,
     VehicleModelsFromJSON,
     VehicleModelsToJSON,
-} from '../models/index';
+} from '../models/VehicleModels';
 
 export interface GetVehicleModelsRequest {
     identification?: string;
@@ -36,9 +35,9 @@ export interface GetVehicleModelsRequest {
 export class VehicleModelsApi extends runtime.BaseAPI {
 
     /**
-     * A list of **VehicleModel** objects. Only vehicle models matching all filters are returned. In case that no vehicle model is found an empty list is returned. In case no filters are applied, all available vehicle models are returned.  This method is in a preview state, the API is stable, feature changes could be introduced in future.
+     * Creates request options for getVehicleModels without sending the request
      */
-    async getVehicleModelsRaw(requestParameters: GetVehicleModelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VehicleModels>> {
+    async getVehicleModelsRequestOpts(requestParameters: GetVehicleModelsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['identification'] != null) {
@@ -55,12 +54,23 @@ export class VehicleModelsApi extends runtime.BaseAPI {
             headerParameters["apiKey"] = await this.configuration.apiKey("apiKey"); // apiKeyAuth authentication
         }
 
-        const response = await this.request({
-            path: `/vehicle-models`,
+
+        let urlPath = `/vehicle-models`;
+
+        return {
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * A list of **VehicleModel** objects. Only vehicle models matching all filters are returned. In case that no vehicle model is found an empty list is returned. In case no filters are applied, all available vehicle models are returned.  This method is in a preview state, the API is stable, feature changes could be introduced in future.
+     */
+    async getVehicleModelsRaw(requestParameters: GetVehicleModelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VehicleModels>> {
+        const requestOptions = await this.getVehicleModelsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => VehicleModelsFromJSON(jsonValue));
     }

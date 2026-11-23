@@ -18,6 +18,7 @@ import {
     PredefinedVehicleProfileFromJSON,
     PredefinedVehicleProfileFromJSONTyped,
     PredefinedVehicleProfileToJSON,
+    PredefinedVehicleProfileToJSONTyped,
 } from './PredefinedVehicleProfile';
 
 /**
@@ -56,10 +57,15 @@ export function PredefinedVehicleProfilesFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-export function PredefinedVehicleProfilesToJSON(value?: PredefinedVehicleProfiles | null): any {
+export function PredefinedVehicleProfilesToJSON(json: any): PredefinedVehicleProfiles {
+    return PredefinedVehicleProfilesToJSONTyped(json, false);
+}
+
+export function PredefinedVehicleProfilesToJSONTyped(value?: PredefinedVehicleProfiles | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'profiles': ((value['profiles'] as Array<any>).map(PredefinedVehicleProfileToJSON)),

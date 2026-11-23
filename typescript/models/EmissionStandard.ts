@@ -66,3 +66,7 @@ export function EmissionStandardToJSON(value?: EmissionStandard | null): any {
     return value as any;
 }
 
+export function EmissionStandardToJSONTyped(value: any, ignoreDiscriminator: boolean): EmissionStandard {
+    return value as EmissionStandard;
+}
+

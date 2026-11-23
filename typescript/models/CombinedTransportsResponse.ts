@@ -18,12 +18,14 @@ import {
     WarningFromJSON,
     WarningFromJSONTyped,
     WarningToJSON,
+    WarningToJSONTyped,
 } from './Warning';
 import type { CombinedTransport } from './CombinedTransport';
 import {
     CombinedTransportFromJSON,
     CombinedTransportFromJSONTyped,
     CombinedTransportToJSON,
+    CombinedTransportToJSONTyped,
 } from './CombinedTransport';
 
 /**
@@ -69,10 +71,15 @@ export function CombinedTransportsResponseFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-export function CombinedTransportsResponseToJSON(value?: CombinedTransportsResponse | null): any {
+export function CombinedTransportsResponseToJSON(json: any): CombinedTransportsResponse {
+    return CombinedTransportsResponseToJSONTyped(json, false);
+}
+
+export function CombinedTransportsResponseToJSONTyped(value?: CombinedTransportsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'combinedTransports': ((value['combinedTransports'] as Array<any>).map(CombinedTransportToJSON)),

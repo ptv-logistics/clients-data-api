@@ -18,6 +18,7 @@ import {
     ApiChangeFromJSON,
     ApiChangeFromJSONTyped,
     ApiChangeToJSON,
+    ApiChangeToJSONTyped,
 } from './ApiChange';
 
 /**
@@ -56,10 +57,15 @@ export function ApiChangesFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     };
 }
 
-export function ApiChangesToJSON(value?: ApiChanges | null): any {
+export function ApiChangesToJSON(json: any): ApiChanges {
+    return ApiChangesToJSONTyped(json, false);
+}
+
+export function ApiChangesToJSONTyped(value?: ApiChanges | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'apiChanges': ((value['apiChanges'] as Array<any>).map(ApiChangeToJSON)),

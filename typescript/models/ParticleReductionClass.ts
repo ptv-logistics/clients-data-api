@@ -54,3 +54,7 @@ export function ParticleReductionClassToJSON(value?: ParticleReductionClass | nu
     return value as any;
 }
 
+export function ParticleReductionClassToJSONTyped(value: any, ignoreDiscriminator: boolean): ParticleReductionClass {
+    return value as ParticleReductionClass;
+}
+

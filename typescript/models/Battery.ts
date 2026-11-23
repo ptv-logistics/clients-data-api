@@ -75,10 +75,15 @@ export function BatteryFromJSONTyped(json: any, ignoreDiscriminator: boolean): B
     };
 }
 
-export function BatteryToJSON(value?: Battery | null): any {
+export function BatteryToJSON(json: any): Battery {
+    return BatteryToJSONTyped(json, false);
+}
+
+export function BatteryToJSONTyped(value?: Battery | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'totalCapacity': value['totalCapacity'],

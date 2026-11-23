@@ -18,6 +18,7 @@ import {
     DayOfWeekFromJSON,
     DayOfWeekFromJSONTyped,
     DayOfWeekToJSON,
+    DayOfWeekToJSONTyped,
 } from './DayOfWeek';
 
 /**
@@ -82,10 +83,15 @@ export function WeeklyScheduleIntervalFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-export function WeeklyScheduleIntervalToJSON(value?: WeeklyScheduleInterval | null): any {
+export function WeeklyScheduleIntervalToJSON(json: any): WeeklyScheduleInterval {
+    return WeeklyScheduleIntervalToJSONTyped(json, false);
+}
+
+export function WeeklyScheduleIntervalToJSONTyped(value?: WeeklyScheduleInterval | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'dayOfWeek': DayOfWeekToJSON(value['dayOfWeek']),

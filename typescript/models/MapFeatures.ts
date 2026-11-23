@@ -18,6 +18,7 @@ import {
     TollFeaturesFromJSON,
     TollFeaturesFromJSONTyped,
     TollFeaturesToJSON,
+    TollFeaturesToJSONTyped,
 } from './TollFeatures';
 
 /**
@@ -66,10 +67,15 @@ export function MapFeaturesFromJSONTyped(json: any, ignoreDiscriminator: boolean
     };
 }
 
-export function MapFeaturesToJSON(value?: MapFeatures | null): any {
+export function MapFeaturesToJSON(json: any): MapFeatures {
+    return MapFeaturesToJSONTyped(json, false);
+}
+
+export function MapFeaturesToJSONTyped(value?: MapFeatures | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'toll': value['toll'],

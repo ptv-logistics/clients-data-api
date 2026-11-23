@@ -53,3 +53,7 @@ export function TunnelRestrictionCodeToJSON(value?: TunnelRestrictionCode | null
     return value as any;
 }
 
+export function TunnelRestrictionCodeToJSONTyped(value: any, ignoreDiscriminator: boolean): TunnelRestrictionCode {
+    return value as TunnelRestrictionCode;
+}
+

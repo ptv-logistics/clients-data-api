@@ -53,3 +53,7 @@ export function HazardousMaterialsToJSON(value?: HazardousMaterials | null): any
     return value as any;
 }
 
+export function HazardousMaterialsToJSONTyped(value: any, ignoreDiscriminator: boolean): HazardousMaterials {
+    return value as HazardousMaterials;
+}
+

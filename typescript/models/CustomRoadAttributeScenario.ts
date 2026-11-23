@@ -18,12 +18,14 @@ import {
     RoadsToBeAttributedFromJSON,
     RoadsToBeAttributedFromJSONTyped,
     RoadsToBeAttributedToJSON,
+    RoadsToBeAttributedToJSONTyped,
 } from './RoadsToBeAttributed';
 import type { CombinedTransportToBeAttributed } from './CombinedTransportToBeAttributed';
 import {
     CombinedTransportToBeAttributedFromJSON,
     CombinedTransportToBeAttributedFromJSONTyped,
     CombinedTransportToBeAttributedToJSON,
+    CombinedTransportToBeAttributedToJSONTyped,
 } from './CombinedTransportToBeAttributed';
 
 /**
@@ -123,10 +125,15 @@ export function CustomRoadAttributeScenarioFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-export function CustomRoadAttributeScenarioToJSON(value?: Omit<CustomRoadAttributeScenario, 'id'> | null): any {
+export function CustomRoadAttributeScenarioToJSON(json: any): CustomRoadAttributeScenario {
+    return CustomRoadAttributeScenarioToJSONTyped(json, false);
+}
+
+export function CustomRoadAttributeScenarioToJSONTyped(value?: Omit<CustomRoadAttributeScenario, 'id'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],

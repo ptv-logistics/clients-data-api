@@ -71,10 +71,15 @@ export function CommercialFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     };
 }
 
-export function CommercialToJSON(value?: Commercial | null): any {
+export function CommercialToJSON(json: any): Commercial {
+    return CommercialToJSONTyped(json, false);
+}
+
+export function CommercialToJSONTyped(value?: Commercial | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'manufacturer': value['manufacturer'],

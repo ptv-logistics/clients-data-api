@@ -91,10 +91,15 @@ export function PenaltyOptionsFromJSONTyped(json: any, ignoreDiscriminator: bool
     };
 }
 
-export function PenaltyOptionsToJSON(value?: PenaltyOptions | null): any {
+export function PenaltyOptionsToJSON(json: any): PenaltyOptions {
+    return PenaltyOptionsToJSONTyped(json, false);
+}
+
+export function PenaltyOptionsToJSONTyped(value?: PenaltyOptions | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'byRoadCategory': value['byRoadCategory'],

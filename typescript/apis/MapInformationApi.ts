@@ -12,30 +12,37 @@
  * Do not edit the class manually.
  */
 
-
 import * as runtime from '../runtime';
-import type {
-  CombinedTransportByPosition,
-  CombinedTransportByText,
-  CombinedTransportsResponse,
-  ErrorResponse,
-  MapInformationResponse,
-  PolylineFormat,
-} from '../models/index';
 import {
+    type CombinedTransportByPosition,
     CombinedTransportByPositionFromJSON,
     CombinedTransportByPositionToJSON,
+} from '../models/CombinedTransportByPosition';
+import {
+    type CombinedTransportByText,
     CombinedTransportByTextFromJSON,
     CombinedTransportByTextToJSON,
+} from '../models/CombinedTransportByText';
+import {
+    type CombinedTransportsResponse,
     CombinedTransportsResponseFromJSON,
     CombinedTransportsResponseToJSON,
+} from '../models/CombinedTransportsResponse';
+import {
+    type ErrorResponse,
     ErrorResponseFromJSON,
     ErrorResponseToJSON,
+} from '../models/ErrorResponse';
+import {
+    type MapInformationResponse,
     MapInformationResponseFromJSON,
     MapInformationResponseToJSON,
+} from '../models/MapInformationResponse';
+import {
+    type PolylineFormat,
     PolylineFormatFromJSON,
     PolylineFormatToJSON,
-} from '../models/index';
+} from '../models/PolylineFormat';
 
 export interface GetCombinedTransportsRequest {
     position?: CombinedTransportByPosition;
@@ -49,9 +56,9 @@ export interface GetCombinedTransportsRequest {
 export class MapInformationApi extends runtime.BaseAPI {
 
     /**
-     * Get combined transports from a (click) point on a map or matching a given text input.  A request will be rejected if  * it covers more than 5000 combined transports or * if neither the parameter **position** nor the parameter **text** is specified.
+     * Creates request options for getCombinedTransports without sending the request
      */
-    async getCombinedTransportsRaw(requestParameters: GetCombinedTransportsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CombinedTransportsResponse>> {
+    async getCombinedTransportsRequestOpts(requestParameters: GetCombinedTransportsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['position'] != null) {
@@ -72,12 +79,23 @@ export class MapInformationApi extends runtime.BaseAPI {
             headerParameters["apiKey"] = await this.configuration.apiKey("apiKey"); // apiKeyAuth authentication
         }
 
-        const response = await this.request({
-            path: `/combined-transports`,
+
+        let urlPath = `/combined-transports`;
+
+        return {
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Get combined transports from a (click) point on a map or matching a given text input.  A request will be rejected if  * it covers more than 5000 combined transports or * if neither the parameter **position** nor the parameter **text** is specified.
+     */
+    async getCombinedTransportsRaw(requestParameters: GetCombinedTransportsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CombinedTransportsResponse>> {
+        const requestOptions = await this.getCombinedTransportsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CombinedTransportsResponseFromJSON(jsonValue));
     }
@@ -91,9 +109,9 @@ export class MapInformationApi extends runtime.BaseAPI {
     }
 
     /**
-     * Gets information about the map. See [here](./concepts/map-information) for more information.
+     * Creates request options for getMapInformation without sending the request
      */
-    async getMapInformationRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MapInformationResponse>> {
+    async getMapInformationRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -102,12 +120,23 @@ export class MapInformationApi extends runtime.BaseAPI {
             headerParameters["apiKey"] = await this.configuration.apiKey("apiKey"); // apiKeyAuth authentication
         }
 
-        const response = await this.request({
-            path: `/map-information`,
+
+        let urlPath = `/map-information`;
+
+        return {
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Gets information about the map. See [here](./concepts/map-information) for more information.
+     */
+    async getMapInformationRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MapInformationResponse>> {
+        const requestOptions = await this.getMapInformationRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MapInformationResponseFromJSON(jsonValue));
     }

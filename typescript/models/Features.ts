@@ -18,6 +18,7 @@ import {
     LowEmissionZoneFeaturesFromJSON,
     LowEmissionZoneFeaturesFromJSONTyped,
     LowEmissionZoneFeaturesToJSON,
+    LowEmissionZoneFeaturesToJSONTyped,
 } from './LowEmissionZoneFeatures';
 
 /**
@@ -56,10 +57,15 @@ export function FeaturesFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     };
 }
 
-export function FeaturesToJSON(value?: Features | null): any {
+export function FeaturesToJSON(json: any): Features {
+    return FeaturesToJSONTyped(json, false);
+}
+
+export function FeaturesToJSONTyped(value?: Features | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'lowEmissionZoneFeatures': LowEmissionZoneFeaturesToJSON(value['lowEmissionZoneFeatures']),

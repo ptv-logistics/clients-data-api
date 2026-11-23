@@ -51,3 +51,7 @@ export function ElectricityTypeToJSON(value?: ElectricityType | null): any {
     return value as any;
 }
 
+export function ElectricityTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): ElectricityType {
+    return value as ElectricityType;
+}
+

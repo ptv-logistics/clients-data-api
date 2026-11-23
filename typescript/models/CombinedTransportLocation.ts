@@ -74,10 +74,15 @@ export function CombinedTransportLocationFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-export function CombinedTransportLocationToJSON(value?: CombinedTransportLocation | null): any {
+export function CombinedTransportLocationToJSON(json: any): CombinedTransportLocation {
+    return CombinedTransportLocationToJSONTyped(json, false);
+}
+
+export function CombinedTransportLocationToJSONTyped(value?: CombinedTransportLocation | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'latitude': value['latitude'],

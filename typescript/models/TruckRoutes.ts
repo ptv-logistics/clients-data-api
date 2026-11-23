@@ -62,3 +62,7 @@ export function TruckRoutesToJSON(value?: TruckRoutes | null): any {
     return value as any;
 }
 
+export function TruckRoutesToJSONTyped(value: any, ignoreDiscriminator: boolean): TruckRoutes {
+    return value as TruckRoutes;
+}
+

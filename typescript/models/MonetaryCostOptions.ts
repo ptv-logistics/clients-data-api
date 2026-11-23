@@ -57,10 +57,15 @@ export function MonetaryCostOptionsFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-export function MonetaryCostOptionsToJSON(value?: MonetaryCostOptions | null): any {
+export function MonetaryCostOptionsToJSON(json: any): MonetaryCostOptions {
+    return MonetaryCostOptionsToJSONTyped(json, false);
+}
+
+export function MonetaryCostOptionsToJSONTyped(value?: MonetaryCostOptions | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'costPerKilometer': value['costPerKilometer'],

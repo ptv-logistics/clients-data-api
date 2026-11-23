@@ -46,3 +46,7 @@ export function RoadAttributesResultsToJSON(value?: RoadAttributesResults | null
     return value as any;
 }
 
+export function RoadAttributesResultsToJSONTyped(value: any, ignoreDiscriminator: boolean): RoadAttributesResults {
+    return value as RoadAttributesResults;
+}
+

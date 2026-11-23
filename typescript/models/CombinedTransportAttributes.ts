@@ -48,10 +48,15 @@ export function CombinedTransportAttributesFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-export function CombinedTransportAttributesToJSON(value?: CombinedTransportAttributes | null): any {
+export function CombinedTransportAttributesToJSON(json: any): CombinedTransportAttributes {
+    return CombinedTransportAttributesToJSONTyped(json, false);
+}
+
+export function CombinedTransportAttributesToJSONTyped(value?: CombinedTransportAttributes | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'prohibited': value['prohibited'],

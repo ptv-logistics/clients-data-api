@@ -47,3 +47,7 @@ export function PolylineMapTypeToJSON(value?: PolylineMapType | null): any {
     return value as any;
 }
 
+export function PolylineMapTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): PolylineMapType {
+    return value as PolylineMapType;
+}
+

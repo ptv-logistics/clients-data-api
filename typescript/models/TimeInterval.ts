@@ -61,14 +61,19 @@ export function TimeIntervalFromJSONTyped(json: any, ignoreDiscriminator: boolea
     };
 }
 
-export function TimeIntervalToJSON(value?: TimeInterval | null): any {
+export function TimeIntervalToJSON(json: any): TimeInterval {
+    return TimeIntervalToJSONTyped(json, false);
+}
+
+export function TimeIntervalToJSONTyped(value?: TimeInterval | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
-        'start': ((value['start']).toISOString()),
-        'end': ((value['end']).toISOString()),
+        'start': value['start'].toISOString(),
+        'end': value['end'].toISOString(),
     };
 }
 

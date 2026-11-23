@@ -48,10 +48,15 @@ export function RoadFromJSONTyped(json: any, ignoreDiscriminator: boolean): Road
     };
 }
 
-export function RoadToJSON(value?: Road | null): any {
+export function RoadToJSON(json: any): Road {
+    return RoadToJSONTyped(json, false);
+}
+
+export function RoadToJSONTyped(value?: Road | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'polyline': value['polyline'],

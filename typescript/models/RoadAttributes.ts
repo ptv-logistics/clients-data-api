@@ -92,10 +92,15 @@ export function RoadAttributesFromJSONTyped(json: any, ignoreDiscriminator: bool
     };
 }
 
-export function RoadAttributesToJSON(value?: RoadAttributes | null): any {
+export function RoadAttributesToJSON(json: any): RoadAttributes {
+    return RoadAttributesToJSONTyped(json, false);
+}
+
+export function RoadAttributesToJSONTyped(value?: RoadAttributes | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'prohibited': value['prohibited'],

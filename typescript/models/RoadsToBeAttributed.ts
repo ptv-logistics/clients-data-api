@@ -18,18 +18,21 @@ import {
     ValidityFromJSON,
     ValidityFromJSONTyped,
     ValidityToJSON,
+    ValidityToJSONTyped,
 } from './Validity';
 import type { RoadAttributes } from './RoadAttributes';
 import {
     RoadAttributesFromJSON,
     RoadAttributesFromJSONTyped,
     RoadAttributesToJSON,
+    RoadAttributesToJSONTyped,
 } from './RoadAttributes';
 import type { RoadDirectionType } from './RoadDirectionType';
 import {
     RoadDirectionTypeFromJSON,
     RoadDirectionTypeFromJSONTyped,
     RoadDirectionTypeToJSON,
+    RoadDirectionTypeToJSONTyped,
 } from './RoadDirectionType';
 
 /**
@@ -135,10 +138,15 @@ export function RoadsToBeAttributedFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-export function RoadsToBeAttributedToJSON(value?: RoadsToBeAttributed | null): any {
+export function RoadsToBeAttributedToJSON(json: any): RoadsToBeAttributed {
+    return RoadsToBeAttributedToJSONTyped(json, false);
+}
+
+export function RoadsToBeAttributedToJSONTyped(value?: RoadsToBeAttributed | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'points': value['points'],

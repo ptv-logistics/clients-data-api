@@ -18,6 +18,7 @@ import {
     RoadFromJSON,
     RoadFromJSONTyped,
     RoadToJSON,
+    RoadToJSONTyped,
 } from './Road';
 
 /**
@@ -55,10 +56,15 @@ export function RoadsResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-export function RoadsResponseToJSON(value?: RoadsResponse | null): any {
+export function RoadsResponseToJSON(json: any): RoadsResponse {
+    return RoadsResponseToJSONTyped(json, false);
+}
+
+export function RoadsResponseToJSONTyped(value?: RoadsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'roads': value['roads'] == null ? undefined : ((value['roads'] as Array<any>).map(RoadToJSON)),

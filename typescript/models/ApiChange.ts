@@ -18,6 +18,7 @@ import {
     ApiChangeTypeFromJSON,
     ApiChangeTypeFromJSONTyped,
     ApiChangeTypeToJSON,
+    ApiChangeTypeToJSONTyped,
 } from './ApiChangeType';
 
 /**
@@ -95,14 +96,19 @@ export function ApiChangeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     };
 }
 
-export function ApiChangeToJSON(value?: ApiChange | null): any {
+export function ApiChangeToJSON(json: any): ApiChange {
+    return ApiChangeToJSONTyped(json, false);
+}
+
+export function ApiChangeToJSONTyped(value?: ApiChange | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'type': ApiChangeTypeToJSON(value['type']),
-        'date': ((value['date']).toISOString()),
+        'date': value['date'].toISOString(),
         'description': value['description'],
         'api': value['api'],
         'version': value['version'],

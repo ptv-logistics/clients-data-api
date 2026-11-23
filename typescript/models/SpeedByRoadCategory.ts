@@ -57,10 +57,15 @@ export function SpeedByRoadCategoryFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-export function SpeedByRoadCategoryToJSON(value?: SpeedByRoadCategory | null): any {
+export function SpeedByRoadCategoryToJSON(json: any): SpeedByRoadCategory {
+    return SpeedByRoadCategoryToJSONTyped(json, false);
+}
+
+export function SpeedByRoadCategoryToJSONTyped(value?: SpeedByRoadCategory | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'minimumSpeed': value['minimumSpeed'],

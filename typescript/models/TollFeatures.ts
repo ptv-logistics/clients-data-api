@@ -18,6 +18,7 @@ import {
     TollSystemFromJSON,
     TollSystemFromJSONTyped,
     TollSystemToJSON,
+    TollSystemToJSONTyped,
 } from './TollSystem';
 
 /**
@@ -57,10 +58,15 @@ export function TollFeaturesFromJSONTyped(json: any, ignoreDiscriminator: boolea
     };
 }
 
-export function TollFeaturesToJSON(value?: TollFeatures | null): any {
+export function TollFeaturesToJSON(json: any): TollFeatures {
+    return TollFeaturesToJSONTyped(json, false);
+}
+
+export function TollFeaturesToJSONTyped(value?: TollFeatures | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'tollSystems': ((value['tollSystems'] as Array<any>).map(TollSystemToJSON)),

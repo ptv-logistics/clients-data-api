@@ -49,3 +49,7 @@ export function LowEmissionZoneTypesToJSON(value?: LowEmissionZoneTypes | null):
     return value as any;
 }
 
+export function LowEmissionZoneTypesToJSONTyped(value: any, ignoreDiscriminator: boolean): LowEmissionZoneTypes {
+    return value as LowEmissionZoneTypes;
+}
+

@@ -18,6 +18,7 @@ import {
     VehicleModelFromJSON,
     VehicleModelFromJSONTyped,
     VehicleModelToJSON,
+    VehicleModelToJSONTyped,
 } from './VehicleModel';
 
 /**
@@ -56,10 +57,15 @@ export function VehicleModelsFromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-export function VehicleModelsToJSON(value?: VehicleModels | null): any {
+export function VehicleModelsToJSON(json: any): VehicleModels {
+    return VehicleModelsToJSONTyped(json, false);
+}
+
+export function VehicleModelsToJSONTyped(value?: VehicleModels | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'vehicleModels': ((value['vehicleModels'] as Array<any>).map(VehicleModelToJSON)),

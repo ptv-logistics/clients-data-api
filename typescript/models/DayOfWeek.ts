@@ -52,3 +52,7 @@ export function DayOfWeekToJSON(value?: DayOfWeek | null): any {
     return value as any;
 }
 
+export function DayOfWeekToJSONTyped(value: any, ignoreDiscriminator: boolean): DayOfWeek {
+    return value as DayOfWeek;
+}
+

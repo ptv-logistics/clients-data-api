@@ -18,12 +18,14 @@ import {
     CombinedTransportAttributesFromJSON,
     CombinedTransportAttributesFromJSONTyped,
     CombinedTransportAttributesToJSON,
+    CombinedTransportAttributesToJSONTyped,
 } from './CombinedTransportAttributes';
 import type { Location } from './Location';
 import {
     LocationFromJSON,
     LocationFromJSONTyped,
     LocationToJSON,
+    LocationToJSONTyped,
 } from './Location';
 
 /**
@@ -112,10 +114,15 @@ export function CombinedTransportToBeAttributedFromJSONTyped(json: any, ignoreDi
     };
 }
 
-export function CombinedTransportToBeAttributedToJSON(value?: CombinedTransportToBeAttributed | null): any {
+export function CombinedTransportToBeAttributedToJSON(json: any): CombinedTransportToBeAttributed {
+    return CombinedTransportToBeAttributedToJSONTyped(json, false);
+}
+
+export function CombinedTransportToBeAttributedToJSONTyped(value?: CombinedTransportToBeAttributed | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'start': LocationToJSON(value['start']),

@@ -51,3 +51,7 @@ export function EngineTypeToJSON(value?: EngineType | null): any {
     return value as any;
 }
 
+export function EngineTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): EngineType {
+    return value as EngineType;
+}
+

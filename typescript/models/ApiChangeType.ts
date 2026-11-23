@@ -50,3 +50,7 @@ export function ApiChangeTypeToJSON(value?: ApiChangeType | null): any {
     return value as any;
 }
 
+export function ApiChangeTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): ApiChangeType {
+    return value as ApiChangeType;
+}
+

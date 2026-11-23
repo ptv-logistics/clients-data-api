@@ -18,12 +18,14 @@ import {
     SpeedByRoadCategoryFromJSON,
     SpeedByRoadCategoryFromJSONTyped,
     SpeedByRoadCategoryToJSON,
+    SpeedByRoadCategoryToJSONTyped,
 } from './SpeedByRoadCategory';
 import type { PenaltyOptions } from './PenaltyOptions';
 import {
     PenaltyOptionsFromJSON,
     PenaltyOptionsFromJSONTyped,
     PenaltyOptionsToJSON,
+    PenaltyOptionsToJSONTyped,
 } from './PenaltyOptions';
 
 /**
@@ -103,10 +105,15 @@ export function RouteOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolea
     };
 }
 
-export function RouteOptionsToJSON(value?: RouteOptions | null): any {
+export function RouteOptionsToJSON(json: any): RouteOptions {
+    return RouteOptionsToJSONTyped(json, false);
+}
+
+export function RouteOptionsToJSONTyped(value?: RouteOptions | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'maximumSpeed': value['maximumSpeed'],
