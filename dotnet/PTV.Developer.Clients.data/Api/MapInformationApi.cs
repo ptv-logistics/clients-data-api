@@ -38,7 +38,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CombinedTransportsResponse</returns>
-        CombinedTransportsResponse GetCombinedTransports(CombinedTransportByPosition? position = default(CombinedTransportByPosition?), CombinedTransportByText? text = default(CombinedTransportByText?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0);
+        CombinedTransportsResponse GetCombinedTransports(CombinedTransportByPosition? position = default, CombinedTransportByText? text = default, PolylineFormat? polylineFormat = default, int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -52,7 +52,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CombinedTransportsResponse</returns>
-        ApiResponse<CombinedTransportsResponse> GetCombinedTransportsWithHttpInfo(CombinedTransportByPosition? position = default(CombinedTransportByPosition?), CombinedTransportByText? text = default(CombinedTransportByText?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0);
+        ApiResponse<CombinedTransportsResponse> GetCombinedTransportsWithHttpInfo(CombinedTransportByPosition? position = default, CombinedTransportByText? text = default, PolylineFormat? polylineFormat = default, int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -96,7 +96,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CombinedTransportsResponse</returns>
-        System.Threading.Tasks.Task<CombinedTransportsResponse> GetCombinedTransportsAsync(CombinedTransportByPosition? position = default(CombinedTransportByPosition?), CombinedTransportByText? text = default(CombinedTransportByText?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CombinedTransportsResponse> GetCombinedTransportsAsync(CombinedTransportByPosition? position = default, CombinedTransportByText? text = default, PolylineFormat? polylineFormat = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -111,7 +111,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CombinedTransportsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CombinedTransportsResponse>> GetCombinedTransportsWithHttpInfoAsync(CombinedTransportByPosition? position = default(CombinedTransportByPosition?), CombinedTransportByText? text = default(CombinedTransportByText?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CombinedTransportsResponse>> GetCombinedTransportsWithHttpInfoAsync(CombinedTransportByPosition? position = default, CombinedTransportByText? text = default, PolylineFormat? polylineFormat = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -122,7 +122,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MapInformationResponse</returns>
-        System.Threading.Tasks.Task<MapInformationResponse> GetMapInformationAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<MapInformationResponse> GetMapInformationAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -134,7 +134,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MapInformationResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MapInformationResponse>> GetMapInformationWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<MapInformationResponse>> GetMapInformationWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -264,7 +264,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CombinedTransportsResponse</returns>
-        public CombinedTransportsResponse GetCombinedTransports(CombinedTransportByPosition? position = default(CombinedTransportByPosition?), CombinedTransportByText? text = default(CombinedTransportByText?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0)
+        public CombinedTransportsResponse GetCombinedTransports(CombinedTransportByPosition? position = default, CombinedTransportByText? text = default, PolylineFormat? polylineFormat = default, int operationIndex = 0)
         {
             PTV.Developer.Clients.data.Client.ApiResponse<CombinedTransportsResponse> localVarResponse = GetCombinedTransportsWithHttpInfo(position, text, polylineFormat);
             return localVarResponse.Data;
@@ -279,7 +279,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="polylineFormat"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CombinedTransportsResponse</returns>
-        public PTV.Developer.Clients.data.Client.ApiResponse<CombinedTransportsResponse> GetCombinedTransportsWithHttpInfo(CombinedTransportByPosition? position = default(CombinedTransportByPosition?), CombinedTransportByText? text = default(CombinedTransportByText?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0)
+        public PTV.Developer.Clients.data.Client.ApiResponse<CombinedTransportsResponse> GetCombinedTransportsWithHttpInfo(CombinedTransportByPosition? position = default, CombinedTransportByText? text = default, PolylineFormat? polylineFormat = default, int operationIndex = 0)
         {
             PTV.Developer.Clients.data.Client.RequestOptions localVarRequestOptions = new PTV.Developer.Clients.data.Client.RequestOptions();
 
@@ -292,6 +292,7 @@ namespace PTV.Developer.Clients.data.Api
             };
 
             var localVarContentType = PTV.Developer.Clients.data.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -367,7 +368,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CombinedTransportsResponse</returns>
-        public async System.Threading.Tasks.Task<CombinedTransportsResponse> GetCombinedTransportsAsync(CombinedTransportByPosition? position = default(CombinedTransportByPosition?), CombinedTransportByText? text = default(CombinedTransportByText?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CombinedTransportsResponse> GetCombinedTransportsAsync(CombinedTransportByPosition? position = default, CombinedTransportByText? text = default, PolylineFormat? polylineFormat = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             PTV.Developer.Clients.data.Client.ApiResponse<CombinedTransportsResponse> localVarResponse = await GetCombinedTransportsWithHttpInfoAsync(position, text, polylineFormat, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -383,7 +384,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CombinedTransportsResponse)</returns>
-        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<CombinedTransportsResponse>> GetCombinedTransportsWithHttpInfoAsync(CombinedTransportByPosition? position = default(CombinedTransportByPosition?), CombinedTransportByText? text = default(CombinedTransportByText?), PolylineFormat? polylineFormat = default(PolylineFormat?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<CombinedTransportsResponse>> GetCombinedTransportsWithHttpInfoAsync(CombinedTransportByPosition? position = default, CombinedTransportByText? text = default, PolylineFormat? polylineFormat = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
 
             PTV.Developer.Clients.data.Client.RequestOptions localVarRequestOptions = new PTV.Developer.Clients.data.Client.RequestOptions();
@@ -494,6 +495,7 @@ namespace PTV.Developer.Clients.data.Api
             };
 
             var localVarContentType = PTV.Developer.Clients.data.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -536,7 +538,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MapInformationResponse</returns>
-        public async System.Threading.Tasks.Task<MapInformationResponse> GetMapInformationAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MapInformationResponse> GetMapInformationAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             PTV.Developer.Clients.data.Client.ApiResponse<MapInformationResponse> localVarResponse = await GetMapInformationWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -549,7 +551,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MapInformationResponse)</returns>
-        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<MapInformationResponse>> GetMapInformationWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<MapInformationResponse>> GetMapInformationWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
 
             PTV.Developer.Clients.data.Client.RequestOptions localVarRequestOptions = new PTV.Developer.Clients.data.Client.RequestOptions();

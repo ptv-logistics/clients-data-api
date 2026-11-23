@@ -40,7 +40,7 @@ namespace PTV.Developer.Clients.data.Model
         /// Initializes a new instance of the <see cref="ApiChanges" /> class.
         /// </summary>
         /// <param name="varApiChanges">A list of API changes. (required).</param>
-        public ApiChanges(List<ApiChange> varApiChanges = default(List<ApiChange>))
+        public ApiChanges(List<ApiChange> varApiChanges = default)
         {
             // to ensure "varApiChanges" is required (not null)
             if (varApiChanges == null)

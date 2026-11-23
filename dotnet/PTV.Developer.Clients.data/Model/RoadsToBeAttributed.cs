@@ -52,7 +52,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="validity">validity.</param>
         /// <param name="unmatchedAfterMapUpdate">If **roadsToBeAttributed** or **combinedTransportsToBeAttributed** could not be matched to a new map after an update they are marked with this boolean flag. Unmatched **roadsToBeAttributed** or **combinedTransportsToBeAttributed** might cause some unwanted changes of behavior for the scenario. This parameter must not be true if it is sent as part of a request. (default to false).</param>
         /// <param name="description">A description of this set of attributed roads which is useful to refer to that in an application..</param>
-        public RoadsToBeAttributed(string points = default(string), List<string> polylines = default(List<string>), RoadDirectionType? direction = default(RoadDirectionType?), RoadAttributes attributes = default(RoadAttributes), Validity validity = default(Validity), bool? unmatchedAfterMapUpdate = false, string description = default(string))
+        public RoadsToBeAttributed(string points = default, List<string> polylines = default, RoadDirectionType? direction = default, RoadAttributes attributes = default, Validity validity = default, bool? unmatchedAfterMapUpdate = false, string description = default)
         {
             // to ensure "points" is required (not null)
             if (points == null)

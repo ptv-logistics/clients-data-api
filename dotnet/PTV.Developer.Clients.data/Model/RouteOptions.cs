@@ -39,7 +39,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="penalties">penalties.</param>
         /// <param name="allowDeliveryOnlyGates">If set to true, gates that restrict access to delivery-only zones are allowed to pass during route calculation. A delivery-only gate is located at a specific point of the road network where passing through is normally prohibited unless the vehicle is authorized for delivery. Not present for non-motorized profiles such as _BICYCLE_ or _PEDESTRIAN_..</param>
         /// <param name="timePreferenceOverDistance">Specifies the weighting between travel time and travel distance when calculating a route. The value defines the preference for minimizing travel time over minimizing travel distance. - 0: Route is optimized purely for shortest distance. - 100: Route is optimized purely for shortest travel time. - 1-99: A weighted combination of travel time and distance is applied, with higher values     giving more importance to travel time..</param>
-        public RouteOptions(int? maximumSpeed = default(int?), List<SpeedByRoadCategory> speedsByRoadCategory = default(List<SpeedByRoadCategory>), PenaltyOptions penalties = default(PenaltyOptions), bool? allowDeliveryOnlyGates = default(bool?), int? timePreferenceOverDistance = default(int?))
+        public RouteOptions(int? maximumSpeed = default, List<SpeedByRoadCategory> speedsByRoadCategory = default, PenaltyOptions penalties = default, bool? allowDeliveryOnlyGates = default, int? timePreferenceOverDistance = default)
         {
             this.MaximumSpeed = maximumSpeed;
             this.SpeedsByRoadCategory = speedsByRoadCategory;

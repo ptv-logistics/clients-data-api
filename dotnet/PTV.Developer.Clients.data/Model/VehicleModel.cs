@@ -44,7 +44,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="commercial">commercial (required).</param>
         /// <param name="engine">engine.</param>
         /// <param name="battery">battery.</param>
-        public VehicleModel(string predefinedProfile = default(string), string vehicleType = default(string), Commercial commercial = default(Commercial), Engine engine = default(Engine), Battery battery = default(Battery))
+        public VehicleModel(string predefinedProfile = default, string vehicleType = default, Commercial commercial = default, Engine engine = default, Battery battery = default)
         {
             // to ensure "predefinedProfile" is required (not null)
             if (predefinedProfile == null)

@@ -40,7 +40,7 @@ namespace PTV.Developer.Clients.data.Model
         /// Initializes a new instance of the <see cref="Features" /> class.
         /// </summary>
         /// <param name="lowEmissionZoneFeatures">lowEmissionZoneFeatures (required).</param>
-        public Features(LowEmissionZoneFeatures lowEmissionZoneFeatures = default(LowEmissionZoneFeatures))
+        public Features(LowEmissionZoneFeatures lowEmissionZoneFeatures = default)
         {
             // to ensure "lowEmissionZoneFeatures" is required (not null)
             if (lowEmissionZoneFeatures == null)

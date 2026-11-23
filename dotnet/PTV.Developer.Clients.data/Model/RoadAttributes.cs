@@ -40,7 +40,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="weightLimit">The maximum allowed vehicle weight on the road [kg]. If the map already contains a weight limit, it is overwritten..</param>
         /// <param name="heightLimit">The maximum allowed vehicle height on the road [cm]. If the map already contains a height limit, it is overwritten..</param>
         /// <param name="widthLimit">The maximum allowed vehicle width on the road [cm]. If the map already contains a width limit, it is overwritten..</param>
-        public RoadAttributes(bool? prohibited = default(bool?), bool? allowed = default(bool?), int? relativeSpeed = default(int?), int? weightLimit = default(int?), int? heightLimit = default(int?), int? widthLimit = default(int?))
+        public RoadAttributes(bool? prohibited = default, bool? allowed = default, int? relativeSpeed = default, int? weightLimit = default, int? heightLimit = default, int? widthLimit = default)
         {
             this.Prohibited = prohibited;
             this.Allowed = allowed;
@@ -68,7 +68,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The driving speed on this road is set relative to this value [%]. This is useful when, for example, dense traffic is known or expected due to public events or because lanes are closed. Settings this value to 70 means that the driving speed is 70% of the originally assumed driving speed.
         /// </summary>
         /// <value>The driving speed on this road is set relative to this value [%]. This is useful when, for example, dense traffic is known or expected due to public events or because lanes are closed. Settings this value to 70 means that the driving speed is 70% of the originally assumed driving speed.</value>
-        /// <example>70</example>
+        /*
+        <example>70</example>
+        */
         [DataMember(Name = "relativeSpeed", EmitDefaultValue = true)]
         public int? RelativeSpeed { get; set; }
 

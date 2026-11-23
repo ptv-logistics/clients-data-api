@@ -35,7 +35,7 @@ namespace PTV.Developer.Clients.data.Model
         /// Initializes a new instance of the <see cref="CustomRoadAttributeScenarioList" /> class.
         /// </summary>
         /// <param name="customRoadAttributeScenarios">A list of custom road attribute scenarios..</param>
-        public CustomRoadAttributeScenarioList(List<CustomRoadAttributeScenario> customRoadAttributeScenarios = default(List<CustomRoadAttributeScenario>))
+        public CustomRoadAttributeScenarioList(List<CustomRoadAttributeScenario> customRoadAttributeScenarios = default)
         {
             this.CustomRoadAttributeScenarios = customRoadAttributeScenarios;
         }

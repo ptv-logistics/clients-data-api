@@ -41,7 +41,7 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         /// <param name="combinedTransports">The list of selected combined transports sorted by ascending distance to the input coordinate. (required).</param>
         /// <param name="warnings">A list of warnings concerning the validity of the result..</param>
-        public CombinedTransportsResponse(List<CombinedTransport> combinedTransports = default(List<CombinedTransport>), List<Warning> warnings = default(List<Warning>))
+        public CombinedTransportsResponse(List<CombinedTransport> combinedTransports = default, List<Warning> warnings = default)
         {
             // to ensure "combinedTransports" is required (not null)
             if (combinedTransports == null)

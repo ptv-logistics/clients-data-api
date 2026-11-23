@@ -41,7 +41,7 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         /// <param name="features">features (required).</param>
         /// <param name="geographicalUnits">Lists the available data and their features for each geographical unit, usually a country or a state, sorted by their ISO 3166 code. (required).</param>
-        public MapInformationResponse(Features features = default(Features), List<GeographicalUnit> geographicalUnits = default(List<GeographicalUnit>))
+        public MapInformationResponse(Features features = default, List<GeographicalUnit> geographicalUnits = default)
         {
             // to ensure "features" is required (not null)
             if (features == null)

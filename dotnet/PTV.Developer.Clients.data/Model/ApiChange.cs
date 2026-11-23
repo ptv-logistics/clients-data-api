@@ -51,7 +51,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="api">The API the API change refers to..</param>
         /// <param name="varVersion">The version of the API the API change refers to..</param>
         /// <param name="link">A link to a website with further information..</param>
-        public ApiChange(ApiChangeType type = default(ApiChangeType), DateTimeOffset? date = default(DateTimeOffset?), string description = default(string), string api = default(string), string varVersion = default(string), string link = default(string))
+        public ApiChange(ApiChangeType type = default, DateTimeOffset? date = default, string description = default, string api = default, string varVersion = default, string link = default)
         {
             this.Type = type;
             // to ensure "date" is required (not null)

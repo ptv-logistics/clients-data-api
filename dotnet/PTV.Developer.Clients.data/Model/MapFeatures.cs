@@ -41,7 +41,7 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         /// <param name="toll">If true, toll is supported in this geographical unit. False means that no toll data is available or toll does not apply in this geographical unit. Vignettes are not considered. (required).</param>
         /// <param name="tollFeatures">tollFeatures.</param>
-        public MapFeatures(bool? toll = default(bool?), TollFeatures tollFeatures = default(TollFeatures))
+        public MapFeatures(bool? toll = default, TollFeatures tollFeatures = default)
         {
             // to ensure "toll" is required (not null)
             if (toll == null)

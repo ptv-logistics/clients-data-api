@@ -46,7 +46,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="attributes">attributes (required).</param>
         /// <param name="unmatchedAfterMapUpdate">If **roadsToBeAttributed** or **combinedTransportsToBeAttributed** could not be matched to a new map after an update they are marked with this boolean flag. Unmatched **roadsToBeAttributed** or **combinedTransportsToBeAttributed** might cause some unwanted changes of behavior for the scenario. This parameter must not be true if it is sent as part of a request. (default to false).</param>
         /// <param name="description">A description of this set of attributed combined transports which is useful to refer to that in an application..</param>
-        public CombinedTransportToBeAttributed(Location start = default(Location), Location destination = default(Location), string polyline = default(string), string name = default(string), CombinedTransportAttributes attributes = default(CombinedTransportAttributes), bool? unmatchedAfterMapUpdate = false, string description = default(string))
+        public CombinedTransportToBeAttributed(Location start = default, Location destination = default, string polyline = default, string name = default, CombinedTransportAttributes attributes = default, bool? unmatchedAfterMapUpdate = false, string description = default)
         {
             // to ensure "start" is required (not null)
             if (start == null)

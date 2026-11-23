@@ -35,7 +35,7 @@ namespace PTV.Developer.Clients.data.Model
         /// Initializes a new instance of the <see cref="Road" /> class.
         /// </summary>
         /// <param name="polyline">The polyline of the road in the format specified by **polylineFormat**..</param>
-        public Road(string polyline = default(string))
+        public Road(string polyline = default)
         {
             this.Polyline = polyline;
         }

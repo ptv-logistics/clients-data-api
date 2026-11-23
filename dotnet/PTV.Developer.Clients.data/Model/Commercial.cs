@@ -43,7 +43,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="model">The model of the vehicle. (required).</param>
         /// <param name="variant">The model variant of the vehicle..</param>
         /// <param name="launchYear">The year the vehicle was launched on the market..</param>
-        public Commercial(string manufacturer = default(string), string model = default(string), string variant = default(string), int? launchYear = default(int?))
+        public Commercial(string manufacturer = default, string model = default, string variant = default, int? launchYear = default)
         {
             // to ensure "manufacturer" is required (not null)
             if (manufacturer == null)
@@ -65,7 +65,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The producer of the vehicle.
         /// </summary>
         /// <value>The producer of the vehicle.</value>
-        /// <example>FunnyTrucks Inc.</example>
+        /*
+        <example>FunnyTrucks Inc.</example>
+        */
         [DataMember(Name = "manufacturer", IsRequired = true, EmitDefaultValue = true)]
         public string Manufacturer { get; set; }
 
@@ -73,7 +75,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The model of the vehicle.
         /// </summary>
         /// <value>The model of the vehicle.</value>
-        /// <example>FT1</example>
+        /*
+        <example>FT1</example>
+        */
         [DataMember(Name = "model", IsRequired = true, EmitDefaultValue = true)]
         public string Model { get; set; }
 
@@ -88,7 +92,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The year the vehicle was launched on the market.
         /// </summary>
         /// <value>The year the vehicle was launched on the market.</value>
-        /// <example>2020</example>
+        /*
+        <example>2020</example>
+        */
         [DataMember(Name = "launchYear", EmitDefaultValue = true)]
         public int? LaunchYear { get; set; }
 

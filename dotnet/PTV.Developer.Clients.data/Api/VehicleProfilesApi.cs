@@ -66,7 +66,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PredefinedVehicleProfiles</returns>
-        System.Threading.Tasks.Task<PredefinedVehicleProfiles> GetPredefinedVehicleProfilesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PredefinedVehicleProfiles> GetPredefinedVehicleProfilesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -78,7 +78,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PredefinedVehicleProfiles)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PredefinedVehicleProfiles>> GetPredefinedVehicleProfilesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PredefinedVehicleProfiles>> GetPredefinedVehicleProfilesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -230,6 +230,7 @@ namespace PTV.Developer.Clients.data.Api
             };
 
             var localVarContentType = PTV.Developer.Clients.data.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -272,7 +273,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PredefinedVehicleProfiles</returns>
-        public async System.Threading.Tasks.Task<PredefinedVehicleProfiles> GetPredefinedVehicleProfilesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PredefinedVehicleProfiles> GetPredefinedVehicleProfilesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             PTV.Developer.Clients.data.Client.ApiResponse<PredefinedVehicleProfiles> localVarResponse = await GetPredefinedVehicleProfilesWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -285,7 +286,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PredefinedVehicleProfiles)</returns>
-        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<PredefinedVehicleProfiles>> GetPredefinedVehicleProfilesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<PredefinedVehicleProfiles>> GetPredefinedVehicleProfilesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
 
             PTV.Developer.Clients.data.Client.RequestOptions localVarRequestOptions = new PTV.Developer.Clients.data.Client.RequestOptions();

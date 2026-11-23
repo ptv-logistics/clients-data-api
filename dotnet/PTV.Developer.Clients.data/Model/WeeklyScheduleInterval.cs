@@ -49,7 +49,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="hour">The hour the schedule interval starts. (required).</param>
         /// <param name="minute">The minutes of hours the schedule interval starts. (required).</param>
         /// <param name="duration">The duration of the schedule interval in [min]. (required).</param>
-        public WeeklyScheduleInterval(DayOfWeek dayOfWeek = default(DayOfWeek), int? hour = default(int?), int? minute = default(int?), int? duration = default(int?))
+        public WeeklyScheduleInterval(DayOfWeek dayOfWeek = default, int? hour = default, int? minute = default, int? duration = default)
         {
             this.DayOfWeek = dayOfWeek;
             // to ensure "hour" is required (not null)
@@ -76,7 +76,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The hour the schedule interval starts.
         /// </summary>
         /// <value>The hour the schedule interval starts.</value>
-        /// <example>12</example>
+        /*
+        <example>12</example>
+        */
         [DataMember(Name = "hour", IsRequired = true, EmitDefaultValue = true)]
         public int? Hour { get; set; }
 
@@ -84,7 +86,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The minutes of hours the schedule interval starts.
         /// </summary>
         /// <value>The minutes of hours the schedule interval starts.</value>
-        /// <example>30</example>
+        /*
+        <example>30</example>
+        */
         [DataMember(Name = "minute", IsRequired = true, EmitDefaultValue = true)]
         public int? Minute { get; set; }
 
@@ -92,7 +96,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The duration of the schedule interval in [min].
         /// </summary>
         /// <value>The duration of the schedule interval in [min].</value>
-        /// <example>360</example>
+        /*
+        <example>360</example>
+        */
         [DataMember(Name = "duration", IsRequired = true, EmitDefaultValue = true)]
         public int? Duration { get; set; }
 

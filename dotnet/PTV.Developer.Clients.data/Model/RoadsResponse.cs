@@ -35,7 +35,7 @@ namespace PTV.Developer.Clients.data.Model
         /// Initializes a new instance of the <see cref="RoadsResponse" /> class.
         /// </summary>
         /// <param name="roads">The list of selected roads according to the criteria specified in the request..</param>
-        public RoadsResponse(List<Road> roads = default(List<Road>))
+        public RoadsResponse(List<Road> roads = default)
         {
             this.Roads = roads;
         }

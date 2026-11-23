@@ -40,7 +40,7 @@ namespace PTV.Developer.Clients.data.Model
         /// Initializes a new instance of the <see cref="TollFeatures" /> class.
         /// </summary>
         /// <param name="tollSystems">The list of toll systems available in this geographical unit. (required).</param>
-        public TollFeatures(List<TollSystem> tollSystems = default(List<TollSystem>))
+        public TollFeatures(List<TollSystem> tollSystems = default)
         {
             // to ensure "tollSystems" is required (not null)
             if (tollSystems == null)

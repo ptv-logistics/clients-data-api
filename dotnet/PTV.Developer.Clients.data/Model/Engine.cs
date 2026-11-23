@@ -57,7 +57,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="emissionStandard">emissionStandard (required).</param>
         /// <param name="power">The maximum available power of the vehicle [kW]..</param>
         /// <param name="officialRange">The manufacturer given official range of the vehicle with this drive train [km]..</param>
-        public Engine(EngineType engineType = default(EngineType), int? maximumSpeed = default(int?), int? ecoSpeed = default(int?), EmissionStandard emissionStandard = default(EmissionStandard), int? power = default(int?), int? officialRange = default(int?))
+        public Engine(EngineType engineType = default, int? maximumSpeed = default, int? ecoSpeed = default, EmissionStandard emissionStandard = default, int? power = default, int? officialRange = default)
         {
             this.EngineType = engineType;
             // to ensure "maximumSpeed" is required (not null)

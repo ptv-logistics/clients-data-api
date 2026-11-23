@@ -42,7 +42,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="varVersion">The version. (required).</param>
         /// <param name="description">The description of the tariff version. Only present if major changes are introduced such as introducing new vehicle classes or adding or removing toll roads..</param>
         /// <param name="validFrom">The date at which this tariff version becomes valid formatted according to [RFC 3339](https://tools.ietf.org/html/rfc3339). (required).</param>
-        public TariffVersion(string varVersion = default(string), string description = default(string), DateOnly validFrom = default(DateOnly))
+        public TariffVersion(string varVersion = default, string description = default, DateOnly? validFrom = default)
         {
             // to ensure "varVersion" is required (not null)
             if (varVersion == null)
@@ -78,7 +78,7 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         /// <value>The date at which this tariff version becomes valid formatted according to [RFC 3339](https://tools.ietf.org/html/rfc3339).</value>
         [DataMember(Name = "validFrom", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly ValidFrom { get; set; }
+        public DateOnly? ValidFrom { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -41,7 +41,7 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         /// <param name="costPerKilometer">Specifies the cost per kilometer. The default value of a profile is used as an example and can change at any time. (required).</param>
         /// <param name="workingCostPerHour">Specifies the cost per hour. It is not applied to service, break or rest periods. The default value of a profile is used as an example and can change at any time. (required).</param>
-        public MonetaryCostOptions(double? costPerKilometer = default(double?), double? workingCostPerHour = default(double?))
+        public MonetaryCostOptions(double? costPerKilometer = default, double? workingCostPerHour = default)
         {
             // to ensure "costPerKilometer" is required (not null)
             if (costPerKilometer == null)

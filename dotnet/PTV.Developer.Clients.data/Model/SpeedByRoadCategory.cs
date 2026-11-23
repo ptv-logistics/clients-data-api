@@ -41,7 +41,7 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         /// <param name="minimumSpeed">The minimum speed of the vehicle [km/h] for roads of this road category. (required).</param>
         /// <param name="maximumSpeed">The maximum speed of the vehicle [km/h] for roads of this road category. (required).</param>
-        public SpeedByRoadCategory(int? minimumSpeed = default(int?), int? maximumSpeed = default(int?))
+        public SpeedByRoadCategory(int? minimumSpeed = default, int? maximumSpeed = default)
         {
             // to ensure "minimumSpeed" is required (not null)
             if (minimumSpeed == null)

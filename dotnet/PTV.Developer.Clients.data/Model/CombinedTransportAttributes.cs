@@ -35,7 +35,7 @@ namespace PTV.Developer.Clients.data.Model
         /// Initializes a new instance of the <see cref="CombinedTransportAttributes" /> class.
         /// </summary>
         /// <param name="prohibited">The combined transports is prohibited, it will not be used in route calculation. Setting this value to false does not have a meaning..</param>
-        public CombinedTransportAttributes(bool? prohibited = default(bool?))
+        public CombinedTransportAttributes(bool? prohibited = default)
         {
             this.Prohibited = prohibited;
         }

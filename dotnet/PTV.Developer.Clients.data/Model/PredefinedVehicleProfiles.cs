@@ -40,7 +40,7 @@ namespace PTV.Developer.Clients.data.Model
         /// Initializes a new instance of the <see cref="PredefinedVehicleProfiles" /> class.
         /// </summary>
         /// <param name="profiles">A list of predefined vehicle profiles. (required).</param>
-        public PredefinedVehicleProfiles(List<PredefinedVehicleProfile> profiles = default(List<PredefinedVehicleProfile>))
+        public PredefinedVehicleProfiles(List<PredefinedVehicleProfile> profiles = default)
         {
             // to ensure "profiles" is required (not null)
             if (profiles == null)

@@ -43,7 +43,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="acChargingPower">Charging power AC [kW]. (required).</param>
         /// <param name="dcChargingPower">Charging power DC [kW]. (required).</param>
         /// <param name="plugs">List of charging plugs the vehicle is compatible with. (required).</param>
-        public Battery(double? totalCapacity = default(double?), int? acChargingPower = default(int?), int? dcChargingPower = default(int?), List<string> plugs = default(List<string>))
+        public Battery(double? totalCapacity = default, int? acChargingPower = default, int? dcChargingPower = default, List<string> plugs = default)
         {
             // to ensure "totalCapacity" is required (not null)
             if (totalCapacity == null)
@@ -96,7 +96,9 @@ namespace PTV.Developer.Clients.data.Model
         /// List of charging plugs the vehicle is compatible with.
         /// </summary>
         /// <value>List of charging plugs the vehicle is compatible with.</value>
-        /// <example>[&quot;CCS 2&quot;,&quot;Type 2&quot;]</example>
+        /*
+        <example>[&quot;CCS 2&quot;,&quot;Type 2&quot;]</example>
+        */
         [DataMember(Name = "plugs", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Plugs { get; set; }
 

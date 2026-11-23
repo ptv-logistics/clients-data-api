@@ -37,7 +37,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="vehicleTypes">A comma-separated list of vehicle types. See **vehicleType** in the response. The following vehicle types are supported.  Tractor-like vehicle types: * &#x60;TRUCK&#x60; - Truck. Total permitted weight &gt; 7.5t. * &#x60;LCV&#x60; - Light Commercial Vehicle. Total permitted weight &lt; 7.5t. * &#x60;SCV&#x60; - Small Commercial Vehicle. Total permitted weight &lt; 3.5t.  Trailer-like vehicle types: * &#x60;TRAILER&#x60; - Trailer * &#x60;SEMI_TRAILER&#x60; - Semi-trailer * &#x60;BODY&#x60; - Body  This list can be extended at any time. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>VehicleModels</returns>
-        VehicleModels GetVehicleModels(string? identification = default(string?), List<string>? vehicleTypes = default(List<string>?), int operationIndex = 0);
+        VehicleModels GetVehicleModels(string? identification = default, List<string>? vehicleTypes = default, int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -50,7 +50,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="vehicleTypes">A comma-separated list of vehicle types. See **vehicleType** in the response. The following vehicle types are supported.  Tractor-like vehicle types: * &#x60;TRUCK&#x60; - Truck. Total permitted weight &gt; 7.5t. * &#x60;LCV&#x60; - Light Commercial Vehicle. Total permitted weight &lt; 7.5t. * &#x60;SCV&#x60; - Small Commercial Vehicle. Total permitted weight &lt; 3.5t.  Trailer-like vehicle types: * &#x60;TRAILER&#x60; - Trailer * &#x60;SEMI_TRAILER&#x60; - Semi-trailer * &#x60;BODY&#x60; - Body  This list can be extended at any time. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of VehicleModels</returns>
-        ApiResponse<VehicleModels> GetVehicleModelsWithHttpInfo(string? identification = default(string?), List<string>? vehicleTypes = default(List<string>?), int operationIndex = 0);
+        ApiResponse<VehicleModels> GetVehicleModelsWithHttpInfo(string? identification = default, List<string>? vehicleTypes = default, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -72,7 +72,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VehicleModels</returns>
-        System.Threading.Tasks.Task<VehicleModels> GetVehicleModelsAsync(string? identification = default(string?), List<string>? vehicleTypes = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<VehicleModels> GetVehicleModelsAsync(string? identification = default, List<string>? vehicleTypes = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -86,7 +86,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VehicleModels)</returns>
-        System.Threading.Tasks.Task<ApiResponse<VehicleModels>> GetVehicleModelsWithHttpInfoAsync(string? identification = default(string?), List<string>? vehicleTypes = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<VehicleModels>> GetVehicleModelsWithHttpInfoAsync(string? identification = default, List<string>? vehicleTypes = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -215,7 +215,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="vehicleTypes">A comma-separated list of vehicle types. See **vehicleType** in the response. The following vehicle types are supported.  Tractor-like vehicle types: * &#x60;TRUCK&#x60; - Truck. Total permitted weight &gt; 7.5t. * &#x60;LCV&#x60; - Light Commercial Vehicle. Total permitted weight &lt; 7.5t. * &#x60;SCV&#x60; - Small Commercial Vehicle. Total permitted weight &lt; 3.5t.  Trailer-like vehicle types: * &#x60;TRAILER&#x60; - Trailer * &#x60;SEMI_TRAILER&#x60; - Semi-trailer * &#x60;BODY&#x60; - Body  This list can be extended at any time. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>VehicleModels</returns>
-        public VehicleModels GetVehicleModels(string? identification = default(string?), List<string>? vehicleTypes = default(List<string>?), int operationIndex = 0)
+        public VehicleModels GetVehicleModels(string? identification = default, List<string>? vehicleTypes = default, int operationIndex = 0)
         {
             PTV.Developer.Clients.data.Client.ApiResponse<VehicleModels> localVarResponse = GetVehicleModelsWithHttpInfo(identification, vehicleTypes);
             return localVarResponse.Data;
@@ -229,7 +229,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="vehicleTypes">A comma-separated list of vehicle types. See **vehicleType** in the response. The following vehicle types are supported.  Tractor-like vehicle types: * &#x60;TRUCK&#x60; - Truck. Total permitted weight &gt; 7.5t. * &#x60;LCV&#x60; - Light Commercial Vehicle. Total permitted weight &lt; 7.5t. * &#x60;SCV&#x60; - Small Commercial Vehicle. Total permitted weight &lt; 3.5t.  Trailer-like vehicle types: * &#x60;TRAILER&#x60; - Trailer * &#x60;SEMI_TRAILER&#x60; - Semi-trailer * &#x60;BODY&#x60; - Body  This list can be extended at any time. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of VehicleModels</returns>
-        public PTV.Developer.Clients.data.Client.ApiResponse<VehicleModels> GetVehicleModelsWithHttpInfo(string? identification = default(string?), List<string>? vehicleTypes = default(List<string>?), int operationIndex = 0)
+        public PTV.Developer.Clients.data.Client.ApiResponse<VehicleModels> GetVehicleModelsWithHttpInfo(string? identification = default, List<string>? vehicleTypes = default, int operationIndex = 0)
         {
             PTV.Developer.Clients.data.Client.RequestOptions localVarRequestOptions = new PTV.Developer.Clients.data.Client.RequestOptions();
 
@@ -242,6 +242,7 @@ namespace PTV.Developer.Clients.data.Api
             };
 
             var localVarContentType = PTV.Developer.Clients.data.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -294,7 +295,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VehicleModels</returns>
-        public async System.Threading.Tasks.Task<VehicleModels> GetVehicleModelsAsync(string? identification = default(string?), List<string>? vehicleTypes = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VehicleModels> GetVehicleModelsAsync(string? identification = default, List<string>? vehicleTypes = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             PTV.Developer.Clients.data.Client.ApiResponse<VehicleModels> localVarResponse = await GetVehicleModelsWithHttpInfoAsync(identification, vehicleTypes, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -309,7 +310,7 @@ namespace PTV.Developer.Clients.data.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VehicleModels)</returns>
-        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<VehicleModels>> GetVehicleModelsWithHttpInfoAsync(string? identification = default(string?), List<string>? vehicleTypes = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PTV.Developer.Clients.data.Client.ApiResponse<VehicleModels>> GetVehicleModelsWithHttpInfoAsync(string? identification = default, List<string>? vehicleTypes = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
 
             PTV.Developer.Clients.data.Client.RequestOptions localVarRequestOptions = new PTV.Developer.Clients.data.Client.RequestOptions();

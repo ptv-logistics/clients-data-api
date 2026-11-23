@@ -36,7 +36,7 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         /// <param name="timeIntervals">If the attributes are valid during specific periods, specify concrete time intervals. Each time interval has an explicit start and end date. Overlapping intervals will be merged..</param>
         /// <param name="weeklySchedule">If the attributes are valid in a regular manner, i.e. at specific times and/or days of week, specify a weekly schedule. Each interval is specified by the starting point in time and the duration. The starting points of the intervals must be in local time and in ascending order. Overlapping intervals will be merged. The total duration of all intervals must not exceed one week (168 hours)..</param>
-        public Validity(List<TimeInterval> timeIntervals = default(List<TimeInterval>), List<WeeklyScheduleInterval> weeklySchedule = default(List<WeeklyScheduleInterval>))
+        public Validity(List<TimeInterval> timeIntervals = default, List<WeeklyScheduleInterval> weeklySchedule = default)
         {
             this.TimeIntervals = timeIntervals;
             this.WeeklySchedule = weeklySchedule;

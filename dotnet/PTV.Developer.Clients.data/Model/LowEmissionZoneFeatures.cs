@@ -40,7 +40,7 @@ namespace PTV.Developer.Clients.data.Model
         /// Initializes a new instance of the <see cref="LowEmissionZoneFeatures" /> class.
         /// </summary>
         /// <param name="exemptibleLowEmissionZones">The list of low-emission zones that can be exempted. The values can be specified in the vehicle object of the Routing API to allow driving within the specified low-emission zones. This list can be extended at any time, clients should handle unknown values properly. (required).</param>
-        public LowEmissionZoneFeatures(List<string> exemptibleLowEmissionZones = default(List<string>))
+        public LowEmissionZoneFeatures(List<string> exemptibleLowEmissionZones = default)
         {
             // to ensure "exemptibleLowEmissionZones" is required (not null)
             if (exemptibleLowEmissionZones == null)

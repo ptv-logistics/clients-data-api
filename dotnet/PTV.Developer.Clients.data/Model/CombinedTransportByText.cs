@@ -41,7 +41,7 @@ namespace PTV.Developer.Clients.data.Model
         /// </summary>
         /// <param name="query">The text to match among the name, start or destination of the combined transport. The text matches the data if the data or a substring of it begins with the specified text after delimiters such  as spaces or hyphens. Before matching the strings, umlauts, accents and other character decorations are removed. The result is ordered such that case-insensitive exact matches including accents, umlauts and other  decorations will appear before other matches. (required).</param>
         /// <param name="allowedCountries">Comma-separated list of countries the search is limited to. By default, all countries are allowed. If this parameter is present, only combined transports where either the start or the destination is located in one of the allowed countries are returned.  Countries are represented according to their [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) if referring to a subdivision..</param>
-        public CombinedTransportByText(string query = default(string), string allowedCountries = default(string))
+        public CombinedTransportByText(string query = default, string allowedCountries = default)
         {
             // to ensure "query" is required (not null)
             if (query == null)

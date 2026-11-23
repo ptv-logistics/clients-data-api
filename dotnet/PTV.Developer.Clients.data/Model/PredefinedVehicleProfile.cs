@@ -52,7 +52,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="currency">The default currency for the predefined vehicle according to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217). (required).</param>
         /// <param name="monetaryCostOptions">monetaryCostOptions.</param>
         /// <param name="routeOptions">routeOptions.</param>
-        public PredefinedVehicleProfile(string name = default(string), string description = default(string), RegionType region = default(RegionType), Vehicle vehicle = default(Vehicle), string currency = default(string), MonetaryCostOptions monetaryCostOptions = default(MonetaryCostOptions), RouteOptions routeOptions = default(RouteOptions))
+        public PredefinedVehicleProfile(string name = default, string description = default, RegionType region = default, Vehicle vehicle = default, string currency = default, MonetaryCostOptions monetaryCostOptions = default, RouteOptions routeOptions = default)
         {
             // to ensure "name" is required (not null)
             if (name == null)

@@ -40,7 +40,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="toll">Penalty for toll roads. Not present for non-motorized profiles such as _BICYCLE_ or _PEDESTRIAN_..</param>
         /// <param name="ferries">Penalty for ferries..</param>
         /// <param name="railShuttles">Penalty for rail shuttles..</param>
-        public PenaltyOptions(List<int?> byRoadCategory = default(List<int?>), int? deliveryOnly = default(int?), int? residentsOnly = default(int?), int? toll = default(int?), int? ferries = default(int?), int? railShuttles = default(int?))
+        public PenaltyOptions(List<int?> byRoadCategory = default, int? deliveryOnly = default, int? residentsOnly = default, int? toll = default, int? ferries = default, int? railShuttles = default)
         {
             this.ByRoadCategory = byRoadCategory;
             this.DeliveryOnly = deliveryOnly;

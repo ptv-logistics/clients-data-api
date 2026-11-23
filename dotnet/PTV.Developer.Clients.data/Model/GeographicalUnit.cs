@@ -50,7 +50,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="state">The name of the state this geographical unit represents. Not present if it represents a country..</param>
         /// <param name="continent">continent (required).</param>
         /// <param name="features">features (required).</param>
-        public GeographicalUnit(string code = default(string), string country = default(string), string state = default(string), Continent continent = default(Continent), MapFeatures features = default(MapFeatures))
+        public GeographicalUnit(string code = default, string country = default, string state = default, Continent continent = default, MapFeatures features = default)
         {
             // to ensure "code" is required (not null)
             if (code == null)

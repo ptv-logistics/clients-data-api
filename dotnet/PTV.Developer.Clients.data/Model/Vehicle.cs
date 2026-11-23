@@ -75,12 +75,12 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="electricityType">electricityType.</param>
         /// <param name="averageFuelConsumption">The average fuel consumption of the vehicle. Depending on the **fuelType** [l/100km] for liquid fuel types or [kg/100km] for gaseous fuel types.  Supported for **engineType** _COMBUSTION_  or _HYBRID_. Relevant for &#x60;emissions&#x60;. .</param>
         /// <param name="averageElectricityConsumption">The average electricity consumption of the vehicle [kWh/100km].  Supported for **engineType** _ELECTRIC_ or _HYBRID_. Relevant for &#x60;emissions&#x60;. .</param>
-        /// <param name="bioFuelRatio">The ratio of biofuel to conventional fuel [%], i.e. 10 for E10 with 10% biofuel.  Supported for **engineType** _COMBUSTION_ or _HYBRID_ and only for the fuel types _GASOLINE_, _DIESEL_, _CNG_GASOLINE_ and _LNG_GASOLINE_. Relevant for &#x60;emissions&#x60;. .</param>
+        /// <param name="bioFuelRatio">The ratio of biofuel to conventional fuel [%], i.e. 10 for E10 with 10% biofuel.  Supported for **engineType** _COMBUSTION_ or _HYBRID_ and only for the fuel types _GASOLINE_, _DIESEL_, _CNG_GASOLINE_, _LPG_GASOLINE_, _COMPRESSED_NATURAL_GAS_ and _LIQUEFIED_NATURAL_GAS_. Relevant for &#x60;emissions&#x60;. .</param>
         /// <param name="hybridRatio">Electric energy usage ratio from the total amount of energy consumed by the vehicle.  Supported for **engineType** _HYBRID_. Relevant for &#x60;emissions&#x60;. .</param>
         /// <param name="dualFuelRatio">Ratio of CNG or LPG usage from the total amount of fuel consumption.  Supported for **engineType** _COMBUSTION_ with **fuelType**  _CNG_GASOLINE_ or _LPG_GASOLINE_. Relevant for &#x60;emissions&#x60;. .</param>
-        /// <param name="cylinderCapacity">The cylinder capacity of the vehicle [cm&amp;#x00B3;].  Supported for **engineType** _COMBUSTION_ or _HYBRID_. .</param>
+        /// <param name="cylinderCapacity">The cylinder capacity of the vehicle [cm&amp;#x00B3;]. This value is present for compatibility reasons and does not influence any of the results.  Supported for **engineType** _COMBUSTION_ or _HYBRID_. .</param>
         /// <param name="emissionStandard">emissionStandard.</param>
-        /// <param name="co2EmissionClass">The CO&amp;#8322; emission class valid in the European Union. See also the  [Directive 1999/62/EC](https://eur-lex.europa.eu/eli/dir/1999/62/2022-03-24) of the European Parliament and  of the Council on the charging of heavy goods vehicles for the use of certain infrastructures, Article 7ga.  Relevant for &#x60;toll&#x60;. .</param>
+        /// <param name="co2EmissionClass">The CO&amp;#8322; emission class valid in the European Union. See also the  [Directive 1999/62/EC](https://eur-lex.europa.eu/eli/dir/1999/62/2022-03-24) of the European Parliament and  of the Council on the charging of heavy goods vehicles for the use of certain infrastructures, Article 7ga.  Must be 1 for combustion and hybrid vehicles with any **emissionStandard**, 2-4 for combustion and hybrid vehicles with **emissionStandard** of at least _EURO_6_, and 5 for electric vehicles.  Relevant for &#x60;toll&#x60;. .</param>
         /// <param name="lowEmissionZoneTypes">Comma-separated list of the low-emission zone types of the vehicle. This parameter is deprecated and superseded by **lowEmissionZoneApprovals**.  Relevant for &#x60;routing&#x60;. .</param>
         /// <param name="lowEmissionZoneApprovals">Comma-separated list of approvals to enter low-emission zones. Usually, such approvals are environmental badges to be placed on the windscreen, but that can also be any other kind of approval or vehicle registration allowing it to enter a low-emission zone.  Low-emission zones which do not need any kind of approval but depend only on the **emissionStandard** are not affected by this parameter. Instead they can be entered if the **emissionStandard**  is sufficient. Electric vehicles can always enter these zones.  Available values are provided by type &#x60;LowEmissionZoneApprovals&#x60;. \&quot;NONE\&quot; \&quot;AT_EURO_1\&quot; \&quot;AT_EURO_2\&quot; \&quot;AT_EURO_3\&quot; \&quot;AT_EURO_4\&quot; \&quot;AT_EURO_5\&quot; \&quot;AT_EURO_6\&quot; \&quot;DE_GREEN\&quot; \&quot;DE_YELLOW\&quot; \&quot;DE_RED\&quot; \&quot;DK_AUTHORIZED\&quot; \&quot;ES_CAT_B\&quot; \&quot;ES_CAT_C\&quot; \&quot;ES_CAT_ECO\&quot; \&quot;ES_CAT_ZERO\&quot; \&quot;FR_CRITAIR_0\&quot; \&quot;FR_CRITAIR_1\&quot; \&quot;FR_CRITAIR_2\&quot; \&quot;FR_CRITAIR_3\&quot; \&quot;FR_CRITAIR_4\&quot; \&quot;FR_CRITAIR_5\&quot;  This list can be extended at any time, clients should handle unknown values properly. Relevant for &#x60;routing&#x60;. See [here](../routing-api/concepts/low-emission-zones) for more information. .</param>
         /// <param name="lowEmissionZoneExemptions">Comma-separated list of exemptions to enter low-emission zones.  Available values are provided by type &#x60;LowEmissionZoneExemptions&#x60;: \&quot;BE_LAGE_EMISSIEZONE_ANTWERPEN\&quot; \&quot;BE_LAGE_EMISSIEZONE_GENT\&quot; \&quot;BE_ZONE_BASSE_EMISSION_BRUXELLES\&quot; \&quot;DE_STUTTGART_KLEINE_UMWELTZONE\&quot; \&quot;DE_STUTTGART_UMWELTZONE\&quot; \&quot;DK_AALBORG_MILJOZONE\&quot; \&quot;DK_ARHUS_MILJOZONE\&quot; \&quot;DK_FREDERIKSBERG_MILJOZONE\&quot; \&quot;DK_KOBENHAVN_MILJOZONE\&quot; \&quot;DK_ODENSE_MILJOZONE\&quot; \&quot;ES_ZBEDEP_MADRID_PLAZA_ELIPTICA\&quot; \&quot;ES_ZBE_ALCOBENDAS\&quot; \&quot;ES_ZBE_ALICANTE\&quot; \&quot;ES_ZBE_ALMERIA\&quot; \&quot;ES_ZBE_BENIDORM\&quot; \&quot;ES_ZBE_BILBAO\&quot; \&quot;ES_ZBE_BOADILLA_DEL_MONTE\&quot; \&quot;ES_ZBE_BURGOS\&quot; \&quot;ES_ZBE_CASTELLDEFELS\&quot; \&quot;ES_ZBE_CERDANYOLA_DEL_VALLES\&quot; \&quot;ES_ZBE_CHICLANA_DE_LA_FRONTERA\&quot; \&quot;ES_ZBE_CORDOBA\&quot; \&quot;ES_ZBE_CUENCA\&quot; \&quot;ES_ZBE_EL_PRAT_DE_LLOBREGAT\&quot; \&quot;ES_ZBE_ELDA\&quot; \&quot;ES_ZBE_ESTEPONA\&quot; \&quot;ES_ZBE_FUENLABRADA\&quot; \&quot;ES_ZBE_GETAFE\&quot; \&quot;ES_ZBE_GIRONA\&quot; \&quot;ES_ZBE_GRANADA\&quot; \&quot;ES_ZBE_GRANOLLERS\&quot; \&quot;ES_ZBE_GUADALAJARA\&quot; \&quot;ES_ZBE_JEREZ_DE_LA_FRONTERA\&quot; \&quot;ES_ZBE_LINEA_DE_LA_CONCEPCION\&quot; \&quot;ES_ZBE_LLEIDA\&quot; \&quot;ES_ZBE_MADRID\&quot; \&quot;ES_ZBE_MATARO\&quot; \&quot;ES_ZBE_MOLLET_DEL_VALLES\&quot; \&quot;ES_ZBE_MOSTOLES\&quot; \&quot;ES_ZBE_MOTRIL\&quot; \&quot;ES_ZBE_OVIEDO\&quot; \&quot;ES_ZBE_PALMA\&quot; \&quot;ES_ZBE_PAMPLONA\&quot; \&quot;ES_ZBE_PARLA\&quot; \&quot;ES_ZBE_REUS\&quot; \&quot;ES_ZBE_RIVAS_CEIP_COLEGIO_LUYFE\&quot; \&quot;ES_ZBE_RIVAS_CEIP_DULCE_CHACON\&quot; \&quot;ES_ZBE_RIVAS_CEIP_HANS_CHRISTIAN_ANDERSEN\&quot; \&quot;ES_ZBE_RIVAS_CEIP_JARAMA\&quot; \&quot;ES_ZBE_RIVAS_CEIP_JOSE_HIERRO\&quot; \&quot;ES_ZBE_RIVAS_CEIP_JOSE_ITURZAETA\&quot; \&quot;ES_ZBE_RIVAS_CEIP_LAS_CIGUENAS\&quot; \&quot;ES_ZBE_RIVAS_CEIP_VICTORIA_KENT\&quot; \&quot;ES_ZBE_RIVAS_COLEGIO_SANTA_MONICA\&quot; \&quot;ES_ZBE_RUBI\&quot; \&quot;ES_ZBE_SABADELL\&quot; \&quot;ES_ZBE_SANTANDER\&quot; \&quot;ES_ZBE_SANTA_COLOMA_DE_GRAMENET\&quot; \&quot;ES_ZBE_SAN_SEBASTIAN\&quot; \&quot;ES_ZBE_SEGOVIA\&quot; \&quot;ES_ZBE_SIERO\&quot; \&quot;ES_ZBE_SOLLER\&quot; \&quot;ES_ZBE_TARRAGONA\&quot; \&quot;ES_ZBE_TERRASSA\&quot; \&quot;ES_ZBE_TORREJON_DE_ARDOZ\&quot; \&quot;ES_ZBE_TORRELAVEGA\&quot; \&quot;ES_ZBE_TORREMOLINOS\&quot; \&quot;ES_ZBE_VALENCIA\&quot; \&quot;ES_ZBE_VALLADOLID\&quot; \&quot;ES_ZBE_VITORIA_GASTEIZ\&quot; \&quot;FR_ANGERS_ZFE\&quot; \&quot;FR_PARIS_ZFE\&quot; \&quot;FR_STRASBOURG_ZFE\&quot; \&quot;FR_TOULOUSE_ZFE\&quot; \&quot;GB_ABERDEEN_LEZ\&quot; \&quot;GB_BATH_CAZ\&quot; \&quot;GB_BIRMINGHAM_CAZ\&quot; \&quot;GB_BRADFORD_CAZ\&quot; \&quot;GB_BRISTOL_CAZ\&quot; \&quot;GB_DUNDEE_LEZ\&quot; \&quot;GB_EDINBURGH_LEZ\&quot; \&quot;GB_GLASGOW_LEZ\&quot; \&quot;GB_LONDON_ULTRA_LOW_EMISSION_ZONE\&quot; \&quot;GB_NEWCASTLE_CAZ\&quot; \&quot;GB_PORTSMOUTH_CAZ\&quot; \&quot;GB_SHEFFIELD_CAZ\&quot; \&quot;IT_MILANO_AREA_C\&quot; \&quot;IT_PALERMO_ZTL\&quot; \&quot;NL_AMERSFOORT_ZERO_EMISSIEZONE\&quot; \&quot;NL_AMSTERDAM_MILIEUZONE\&quot; \&quot;NL_AMSTERDAM_ZERO_EMISSIEZONE\&quot; \&quot;NL_ARNHEM_MILIEUZONE\&quot; \&quot;NL_ASSEN_ZERO_EMISSIEZONE\&quot; \&quot;NL_BREDA_MILIEUZONE\&quot; \&quot;NL_DELFT_HAAG_ZERO_EMISSIEZONE\&quot; \&quot;NL_DELFT_MILIEUZONE\&quot; \&quot;NL_DEN_HAAG_MILIEUZONE\&quot; \&quot;NL_DEN_HAAG_ZERO_EMISSIEZONE\&quot; \&quot;NL_EINDHOVEN_MILIEUZONE\&quot; \&quot;NL_EINDHOVEN_ZERO_EMISSIEZONE\&quot; \&quot;NL_ENSCHEDE_ZERO_EMISSIEZONE\&quot; \&quot;NL_GOUDA_ZERO_EMISSIEZONE\&quot; \&quot;NL_GRONINGEN_ZERO_EMISSIEZONE\&quot; \&quot;NL_HAARLEM_MILIEUZONE\&quot; \&quot;NL_LEIDEN_MILIEUZONE\&quot; \&quot;NL_LEIDEN_ZERO_EMISSIEZONE\&quot; \&quot;NL_MAASTRICHT_MILIEUZONE\&quot; \&quot;NL_MAASTRICHT_ZERO_EMISSIEZONE\&quot; \&quot;NL_MAASVLAKTE_ROTTERDAM_MILIEUZONE\&quot; \&quot;NL_NIJMEGEN_ZERO_EMISSIEZONE\&quot; \&quot;NL_RIJSWIJK_MILIEUZONE\&quot; \&quot;NL_ROTTERDAM_MILIEUZONE\&quot; \&quot;NL_ROTTERDAM_ZERO_EMISSIEZONE\&quot; \&quot;NL_S_GRAVENDIJKWAL_MILIEUZONE\&quot; \&quot;NL_S_HERTOGENBOSCH_ZERO_EMISSIEZONE\&quot; \&quot;NL_SCHEVENINGSE_HAVEN_MILIEUZONE\&quot; \&quot;NL_SCHIPHOL_ZERO_EMISSIEZONE\&quot; \&quot;NL_TILBURG_MILIEUZONE\&quot; \&quot;NL_TILBURG_ZERO_EMISSIEZONE\&quot; \&quot;NL_UTRECHT_MILIEUZONE\&quot; \&quot;NL_UTRECHT_ZERO_EMISSIEZONE\&quot; \&quot;NL_ZWOLLE_ZERO_EMISSIEZONE\&quot; \&quot;PT_EIXO_AV_LIBERDADE_BAIXA_ZER\&quot;  The following values are deprecated: \&quot;NL_LEIDEN_MILIEUZONE\&quot; \&quot;NL_MAASTRICHT_MILIEUZONE\&quot; \&quot;NL_ROTTERDAM_MILIEUZONE\&quot; \&quot;NL_S_GRAVENDIJKWAL_MILIEUZONE\&quot; \&quot;NL_S_HERTOGENBOSCH_MILIEUZONE\&quot; \&quot;NL_TILBURG_MILIEUZONE\&quot;  This list can be extended at any time, clients should handle unknown values properly. Relevant for &#x60;routing&#x60;. See [here](../routing-api/concepts/low-emission-zones) for more information. .</param>
@@ -101,7 +101,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="truckRoutes">Comma-separated list of truck routes the vehicle has to follow. This parameter will be ignored for non-truck profiles such as EUR_CAR, EUR_VAN, USA_1_PICKUP or AUS_LCV_LIGHT_COMMERCIAL.  * &#x60;DE_LKWUEBERLSTVAUSNV&#x60;  Preferred routes for long trucks in Germany, also known as Lang-LKW.  * &#x60;NL_LZV&#x60;  Preferred routes for long trucks in the Netherlands, also known as LZV (Langere en Zwaardere Vrachtautocombinatie).  * &#x60;NZ_HPMV&#x60;  The network for High Productivity Motor Vehicles (HPMV) carrying the maximum loads available under a permit (New Zeland Transport Agency).  * &#x60;SE_BK_1&#x60;  Public roads and bridges that support up to 64 t total permitted weight (Swedish Transport Administration).  * &#x60;SE_BK_2&#x60;  Public roads and bridges that support up to 51.4 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * &#x60;SE_BK_3&#x60;  Public roads and bridges that support up to 37.5 t total permitted weight.  Actual limit depends on wheelbase and axle weight (Swedish Transport Administration).  * &#x60;SE_BK_4&#x60;  Public roads and bridges that support up to 74 t total permitted weight (draft summer 2018, Swedish Transport Administration).  * &#x60;US_STAA&#x60;  Routes that belong to the highway network as defined by the Surface Transportation Assistance Act in the US.  * &#x60;US_TD&#x60;  Part of a state-designated highway network for trucks in the US.  * &#x60;AU_B_DOUBLE&#x60;  B-Double routes as defined in Australia.  * &#x60;AU_B_DOUBLE_HML&#x60;  Routes for B-Double vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;AU_B_TRIPLE&#x60;  B-Triple routes as defined in Australia.  * &#x60;AU_B_TRIPLE_HML&#x60;  Routes for B-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;AU_AB_TRIPLE&#x60;  Routes for AB-Triple vehicle combinations operating (Australian Transport Administration).  * &#x60;AU_AB_TRIPLE_HML&#x60;  Routes for AB-Triple vehicle combinations operating at Higher Mass Limits (HML) (Australian Transport Administration).  * &#x60;GENERAL_TRUCK_ROUTES&#x60;  General routes designated for trucks, for example to prevent trucks routing through city centres when they are on transit.  * &#x60;NONE&#x60;  Not used.  Relevant for &#x60;routing&#x60;. .</param>
         /// <param name="commercial">Specifies if the vehicle usage is commercial.  Relevant for &#x60;toll&#x60;. .</param>
         /// <param name="etcSubscriptions">A comma separated list of ETC Subscriptions. See [here](../routing-api/concepts/electronic-toll-collection) for more information on available subscriptions.  Relevant for &#x60;toll&#x60;. .</param>
-        public Vehicle(EngineType? engineType = default(EngineType?), FuelType? fuelType = default(FuelType?), ElectricityType? electricityType = default(ElectricityType?), double? averageFuelConsumption = default(double?), double? averageElectricityConsumption = default(double?), int? bioFuelRatio = default(int?), int? hybridRatio = default(int?), int? dualFuelRatio = default(int?), int? cylinderCapacity = default(int?), EmissionStandard? emissionStandard = default(EmissionStandard?), int? co2EmissionClass = default(int?), List<LowEmissionZoneTypes> lowEmissionZoneTypes = default(List<LowEmissionZoneTypes>), List<string> lowEmissionZoneApprovals = default(List<string>), List<string> lowEmissionZoneExemptions = default(List<string>), ParticleReductionClass? particleReductionClass = default(ParticleReductionClass?), int? emptyWeight = default(int?), int? loadWeight = default(int?), int? totalPermittedWeight = default(int?), int? totalTechnicallyPermittedWeight = default(int?), int? axleWeight = default(int?), int? numberOfAxles = default(int?), int? numberOfTires = default(int?), int? height = default(int?), int? heightAboveFrontAxle = default(int?), int? length = default(int?), int? width = default(int?), List<HazardousMaterials> hazardousMaterials = default(List<HazardousMaterials>), TunnelRestrictionCode? tunnelRestrictionCode = default(TunnelRestrictionCode?), List<TruckRoutes> truckRoutes = default(List<TruckRoutes>), bool? commercial = default(bool?), List<EtcSubscriptionTypes> etcSubscriptions = default(List<EtcSubscriptionTypes>))
+        public Vehicle(EngineType? engineType = default, FuelType? fuelType = default, ElectricityType? electricityType = default, double? averageFuelConsumption = default, double? averageElectricityConsumption = default, int? bioFuelRatio = default, int? hybridRatio = default, int? dualFuelRatio = default, int? cylinderCapacity = default, EmissionStandard? emissionStandard = default, int? co2EmissionClass = default, List<LowEmissionZoneTypes> lowEmissionZoneTypes = default, List<string> lowEmissionZoneApprovals = default, List<string> lowEmissionZoneExemptions = default, ParticleReductionClass? particleReductionClass = default, int? emptyWeight = default, int? loadWeight = default, int? totalPermittedWeight = default, int? totalTechnicallyPermittedWeight = default, int? axleWeight = default, int? numberOfAxles = default, int? numberOfTires = default, int? height = default, int? heightAboveFrontAxle = default, int? length = default, int? width = default, List<HazardousMaterials> hazardousMaterials = default, TunnelRestrictionCode? tunnelRestrictionCode = default, List<TruckRoutes> truckRoutes = default, bool? commercial = default, List<EtcSubscriptionTypes> etcSubscriptions = default)
         {
             this.EngineType = engineType;
             this.FuelType = fuelType;
@@ -140,7 +140,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The average fuel consumption of the vehicle. Depending on the **fuelType** [l/100km] for liquid fuel types or [kg/100km] for gaseous fuel types.  Supported for **engineType** _COMBUSTION_  or _HYBRID_. Relevant for &#x60;emissions&#x60;. 
         /// </summary>
         /// <value>The average fuel consumption of the vehicle. Depending on the **fuelType** [l/100km] for liquid fuel types or [kg/100km] for gaseous fuel types.  Supported for **engineType** _COMBUSTION_  or _HYBRID_. Relevant for &#x60;emissions&#x60;. </value>
-        /// <example>35</example>
+        /*
+        <example>35</example>
+        */
         [DataMember(Name = "averageFuelConsumption", EmitDefaultValue = true)]
         public double? AverageFuelConsumption { get; set; }
 
@@ -148,15 +150,19 @@ namespace PTV.Developer.Clients.data.Model
         /// The average electricity consumption of the vehicle [kWh/100km].  Supported for **engineType** _ELECTRIC_ or _HYBRID_. Relevant for &#x60;emissions&#x60;. 
         /// </summary>
         /// <value>The average electricity consumption of the vehicle [kWh/100km].  Supported for **engineType** _ELECTRIC_ or _HYBRID_. Relevant for &#x60;emissions&#x60;. </value>
-        /// <example>115</example>
+        /*
+        <example>115</example>
+        */
         [DataMember(Name = "averageElectricityConsumption", EmitDefaultValue = true)]
         public double? AverageElectricityConsumption { get; set; }
 
         /// <summary>
-        /// The ratio of biofuel to conventional fuel [%], i.e. 10 for E10 with 10% biofuel.  Supported for **engineType** _COMBUSTION_ or _HYBRID_ and only for the fuel types _GASOLINE_, _DIESEL_, _CNG_GASOLINE_ and _LNG_GASOLINE_. Relevant for &#x60;emissions&#x60;. 
+        /// The ratio of biofuel to conventional fuel [%], i.e. 10 for E10 with 10% biofuel.  Supported for **engineType** _COMBUSTION_ or _HYBRID_ and only for the fuel types _GASOLINE_, _DIESEL_, _CNG_GASOLINE_, _LPG_GASOLINE_, _COMPRESSED_NATURAL_GAS_ and _LIQUEFIED_NATURAL_GAS_. Relevant for &#x60;emissions&#x60;. 
         /// </summary>
-        /// <value>The ratio of biofuel to conventional fuel [%], i.e. 10 for E10 with 10% biofuel.  Supported for **engineType** _COMBUSTION_ or _HYBRID_ and only for the fuel types _GASOLINE_, _DIESEL_, _CNG_GASOLINE_ and _LNG_GASOLINE_. Relevant for &#x60;emissions&#x60;. </value>
-        /// <example>0</example>
+        /// <value>The ratio of biofuel to conventional fuel [%], i.e. 10 for E10 with 10% biofuel.  Supported for **engineType** _COMBUSTION_ or _HYBRID_ and only for the fuel types _GASOLINE_, _DIESEL_, _CNG_GASOLINE_, _LPG_GASOLINE_, _COMPRESSED_NATURAL_GAS_ and _LIQUEFIED_NATURAL_GAS_. Relevant for &#x60;emissions&#x60;. </value>
+        /*
+        <example>0</example>
+        */
         [DataMember(Name = "bioFuelRatio", EmitDefaultValue = true)]
         public int? BioFuelRatio { get; set; }
 
@@ -164,7 +170,9 @@ namespace PTV.Developer.Clients.data.Model
         /// Electric energy usage ratio from the total amount of energy consumed by the vehicle.  Supported for **engineType** _HYBRID_. Relevant for &#x60;emissions&#x60;. 
         /// </summary>
         /// <value>Electric energy usage ratio from the total amount of energy consumed by the vehicle.  Supported for **engineType** _HYBRID_. Relevant for &#x60;emissions&#x60;. </value>
-        /// <example>50</example>
+        /*
+        <example>50</example>
+        */
         [DataMember(Name = "hybridRatio", EmitDefaultValue = true)]
         public int? HybridRatio { get; set; }
 
@@ -172,23 +180,29 @@ namespace PTV.Developer.Clients.data.Model
         /// Ratio of CNG or LPG usage from the total amount of fuel consumption.  Supported for **engineType** _COMBUSTION_ with **fuelType**  _CNG_GASOLINE_ or _LPG_GASOLINE_. Relevant for &#x60;emissions&#x60;. 
         /// </summary>
         /// <value>Ratio of CNG or LPG usage from the total amount of fuel consumption.  Supported for **engineType** _COMBUSTION_ with **fuelType**  _CNG_GASOLINE_ or _LPG_GASOLINE_. Relevant for &#x60;emissions&#x60;. </value>
-        /// <example>50</example>
+        /*
+        <example>50</example>
+        */
         [DataMember(Name = "dualFuelRatio", EmitDefaultValue = true)]
         public int? DualFuelRatio { get; set; }
 
         /// <summary>
-        /// The cylinder capacity of the vehicle [cm&amp;#x00B3;].  Supported for **engineType** _COMBUSTION_ or _HYBRID_. 
+        /// The cylinder capacity of the vehicle [cm&amp;#x00B3;]. This value is present for compatibility reasons and does not influence any of the results.  Supported for **engineType** _COMBUSTION_ or _HYBRID_. 
         /// </summary>
-        /// <value>The cylinder capacity of the vehicle [cm&amp;#x00B3;].  Supported for **engineType** _COMBUSTION_ or _HYBRID_. </value>
-        /// <example>12000</example>
+        /// <value>The cylinder capacity of the vehicle [cm&amp;#x00B3;]. This value is present for compatibility reasons and does not influence any of the results.  Supported for **engineType** _COMBUSTION_ or _HYBRID_. </value>
+        /*
+        <example>12000</example>
+        */
         [DataMember(Name = "cylinderCapacity", EmitDefaultValue = true)]
         public int? CylinderCapacity { get; set; }
 
         /// <summary>
-        /// The CO&amp;#8322; emission class valid in the European Union. See also the  [Directive 1999/62/EC](https://eur-lex.europa.eu/eli/dir/1999/62/2022-03-24) of the European Parliament and  of the Council on the charging of heavy goods vehicles for the use of certain infrastructures, Article 7ga.  Relevant for &#x60;toll&#x60;. 
+        /// The CO&amp;#8322; emission class valid in the European Union. See also the  [Directive 1999/62/EC](https://eur-lex.europa.eu/eli/dir/1999/62/2022-03-24) of the European Parliament and  of the Council on the charging of heavy goods vehicles for the use of certain infrastructures, Article 7ga.  Must be 1 for combustion and hybrid vehicles with any **emissionStandard**, 2-4 for combustion and hybrid vehicles with **emissionStandard** of at least _EURO_6_, and 5 for electric vehicles.  Relevant for &#x60;toll&#x60;. 
         /// </summary>
-        /// <value>The CO&amp;#8322; emission class valid in the European Union. See also the  [Directive 1999/62/EC](https://eur-lex.europa.eu/eli/dir/1999/62/2022-03-24) of the European Parliament and  of the Council on the charging of heavy goods vehicles for the use of certain infrastructures, Article 7ga.  Relevant for &#x60;toll&#x60;. </value>
-        /// <example>1</example>
+        /// <value>The CO&amp;#8322; emission class valid in the European Union. See also the  [Directive 1999/62/EC](https://eur-lex.europa.eu/eli/dir/1999/62/2022-03-24) of the European Parliament and  of the Council on the charging of heavy goods vehicles for the use of certain infrastructures, Article 7ga.  Must be 1 for combustion and hybrid vehicles with any **emissionStandard**, 2-4 for combustion and hybrid vehicles with **emissionStandard** of at least _EURO_6_, and 5 for electric vehicles.  Relevant for &#x60;toll&#x60;. </value>
+        /*
+        <example>1</example>
+        */
         [DataMember(Name = "co2EmissionClass", EmitDefaultValue = true)]
         public int? Co2EmissionClass { get; set; }
 
@@ -204,7 +218,9 @@ namespace PTV.Developer.Clients.data.Model
         /// Comma-separated list of approvals to enter low-emission zones. Usually, such approvals are environmental badges to be placed on the windscreen, but that can also be any other kind of approval or vehicle registration allowing it to enter a low-emission zone.  Low-emission zones which do not need any kind of approval but depend only on the **emissionStandard** are not affected by this parameter. Instead they can be entered if the **emissionStandard**  is sufficient. Electric vehicles can always enter these zones.  Available values are provided by type &#x60;LowEmissionZoneApprovals&#x60;. \&quot;NONE\&quot; \&quot;AT_EURO_1\&quot; \&quot;AT_EURO_2\&quot; \&quot;AT_EURO_3\&quot; \&quot;AT_EURO_4\&quot; \&quot;AT_EURO_5\&quot; \&quot;AT_EURO_6\&quot; \&quot;DE_GREEN\&quot; \&quot;DE_YELLOW\&quot; \&quot;DE_RED\&quot; \&quot;DK_AUTHORIZED\&quot; \&quot;ES_CAT_B\&quot; \&quot;ES_CAT_C\&quot; \&quot;ES_CAT_ECO\&quot; \&quot;ES_CAT_ZERO\&quot; \&quot;FR_CRITAIR_0\&quot; \&quot;FR_CRITAIR_1\&quot; \&quot;FR_CRITAIR_2\&quot; \&quot;FR_CRITAIR_3\&quot; \&quot;FR_CRITAIR_4\&quot; \&quot;FR_CRITAIR_5\&quot;  This list can be extended at any time, clients should handle unknown values properly. Relevant for &#x60;routing&#x60;. See [here](../routing-api/concepts/low-emission-zones) for more information. 
         /// </summary>
         /// <value>Comma-separated list of approvals to enter low-emission zones. Usually, such approvals are environmental badges to be placed on the windscreen, but that can also be any other kind of approval or vehicle registration allowing it to enter a low-emission zone.  Low-emission zones which do not need any kind of approval but depend only on the **emissionStandard** are not affected by this parameter. Instead they can be entered if the **emissionStandard**  is sufficient. Electric vehicles can always enter these zones.  Available values are provided by type &#x60;LowEmissionZoneApprovals&#x60;. \&quot;NONE\&quot; \&quot;AT_EURO_1\&quot; \&quot;AT_EURO_2\&quot; \&quot;AT_EURO_3\&quot; \&quot;AT_EURO_4\&quot; \&quot;AT_EURO_5\&quot; \&quot;AT_EURO_6\&quot; \&quot;DE_GREEN\&quot; \&quot;DE_YELLOW\&quot; \&quot;DE_RED\&quot; \&quot;DK_AUTHORIZED\&quot; \&quot;ES_CAT_B\&quot; \&quot;ES_CAT_C\&quot; \&quot;ES_CAT_ECO\&quot; \&quot;ES_CAT_ZERO\&quot; \&quot;FR_CRITAIR_0\&quot; \&quot;FR_CRITAIR_1\&quot; \&quot;FR_CRITAIR_2\&quot; \&quot;FR_CRITAIR_3\&quot; \&quot;FR_CRITAIR_4\&quot; \&quot;FR_CRITAIR_5\&quot;  This list can be extended at any time, clients should handle unknown values properly. Relevant for &#x60;routing&#x60;. See [here](../routing-api/concepts/low-emission-zones) for more information. </value>
-        /// <example>[&quot;DE_GREEN&quot;,&quot;DK_AUTHORIZED&quot;,&quot;FR_CRITAIR_1&quot;]</example>
+        /*
+        <example>[&quot;DE_GREEN&quot;,&quot;DK_AUTHORIZED&quot;,&quot;FR_CRITAIR_1&quot;]</example>
+        */
         [DataMember(Name = "lowEmissionZoneApprovals", EmitDefaultValue = false)]
         public List<string> LowEmissionZoneApprovals { get; set; }
 
@@ -212,7 +228,9 @@ namespace PTV.Developer.Clients.data.Model
         /// Comma-separated list of exemptions to enter low-emission zones.  Available values are provided by type &#x60;LowEmissionZoneExemptions&#x60;: \&quot;BE_LAGE_EMISSIEZONE_ANTWERPEN\&quot; \&quot;BE_LAGE_EMISSIEZONE_GENT\&quot; \&quot;BE_ZONE_BASSE_EMISSION_BRUXELLES\&quot; \&quot;DE_STUTTGART_KLEINE_UMWELTZONE\&quot; \&quot;DE_STUTTGART_UMWELTZONE\&quot; \&quot;DK_AALBORG_MILJOZONE\&quot; \&quot;DK_ARHUS_MILJOZONE\&quot; \&quot;DK_FREDERIKSBERG_MILJOZONE\&quot; \&quot;DK_KOBENHAVN_MILJOZONE\&quot; \&quot;DK_ODENSE_MILJOZONE\&quot; \&quot;ES_ZBEDEP_MADRID_PLAZA_ELIPTICA\&quot; \&quot;ES_ZBE_ALCOBENDAS\&quot; \&quot;ES_ZBE_ALICANTE\&quot; \&quot;ES_ZBE_ALMERIA\&quot; \&quot;ES_ZBE_BENIDORM\&quot; \&quot;ES_ZBE_BILBAO\&quot; \&quot;ES_ZBE_BOADILLA_DEL_MONTE\&quot; \&quot;ES_ZBE_BURGOS\&quot; \&quot;ES_ZBE_CASTELLDEFELS\&quot; \&quot;ES_ZBE_CERDANYOLA_DEL_VALLES\&quot; \&quot;ES_ZBE_CHICLANA_DE_LA_FRONTERA\&quot; \&quot;ES_ZBE_CORDOBA\&quot; \&quot;ES_ZBE_CUENCA\&quot; \&quot;ES_ZBE_EL_PRAT_DE_LLOBREGAT\&quot; \&quot;ES_ZBE_ELDA\&quot; \&quot;ES_ZBE_ESTEPONA\&quot; \&quot;ES_ZBE_FUENLABRADA\&quot; \&quot;ES_ZBE_GETAFE\&quot; \&quot;ES_ZBE_GIRONA\&quot; \&quot;ES_ZBE_GRANADA\&quot; \&quot;ES_ZBE_GRANOLLERS\&quot; \&quot;ES_ZBE_GUADALAJARA\&quot; \&quot;ES_ZBE_JEREZ_DE_LA_FRONTERA\&quot; \&quot;ES_ZBE_LINEA_DE_LA_CONCEPCION\&quot; \&quot;ES_ZBE_LLEIDA\&quot; \&quot;ES_ZBE_MADRID\&quot; \&quot;ES_ZBE_MATARO\&quot; \&quot;ES_ZBE_MOLLET_DEL_VALLES\&quot; \&quot;ES_ZBE_MOSTOLES\&quot; \&quot;ES_ZBE_MOTRIL\&quot; \&quot;ES_ZBE_OVIEDO\&quot; \&quot;ES_ZBE_PALMA\&quot; \&quot;ES_ZBE_PAMPLONA\&quot; \&quot;ES_ZBE_PARLA\&quot; \&quot;ES_ZBE_REUS\&quot; \&quot;ES_ZBE_RIVAS_CEIP_COLEGIO_LUYFE\&quot; \&quot;ES_ZBE_RIVAS_CEIP_DULCE_CHACON\&quot; \&quot;ES_ZBE_RIVAS_CEIP_HANS_CHRISTIAN_ANDERSEN\&quot; \&quot;ES_ZBE_RIVAS_CEIP_JARAMA\&quot; \&quot;ES_ZBE_RIVAS_CEIP_JOSE_HIERRO\&quot; \&quot;ES_ZBE_RIVAS_CEIP_JOSE_ITURZAETA\&quot; \&quot;ES_ZBE_RIVAS_CEIP_LAS_CIGUENAS\&quot; \&quot;ES_ZBE_RIVAS_CEIP_VICTORIA_KENT\&quot; \&quot;ES_ZBE_RIVAS_COLEGIO_SANTA_MONICA\&quot; \&quot;ES_ZBE_RUBI\&quot; \&quot;ES_ZBE_SABADELL\&quot; \&quot;ES_ZBE_SANTANDER\&quot; \&quot;ES_ZBE_SANTA_COLOMA_DE_GRAMENET\&quot; \&quot;ES_ZBE_SAN_SEBASTIAN\&quot; \&quot;ES_ZBE_SEGOVIA\&quot; \&quot;ES_ZBE_SIERO\&quot; \&quot;ES_ZBE_SOLLER\&quot; \&quot;ES_ZBE_TARRAGONA\&quot; \&quot;ES_ZBE_TERRASSA\&quot; \&quot;ES_ZBE_TORREJON_DE_ARDOZ\&quot; \&quot;ES_ZBE_TORRELAVEGA\&quot; \&quot;ES_ZBE_TORREMOLINOS\&quot; \&quot;ES_ZBE_VALENCIA\&quot; \&quot;ES_ZBE_VALLADOLID\&quot; \&quot;ES_ZBE_VITORIA_GASTEIZ\&quot; \&quot;FR_ANGERS_ZFE\&quot; \&quot;FR_PARIS_ZFE\&quot; \&quot;FR_STRASBOURG_ZFE\&quot; \&quot;FR_TOULOUSE_ZFE\&quot; \&quot;GB_ABERDEEN_LEZ\&quot; \&quot;GB_BATH_CAZ\&quot; \&quot;GB_BIRMINGHAM_CAZ\&quot; \&quot;GB_BRADFORD_CAZ\&quot; \&quot;GB_BRISTOL_CAZ\&quot; \&quot;GB_DUNDEE_LEZ\&quot; \&quot;GB_EDINBURGH_LEZ\&quot; \&quot;GB_GLASGOW_LEZ\&quot; \&quot;GB_LONDON_ULTRA_LOW_EMISSION_ZONE\&quot; \&quot;GB_NEWCASTLE_CAZ\&quot; \&quot;GB_PORTSMOUTH_CAZ\&quot; \&quot;GB_SHEFFIELD_CAZ\&quot; \&quot;IT_MILANO_AREA_C\&quot; \&quot;IT_PALERMO_ZTL\&quot; \&quot;NL_AMERSFOORT_ZERO_EMISSIEZONE\&quot; \&quot;NL_AMSTERDAM_MILIEUZONE\&quot; \&quot;NL_AMSTERDAM_ZERO_EMISSIEZONE\&quot; \&quot;NL_ARNHEM_MILIEUZONE\&quot; \&quot;NL_ASSEN_ZERO_EMISSIEZONE\&quot; \&quot;NL_BREDA_MILIEUZONE\&quot; \&quot;NL_DELFT_HAAG_ZERO_EMISSIEZONE\&quot; \&quot;NL_DELFT_MILIEUZONE\&quot; \&quot;NL_DEN_HAAG_MILIEUZONE\&quot; \&quot;NL_DEN_HAAG_ZERO_EMISSIEZONE\&quot; \&quot;NL_EINDHOVEN_MILIEUZONE\&quot; \&quot;NL_EINDHOVEN_ZERO_EMISSIEZONE\&quot; \&quot;NL_ENSCHEDE_ZERO_EMISSIEZONE\&quot; \&quot;NL_GOUDA_ZERO_EMISSIEZONE\&quot; \&quot;NL_GRONINGEN_ZERO_EMISSIEZONE\&quot; \&quot;NL_HAARLEM_MILIEUZONE\&quot; \&quot;NL_LEIDEN_MILIEUZONE\&quot; \&quot;NL_LEIDEN_ZERO_EMISSIEZONE\&quot; \&quot;NL_MAASTRICHT_MILIEUZONE\&quot; \&quot;NL_MAASTRICHT_ZERO_EMISSIEZONE\&quot; \&quot;NL_MAASVLAKTE_ROTTERDAM_MILIEUZONE\&quot; \&quot;NL_NIJMEGEN_ZERO_EMISSIEZONE\&quot; \&quot;NL_RIJSWIJK_MILIEUZONE\&quot; \&quot;NL_ROTTERDAM_MILIEUZONE\&quot; \&quot;NL_ROTTERDAM_ZERO_EMISSIEZONE\&quot; \&quot;NL_S_GRAVENDIJKWAL_MILIEUZONE\&quot; \&quot;NL_S_HERTOGENBOSCH_ZERO_EMISSIEZONE\&quot; \&quot;NL_SCHEVENINGSE_HAVEN_MILIEUZONE\&quot; \&quot;NL_SCHIPHOL_ZERO_EMISSIEZONE\&quot; \&quot;NL_TILBURG_MILIEUZONE\&quot; \&quot;NL_TILBURG_ZERO_EMISSIEZONE\&quot; \&quot;NL_UTRECHT_MILIEUZONE\&quot; \&quot;NL_UTRECHT_ZERO_EMISSIEZONE\&quot; \&quot;NL_ZWOLLE_ZERO_EMISSIEZONE\&quot; \&quot;PT_EIXO_AV_LIBERDADE_BAIXA_ZER\&quot;  The following values are deprecated: \&quot;NL_LEIDEN_MILIEUZONE\&quot; \&quot;NL_MAASTRICHT_MILIEUZONE\&quot; \&quot;NL_ROTTERDAM_MILIEUZONE\&quot; \&quot;NL_S_GRAVENDIJKWAL_MILIEUZONE\&quot; \&quot;NL_S_HERTOGENBOSCH_MILIEUZONE\&quot; \&quot;NL_TILBURG_MILIEUZONE\&quot;  This list can be extended at any time, clients should handle unknown values properly. Relevant for &#x60;routing&#x60;. See [here](../routing-api/concepts/low-emission-zones) for more information. 
         /// </summary>
         /// <value>Comma-separated list of exemptions to enter low-emission zones.  Available values are provided by type &#x60;LowEmissionZoneExemptions&#x60;: \&quot;BE_LAGE_EMISSIEZONE_ANTWERPEN\&quot; \&quot;BE_LAGE_EMISSIEZONE_GENT\&quot; \&quot;BE_ZONE_BASSE_EMISSION_BRUXELLES\&quot; \&quot;DE_STUTTGART_KLEINE_UMWELTZONE\&quot; \&quot;DE_STUTTGART_UMWELTZONE\&quot; \&quot;DK_AALBORG_MILJOZONE\&quot; \&quot;DK_ARHUS_MILJOZONE\&quot; \&quot;DK_FREDERIKSBERG_MILJOZONE\&quot; \&quot;DK_KOBENHAVN_MILJOZONE\&quot; \&quot;DK_ODENSE_MILJOZONE\&quot; \&quot;ES_ZBEDEP_MADRID_PLAZA_ELIPTICA\&quot; \&quot;ES_ZBE_ALCOBENDAS\&quot; \&quot;ES_ZBE_ALICANTE\&quot; \&quot;ES_ZBE_ALMERIA\&quot; \&quot;ES_ZBE_BENIDORM\&quot; \&quot;ES_ZBE_BILBAO\&quot; \&quot;ES_ZBE_BOADILLA_DEL_MONTE\&quot; \&quot;ES_ZBE_BURGOS\&quot; \&quot;ES_ZBE_CASTELLDEFELS\&quot; \&quot;ES_ZBE_CERDANYOLA_DEL_VALLES\&quot; \&quot;ES_ZBE_CHICLANA_DE_LA_FRONTERA\&quot; \&quot;ES_ZBE_CORDOBA\&quot; \&quot;ES_ZBE_CUENCA\&quot; \&quot;ES_ZBE_EL_PRAT_DE_LLOBREGAT\&quot; \&quot;ES_ZBE_ELDA\&quot; \&quot;ES_ZBE_ESTEPONA\&quot; \&quot;ES_ZBE_FUENLABRADA\&quot; \&quot;ES_ZBE_GETAFE\&quot; \&quot;ES_ZBE_GIRONA\&quot; \&quot;ES_ZBE_GRANADA\&quot; \&quot;ES_ZBE_GRANOLLERS\&quot; \&quot;ES_ZBE_GUADALAJARA\&quot; \&quot;ES_ZBE_JEREZ_DE_LA_FRONTERA\&quot; \&quot;ES_ZBE_LINEA_DE_LA_CONCEPCION\&quot; \&quot;ES_ZBE_LLEIDA\&quot; \&quot;ES_ZBE_MADRID\&quot; \&quot;ES_ZBE_MATARO\&quot; \&quot;ES_ZBE_MOLLET_DEL_VALLES\&quot; \&quot;ES_ZBE_MOSTOLES\&quot; \&quot;ES_ZBE_MOTRIL\&quot; \&quot;ES_ZBE_OVIEDO\&quot; \&quot;ES_ZBE_PALMA\&quot; \&quot;ES_ZBE_PAMPLONA\&quot; \&quot;ES_ZBE_PARLA\&quot; \&quot;ES_ZBE_REUS\&quot; \&quot;ES_ZBE_RIVAS_CEIP_COLEGIO_LUYFE\&quot; \&quot;ES_ZBE_RIVAS_CEIP_DULCE_CHACON\&quot; \&quot;ES_ZBE_RIVAS_CEIP_HANS_CHRISTIAN_ANDERSEN\&quot; \&quot;ES_ZBE_RIVAS_CEIP_JARAMA\&quot; \&quot;ES_ZBE_RIVAS_CEIP_JOSE_HIERRO\&quot; \&quot;ES_ZBE_RIVAS_CEIP_JOSE_ITURZAETA\&quot; \&quot;ES_ZBE_RIVAS_CEIP_LAS_CIGUENAS\&quot; \&quot;ES_ZBE_RIVAS_CEIP_VICTORIA_KENT\&quot; \&quot;ES_ZBE_RIVAS_COLEGIO_SANTA_MONICA\&quot; \&quot;ES_ZBE_RUBI\&quot; \&quot;ES_ZBE_SABADELL\&quot; \&quot;ES_ZBE_SANTANDER\&quot; \&quot;ES_ZBE_SANTA_COLOMA_DE_GRAMENET\&quot; \&quot;ES_ZBE_SAN_SEBASTIAN\&quot; \&quot;ES_ZBE_SEGOVIA\&quot; \&quot;ES_ZBE_SIERO\&quot; \&quot;ES_ZBE_SOLLER\&quot; \&quot;ES_ZBE_TARRAGONA\&quot; \&quot;ES_ZBE_TERRASSA\&quot; \&quot;ES_ZBE_TORREJON_DE_ARDOZ\&quot; \&quot;ES_ZBE_TORRELAVEGA\&quot; \&quot;ES_ZBE_TORREMOLINOS\&quot; \&quot;ES_ZBE_VALENCIA\&quot; \&quot;ES_ZBE_VALLADOLID\&quot; \&quot;ES_ZBE_VITORIA_GASTEIZ\&quot; \&quot;FR_ANGERS_ZFE\&quot; \&quot;FR_PARIS_ZFE\&quot; \&quot;FR_STRASBOURG_ZFE\&quot; \&quot;FR_TOULOUSE_ZFE\&quot; \&quot;GB_ABERDEEN_LEZ\&quot; \&quot;GB_BATH_CAZ\&quot; \&quot;GB_BIRMINGHAM_CAZ\&quot; \&quot;GB_BRADFORD_CAZ\&quot; \&quot;GB_BRISTOL_CAZ\&quot; \&quot;GB_DUNDEE_LEZ\&quot; \&quot;GB_EDINBURGH_LEZ\&quot; \&quot;GB_GLASGOW_LEZ\&quot; \&quot;GB_LONDON_ULTRA_LOW_EMISSION_ZONE\&quot; \&quot;GB_NEWCASTLE_CAZ\&quot; \&quot;GB_PORTSMOUTH_CAZ\&quot; \&quot;GB_SHEFFIELD_CAZ\&quot; \&quot;IT_MILANO_AREA_C\&quot; \&quot;IT_PALERMO_ZTL\&quot; \&quot;NL_AMERSFOORT_ZERO_EMISSIEZONE\&quot; \&quot;NL_AMSTERDAM_MILIEUZONE\&quot; \&quot;NL_AMSTERDAM_ZERO_EMISSIEZONE\&quot; \&quot;NL_ARNHEM_MILIEUZONE\&quot; \&quot;NL_ASSEN_ZERO_EMISSIEZONE\&quot; \&quot;NL_BREDA_MILIEUZONE\&quot; \&quot;NL_DELFT_HAAG_ZERO_EMISSIEZONE\&quot; \&quot;NL_DELFT_MILIEUZONE\&quot; \&quot;NL_DEN_HAAG_MILIEUZONE\&quot; \&quot;NL_DEN_HAAG_ZERO_EMISSIEZONE\&quot; \&quot;NL_EINDHOVEN_MILIEUZONE\&quot; \&quot;NL_EINDHOVEN_ZERO_EMISSIEZONE\&quot; \&quot;NL_ENSCHEDE_ZERO_EMISSIEZONE\&quot; \&quot;NL_GOUDA_ZERO_EMISSIEZONE\&quot; \&quot;NL_GRONINGEN_ZERO_EMISSIEZONE\&quot; \&quot;NL_HAARLEM_MILIEUZONE\&quot; \&quot;NL_LEIDEN_MILIEUZONE\&quot; \&quot;NL_LEIDEN_ZERO_EMISSIEZONE\&quot; \&quot;NL_MAASTRICHT_MILIEUZONE\&quot; \&quot;NL_MAASTRICHT_ZERO_EMISSIEZONE\&quot; \&quot;NL_MAASVLAKTE_ROTTERDAM_MILIEUZONE\&quot; \&quot;NL_NIJMEGEN_ZERO_EMISSIEZONE\&quot; \&quot;NL_RIJSWIJK_MILIEUZONE\&quot; \&quot;NL_ROTTERDAM_MILIEUZONE\&quot; \&quot;NL_ROTTERDAM_ZERO_EMISSIEZONE\&quot; \&quot;NL_S_GRAVENDIJKWAL_MILIEUZONE\&quot; \&quot;NL_S_HERTOGENBOSCH_ZERO_EMISSIEZONE\&quot; \&quot;NL_SCHEVENINGSE_HAVEN_MILIEUZONE\&quot; \&quot;NL_SCHIPHOL_ZERO_EMISSIEZONE\&quot; \&quot;NL_TILBURG_MILIEUZONE\&quot; \&quot;NL_TILBURG_ZERO_EMISSIEZONE\&quot; \&quot;NL_UTRECHT_MILIEUZONE\&quot; \&quot;NL_UTRECHT_ZERO_EMISSIEZONE\&quot; \&quot;NL_ZWOLLE_ZERO_EMISSIEZONE\&quot; \&quot;PT_EIXO_AV_LIBERDADE_BAIXA_ZER\&quot;  The following values are deprecated: \&quot;NL_LEIDEN_MILIEUZONE\&quot; \&quot;NL_MAASTRICHT_MILIEUZONE\&quot; \&quot;NL_ROTTERDAM_MILIEUZONE\&quot; \&quot;NL_S_GRAVENDIJKWAL_MILIEUZONE\&quot; \&quot;NL_S_HERTOGENBOSCH_MILIEUZONE\&quot; \&quot;NL_TILBURG_MILIEUZONE\&quot;  This list can be extended at any time, clients should handle unknown values properly. Relevant for &#x60;routing&#x60;. See [here](../routing-api/concepts/low-emission-zones) for more information. </value>
-        /// <example>[&quot;FR_STRASBOURG_ZFE&quot;,&quot;GB_LONDON_ULTRA_LOW_EMISSION_ZONE&quot;]</example>
+        /*
+        <example>[&quot;FR_STRASBOURG_ZFE&quot;,&quot;GB_LONDON_ULTRA_LOW_EMISSION_ZONE&quot;]</example>
+        */
         [DataMember(Name = "lowEmissionZoneExemptions", EmitDefaultValue = false)]
         public List<string> LowEmissionZoneExemptions { get; set; }
 
@@ -220,7 +238,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The empty weight of the vehicle [kg].  Relevant for &#x60;routing&#x60;, &#x60;emissions&#x60;. 
         /// </summary>
         /// <value>The empty weight of the vehicle [kg].  Relevant for &#x60;routing&#x60;, &#x60;emissions&#x60;. </value>
-        /// <example>15000</example>
+        /*
+        <example>15000</example>
+        */
         [DataMember(Name = "emptyWeight", EmitDefaultValue = true)]
         public int? EmptyWeight { get; set; }
 
@@ -228,7 +248,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The weight of the vehicle&#39;s load [kg].  Relevant for &#x60;routing&#x60;, &#x60;emissions&#x60;. 
         /// </summary>
         /// <value>The weight of the vehicle&#39;s load [kg].  Relevant for &#x60;routing&#x60;, &#x60;emissions&#x60;. </value>
-        /// <example>25000</example>
+        /*
+        <example>25000</example>
+        */
         [DataMember(Name = "loadWeight", EmitDefaultValue = true)]
         public int? LoadWeight { get; set; }
 
@@ -236,7 +258,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The total permitted weight of the vehicle and its load [kg]. This is the weight the vehicle is usually registered with.  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;, &#x60;emissions&#x60;. 
         /// </summary>
         /// <value>The total permitted weight of the vehicle and its load [kg]. This is the weight the vehicle is usually registered with.  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;, &#x60;emissions&#x60;. </value>
-        /// <example>40000</example>
+        /*
+        <example>40000</example>
+        */
         [DataMember(Name = "totalPermittedWeight", EmitDefaultValue = true)]
         public int? TotalPermittedWeight { get; set; }
 
@@ -244,7 +268,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The total technically permitted weight of the vehicle and its load [kg].  Sometimes vehicles are registered with a smaller **totalPermittedWeight** than technically possible. For  such cases the possibly larger total technically permitted weight is specified here, it is relevant for  toll calculation in some European countries.  Relevant for &#x60;toll&#x60;. 
         /// </summary>
         /// <value>The total technically permitted weight of the vehicle and its load [kg].  Sometimes vehicles are registered with a smaller **totalPermittedWeight** than technically possible. For  such cases the possibly larger total technically permitted weight is specified here, it is relevant for  toll calculation in some European countries.  Relevant for &#x60;toll&#x60;. </value>
-        /// <example>40000</example>
+        /*
+        <example>40000</example>
+        */
         [DataMember(Name = "totalTechnicallyPermittedWeight", EmitDefaultValue = true)]
         public int? TotalTechnicallyPermittedWeight { get; set; }
 
@@ -252,7 +278,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The maximum distributed weight that may be supported by an axle of the vehicle [kg].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;. 
         /// </summary>
         /// <value>The maximum distributed weight that may be supported by an axle of the vehicle [kg].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;. </value>
-        /// <example>11500</example>
+        /*
+        <example>11500</example>
+        */
         [DataMember(Name = "axleWeight", EmitDefaultValue = true)]
         public int? AxleWeight { get; set; }
 
@@ -260,7 +288,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The total number of axles of the vehicle including the trailers.  Relevant for &#x60;toll&#x60;. 
         /// </summary>
         /// <value>The total number of axles of the vehicle including the trailers.  Relevant for &#x60;toll&#x60;. </value>
-        /// <example>5</example>
+        /*
+        <example>5</example>
+        */
         [DataMember(Name = "numberOfAxles", EmitDefaultValue = true)]
         public int? NumberOfAxles { get; set; }
 
@@ -268,7 +298,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The total number of tires of the vehicle including the trailers.  Relevant for &#x60;toll&#x60;. 
         /// </summary>
         /// <value>The total number of tires of the vehicle including the trailers.  Relevant for &#x60;toll&#x60;. </value>
-        /// <example>10</example>
+        /*
+        <example>10</example>
+        */
         [DataMember(Name = "numberOfTires", EmitDefaultValue = true)]
         public int? NumberOfTires { get; set; }
 
@@ -276,7 +308,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The height of the vehicle [cm].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;. 
         /// </summary>
         /// <value>The height of the vehicle [cm].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;. </value>
-        /// <example>400</example>
+        /*
+        <example>400</example>
+        */
         [DataMember(Name = "height", EmitDefaultValue = true)]
         public int? Height { get; set; }
 
@@ -284,7 +318,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The height above the front axle [cm].  Relevant for &#x60;toll&#x60;. 
         /// </summary>
         /// <value>The height above the front axle [cm].  Relevant for &#x60;toll&#x60;. </value>
-        /// <example>400</example>
+        /*
+        <example>400</example>
+        */
         [DataMember(Name = "heightAboveFrontAxle", EmitDefaultValue = true)]
         public int? HeightAboveFrontAxle { get; set; }
 
@@ -292,7 +328,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The length of the vehicle [cm].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;. 
         /// </summary>
         /// <value>The length of the vehicle [cm].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;. </value>
-        /// <example>1650</example>
+        /*
+        <example>1650</example>
+        */
         [DataMember(Name = "length", EmitDefaultValue = true)]
         public int? Length { get; set; }
 
@@ -300,7 +338,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The width of the vehicle [cm].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;. 
         /// </summary>
         /// <value>The width of the vehicle [cm].  Relevant for &#x60;routing&#x60;, &#x60;toll&#x60;. </value>
-        /// <example>254</example>
+        /*
+        <example>254</example>
+        */
         [DataMember(Name = "width", EmitDefaultValue = true)]
         public int? Width { get; set; }
 
@@ -322,7 +362,9 @@ namespace PTV.Developer.Clients.data.Model
         /// Specifies if the vehicle usage is commercial.  Relevant for &#x60;toll&#x60;. 
         /// </summary>
         /// <value>Specifies if the vehicle usage is commercial.  Relevant for &#x60;toll&#x60;. </value>
-        /// <example>false</example>
+        /*
+        <example>false</example>
+        */
         [DataMember(Name = "commercial", EmitDefaultValue = true)]
         public bool? Commercial { get; set; }
 

@@ -40,7 +40,7 @@ namespace PTV.Developer.Clients.data.Model
         /// Initializes a new instance of the <see cref="VehicleModels" /> class.
         /// </summary>
         /// <param name="varVehicleModels">A list of model-based vehicles. (required).</param>
-        public VehicleModels(List<VehicleModel> varVehicleModels = default(List<VehicleModel>))
+        public VehicleModels(List<VehicleModel> varVehicleModels = default)
         {
             // to ensure "varVehicleModels" is required (not null)
             if (varVehicleModels == null)

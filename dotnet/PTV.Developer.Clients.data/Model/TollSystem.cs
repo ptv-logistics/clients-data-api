@@ -42,7 +42,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="name">The name of the toll system. (required).</param>
         /// <param name="varOperator">The operator of the toll system. (required).</param>
         /// <param name="tariffVersions">The tariff versions. (required).</param>
-        public TollSystem(string name = default(string), string varOperator = default(string), List<TariffVersion> tariffVersions = default(List<TariffVersion>))
+        public TollSystem(string name = default, string varOperator = default, List<TariffVersion> tariffVersions = default)
         {
             // to ensure "name" is required (not null)
             if (name == null)

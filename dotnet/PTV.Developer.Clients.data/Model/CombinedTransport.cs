@@ -47,7 +47,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="destination">destination (required).</param>
         /// <param name="allowedFor">Comma-separated list of vehicles that may use this combined transport.  Empty, if not allowed for any of these vehicle, e.g. if allowed only for pedestrians.  Values can be &#x60;CAR&#x60;,&#x60;VAN&#x60;,&#x60;TRUCK&#x60;. (required).</param>
         /// <param name="waypointsParameter">The combined transport represented as a string that can be used as a **waypoints** parameter in the method **calculateRoute** of the Routing API. (required).</param>
-        public CombinedTransport(string polyline = default(string), string name = default(string), int? duration = default(int?), string type = default(string), CombinedTransportLocation start = default(CombinedTransportLocation), CombinedTransportLocation destination = default(CombinedTransportLocation), string allowedFor = default(string), string waypointsParameter = default(string))
+        public CombinedTransport(string polyline = default, string name = default, int? duration = default, string type = default, CombinedTransportLocation start = default, CombinedTransportLocation destination = default, string allowedFor = default, string waypointsParameter = default)
         {
             // to ensure "polyline" is required (not null)
             if (polyline == null)
@@ -150,7 +150,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The combined transport represented as a string that can be used as a **waypoints** parameter in the method **calculateRoute** of the Routing API.
         /// </summary>
         /// <value>The combined transport represented as a string that can be used as a **waypoints** parameter in the method **calculateRoute** of the Routing API.</value>
-        /// <example>combinedTransport&#x3D;54.5009693,11.2273406,54.6604379,11.3608932</example>
+        /*
+        <example>combinedTransport&#x3D;54.5009693,11.2273406,54.6604379,11.3608932</example>
+        */
         [DataMember(Name = "waypointsParameter", IsRequired = true, EmitDefaultValue = true)]
         public string WaypointsParameter { get; set; }
 

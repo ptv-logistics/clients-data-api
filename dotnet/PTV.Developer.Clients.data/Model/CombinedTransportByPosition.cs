@@ -42,7 +42,7 @@ namespace PTV.Developer.Clients.data.Model
         /// <param name="latitude">The latitude value in degrees (WGS84/EPSG:4326) from south to north. (required).</param>
         /// <param name="longitude">The longitude value in degrees (WGS84/EPSG:4326) from west to east. (required).</param>
         /// <param name="radius">The circle defined by the given point and this radius [m] in which to search for the start location of a combined transport. (default to 5000).</param>
-        public CombinedTransportByPosition(double? latitude = default(double?), double? longitude = default(double?), int? radius = 5000)
+        public CombinedTransportByPosition(double? latitude = default, double? longitude = default, int? radius = 5000)
         {
             // to ensure "latitude" is required (not null)
             if (latitude == null)
@@ -64,7 +64,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The latitude value in degrees (WGS84/EPSG:4326) from south to north.
         /// </summary>
         /// <value>The latitude value in degrees (WGS84/EPSG:4326) from south to north.</value>
-        /// <example>49.480301</example>
+        /*
+        <example>49.480301</example>
+        */
         [DataMember(Name = "latitude", IsRequired = true, EmitDefaultValue = true)]
         public double? Latitude { get; set; }
 
@@ -72,7 +74,9 @@ namespace PTV.Developer.Clients.data.Model
         /// The longitude value in degrees (WGS84/EPSG:4326) from west to east.
         /// </summary>
         /// <value>The longitude value in degrees (WGS84/EPSG:4326) from west to east.</value>
-        /// <example>6.110667</example>
+        /*
+        <example>6.110667</example>
+        */
         [DataMember(Name = "longitude", IsRequired = true, EmitDefaultValue = true)]
         public double? Longitude { get; set; }
 
