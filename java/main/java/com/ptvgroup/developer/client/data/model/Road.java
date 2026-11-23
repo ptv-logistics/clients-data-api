@@ -35,15 +35,16 @@ import com.ptvgroup.developer.client.data.ApiClient;
 @JsonPropertyOrder({
   Road.JSON_PROPERTY_POLYLINE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class Road {
   public static final String JSON_PROPERTY_POLYLINE = "polyline";
+  @javax.annotation.Nullable
   private String polyline;
 
   public Road() { 
   }
 
-  public Road polyline(String polyline) {
+  public Road polyline(@javax.annotation.Nullable String polyline) {
     this.polyline = polyline;
     return this;
   }
@@ -53,16 +54,16 @@ public class Road {
    * @return polyline
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POLYLINE)
+  @JsonProperty(value = JSON_PROPERTY_POLYLINE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPolyline() {
     return polyline;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_POLYLINE)
+  @JsonProperty(value = JSON_PROPERTY_POLYLINE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPolyline(String polyline) {
+  public void setPolyline(@javax.annotation.Nullable String polyline) {
     this.polyline = polyline;
   }
 
@@ -101,10 +102,7 @@ public class Road {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -141,7 +139,7 @@ public class Road {
 
     // add `polyline` to the URL query string
     if (getPolyline() != null) {
-      joiner.add(String.format("%spolyline%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPolyline()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%spolyline%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPolyline()))));
     }
 
     return joiner.toString();

@@ -43,33 +43,40 @@ import com.ptvgroup.developer.client.data.ApiClient;
   CombinedTransportToBeAttributed.JSON_PROPERTY_UNMATCHED_AFTER_MAP_UPDATE,
   CombinedTransportToBeAttributed.JSON_PROPERTY_DESCRIPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class CombinedTransportToBeAttributed {
   public static final String JSON_PROPERTY_START = "start";
+  @javax.annotation.Nonnull
   private Location start;
 
   public static final String JSON_PROPERTY_DESTINATION = "destination";
+  @javax.annotation.Nonnull
   private Location destination;
 
   public static final String JSON_PROPERTY_POLYLINE = "polyline";
+  @javax.annotation.Nullable
   private String polyline;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  @javax.annotation.Nonnull
   private CombinedTransportAttributes attributes;
 
   public static final String JSON_PROPERTY_UNMATCHED_AFTER_MAP_UPDATE = "unmatchedAfterMapUpdate";
+  @javax.annotation.Nullable
   private Boolean unmatchedAfterMapUpdate = false;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private String description;
 
   public CombinedTransportToBeAttributed() { 
   }
 
-  public CombinedTransportToBeAttributed start(Location start) {
+  public CombinedTransportToBeAttributed start(@javax.annotation.Nonnull Location start) {
     this.start = start;
     return this;
   }
@@ -79,21 +86,21 @@ public class CombinedTransportToBeAttributed {
    * @return start
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_START)
+  @JsonProperty(value = JSON_PROPERTY_START, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Location getStart() {
     return start;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_START)
+  @JsonProperty(value = JSON_PROPERTY_START, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStart(Location start) {
+  public void setStart(@javax.annotation.Nonnull Location start) {
     this.start = start;
   }
 
 
-  public CombinedTransportToBeAttributed destination(Location destination) {
+  public CombinedTransportToBeAttributed destination(@javax.annotation.Nonnull Location destination) {
     this.destination = destination;
     return this;
   }
@@ -103,21 +110,21 @@ public class CombinedTransportToBeAttributed {
    * @return destination
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DESTINATION)
+  @JsonProperty(value = JSON_PROPERTY_DESTINATION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Location getDestination() {
     return destination;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DESTINATION)
+  @JsonProperty(value = JSON_PROPERTY_DESTINATION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDestination(Location destination) {
+  public void setDestination(@javax.annotation.Nonnull Location destination) {
     this.destination = destination;
   }
 
 
-  public CombinedTransportToBeAttributed polyline(String polyline) {
+  public CombinedTransportToBeAttributed polyline(@javax.annotation.Nullable String polyline) {
     this.polyline = polyline;
     return this;
   }
@@ -127,21 +134,21 @@ public class CombinedTransportToBeAttributed {
    * @return polyline
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POLYLINE)
+  @JsonProperty(value = JSON_PROPERTY_POLYLINE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPolyline() {
     return polyline;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_POLYLINE)
+  @JsonProperty(value = JSON_PROPERTY_POLYLINE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPolyline(String polyline) {
+  public void setPolyline(@javax.annotation.Nullable String polyline) {
     this.polyline = polyline;
   }
 
 
-  public CombinedTransportToBeAttributed name(String name) {
+  public CombinedTransportToBeAttributed name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -151,21 +158,21 @@ public class CombinedTransportToBeAttributed {
    * @return name
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
     return name;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public CombinedTransportToBeAttributed attributes(CombinedTransportAttributes attributes) {
+  public CombinedTransportToBeAttributed attributes(@javax.annotation.Nonnull CombinedTransportAttributes attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -175,21 +182,21 @@ public class CombinedTransportToBeAttributed {
    * @return attributes
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(value = JSON_PROPERTY_ATTRIBUTES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public CombinedTransportAttributes getAttributes() {
     return attributes;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(value = JSON_PROPERTY_ATTRIBUTES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAttributes(CombinedTransportAttributes attributes) {
+  public void setAttributes(@javax.annotation.Nonnull CombinedTransportAttributes attributes) {
     this.attributes = attributes;
   }
 
 
-  public CombinedTransportToBeAttributed unmatchedAfterMapUpdate(Boolean unmatchedAfterMapUpdate) {
+  public CombinedTransportToBeAttributed unmatchedAfterMapUpdate(@javax.annotation.Nullable Boolean unmatchedAfterMapUpdate) {
     this.unmatchedAfterMapUpdate = unmatchedAfterMapUpdate;
     return this;
   }
@@ -199,21 +206,21 @@ public class CombinedTransportToBeAttributed {
    * @return unmatchedAfterMapUpdate
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UNMATCHED_AFTER_MAP_UPDATE)
+  @JsonProperty(value = JSON_PROPERTY_UNMATCHED_AFTER_MAP_UPDATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getUnmatchedAfterMapUpdate() {
     return unmatchedAfterMapUpdate;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UNMATCHED_AFTER_MAP_UPDATE)
+  @JsonProperty(value = JSON_PROPERTY_UNMATCHED_AFTER_MAP_UPDATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUnmatchedAfterMapUpdate(Boolean unmatchedAfterMapUpdate) {
+  public void setUnmatchedAfterMapUpdate(@javax.annotation.Nullable Boolean unmatchedAfterMapUpdate) {
     this.unmatchedAfterMapUpdate = unmatchedAfterMapUpdate;
   }
 
 
-  public CombinedTransportToBeAttributed description(String description) {
+  public CombinedTransportToBeAttributed description(@javax.annotation.Nullable String description) {
     this.description = description;
     return this;
   }
@@ -223,16 +230,16 @@ public class CombinedTransportToBeAttributed {
    * @return description
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
     return description;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
+  public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
   }
 
@@ -283,10 +290,7 @@ public class CombinedTransportToBeAttributed {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -333,12 +337,12 @@ public class CombinedTransportToBeAttributed {
 
     // add `polyline` to the URL query string
     if (getPolyline() != null) {
-      joiner.add(String.format("%spolyline%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPolyline()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%spolyline%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPolyline()))));
     }
 
     // add `name` to the URL query string
     if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sname%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getName()))));
     }
 
     // add `attributes` to the URL query string
@@ -348,12 +352,12 @@ public class CombinedTransportToBeAttributed {
 
     // add `unmatchedAfterMapUpdate` to the URL query string
     if (getUnmatchedAfterMapUpdate() != null) {
-      joiner.add(String.format("%sunmatchedAfterMapUpdate%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUnmatchedAfterMapUpdate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sunmatchedAfterMapUpdate%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getUnmatchedAfterMapUpdate()))));
     }
 
     // add `description` to the URL query string
     if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sdescription%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDescription()))));
     }
 
     return joiner.toString();

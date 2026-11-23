@@ -40,30 +40,36 @@ import com.ptvgroup.developer.client.data.ApiClient;
   RoadAttributes.JSON_PROPERTY_HEIGHT_LIMIT,
   RoadAttributes.JSON_PROPERTY_WIDTH_LIMIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class RoadAttributes {
   public static final String JSON_PROPERTY_PROHIBITED = "prohibited";
+  @javax.annotation.Nullable
   private Boolean prohibited;
 
   public static final String JSON_PROPERTY_ALLOWED = "allowed";
+  @javax.annotation.Nullable
   private Boolean allowed;
 
   public static final String JSON_PROPERTY_RELATIVE_SPEED = "relativeSpeed";
+  @javax.annotation.Nullable
   private Integer relativeSpeed;
 
   public static final String JSON_PROPERTY_WEIGHT_LIMIT = "weightLimit";
+  @javax.annotation.Nullable
   private Integer weightLimit;
 
   public static final String JSON_PROPERTY_HEIGHT_LIMIT = "heightLimit";
+  @javax.annotation.Nullable
   private Integer heightLimit;
 
   public static final String JSON_PROPERTY_WIDTH_LIMIT = "widthLimit";
+  @javax.annotation.Nullable
   private Integer widthLimit;
 
   public RoadAttributes() { 
   }
 
-  public RoadAttributes prohibited(Boolean prohibited) {
+  public RoadAttributes prohibited(@javax.annotation.Nullable Boolean prohibited) {
     this.prohibited = prohibited;
     return this;
   }
@@ -73,21 +79,21 @@ public class RoadAttributes {
    * @return prohibited
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROHIBITED)
+  @JsonProperty(value = JSON_PROPERTY_PROHIBITED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getProhibited() {
     return prohibited;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROHIBITED)
+  @JsonProperty(value = JSON_PROPERTY_PROHIBITED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProhibited(Boolean prohibited) {
+  public void setProhibited(@javax.annotation.Nullable Boolean prohibited) {
     this.prohibited = prohibited;
   }
 
 
-  public RoadAttributes allowed(Boolean allowed) {
+  public RoadAttributes allowed(@javax.annotation.Nullable Boolean allowed) {
     this.allowed = allowed;
     return this;
   }
@@ -97,21 +103,21 @@ public class RoadAttributes {
    * @return allowed
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOWED)
+  @JsonProperty(value = JSON_PROPERTY_ALLOWED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAllowed() {
     return allowed;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALLOWED)
+  @JsonProperty(value = JSON_PROPERTY_ALLOWED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowed(Boolean allowed) {
+  public void setAllowed(@javax.annotation.Nullable Boolean allowed) {
     this.allowed = allowed;
   }
 
 
-  public RoadAttributes relativeSpeed(Integer relativeSpeed) {
+  public RoadAttributes relativeSpeed(@javax.annotation.Nullable Integer relativeSpeed) {
     this.relativeSpeed = relativeSpeed;
     return this;
   }
@@ -123,21 +129,21 @@ public class RoadAttributes {
    * @return relativeSpeed
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATIVE_SPEED)
+  @JsonProperty(value = JSON_PROPERTY_RELATIVE_SPEED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getRelativeSpeed() {
     return relativeSpeed;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RELATIVE_SPEED)
+  @JsonProperty(value = JSON_PROPERTY_RELATIVE_SPEED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRelativeSpeed(Integer relativeSpeed) {
+  public void setRelativeSpeed(@javax.annotation.Nullable Integer relativeSpeed) {
     this.relativeSpeed = relativeSpeed;
   }
 
 
-  public RoadAttributes weightLimit(Integer weightLimit) {
+  public RoadAttributes weightLimit(@javax.annotation.Nullable Integer weightLimit) {
     this.weightLimit = weightLimit;
     return this;
   }
@@ -148,21 +154,21 @@ public class RoadAttributes {
    * @return weightLimit
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WEIGHT_LIMIT)
+  @JsonProperty(value = JSON_PROPERTY_WEIGHT_LIMIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getWeightLimit() {
     return weightLimit;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WEIGHT_LIMIT)
+  @JsonProperty(value = JSON_PROPERTY_WEIGHT_LIMIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWeightLimit(Integer weightLimit) {
+  public void setWeightLimit(@javax.annotation.Nullable Integer weightLimit) {
     this.weightLimit = weightLimit;
   }
 
 
-  public RoadAttributes heightLimit(Integer heightLimit) {
+  public RoadAttributes heightLimit(@javax.annotation.Nullable Integer heightLimit) {
     this.heightLimit = heightLimit;
     return this;
   }
@@ -173,21 +179,21 @@ public class RoadAttributes {
    * @return heightLimit
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HEIGHT_LIMIT)
+  @JsonProperty(value = JSON_PROPERTY_HEIGHT_LIMIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getHeightLimit() {
     return heightLimit;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HEIGHT_LIMIT)
+  @JsonProperty(value = JSON_PROPERTY_HEIGHT_LIMIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHeightLimit(Integer heightLimit) {
+  public void setHeightLimit(@javax.annotation.Nullable Integer heightLimit) {
     this.heightLimit = heightLimit;
   }
 
 
-  public RoadAttributes widthLimit(Integer widthLimit) {
+  public RoadAttributes widthLimit(@javax.annotation.Nullable Integer widthLimit) {
     this.widthLimit = widthLimit;
     return this;
   }
@@ -198,16 +204,16 @@ public class RoadAttributes {
    * @return widthLimit
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WIDTH_LIMIT)
+  @JsonProperty(value = JSON_PROPERTY_WIDTH_LIMIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getWidthLimit() {
     return widthLimit;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WIDTH_LIMIT)
+  @JsonProperty(value = JSON_PROPERTY_WIDTH_LIMIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWidthLimit(Integer widthLimit) {
+  public void setWidthLimit(@javax.annotation.Nullable Integer widthLimit) {
     this.widthLimit = widthLimit;
   }
 
@@ -256,10 +262,7 @@ public class RoadAttributes {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -296,32 +299,32 @@ public class RoadAttributes {
 
     // add `prohibited` to the URL query string
     if (getProhibited() != null) {
-      joiner.add(String.format("%sprohibited%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getProhibited()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sprohibited%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getProhibited()))));
     }
 
     // add `allowed` to the URL query string
     if (getAllowed() != null) {
-      joiner.add(String.format("%sallowed%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAllowed()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sallowed%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getAllowed()))));
     }
 
     // add `relativeSpeed` to the URL query string
     if (getRelativeSpeed() != null) {
-      joiner.add(String.format("%srelativeSpeed%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRelativeSpeed()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%srelativeSpeed%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getRelativeSpeed()))));
     }
 
     // add `weightLimit` to the URL query string
     if (getWeightLimit() != null) {
-      joiner.add(String.format("%sweightLimit%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getWeightLimit()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sweightLimit%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getWeightLimit()))));
     }
 
     // add `heightLimit` to the URL query string
     if (getHeightLimit() != null) {
-      joiner.add(String.format("%sheightLimit%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getHeightLimit()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sheightLimit%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getHeightLimit()))));
     }
 
     // add `widthLimit` to the URL query string
     if (getWidthLimit() != null) {
-      joiner.add(String.format("%swidthLimit%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getWidthLimit()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%swidthLimit%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getWidthLimit()))));
     }
 
     return joiner.toString();

@@ -39,24 +39,28 @@ import com.ptvgroup.developer.client.data.ApiClient;
   WeeklyScheduleInterval.JSON_PROPERTY_MINUTE,
   WeeklyScheduleInterval.JSON_PROPERTY_DURATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class WeeklyScheduleInterval {
   public static final String JSON_PROPERTY_DAY_OF_WEEK = "dayOfWeek";
+  @javax.annotation.Nonnull
   private DayOfWeek dayOfWeek;
 
   public static final String JSON_PROPERTY_HOUR = "hour";
+  @javax.annotation.Nonnull
   private Integer hour;
 
   public static final String JSON_PROPERTY_MINUTE = "minute";
+  @javax.annotation.Nonnull
   private Integer minute;
 
   public static final String JSON_PROPERTY_DURATION = "duration";
+  @javax.annotation.Nonnull
   private Integer duration;
 
   public WeeklyScheduleInterval() { 
   }
 
-  public WeeklyScheduleInterval dayOfWeek(DayOfWeek dayOfWeek) {
+  public WeeklyScheduleInterval dayOfWeek(@javax.annotation.Nonnull DayOfWeek dayOfWeek) {
     this.dayOfWeek = dayOfWeek;
     return this;
   }
@@ -66,21 +70,21 @@ public class WeeklyScheduleInterval {
    * @return dayOfWeek
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DAY_OF_WEEK)
+  @JsonProperty(value = JSON_PROPERTY_DAY_OF_WEEK, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public DayOfWeek getDayOfWeek() {
     return dayOfWeek;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DAY_OF_WEEK)
+  @JsonProperty(value = JSON_PROPERTY_DAY_OF_WEEK, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDayOfWeek(DayOfWeek dayOfWeek) {
+  public void setDayOfWeek(@javax.annotation.Nonnull DayOfWeek dayOfWeek) {
     this.dayOfWeek = dayOfWeek;
   }
 
 
-  public WeeklyScheduleInterval hour(Integer hour) {
+  public WeeklyScheduleInterval hour(@javax.annotation.Nonnull Integer hour) {
     this.hour = hour;
     return this;
   }
@@ -92,21 +96,21 @@ public class WeeklyScheduleInterval {
    * @return hour
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_HOUR)
+  @JsonProperty(value = JSON_PROPERTY_HOUR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getHour() {
     return hour;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HOUR)
+  @JsonProperty(value = JSON_PROPERTY_HOUR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setHour(Integer hour) {
+  public void setHour(@javax.annotation.Nonnull Integer hour) {
     this.hour = hour;
   }
 
 
-  public WeeklyScheduleInterval minute(Integer minute) {
+  public WeeklyScheduleInterval minute(@javax.annotation.Nonnull Integer minute) {
     this.minute = minute;
     return this;
   }
@@ -118,21 +122,21 @@ public class WeeklyScheduleInterval {
    * @return minute
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_MINUTE)
+  @JsonProperty(value = JSON_PROPERTY_MINUTE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getMinute() {
     return minute;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MINUTE)
+  @JsonProperty(value = JSON_PROPERTY_MINUTE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setMinute(Integer minute) {
+  public void setMinute(@javax.annotation.Nonnull Integer minute) {
     this.minute = minute;
   }
 
 
-  public WeeklyScheduleInterval duration(Integer duration) {
+  public WeeklyScheduleInterval duration(@javax.annotation.Nonnull Integer duration) {
     this.duration = duration;
     return this;
   }
@@ -144,16 +148,16 @@ public class WeeklyScheduleInterval {
    * @return duration
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonProperty(value = JSON_PROPERTY_DURATION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getDuration() {
     return duration;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonProperty(value = JSON_PROPERTY_DURATION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDuration(Integer duration) {
+  public void setDuration(@javax.annotation.Nonnull Integer duration) {
     this.duration = duration;
   }
 
@@ -198,10 +202,7 @@ public class WeeklyScheduleInterval {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -238,22 +239,22 @@ public class WeeklyScheduleInterval {
 
     // add `dayOfWeek` to the URL query string
     if (getDayOfWeek() != null) {
-      joiner.add(String.format("%sdayOfWeek%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDayOfWeek()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sdayOfWeek%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDayOfWeek()))));
     }
 
     // add `hour` to the URL query string
     if (getHour() != null) {
-      joiner.add(String.format("%shour%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getHour()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%shour%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getHour()))));
     }
 
     // add `minute` to the URL query string
     if (getMinute() != null) {
-      joiner.add(String.format("%sminute%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMinute()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sminute%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getMinute()))));
     }
 
     // add `duration` to the URL query string
     if (getDuration() != null) {
-      joiner.add(String.format("%sduration%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDuration()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sduration%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDuration()))));
     }
 
     return joiner.toString();

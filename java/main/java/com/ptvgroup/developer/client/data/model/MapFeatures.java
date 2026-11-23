@@ -37,18 +37,20 @@ import com.ptvgroup.developer.client.data.ApiClient;
   MapFeatures.JSON_PROPERTY_TOLL,
   MapFeatures.JSON_PROPERTY_TOLL_FEATURES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class MapFeatures {
   public static final String JSON_PROPERTY_TOLL = "toll";
+  @javax.annotation.Nonnull
   private Boolean toll;
 
   public static final String JSON_PROPERTY_TOLL_FEATURES = "tollFeatures";
+  @javax.annotation.Nullable
   private TollFeatures tollFeatures;
 
   public MapFeatures() { 
   }
 
-  public MapFeatures toll(Boolean toll) {
+  public MapFeatures toll(@javax.annotation.Nonnull Boolean toll) {
     this.toll = toll;
     return this;
   }
@@ -58,21 +60,21 @@ public class MapFeatures {
    * @return toll
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TOLL)
+  @JsonProperty(value = JSON_PROPERTY_TOLL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getToll() {
     return toll;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOLL)
+  @JsonProperty(value = JSON_PROPERTY_TOLL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setToll(Boolean toll) {
+  public void setToll(@javax.annotation.Nonnull Boolean toll) {
     this.toll = toll;
   }
 
 
-  public MapFeatures tollFeatures(TollFeatures tollFeatures) {
+  public MapFeatures tollFeatures(@javax.annotation.Nullable TollFeatures tollFeatures) {
     this.tollFeatures = tollFeatures;
     return this;
   }
@@ -82,16 +84,16 @@ public class MapFeatures {
    * @return tollFeatures
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOLL_FEATURES)
+  @JsonProperty(value = JSON_PROPERTY_TOLL_FEATURES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TollFeatures getTollFeatures() {
     return tollFeatures;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOLL_FEATURES)
+  @JsonProperty(value = JSON_PROPERTY_TOLL_FEATURES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTollFeatures(TollFeatures tollFeatures) {
+  public void setTollFeatures(@javax.annotation.Nullable TollFeatures tollFeatures) {
     this.tollFeatures = tollFeatures;
   }
 
@@ -132,10 +134,7 @@ public class MapFeatures {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -172,7 +171,7 @@ public class MapFeatures {
 
     // add `toll` to the URL query string
     if (getToll() != null) {
-      joiner.add(String.format("%stoll%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getToll()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%stoll%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getToll()))));
     }
 
     // add `tollFeatures` to the URL query string

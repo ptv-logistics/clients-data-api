@@ -77,105 +77,136 @@ import com.ptvgroup.developer.client.data.ApiClient;
   Vehicle.JSON_PROPERTY_COMMERCIAL,
   Vehicle.JSON_PROPERTY_ETC_SUBSCRIPTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class Vehicle {
   public static final String JSON_PROPERTY_ENGINE_TYPE = "engineType";
+  @javax.annotation.Nullable
   private EngineType engineType;
 
   public static final String JSON_PROPERTY_FUEL_TYPE = "fuelType";
+  @javax.annotation.Nullable
   private FuelType fuelType;
 
   public static final String JSON_PROPERTY_ELECTRICITY_TYPE = "electricityType";
+  @javax.annotation.Nullable
   private ElectricityType electricityType;
 
   public static final String JSON_PROPERTY_AVERAGE_FUEL_CONSUMPTION = "averageFuelConsumption";
+  @javax.annotation.Nullable
   private Double averageFuelConsumption;
 
   public static final String JSON_PROPERTY_AVERAGE_ELECTRICITY_CONSUMPTION = "averageElectricityConsumption";
+  @javax.annotation.Nullable
   private Double averageElectricityConsumption;
 
   public static final String JSON_PROPERTY_BIO_FUEL_RATIO = "bioFuelRatio";
+  @javax.annotation.Nullable
   private Integer bioFuelRatio;
 
   public static final String JSON_PROPERTY_HYBRID_RATIO = "hybridRatio";
+  @javax.annotation.Nullable
   private Integer hybridRatio;
 
   public static final String JSON_PROPERTY_DUAL_FUEL_RATIO = "dualFuelRatio";
+  @javax.annotation.Nullable
   private Integer dualFuelRatio;
 
   public static final String JSON_PROPERTY_CYLINDER_CAPACITY = "cylinderCapacity";
+  @javax.annotation.Nullable
   private Integer cylinderCapacity;
 
   public static final String JSON_PROPERTY_EMISSION_STANDARD = "emissionStandard";
+  @javax.annotation.Nullable
   private EmissionStandard emissionStandard;
 
   public static final String JSON_PROPERTY_CO2_EMISSION_CLASS = "co2EmissionClass";
+  @javax.annotation.Nullable
   private Integer co2EmissionClass;
 
   public static final String JSON_PROPERTY_LOW_EMISSION_ZONE_TYPES = "lowEmissionZoneTypes";
+  @javax.annotation.Nullable
   private List<LowEmissionZoneTypes> lowEmissionZoneTypes;
 
   public static final String JSON_PROPERTY_LOW_EMISSION_ZONE_APPROVALS = "lowEmissionZoneApprovals";
+  @javax.annotation.Nullable
   private List<String> lowEmissionZoneApprovals;
 
   public static final String JSON_PROPERTY_LOW_EMISSION_ZONE_EXEMPTIONS = "lowEmissionZoneExemptions";
+  @javax.annotation.Nullable
   private List<String> lowEmissionZoneExemptions;
 
   public static final String JSON_PROPERTY_PARTICLE_REDUCTION_CLASS = "particleReductionClass";
+  @javax.annotation.Nullable
   private ParticleReductionClass particleReductionClass;
 
   public static final String JSON_PROPERTY_EMPTY_WEIGHT = "emptyWeight";
+  @javax.annotation.Nullable
   private Integer emptyWeight;
 
   public static final String JSON_PROPERTY_LOAD_WEIGHT = "loadWeight";
+  @javax.annotation.Nullable
   private Integer loadWeight;
 
   public static final String JSON_PROPERTY_TOTAL_PERMITTED_WEIGHT = "totalPermittedWeight";
+  @javax.annotation.Nullable
   private Integer totalPermittedWeight;
 
   public static final String JSON_PROPERTY_TOTAL_TECHNICALLY_PERMITTED_WEIGHT = "totalTechnicallyPermittedWeight";
+  @javax.annotation.Nullable
   private Integer totalTechnicallyPermittedWeight;
 
   public static final String JSON_PROPERTY_AXLE_WEIGHT = "axleWeight";
+  @javax.annotation.Nullable
   private Integer axleWeight;
 
   public static final String JSON_PROPERTY_NUMBER_OF_AXLES = "numberOfAxles";
+  @javax.annotation.Nullable
   private Integer numberOfAxles;
 
   public static final String JSON_PROPERTY_NUMBER_OF_TIRES = "numberOfTires";
+  @javax.annotation.Nullable
   private Integer numberOfTires;
 
   public static final String JSON_PROPERTY_HEIGHT = "height";
+  @javax.annotation.Nullable
   private Integer height;
 
   public static final String JSON_PROPERTY_HEIGHT_ABOVE_FRONT_AXLE = "heightAboveFrontAxle";
+  @javax.annotation.Nullable
   private Integer heightAboveFrontAxle;
 
   public static final String JSON_PROPERTY_LENGTH = "length";
+  @javax.annotation.Nullable
   private Integer length;
 
   public static final String JSON_PROPERTY_WIDTH = "width";
+  @javax.annotation.Nullable
   private Integer width;
 
   public static final String JSON_PROPERTY_HAZARDOUS_MATERIALS = "hazardousMaterials";
+  @javax.annotation.Nullable
   private List<HazardousMaterials> hazardousMaterials;
 
   public static final String JSON_PROPERTY_TUNNEL_RESTRICTION_CODE = "tunnelRestrictionCode";
+  @javax.annotation.Nullable
   private TunnelRestrictionCode tunnelRestrictionCode;
 
   public static final String JSON_PROPERTY_TRUCK_ROUTES = "truckRoutes";
+  @javax.annotation.Nullable
   private List<TruckRoutes> truckRoutes;
 
   public static final String JSON_PROPERTY_COMMERCIAL = "commercial";
+  @javax.annotation.Nullable
   private Boolean commercial;
 
   public static final String JSON_PROPERTY_ETC_SUBSCRIPTIONS = "etcSubscriptions";
+  @javax.annotation.Nullable
   private List<EtcSubscriptionTypes> etcSubscriptions;
 
   public Vehicle() { 
   }
 
-  public Vehicle engineType(EngineType engineType) {
+  public Vehicle engineType(@javax.annotation.Nullable EngineType engineType) {
     this.engineType = engineType;
     return this;
   }
@@ -185,21 +216,21 @@ public class Vehicle {
    * @return engineType
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENGINE_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_ENGINE_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public EngineType getEngineType() {
     return engineType;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENGINE_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_ENGINE_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEngineType(EngineType engineType) {
+  public void setEngineType(@javax.annotation.Nullable EngineType engineType) {
     this.engineType = engineType;
   }
 
 
-  public Vehicle fuelType(FuelType fuelType) {
+  public Vehicle fuelType(@javax.annotation.Nullable FuelType fuelType) {
     this.fuelType = fuelType;
     return this;
   }
@@ -209,21 +240,21 @@ public class Vehicle {
    * @return fuelType
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FUEL_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_FUEL_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FuelType getFuelType() {
     return fuelType;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FUEL_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_FUEL_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFuelType(FuelType fuelType) {
+  public void setFuelType(@javax.annotation.Nullable FuelType fuelType) {
     this.fuelType = fuelType;
   }
 
 
-  public Vehicle electricityType(ElectricityType electricityType) {
+  public Vehicle electricityType(@javax.annotation.Nullable ElectricityType electricityType) {
     this.electricityType = electricityType;
     return this;
   }
@@ -233,21 +264,21 @@ public class Vehicle {
    * @return electricityType
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ELECTRICITY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_ELECTRICITY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ElectricityType getElectricityType() {
     return electricityType;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ELECTRICITY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_ELECTRICITY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setElectricityType(ElectricityType electricityType) {
+  public void setElectricityType(@javax.annotation.Nullable ElectricityType electricityType) {
     this.electricityType = electricityType;
   }
 
 
-  public Vehicle averageFuelConsumption(Double averageFuelConsumption) {
+  public Vehicle averageFuelConsumption(@javax.annotation.Nullable Double averageFuelConsumption) {
     this.averageFuelConsumption = averageFuelConsumption;
     return this;
   }
@@ -258,21 +289,21 @@ public class Vehicle {
    * @return averageFuelConsumption
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AVERAGE_FUEL_CONSUMPTION)
+  @JsonProperty(value = JSON_PROPERTY_AVERAGE_FUEL_CONSUMPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getAverageFuelConsumption() {
     return averageFuelConsumption;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AVERAGE_FUEL_CONSUMPTION)
+  @JsonProperty(value = JSON_PROPERTY_AVERAGE_FUEL_CONSUMPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAverageFuelConsumption(Double averageFuelConsumption) {
+  public void setAverageFuelConsumption(@javax.annotation.Nullable Double averageFuelConsumption) {
     this.averageFuelConsumption = averageFuelConsumption;
   }
 
 
-  public Vehicle averageElectricityConsumption(Double averageElectricityConsumption) {
+  public Vehicle averageElectricityConsumption(@javax.annotation.Nullable Double averageElectricityConsumption) {
     this.averageElectricityConsumption = averageElectricityConsumption;
     return this;
   }
@@ -283,47 +314,47 @@ public class Vehicle {
    * @return averageElectricityConsumption
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AVERAGE_ELECTRICITY_CONSUMPTION)
+  @JsonProperty(value = JSON_PROPERTY_AVERAGE_ELECTRICITY_CONSUMPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getAverageElectricityConsumption() {
     return averageElectricityConsumption;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AVERAGE_ELECTRICITY_CONSUMPTION)
+  @JsonProperty(value = JSON_PROPERTY_AVERAGE_ELECTRICITY_CONSUMPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAverageElectricityConsumption(Double averageElectricityConsumption) {
+  public void setAverageElectricityConsumption(@javax.annotation.Nullable Double averageElectricityConsumption) {
     this.averageElectricityConsumption = averageElectricityConsumption;
   }
 
 
-  public Vehicle bioFuelRatio(Integer bioFuelRatio) {
+  public Vehicle bioFuelRatio(@javax.annotation.Nullable Integer bioFuelRatio) {
     this.bioFuelRatio = bioFuelRatio;
     return this;
   }
 
   /**
-   * The ratio of biofuel to conventional fuel [%], i.e. 10 for E10 with 10% biofuel.  Supported for **engineType** _COMBUSTION_ or _HYBRID_ and only for the fuel types _GASOLINE_, _DIESEL_, _CNG_GASOLINE_ and _LNG_GASOLINE_. Relevant for &#x60;emissions&#x60;. 
+   * The ratio of biofuel to conventional fuel [%], i.e. 10 for E10 with 10% biofuel.  Supported for **engineType** _COMBUSTION_ or _HYBRID_ and only for the fuel types _GASOLINE_, _DIESEL_, _CNG_GASOLINE_, _LPG_GASOLINE_, _COMPRESSED_NATURAL_GAS_ and _LIQUEFIED_NATURAL_GAS_. Relevant for &#x60;emissions&#x60;. 
    * minimum: 0
    * maximum: 100
    * @return bioFuelRatio
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BIO_FUEL_RATIO)
+  @JsonProperty(value = JSON_PROPERTY_BIO_FUEL_RATIO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getBioFuelRatio() {
     return bioFuelRatio;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BIO_FUEL_RATIO)
+  @JsonProperty(value = JSON_PROPERTY_BIO_FUEL_RATIO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBioFuelRatio(Integer bioFuelRatio) {
+  public void setBioFuelRatio(@javax.annotation.Nullable Integer bioFuelRatio) {
     this.bioFuelRatio = bioFuelRatio;
   }
 
 
-  public Vehicle hybridRatio(Integer hybridRatio) {
+  public Vehicle hybridRatio(@javax.annotation.Nullable Integer hybridRatio) {
     this.hybridRatio = hybridRatio;
     return this;
   }
@@ -335,21 +366,21 @@ public class Vehicle {
    * @return hybridRatio
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HYBRID_RATIO)
+  @JsonProperty(value = JSON_PROPERTY_HYBRID_RATIO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getHybridRatio() {
     return hybridRatio;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HYBRID_RATIO)
+  @JsonProperty(value = JSON_PROPERTY_HYBRID_RATIO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHybridRatio(Integer hybridRatio) {
+  public void setHybridRatio(@javax.annotation.Nullable Integer hybridRatio) {
     this.hybridRatio = hybridRatio;
   }
 
 
-  public Vehicle dualFuelRatio(Integer dualFuelRatio) {
+  public Vehicle dualFuelRatio(@javax.annotation.Nullable Integer dualFuelRatio) {
     this.dualFuelRatio = dualFuelRatio;
     return this;
   }
@@ -361,46 +392,46 @@ public class Vehicle {
    * @return dualFuelRatio
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DUAL_FUEL_RATIO)
+  @JsonProperty(value = JSON_PROPERTY_DUAL_FUEL_RATIO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getDualFuelRatio() {
     return dualFuelRatio;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DUAL_FUEL_RATIO)
+  @JsonProperty(value = JSON_PROPERTY_DUAL_FUEL_RATIO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDualFuelRatio(Integer dualFuelRatio) {
+  public void setDualFuelRatio(@javax.annotation.Nullable Integer dualFuelRatio) {
     this.dualFuelRatio = dualFuelRatio;
   }
 
 
-  public Vehicle cylinderCapacity(Integer cylinderCapacity) {
+  public Vehicle cylinderCapacity(@javax.annotation.Nullable Integer cylinderCapacity) {
     this.cylinderCapacity = cylinderCapacity;
     return this;
   }
 
   /**
-   * The cylinder capacity of the vehicle [cm&amp;#x00B3;].  Supported for **engineType** _COMBUSTION_ or _HYBRID_. 
+   * The cylinder capacity of the vehicle [cm&amp;#x00B3;]. This value is present for compatibility reasons and does not influence any of the results.  Supported for **engineType** _COMBUSTION_ or _HYBRID_. 
    * minimum: 1
    * @return cylinderCapacity
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CYLINDER_CAPACITY)
+  @JsonProperty(value = JSON_PROPERTY_CYLINDER_CAPACITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getCylinderCapacity() {
     return cylinderCapacity;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CYLINDER_CAPACITY)
+  @JsonProperty(value = JSON_PROPERTY_CYLINDER_CAPACITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCylinderCapacity(Integer cylinderCapacity) {
+  public void setCylinderCapacity(@javax.annotation.Nullable Integer cylinderCapacity) {
     this.cylinderCapacity = cylinderCapacity;
   }
 
 
-  public Vehicle emissionStandard(EmissionStandard emissionStandard) {
+  public Vehicle emissionStandard(@javax.annotation.Nullable EmissionStandard emissionStandard) {
     this.emissionStandard = emissionStandard;
     return this;
   }
@@ -410,47 +441,47 @@ public class Vehicle {
    * @return emissionStandard
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMISSION_STANDARD)
+  @JsonProperty(value = JSON_PROPERTY_EMISSION_STANDARD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public EmissionStandard getEmissionStandard() {
     return emissionStandard;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMISSION_STANDARD)
+  @JsonProperty(value = JSON_PROPERTY_EMISSION_STANDARD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEmissionStandard(EmissionStandard emissionStandard) {
+  public void setEmissionStandard(@javax.annotation.Nullable EmissionStandard emissionStandard) {
     this.emissionStandard = emissionStandard;
   }
 
 
-  public Vehicle co2EmissionClass(Integer co2EmissionClass) {
+  public Vehicle co2EmissionClass(@javax.annotation.Nullable Integer co2EmissionClass) {
     this.co2EmissionClass = co2EmissionClass;
     return this;
   }
 
   /**
-   * The CO&amp;#8322; emission class valid in the European Union. See also the  [Directive 1999/62/EC](https://eur-lex.europa.eu/eli/dir/1999/62/2022-03-24) of the European Parliament and  of the Council on the charging of heavy goods vehicles for the use of certain infrastructures, Article 7ga.  Relevant for &#x60;toll&#x60;. 
+   * The CO&amp;#8322; emission class valid in the European Union. See also the  [Directive 1999/62/EC](https://eur-lex.europa.eu/eli/dir/1999/62/2022-03-24) of the European Parliament and  of the Council on the charging of heavy goods vehicles for the use of certain infrastructures, Article 7ga.  Must be 1 for combustion and hybrid vehicles with any **emissionStandard**, 2-4 for combustion and hybrid vehicles with **emissionStandard** of at least _EURO_6_, and 5 for electric vehicles.  Relevant for &#x60;toll&#x60;. 
    * minimum: 1
    * maximum: 5
    * @return co2EmissionClass
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CO2_EMISSION_CLASS)
+  @JsonProperty(value = JSON_PROPERTY_CO2_EMISSION_CLASS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getCo2EmissionClass() {
     return co2EmissionClass;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CO2_EMISSION_CLASS)
+  @JsonProperty(value = JSON_PROPERTY_CO2_EMISSION_CLASS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCo2EmissionClass(Integer co2EmissionClass) {
+  public void setCo2EmissionClass(@javax.annotation.Nullable Integer co2EmissionClass) {
     this.co2EmissionClass = co2EmissionClass;
   }
 
 
-  public Vehicle lowEmissionZoneTypes(List<LowEmissionZoneTypes> lowEmissionZoneTypes) {
+  public Vehicle lowEmissionZoneTypes(@javax.annotation.Nullable List<LowEmissionZoneTypes> lowEmissionZoneTypes) {
     this.lowEmissionZoneTypes = lowEmissionZoneTypes;
     return this;
   }
@@ -470,21 +501,21 @@ public class Vehicle {
    */
   @Deprecated
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOW_EMISSION_ZONE_TYPES)
+  @JsonProperty(value = JSON_PROPERTY_LOW_EMISSION_ZONE_TYPES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LowEmissionZoneTypes> getLowEmissionZoneTypes() {
     return lowEmissionZoneTypes;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOW_EMISSION_ZONE_TYPES)
+  @JsonProperty(value = JSON_PROPERTY_LOW_EMISSION_ZONE_TYPES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLowEmissionZoneTypes(List<LowEmissionZoneTypes> lowEmissionZoneTypes) {
+  public void setLowEmissionZoneTypes(@javax.annotation.Nullable List<LowEmissionZoneTypes> lowEmissionZoneTypes) {
     this.lowEmissionZoneTypes = lowEmissionZoneTypes;
   }
 
 
-  public Vehicle lowEmissionZoneApprovals(List<String> lowEmissionZoneApprovals) {
+  public Vehicle lowEmissionZoneApprovals(@javax.annotation.Nullable List<String> lowEmissionZoneApprovals) {
     this.lowEmissionZoneApprovals = lowEmissionZoneApprovals;
     return this;
   }
@@ -502,21 +533,21 @@ public class Vehicle {
    * @return lowEmissionZoneApprovals
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOW_EMISSION_ZONE_APPROVALS)
+  @JsonProperty(value = JSON_PROPERTY_LOW_EMISSION_ZONE_APPROVALS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getLowEmissionZoneApprovals() {
     return lowEmissionZoneApprovals;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOW_EMISSION_ZONE_APPROVALS)
+  @JsonProperty(value = JSON_PROPERTY_LOW_EMISSION_ZONE_APPROVALS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLowEmissionZoneApprovals(List<String> lowEmissionZoneApprovals) {
+  public void setLowEmissionZoneApprovals(@javax.annotation.Nullable List<String> lowEmissionZoneApprovals) {
     this.lowEmissionZoneApprovals = lowEmissionZoneApprovals;
   }
 
 
-  public Vehicle lowEmissionZoneExemptions(List<String> lowEmissionZoneExemptions) {
+  public Vehicle lowEmissionZoneExemptions(@javax.annotation.Nullable List<String> lowEmissionZoneExemptions) {
     this.lowEmissionZoneExemptions = lowEmissionZoneExemptions;
     return this;
   }
@@ -534,21 +565,21 @@ public class Vehicle {
    * @return lowEmissionZoneExemptions
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOW_EMISSION_ZONE_EXEMPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_LOW_EMISSION_ZONE_EXEMPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getLowEmissionZoneExemptions() {
     return lowEmissionZoneExemptions;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOW_EMISSION_ZONE_EXEMPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_LOW_EMISSION_ZONE_EXEMPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLowEmissionZoneExemptions(List<String> lowEmissionZoneExemptions) {
+  public void setLowEmissionZoneExemptions(@javax.annotation.Nullable List<String> lowEmissionZoneExemptions) {
     this.lowEmissionZoneExemptions = lowEmissionZoneExemptions;
   }
 
 
-  public Vehicle particleReductionClass(ParticleReductionClass particleReductionClass) {
+  public Vehicle particleReductionClass(@javax.annotation.Nullable ParticleReductionClass particleReductionClass) {
     this.particleReductionClass = particleReductionClass;
     return this;
   }
@@ -558,21 +589,21 @@ public class Vehicle {
    * @return particleReductionClass
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PARTICLE_REDUCTION_CLASS)
+  @JsonProperty(value = JSON_PROPERTY_PARTICLE_REDUCTION_CLASS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ParticleReductionClass getParticleReductionClass() {
     return particleReductionClass;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PARTICLE_REDUCTION_CLASS)
+  @JsonProperty(value = JSON_PROPERTY_PARTICLE_REDUCTION_CLASS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setParticleReductionClass(ParticleReductionClass particleReductionClass) {
+  public void setParticleReductionClass(@javax.annotation.Nullable ParticleReductionClass particleReductionClass) {
     this.particleReductionClass = particleReductionClass;
   }
 
 
-  public Vehicle emptyWeight(Integer emptyWeight) {
+  public Vehicle emptyWeight(@javax.annotation.Nullable Integer emptyWeight) {
     this.emptyWeight = emptyWeight;
     return this;
   }
@@ -583,21 +614,21 @@ public class Vehicle {
    * @return emptyWeight
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMPTY_WEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_EMPTY_WEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getEmptyWeight() {
     return emptyWeight;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMPTY_WEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_EMPTY_WEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEmptyWeight(Integer emptyWeight) {
+  public void setEmptyWeight(@javax.annotation.Nullable Integer emptyWeight) {
     this.emptyWeight = emptyWeight;
   }
 
 
-  public Vehicle loadWeight(Integer loadWeight) {
+  public Vehicle loadWeight(@javax.annotation.Nullable Integer loadWeight) {
     this.loadWeight = loadWeight;
     return this;
   }
@@ -608,21 +639,21 @@ public class Vehicle {
    * @return loadWeight
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOAD_WEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_LOAD_WEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getLoadWeight() {
     return loadWeight;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOAD_WEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_LOAD_WEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLoadWeight(Integer loadWeight) {
+  public void setLoadWeight(@javax.annotation.Nullable Integer loadWeight) {
     this.loadWeight = loadWeight;
   }
 
 
-  public Vehicle totalPermittedWeight(Integer totalPermittedWeight) {
+  public Vehicle totalPermittedWeight(@javax.annotation.Nullable Integer totalPermittedWeight) {
     this.totalPermittedWeight = totalPermittedWeight;
     return this;
   }
@@ -633,21 +664,21 @@ public class Vehicle {
    * @return totalPermittedWeight
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOTAL_PERMITTED_WEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_TOTAL_PERMITTED_WEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getTotalPermittedWeight() {
     return totalPermittedWeight;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOTAL_PERMITTED_WEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_TOTAL_PERMITTED_WEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTotalPermittedWeight(Integer totalPermittedWeight) {
+  public void setTotalPermittedWeight(@javax.annotation.Nullable Integer totalPermittedWeight) {
     this.totalPermittedWeight = totalPermittedWeight;
   }
 
 
-  public Vehicle totalTechnicallyPermittedWeight(Integer totalTechnicallyPermittedWeight) {
+  public Vehicle totalTechnicallyPermittedWeight(@javax.annotation.Nullable Integer totalTechnicallyPermittedWeight) {
     this.totalTechnicallyPermittedWeight = totalTechnicallyPermittedWeight;
     return this;
   }
@@ -658,21 +689,21 @@ public class Vehicle {
    * @return totalTechnicallyPermittedWeight
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOTAL_TECHNICALLY_PERMITTED_WEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_TOTAL_TECHNICALLY_PERMITTED_WEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getTotalTechnicallyPermittedWeight() {
     return totalTechnicallyPermittedWeight;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOTAL_TECHNICALLY_PERMITTED_WEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_TOTAL_TECHNICALLY_PERMITTED_WEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTotalTechnicallyPermittedWeight(Integer totalTechnicallyPermittedWeight) {
+  public void setTotalTechnicallyPermittedWeight(@javax.annotation.Nullable Integer totalTechnicallyPermittedWeight) {
     this.totalTechnicallyPermittedWeight = totalTechnicallyPermittedWeight;
   }
 
 
-  public Vehicle axleWeight(Integer axleWeight) {
+  public Vehicle axleWeight(@javax.annotation.Nullable Integer axleWeight) {
     this.axleWeight = axleWeight;
     return this;
   }
@@ -683,21 +714,21 @@ public class Vehicle {
    * @return axleWeight
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AXLE_WEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_AXLE_WEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getAxleWeight() {
     return axleWeight;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AXLE_WEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_AXLE_WEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAxleWeight(Integer axleWeight) {
+  public void setAxleWeight(@javax.annotation.Nullable Integer axleWeight) {
     this.axleWeight = axleWeight;
   }
 
 
-  public Vehicle numberOfAxles(Integer numberOfAxles) {
+  public Vehicle numberOfAxles(@javax.annotation.Nullable Integer numberOfAxles) {
     this.numberOfAxles = numberOfAxles;
     return this;
   }
@@ -708,21 +739,21 @@ public class Vehicle {
    * @return numberOfAxles
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NUMBER_OF_AXLES)
+  @JsonProperty(value = JSON_PROPERTY_NUMBER_OF_AXLES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getNumberOfAxles() {
     return numberOfAxles;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NUMBER_OF_AXLES)
+  @JsonProperty(value = JSON_PROPERTY_NUMBER_OF_AXLES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNumberOfAxles(Integer numberOfAxles) {
+  public void setNumberOfAxles(@javax.annotation.Nullable Integer numberOfAxles) {
     this.numberOfAxles = numberOfAxles;
   }
 
 
-  public Vehicle numberOfTires(Integer numberOfTires) {
+  public Vehicle numberOfTires(@javax.annotation.Nullable Integer numberOfTires) {
     this.numberOfTires = numberOfTires;
     return this;
   }
@@ -733,21 +764,21 @@ public class Vehicle {
    * @return numberOfTires
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NUMBER_OF_TIRES)
+  @JsonProperty(value = JSON_PROPERTY_NUMBER_OF_TIRES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getNumberOfTires() {
     return numberOfTires;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NUMBER_OF_TIRES)
+  @JsonProperty(value = JSON_PROPERTY_NUMBER_OF_TIRES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNumberOfTires(Integer numberOfTires) {
+  public void setNumberOfTires(@javax.annotation.Nullable Integer numberOfTires) {
     this.numberOfTires = numberOfTires;
   }
 
 
-  public Vehicle height(Integer height) {
+  public Vehicle height(@javax.annotation.Nullable Integer height) {
     this.height = height;
     return this;
   }
@@ -758,21 +789,21 @@ public class Vehicle {
    * @return height
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getHeight() {
     return height;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHeight(Integer height) {
+  public void setHeight(@javax.annotation.Nullable Integer height) {
     this.height = height;
   }
 
 
-  public Vehicle heightAboveFrontAxle(Integer heightAboveFrontAxle) {
+  public Vehicle heightAboveFrontAxle(@javax.annotation.Nullable Integer heightAboveFrontAxle) {
     this.heightAboveFrontAxle = heightAboveFrontAxle;
     return this;
   }
@@ -783,21 +814,21 @@ public class Vehicle {
    * @return heightAboveFrontAxle
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HEIGHT_ABOVE_FRONT_AXLE)
+  @JsonProperty(value = JSON_PROPERTY_HEIGHT_ABOVE_FRONT_AXLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getHeightAboveFrontAxle() {
     return heightAboveFrontAxle;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HEIGHT_ABOVE_FRONT_AXLE)
+  @JsonProperty(value = JSON_PROPERTY_HEIGHT_ABOVE_FRONT_AXLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHeightAboveFrontAxle(Integer heightAboveFrontAxle) {
+  public void setHeightAboveFrontAxle(@javax.annotation.Nullable Integer heightAboveFrontAxle) {
     this.heightAboveFrontAxle = heightAboveFrontAxle;
   }
 
 
-  public Vehicle length(Integer length) {
+  public Vehicle length(@javax.annotation.Nullable Integer length) {
     this.length = length;
     return this;
   }
@@ -808,21 +839,21 @@ public class Vehicle {
    * @return length
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LENGTH)
+  @JsonProperty(value = JSON_PROPERTY_LENGTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getLength() {
     return length;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LENGTH)
+  @JsonProperty(value = JSON_PROPERTY_LENGTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLength(Integer length) {
+  public void setLength(@javax.annotation.Nullable Integer length) {
     this.length = length;
   }
 
 
-  public Vehicle width(Integer width) {
+  public Vehicle width(@javax.annotation.Nullable Integer width) {
     this.width = width;
     return this;
   }
@@ -833,21 +864,21 @@ public class Vehicle {
    * @return width
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WIDTH)
+  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getWidth() {
     return width;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WIDTH)
+  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWidth(Integer width) {
+  public void setWidth(@javax.annotation.Nullable Integer width) {
     this.width = width;
   }
 
 
-  public Vehicle hazardousMaterials(List<HazardousMaterials> hazardousMaterials) {
+  public Vehicle hazardousMaterials(@javax.annotation.Nullable List<HazardousMaterials> hazardousMaterials) {
     this.hazardousMaterials = hazardousMaterials;
     return this;
   }
@@ -865,21 +896,21 @@ public class Vehicle {
    * @return hazardousMaterials
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HAZARDOUS_MATERIALS)
+  @JsonProperty(value = JSON_PROPERTY_HAZARDOUS_MATERIALS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<HazardousMaterials> getHazardousMaterials() {
     return hazardousMaterials;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HAZARDOUS_MATERIALS)
+  @JsonProperty(value = JSON_PROPERTY_HAZARDOUS_MATERIALS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHazardousMaterials(List<HazardousMaterials> hazardousMaterials) {
+  public void setHazardousMaterials(@javax.annotation.Nullable List<HazardousMaterials> hazardousMaterials) {
     this.hazardousMaterials = hazardousMaterials;
   }
 
 
-  public Vehicle tunnelRestrictionCode(TunnelRestrictionCode tunnelRestrictionCode) {
+  public Vehicle tunnelRestrictionCode(@javax.annotation.Nullable TunnelRestrictionCode tunnelRestrictionCode) {
     this.tunnelRestrictionCode = tunnelRestrictionCode;
     return this;
   }
@@ -889,21 +920,21 @@ public class Vehicle {
    * @return tunnelRestrictionCode
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TUNNEL_RESTRICTION_CODE)
+  @JsonProperty(value = JSON_PROPERTY_TUNNEL_RESTRICTION_CODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TunnelRestrictionCode getTunnelRestrictionCode() {
     return tunnelRestrictionCode;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TUNNEL_RESTRICTION_CODE)
+  @JsonProperty(value = JSON_PROPERTY_TUNNEL_RESTRICTION_CODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTunnelRestrictionCode(TunnelRestrictionCode tunnelRestrictionCode) {
+  public void setTunnelRestrictionCode(@javax.annotation.Nullable TunnelRestrictionCode tunnelRestrictionCode) {
     this.tunnelRestrictionCode = tunnelRestrictionCode;
   }
 
 
-  public Vehicle truckRoutes(List<TruckRoutes> truckRoutes) {
+  public Vehicle truckRoutes(@javax.annotation.Nullable List<TruckRoutes> truckRoutes) {
     this.truckRoutes = truckRoutes;
     return this;
   }
@@ -921,21 +952,21 @@ public class Vehicle {
    * @return truckRoutes
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRUCK_ROUTES)
+  @JsonProperty(value = JSON_PROPERTY_TRUCK_ROUTES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TruckRoutes> getTruckRoutes() {
     return truckRoutes;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRUCK_ROUTES)
+  @JsonProperty(value = JSON_PROPERTY_TRUCK_ROUTES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTruckRoutes(List<TruckRoutes> truckRoutes) {
+  public void setTruckRoutes(@javax.annotation.Nullable List<TruckRoutes> truckRoutes) {
     this.truckRoutes = truckRoutes;
   }
 
 
-  public Vehicle commercial(Boolean commercial) {
+  public Vehicle commercial(@javax.annotation.Nullable Boolean commercial) {
     this.commercial = commercial;
     return this;
   }
@@ -945,21 +976,21 @@ public class Vehicle {
    * @return commercial
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMMERCIAL)
+  @JsonProperty(value = JSON_PROPERTY_COMMERCIAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getCommercial() {
     return commercial;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COMMERCIAL)
+  @JsonProperty(value = JSON_PROPERTY_COMMERCIAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCommercial(Boolean commercial) {
+  public void setCommercial(@javax.annotation.Nullable Boolean commercial) {
     this.commercial = commercial;
   }
 
 
-  public Vehicle etcSubscriptions(List<EtcSubscriptionTypes> etcSubscriptions) {
+  public Vehicle etcSubscriptions(@javax.annotation.Nullable List<EtcSubscriptionTypes> etcSubscriptions) {
     this.etcSubscriptions = etcSubscriptions;
     return this;
   }
@@ -977,16 +1008,16 @@ public class Vehicle {
    * @return etcSubscriptions
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ETC_SUBSCRIPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_ETC_SUBSCRIPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<EtcSubscriptionTypes> getEtcSubscriptions() {
     return etcSubscriptions;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ETC_SUBSCRIPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_ETC_SUBSCRIPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEtcSubscriptions(List<EtcSubscriptionTypes> etcSubscriptions) {
+  public void setEtcSubscriptions(@javax.annotation.Nullable List<EtcSubscriptionTypes> etcSubscriptions) {
     this.etcSubscriptions = etcSubscriptions;
   }
 
@@ -1085,10 +1116,7 @@ public class Vehicle {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -1125,66 +1153,66 @@ public class Vehicle {
 
     // add `engineType` to the URL query string
     if (getEngineType() != null) {
-      joiner.add(String.format("%sengineType%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEngineType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sengineType%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getEngineType()))));
     }
 
     // add `fuelType` to the URL query string
     if (getFuelType() != null) {
-      joiner.add(String.format("%sfuelType%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getFuelType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sfuelType%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getFuelType()))));
     }
 
     // add `electricityType` to the URL query string
     if (getElectricityType() != null) {
-      joiner.add(String.format("%selectricityType%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getElectricityType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%selectricityType%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getElectricityType()))));
     }
 
     // add `averageFuelConsumption` to the URL query string
     if (getAverageFuelConsumption() != null) {
-      joiner.add(String.format("%saverageFuelConsumption%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAverageFuelConsumption()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%saverageFuelConsumption%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getAverageFuelConsumption()))));
     }
 
     // add `averageElectricityConsumption` to the URL query string
     if (getAverageElectricityConsumption() != null) {
-      joiner.add(String.format("%saverageElectricityConsumption%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAverageElectricityConsumption()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%saverageElectricityConsumption%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getAverageElectricityConsumption()))));
     }
 
     // add `bioFuelRatio` to the URL query string
     if (getBioFuelRatio() != null) {
-      joiner.add(String.format("%sbioFuelRatio%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBioFuelRatio()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sbioFuelRatio%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getBioFuelRatio()))));
     }
 
     // add `hybridRatio` to the URL query string
     if (getHybridRatio() != null) {
-      joiner.add(String.format("%shybridRatio%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getHybridRatio()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%shybridRatio%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getHybridRatio()))));
     }
 
     // add `dualFuelRatio` to the URL query string
     if (getDualFuelRatio() != null) {
-      joiner.add(String.format("%sdualFuelRatio%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDualFuelRatio()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sdualFuelRatio%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDualFuelRatio()))));
     }
 
     // add `cylinderCapacity` to the URL query string
     if (getCylinderCapacity() != null) {
-      joiner.add(String.format("%scylinderCapacity%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCylinderCapacity()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%scylinderCapacity%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCylinderCapacity()))));
     }
 
     // add `emissionStandard` to the URL query string
     if (getEmissionStandard() != null) {
-      joiner.add(String.format("%semissionStandard%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEmissionStandard()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%semissionStandard%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getEmissionStandard()))));
     }
 
     // add `co2EmissionClass` to the URL query string
     if (getCo2EmissionClass() != null) {
-      joiner.add(String.format("%sco2EmissionClass%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCo2EmissionClass()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sco2EmissionClass%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCo2EmissionClass()))));
     }
 
     // add `lowEmissionZoneTypes` to the URL query string
     if (getLowEmissionZoneTypes() != null) {
       for (int i = 0; i < getLowEmissionZoneTypes().size(); i++) {
         if (getLowEmissionZoneTypes().get(i) != null) {
-          joiner.add(String.format("%slowEmissionZoneTypes%s%s=%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-              URLEncoder.encode(ApiClient.valueToString(getLowEmissionZoneTypes().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+          joiner.add(String.format(java.util.Locale.ROOT, "%slowEmissionZoneTypes%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
+              ApiClient.urlEncode(ApiClient.valueToString(getLowEmissionZoneTypes().get(i)))));
         }
       }
     }
@@ -1192,120 +1220,120 @@ public class Vehicle {
     // add `lowEmissionZoneApprovals` to the URL query string
     if (getLowEmissionZoneApprovals() != null) {
       for (int i = 0; i < getLowEmissionZoneApprovals().size(); i++) {
-        joiner.add(String.format("%slowEmissionZoneApprovals%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(ApiClient.valueToString(getLowEmissionZoneApprovals().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        joiner.add(String.format(java.util.Locale.ROOT, "%slowEmissionZoneApprovals%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
+            ApiClient.urlEncode(ApiClient.valueToString(getLowEmissionZoneApprovals().get(i)))));
       }
     }
 
     // add `lowEmissionZoneExemptions` to the URL query string
     if (getLowEmissionZoneExemptions() != null) {
       for (int i = 0; i < getLowEmissionZoneExemptions().size(); i++) {
-        joiner.add(String.format("%slowEmissionZoneExemptions%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(ApiClient.valueToString(getLowEmissionZoneExemptions().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        joiner.add(String.format(java.util.Locale.ROOT, "%slowEmissionZoneExemptions%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
+            ApiClient.urlEncode(ApiClient.valueToString(getLowEmissionZoneExemptions().get(i)))));
       }
     }
 
     // add `particleReductionClass` to the URL query string
     if (getParticleReductionClass() != null) {
-      joiner.add(String.format("%sparticleReductionClass%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getParticleReductionClass()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sparticleReductionClass%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getParticleReductionClass()))));
     }
 
     // add `emptyWeight` to the URL query string
     if (getEmptyWeight() != null) {
-      joiner.add(String.format("%semptyWeight%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEmptyWeight()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%semptyWeight%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getEmptyWeight()))));
     }
 
     // add `loadWeight` to the URL query string
     if (getLoadWeight() != null) {
-      joiner.add(String.format("%sloadWeight%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLoadWeight()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sloadWeight%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLoadWeight()))));
     }
 
     // add `totalPermittedWeight` to the URL query string
     if (getTotalPermittedWeight() != null) {
-      joiner.add(String.format("%stotalPermittedWeight%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTotalPermittedWeight()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%stotalPermittedWeight%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getTotalPermittedWeight()))));
     }
 
     // add `totalTechnicallyPermittedWeight` to the URL query string
     if (getTotalTechnicallyPermittedWeight() != null) {
-      joiner.add(String.format("%stotalTechnicallyPermittedWeight%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTotalTechnicallyPermittedWeight()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%stotalTechnicallyPermittedWeight%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getTotalTechnicallyPermittedWeight()))));
     }
 
     // add `axleWeight` to the URL query string
     if (getAxleWeight() != null) {
-      joiner.add(String.format("%saxleWeight%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAxleWeight()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%saxleWeight%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getAxleWeight()))));
     }
 
     // add `numberOfAxles` to the URL query string
     if (getNumberOfAxles() != null) {
-      joiner.add(String.format("%snumberOfAxles%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getNumberOfAxles()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%snumberOfAxles%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getNumberOfAxles()))));
     }
 
     // add `numberOfTires` to the URL query string
     if (getNumberOfTires() != null) {
-      joiner.add(String.format("%snumberOfTires%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getNumberOfTires()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%snumberOfTires%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getNumberOfTires()))));
     }
 
     // add `height` to the URL query string
     if (getHeight() != null) {
-      joiner.add(String.format("%sheight%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getHeight()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sheight%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getHeight()))));
     }
 
     // add `heightAboveFrontAxle` to the URL query string
     if (getHeightAboveFrontAxle() != null) {
-      joiner.add(String.format("%sheightAboveFrontAxle%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getHeightAboveFrontAxle()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sheightAboveFrontAxle%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getHeightAboveFrontAxle()))));
     }
 
     // add `length` to the URL query string
     if (getLength() != null) {
-      joiner.add(String.format("%slength%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLength()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%slength%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLength()))));
     }
 
     // add `width` to the URL query string
     if (getWidth() != null) {
-      joiner.add(String.format("%swidth%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getWidth()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%swidth%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getWidth()))));
     }
 
     // add `hazardousMaterials` to the URL query string
     if (getHazardousMaterials() != null) {
       for (int i = 0; i < getHazardousMaterials().size(); i++) {
         if (getHazardousMaterials().get(i) != null) {
-          joiner.add(String.format("%shazardousMaterials%s%s=%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-              URLEncoder.encode(ApiClient.valueToString(getHazardousMaterials().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+          joiner.add(String.format(java.util.Locale.ROOT, "%shazardousMaterials%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
+              ApiClient.urlEncode(ApiClient.valueToString(getHazardousMaterials().get(i)))));
         }
       }
     }
 
     // add `tunnelRestrictionCode` to the URL query string
     if (getTunnelRestrictionCode() != null) {
-      joiner.add(String.format("%stunnelRestrictionCode%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTunnelRestrictionCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%stunnelRestrictionCode%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getTunnelRestrictionCode()))));
     }
 
     // add `truckRoutes` to the URL query string
     if (getTruckRoutes() != null) {
       for (int i = 0; i < getTruckRoutes().size(); i++) {
         if (getTruckRoutes().get(i) != null) {
-          joiner.add(String.format("%struckRoutes%s%s=%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-              URLEncoder.encode(ApiClient.valueToString(getTruckRoutes().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+          joiner.add(String.format(java.util.Locale.ROOT, "%struckRoutes%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
+              ApiClient.urlEncode(ApiClient.valueToString(getTruckRoutes().get(i)))));
         }
       }
     }
 
     // add `commercial` to the URL query string
     if (getCommercial() != null) {
-      joiner.add(String.format("%scommercial%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCommercial()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%scommercial%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCommercial()))));
     }
 
     // add `etcSubscriptions` to the URL query string
     if (getEtcSubscriptions() != null) {
       for (int i = 0; i < getEtcSubscriptions().size(); i++) {
         if (getEtcSubscriptions().get(i) != null) {
-          joiner.add(String.format("%setcSubscriptions%s%s=%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-              URLEncoder.encode(ApiClient.valueToString(getEtcSubscriptions().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+          joiner.add(String.format(java.util.Locale.ROOT, "%setcSubscriptions%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
+              ApiClient.urlEncode(ApiClient.valueToString(getEtcSubscriptions().get(i)))));
         }
       }
     }

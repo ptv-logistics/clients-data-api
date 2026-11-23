@@ -40,18 +40,20 @@ import com.ptvgroup.developer.client.data.ApiClient;
   MapInformationResponse.JSON_PROPERTY_FEATURES,
   MapInformationResponse.JSON_PROPERTY_GEOGRAPHICAL_UNITS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class MapInformationResponse {
   public static final String JSON_PROPERTY_FEATURES = "features";
+  @javax.annotation.Nonnull
   private Features features;
 
   public static final String JSON_PROPERTY_GEOGRAPHICAL_UNITS = "geographicalUnits";
+  @javax.annotation.Nonnull
   private List<GeographicalUnit> geographicalUnits;
 
   public MapInformationResponse() { 
   }
 
-  public MapInformationResponse features(Features features) {
+  public MapInformationResponse features(@javax.annotation.Nonnull Features features) {
     this.features = features;
     return this;
   }
@@ -61,21 +63,21 @@ public class MapInformationResponse {
    * @return features
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FEATURES)
+  @JsonProperty(value = JSON_PROPERTY_FEATURES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Features getFeatures() {
     return features;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FEATURES)
+  @JsonProperty(value = JSON_PROPERTY_FEATURES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFeatures(Features features) {
+  public void setFeatures(@javax.annotation.Nonnull Features features) {
     this.features = features;
   }
 
 
-  public MapInformationResponse geographicalUnits(List<GeographicalUnit> geographicalUnits) {
+  public MapInformationResponse geographicalUnits(@javax.annotation.Nonnull List<GeographicalUnit> geographicalUnits) {
     this.geographicalUnits = geographicalUnits;
     return this;
   }
@@ -93,16 +95,16 @@ public class MapInformationResponse {
    * @return geographicalUnits
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_GEOGRAPHICAL_UNITS)
+  @JsonProperty(value = JSON_PROPERTY_GEOGRAPHICAL_UNITS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<GeographicalUnit> getGeographicalUnits() {
     return geographicalUnits;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GEOGRAPHICAL_UNITS)
+  @JsonProperty(value = JSON_PROPERTY_GEOGRAPHICAL_UNITS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGeographicalUnits(List<GeographicalUnit> geographicalUnits) {
+  public void setGeographicalUnits(@javax.annotation.Nonnull List<GeographicalUnit> geographicalUnits) {
     this.geographicalUnits = geographicalUnits;
   }
 
@@ -143,10 +145,7 @@ public class MapInformationResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -190,8 +189,8 @@ public class MapInformationResponse {
     if (getGeographicalUnits() != null) {
       for (int i = 0; i < getGeographicalUnits().size(); i++) {
         if (getGeographicalUnits().get(i) != null) {
-          joiner.add(getGeographicalUnits().get(i).toUrlQueryString(String.format("%sgeographicalUnits%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+          joiner.add(getGeographicalUnits().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%sgeographicalUnits%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }

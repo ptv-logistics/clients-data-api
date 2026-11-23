@@ -40,18 +40,20 @@ import com.ptvgroup.developer.client.data.ApiClient;
   Validity.JSON_PROPERTY_TIME_INTERVALS,
   Validity.JSON_PROPERTY_WEEKLY_SCHEDULE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class Validity {
   public static final String JSON_PROPERTY_TIME_INTERVALS = "timeIntervals";
+  @javax.annotation.Nullable
   private List<TimeInterval> timeIntervals;
 
   public static final String JSON_PROPERTY_WEEKLY_SCHEDULE = "weeklySchedule";
+  @javax.annotation.Nullable
   private List<WeeklyScheduleInterval> weeklySchedule;
 
   public Validity() { 
   }
 
-  public Validity timeIntervals(List<TimeInterval> timeIntervals) {
+  public Validity timeIntervals(@javax.annotation.Nullable List<TimeInterval> timeIntervals) {
     this.timeIntervals = timeIntervals;
     return this;
   }
@@ -69,21 +71,21 @@ public class Validity {
    * @return timeIntervals
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIME_INTERVALS)
+  @JsonProperty(value = JSON_PROPERTY_TIME_INTERVALS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TimeInterval> getTimeIntervals() {
     return timeIntervals;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TIME_INTERVALS)
+  @JsonProperty(value = JSON_PROPERTY_TIME_INTERVALS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTimeIntervals(List<TimeInterval> timeIntervals) {
+  public void setTimeIntervals(@javax.annotation.Nullable List<TimeInterval> timeIntervals) {
     this.timeIntervals = timeIntervals;
   }
 
 
-  public Validity weeklySchedule(List<WeeklyScheduleInterval> weeklySchedule) {
+  public Validity weeklySchedule(@javax.annotation.Nullable List<WeeklyScheduleInterval> weeklySchedule) {
     this.weeklySchedule = weeklySchedule;
     return this;
   }
@@ -101,16 +103,16 @@ public class Validity {
    * @return weeklySchedule
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WEEKLY_SCHEDULE)
+  @JsonProperty(value = JSON_PROPERTY_WEEKLY_SCHEDULE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WeeklyScheduleInterval> getWeeklySchedule() {
     return weeklySchedule;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WEEKLY_SCHEDULE)
+  @JsonProperty(value = JSON_PROPERTY_WEEKLY_SCHEDULE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWeeklySchedule(List<WeeklyScheduleInterval> weeklySchedule) {
+  public void setWeeklySchedule(@javax.annotation.Nullable List<WeeklyScheduleInterval> weeklySchedule) {
     this.weeklySchedule = weeklySchedule;
   }
 
@@ -151,10 +153,7 @@ public class Validity {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -193,8 +192,8 @@ public class Validity {
     if (getTimeIntervals() != null) {
       for (int i = 0; i < getTimeIntervals().size(); i++) {
         if (getTimeIntervals().get(i) != null) {
-          joiner.add(getTimeIntervals().get(i).toUrlQueryString(String.format("%stimeIntervals%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+          joiner.add(getTimeIntervals().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%stimeIntervals%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }
@@ -203,8 +202,8 @@ public class Validity {
     if (getWeeklySchedule() != null) {
       for (int i = 0; i < getWeeklySchedule().size(); i++) {
         if (getWeeklySchedule().get(i) != null) {
-          joiner.add(getWeeklySchedule().get(i).toUrlQueryString(String.format("%sweeklySchedule%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+          joiner.add(getWeeklySchedule().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%sweeklySchedule%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }

@@ -38,24 +38,28 @@ import com.ptvgroup.developer.client.data.ApiClient;
   Commercial.JSON_PROPERTY_VARIANT,
   Commercial.JSON_PROPERTY_LAUNCH_YEAR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class Commercial {
   public static final String JSON_PROPERTY_MANUFACTURER = "manufacturer";
+  @javax.annotation.Nonnull
   private String manufacturer;
 
   public static final String JSON_PROPERTY_MODEL = "model";
+  @javax.annotation.Nonnull
   private String model;
 
   public static final String JSON_PROPERTY_VARIANT = "variant";
+  @javax.annotation.Nullable
   private String variant;
 
   public static final String JSON_PROPERTY_LAUNCH_YEAR = "launchYear";
+  @javax.annotation.Nullable
   private Integer launchYear;
 
   public Commercial() { 
   }
 
-  public Commercial manufacturer(String manufacturer) {
+  public Commercial manufacturer(@javax.annotation.Nonnull String manufacturer) {
     this.manufacturer = manufacturer;
     return this;
   }
@@ -65,21 +69,21 @@ public class Commercial {
    * @return manufacturer
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_MANUFACTURER)
+  @JsonProperty(value = JSON_PROPERTY_MANUFACTURER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getManufacturer() {
     return manufacturer;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MANUFACTURER)
+  @JsonProperty(value = JSON_PROPERTY_MANUFACTURER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setManufacturer(String manufacturer) {
+  public void setManufacturer(@javax.annotation.Nonnull String manufacturer) {
     this.manufacturer = manufacturer;
   }
 
 
-  public Commercial model(String model) {
+  public Commercial model(@javax.annotation.Nonnull String model) {
     this.model = model;
     return this;
   }
@@ -89,21 +93,21 @@ public class Commercial {
    * @return model
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_MODEL)
+  @JsonProperty(value = JSON_PROPERTY_MODEL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getModel() {
     return model;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MODEL)
+  @JsonProperty(value = JSON_PROPERTY_MODEL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setModel(String model) {
+  public void setModel(@javax.annotation.Nonnull String model) {
     this.model = model;
   }
 
 
-  public Commercial variant(String variant) {
+  public Commercial variant(@javax.annotation.Nullable String variant) {
     this.variant = variant;
     return this;
   }
@@ -113,21 +117,21 @@ public class Commercial {
    * @return variant
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VARIANT)
+  @JsonProperty(value = JSON_PROPERTY_VARIANT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getVariant() {
     return variant;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VARIANT)
+  @JsonProperty(value = JSON_PROPERTY_VARIANT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setVariant(String variant) {
+  public void setVariant(@javax.annotation.Nullable String variant) {
     this.variant = variant;
   }
 
 
-  public Commercial launchYear(Integer launchYear) {
+  public Commercial launchYear(@javax.annotation.Nullable Integer launchYear) {
     this.launchYear = launchYear;
     return this;
   }
@@ -138,16 +142,16 @@ public class Commercial {
    * @return launchYear
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAUNCH_YEAR)
+  @JsonProperty(value = JSON_PROPERTY_LAUNCH_YEAR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getLaunchYear() {
     return launchYear;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LAUNCH_YEAR)
+  @JsonProperty(value = JSON_PROPERTY_LAUNCH_YEAR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLaunchYear(Integer launchYear) {
+  public void setLaunchYear(@javax.annotation.Nullable Integer launchYear) {
     this.launchYear = launchYear;
   }
 
@@ -192,10 +196,7 @@ public class Commercial {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -232,22 +233,22 @@ public class Commercial {
 
     // add `manufacturer` to the URL query string
     if (getManufacturer() != null) {
-      joiner.add(String.format("%smanufacturer%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getManufacturer()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%smanufacturer%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getManufacturer()))));
     }
 
     // add `model` to the URL query string
     if (getModel() != null) {
-      joiner.add(String.format("%smodel%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getModel()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%smodel%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getModel()))));
     }
 
     // add `variant` to the URL query string
     if (getVariant() != null) {
-      joiner.add(String.format("%svariant%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getVariant()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%svariant%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getVariant()))));
     }
 
     // add `launchYear` to the URL query string
     if (getLaunchYear() != null) {
-      joiner.add(String.format("%slaunchYear%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLaunchYear()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%slaunchYear%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLaunchYear()))));
     }
 
     return joiner.toString();

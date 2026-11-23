@@ -36,18 +36,20 @@ import com.ptvgroup.developer.client.data.ApiClient;
   MonetaryCostOptions.JSON_PROPERTY_COST_PER_KILOMETER,
   MonetaryCostOptions.JSON_PROPERTY_WORKING_COST_PER_HOUR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class MonetaryCostOptions {
   public static final String JSON_PROPERTY_COST_PER_KILOMETER = "costPerKilometer";
+  @javax.annotation.Nonnull
   private Double costPerKilometer;
 
   public static final String JSON_PROPERTY_WORKING_COST_PER_HOUR = "workingCostPerHour";
+  @javax.annotation.Nonnull
   private Double workingCostPerHour;
 
   public MonetaryCostOptions() { 
   }
 
-  public MonetaryCostOptions costPerKilometer(Double costPerKilometer) {
+  public MonetaryCostOptions costPerKilometer(@javax.annotation.Nonnull Double costPerKilometer) {
     this.costPerKilometer = costPerKilometer;
     return this;
   }
@@ -58,21 +60,21 @@ public class MonetaryCostOptions {
    * @return costPerKilometer
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_COST_PER_KILOMETER)
+  @JsonProperty(value = JSON_PROPERTY_COST_PER_KILOMETER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Double getCostPerKilometer() {
     return costPerKilometer;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COST_PER_KILOMETER)
+  @JsonProperty(value = JSON_PROPERTY_COST_PER_KILOMETER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCostPerKilometer(Double costPerKilometer) {
+  public void setCostPerKilometer(@javax.annotation.Nonnull Double costPerKilometer) {
     this.costPerKilometer = costPerKilometer;
   }
 
 
-  public MonetaryCostOptions workingCostPerHour(Double workingCostPerHour) {
+  public MonetaryCostOptions workingCostPerHour(@javax.annotation.Nonnull Double workingCostPerHour) {
     this.workingCostPerHour = workingCostPerHour;
     return this;
   }
@@ -83,16 +85,16 @@ public class MonetaryCostOptions {
    * @return workingCostPerHour
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_WORKING_COST_PER_HOUR)
+  @JsonProperty(value = JSON_PROPERTY_WORKING_COST_PER_HOUR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Double getWorkingCostPerHour() {
     return workingCostPerHour;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WORKING_COST_PER_HOUR)
+  @JsonProperty(value = JSON_PROPERTY_WORKING_COST_PER_HOUR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkingCostPerHour(Double workingCostPerHour) {
+  public void setWorkingCostPerHour(@javax.annotation.Nonnull Double workingCostPerHour) {
     this.workingCostPerHour = workingCostPerHour;
   }
 
@@ -133,10 +135,7 @@ public class MonetaryCostOptions {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -173,12 +172,12 @@ public class MonetaryCostOptions {
 
     // add `costPerKilometer` to the URL query string
     if (getCostPerKilometer() != null) {
-      joiner.add(String.format("%scostPerKilometer%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCostPerKilometer()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%scostPerKilometer%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCostPerKilometer()))));
     }
 
     // add `workingCostPerHour` to the URL query string
     if (getWorkingCostPerHour() != null) {
-      joiner.add(String.format("%sworkingCostPerHour%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getWorkingCostPerHour()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sworkingCostPerHour%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getWorkingCostPerHour()))));
     }
 
     return joiner.toString();

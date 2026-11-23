@@ -42,30 +42,36 @@ import com.ptvgroup.developer.client.data.ApiClient;
   Engine.JSON_PROPERTY_POWER,
   Engine.JSON_PROPERTY_OFFICIAL_RANGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class Engine {
   public static final String JSON_PROPERTY_ENGINE_TYPE = "engineType";
+  @javax.annotation.Nonnull
   private EngineType engineType;
 
   public static final String JSON_PROPERTY_MAXIMUM_SPEED = "maximumSpeed";
+  @javax.annotation.Nonnull
   private Integer maximumSpeed;
 
   public static final String JSON_PROPERTY_ECO_SPEED = "ecoSpeed";
+  @javax.annotation.Nonnull
   private Integer ecoSpeed;
 
   public static final String JSON_PROPERTY_EMISSION_STANDARD = "emissionStandard";
+  @javax.annotation.Nonnull
   private EmissionStandard emissionStandard;
 
   public static final String JSON_PROPERTY_POWER = "power";
+  @javax.annotation.Nullable
   private Integer power;
 
   public static final String JSON_PROPERTY_OFFICIAL_RANGE = "officialRange";
+  @javax.annotation.Nullable
   private Integer officialRange;
 
   public Engine() { 
   }
 
-  public Engine engineType(EngineType engineType) {
+  public Engine engineType(@javax.annotation.Nonnull EngineType engineType) {
     this.engineType = engineType;
     return this;
   }
@@ -75,21 +81,21 @@ public class Engine {
    * @return engineType
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ENGINE_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_ENGINE_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public EngineType getEngineType() {
     return engineType;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENGINE_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_ENGINE_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEngineType(EngineType engineType) {
+  public void setEngineType(@javax.annotation.Nonnull EngineType engineType) {
     this.engineType = engineType;
   }
 
 
-  public Engine maximumSpeed(Integer maximumSpeed) {
+  public Engine maximumSpeed(@javax.annotation.Nonnull Integer maximumSpeed) {
     this.maximumSpeed = maximumSpeed;
     return this;
   }
@@ -99,21 +105,21 @@ public class Engine {
    * @return maximumSpeed
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_MAXIMUM_SPEED)
+  @JsonProperty(value = JSON_PROPERTY_MAXIMUM_SPEED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getMaximumSpeed() {
     return maximumSpeed;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MAXIMUM_SPEED)
+  @JsonProperty(value = JSON_PROPERTY_MAXIMUM_SPEED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setMaximumSpeed(Integer maximumSpeed) {
+  public void setMaximumSpeed(@javax.annotation.Nonnull Integer maximumSpeed) {
     this.maximumSpeed = maximumSpeed;
   }
 
 
-  public Engine ecoSpeed(Integer ecoSpeed) {
+  public Engine ecoSpeed(@javax.annotation.Nonnull Integer ecoSpeed) {
     this.ecoSpeed = ecoSpeed;
     return this;
   }
@@ -123,21 +129,21 @@ public class Engine {
    * @return ecoSpeed
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ECO_SPEED)
+  @JsonProperty(value = JSON_PROPERTY_ECO_SPEED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getEcoSpeed() {
     return ecoSpeed;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ECO_SPEED)
+  @JsonProperty(value = JSON_PROPERTY_ECO_SPEED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEcoSpeed(Integer ecoSpeed) {
+  public void setEcoSpeed(@javax.annotation.Nonnull Integer ecoSpeed) {
     this.ecoSpeed = ecoSpeed;
   }
 
 
-  public Engine emissionStandard(EmissionStandard emissionStandard) {
+  public Engine emissionStandard(@javax.annotation.Nonnull EmissionStandard emissionStandard) {
     this.emissionStandard = emissionStandard;
     return this;
   }
@@ -147,21 +153,21 @@ public class Engine {
    * @return emissionStandard
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EMISSION_STANDARD)
+  @JsonProperty(value = JSON_PROPERTY_EMISSION_STANDARD, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public EmissionStandard getEmissionStandard() {
     return emissionStandard;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMISSION_STANDARD)
+  @JsonProperty(value = JSON_PROPERTY_EMISSION_STANDARD, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEmissionStandard(EmissionStandard emissionStandard) {
+  public void setEmissionStandard(@javax.annotation.Nonnull EmissionStandard emissionStandard) {
     this.emissionStandard = emissionStandard;
   }
 
 
-  public Engine power(Integer power) {
+  public Engine power(@javax.annotation.Nullable Integer power) {
     this.power = power;
     return this;
   }
@@ -171,21 +177,21 @@ public class Engine {
    * @return power
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POWER)
+  @JsonProperty(value = JSON_PROPERTY_POWER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getPower() {
     return power;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_POWER)
+  @JsonProperty(value = JSON_PROPERTY_POWER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPower(Integer power) {
+  public void setPower(@javax.annotation.Nullable Integer power) {
     this.power = power;
   }
 
 
-  public Engine officialRange(Integer officialRange) {
+  public Engine officialRange(@javax.annotation.Nullable Integer officialRange) {
     this.officialRange = officialRange;
     return this;
   }
@@ -195,16 +201,16 @@ public class Engine {
    * @return officialRange
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OFFICIAL_RANGE)
+  @JsonProperty(value = JSON_PROPERTY_OFFICIAL_RANGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getOfficialRange() {
     return officialRange;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OFFICIAL_RANGE)
+  @JsonProperty(value = JSON_PROPERTY_OFFICIAL_RANGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOfficialRange(Integer officialRange) {
+  public void setOfficialRange(@javax.annotation.Nullable Integer officialRange) {
     this.officialRange = officialRange;
   }
 
@@ -253,10 +259,7 @@ public class Engine {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -293,32 +296,32 @@ public class Engine {
 
     // add `engineType` to the URL query string
     if (getEngineType() != null) {
-      joiner.add(String.format("%sengineType%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEngineType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sengineType%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getEngineType()))));
     }
 
     // add `maximumSpeed` to the URL query string
     if (getMaximumSpeed() != null) {
-      joiner.add(String.format("%smaximumSpeed%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMaximumSpeed()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%smaximumSpeed%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getMaximumSpeed()))));
     }
 
     // add `ecoSpeed` to the URL query string
     if (getEcoSpeed() != null) {
-      joiner.add(String.format("%secoSpeed%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEcoSpeed()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%secoSpeed%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getEcoSpeed()))));
     }
 
     // add `emissionStandard` to the URL query string
     if (getEmissionStandard() != null) {
-      joiner.add(String.format("%semissionStandard%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEmissionStandard()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%semissionStandard%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getEmissionStandard()))));
     }
 
     // add `power` to the URL query string
     if (getPower() != null) {
-      joiner.add(String.format("%spower%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPower()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%spower%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPower()))));
     }
 
     // add `officialRange` to the URL query string
     if (getOfficialRange() != null) {
-      joiner.add(String.format("%sofficialRange%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getOfficialRange()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sofficialRange%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getOfficialRange()))));
     }
 
     return joiner.toString();

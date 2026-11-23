@@ -40,18 +40,20 @@ import com.ptvgroup.developer.client.data.ApiClient;
   CombinedTransportsResponse.JSON_PROPERTY_COMBINED_TRANSPORTS,
   CombinedTransportsResponse.JSON_PROPERTY_WARNINGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class CombinedTransportsResponse {
   public static final String JSON_PROPERTY_COMBINED_TRANSPORTS = "combinedTransports";
+  @javax.annotation.Nonnull
   private List<CombinedTransport> combinedTransports;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @javax.annotation.Nullable
   private List<Warning> warnings;
 
   public CombinedTransportsResponse() { 
   }
 
-  public CombinedTransportsResponse combinedTransports(List<CombinedTransport> combinedTransports) {
+  public CombinedTransportsResponse combinedTransports(@javax.annotation.Nonnull List<CombinedTransport> combinedTransports) {
     this.combinedTransports = combinedTransports;
     return this;
   }
@@ -69,21 +71,21 @@ public class CombinedTransportsResponse {
    * @return combinedTransports
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_COMBINED_TRANSPORTS)
+  @JsonProperty(value = JSON_PROPERTY_COMBINED_TRANSPORTS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<CombinedTransport> getCombinedTransports() {
     return combinedTransports;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COMBINED_TRANSPORTS)
+  @JsonProperty(value = JSON_PROPERTY_COMBINED_TRANSPORTS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCombinedTransports(List<CombinedTransport> combinedTransports) {
+  public void setCombinedTransports(@javax.annotation.Nonnull List<CombinedTransport> combinedTransports) {
     this.combinedTransports = combinedTransports;
   }
 
 
-  public CombinedTransportsResponse warnings(List<Warning> warnings) {
+  public CombinedTransportsResponse warnings(@javax.annotation.Nullable List<Warning> warnings) {
     this.warnings = warnings;
     return this;
   }
@@ -101,16 +103,16 @@ public class CombinedTransportsResponse {
    * @return warnings
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Warning> getWarnings() {
     return warnings;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<Warning> warnings) {
+  public void setWarnings(@javax.annotation.Nullable List<Warning> warnings) {
     this.warnings = warnings;
   }
 
@@ -151,10 +153,7 @@ public class CombinedTransportsResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -193,8 +192,8 @@ public class CombinedTransportsResponse {
     if (getCombinedTransports() != null) {
       for (int i = 0; i < getCombinedTransports().size(); i++) {
         if (getCombinedTransports().get(i) != null) {
-          joiner.add(getCombinedTransports().get(i).toUrlQueryString(String.format("%scombinedTransports%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+          joiner.add(getCombinedTransports().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%scombinedTransports%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }
@@ -203,8 +202,8 @@ public class CombinedTransportsResponse {
     if (getWarnings() != null) {
       for (int i = 0; i < getWarnings().size(); i++) {
         if (getWarnings().get(i) != null) {
-          joiner.add(getWarnings().get(i).toUrlQueryString(String.format("%swarnings%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+          joiner.add(getWarnings().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%swarnings%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }

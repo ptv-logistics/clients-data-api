@@ -42,30 +42,36 @@ import com.ptvgroup.developer.client.data.ApiClient;
   ApiChange.JSON_PROPERTY_VERSION,
   ApiChange.JSON_PROPERTY_LINK
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class ApiChange {
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nonnull
   private ApiChangeType type;
 
   public static final String JSON_PROPERTY_DATE = "date";
+  @javax.annotation.Nonnull
   private OffsetDateTime date;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nonnull
   private String description;
 
   public static final String JSON_PROPERTY_API = "api";
+  @javax.annotation.Nullable
   private String api;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private String version;
 
   public static final String JSON_PROPERTY_LINK = "link";
+  @javax.annotation.Nullable
   private String link;
 
   public ApiChange() { 
   }
 
-  public ApiChange type(ApiChangeType type) {
+  public ApiChange type(@javax.annotation.Nonnull ApiChangeType type) {
     this.type = type;
     return this;
   }
@@ -75,21 +81,21 @@ public class ApiChange {
    * @return type
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ApiChangeType getType() {
     return type;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(ApiChangeType type) {
+  public void setType(@javax.annotation.Nonnull ApiChangeType type) {
     this.type = type;
   }
 
 
-  public ApiChange date(OffsetDateTime date) {
+  public ApiChange date(@javax.annotation.Nonnull OffsetDateTime date) {
     this.date = date;
     return this;
   }
@@ -99,21 +105,21 @@ public class ApiChange {
    * @return date
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DATE)
+  @JsonProperty(value = JSON_PROPERTY_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public OffsetDateTime getDate() {
     return date;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATE)
+  @JsonProperty(value = JSON_PROPERTY_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDate(OffsetDateTime date) {
+  public void setDate(@javax.annotation.Nonnull OffsetDateTime date) {
     this.date = date;
   }
 
 
-  public ApiChange description(String description) {
+  public ApiChange description(@javax.annotation.Nonnull String description) {
     this.description = description;
     return this;
   }
@@ -123,21 +129,21 @@ public class ApiChange {
    * @return description
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDescription() {
     return description;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDescription(String description) {
+  public void setDescription(@javax.annotation.Nonnull String description) {
     this.description = description;
   }
 
 
-  public ApiChange api(String api) {
+  public ApiChange api(@javax.annotation.Nullable String api) {
     this.api = api;
     return this;
   }
@@ -147,21 +153,21 @@ public class ApiChange {
    * @return api
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_API)
+  @JsonProperty(value = JSON_PROPERTY_API, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getApi() {
     return api;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_API)
+  @JsonProperty(value = JSON_PROPERTY_API, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setApi(String api) {
+  public void setApi(@javax.annotation.Nullable String api) {
     this.api = api;
   }
 
 
-  public ApiChange version(String version) {
+  public ApiChange version(@javax.annotation.Nullable String version) {
     this.version = version;
     return this;
   }
@@ -171,21 +177,21 @@ public class ApiChange {
    * @return version
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(value = JSON_PROPERTY_VERSION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getVersion() {
     return version;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(value = JSON_PROPERTY_VERSION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setVersion(String version) {
+  public void setVersion(@javax.annotation.Nullable String version) {
     this.version = version;
   }
 
 
-  public ApiChange link(String link) {
+  public ApiChange link(@javax.annotation.Nullable String link) {
     this.link = link;
     return this;
   }
@@ -195,16 +201,16 @@ public class ApiChange {
    * @return link
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINK)
+  @JsonProperty(value = JSON_PROPERTY_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLink() {
     return link;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LINK)
+  @JsonProperty(value = JSON_PROPERTY_LINK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLink(String link) {
+  public void setLink(@javax.annotation.Nullable String link) {
     this.link = link;
   }
 
@@ -253,10 +259,7 @@ public class ApiChange {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -293,32 +296,32 @@ public class ApiChange {
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%stype%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getType()))));
     }
 
     // add `date` to the URL query string
     if (getDate() != null) {
-      joiner.add(String.format("%sdate%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sdate%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDate()))));
     }
 
     // add `description` to the URL query string
     if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sdescription%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDescription()))));
     }
 
     // add `api` to the URL query string
     if (getApi() != null) {
-      joiner.add(String.format("%sapi%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getApi()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sapi%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getApi()))));
     }
 
     // add `version` to the URL query string
     if (getVersion() != null) {
-      joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sversion%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getVersion()))));
     }
 
     // add `link` to the URL query string
     if (getLink() != null) {
-      joiner.add(String.format("%slink%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLink()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%slink%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLink()))));
     }
 
     return joiner.toString();

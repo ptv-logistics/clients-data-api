@@ -38,15 +38,16 @@ import com.ptvgroup.developer.client.data.ApiClient;
 @JsonPropertyOrder({
   CustomRoadAttributeScenarioList.JSON_PROPERTY_CUSTOM_ROAD_ATTRIBUTE_SCENARIOS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class CustomRoadAttributeScenarioList {
   public static final String JSON_PROPERTY_CUSTOM_ROAD_ATTRIBUTE_SCENARIOS = "customRoadAttributeScenarios";
+  @javax.annotation.Nullable
   private List<CustomRoadAttributeScenario> customRoadAttributeScenarios;
 
   public CustomRoadAttributeScenarioList() { 
   }
 
-  public CustomRoadAttributeScenarioList customRoadAttributeScenarios(List<CustomRoadAttributeScenario> customRoadAttributeScenarios) {
+  public CustomRoadAttributeScenarioList customRoadAttributeScenarios(@javax.annotation.Nullable List<CustomRoadAttributeScenario> customRoadAttributeScenarios) {
     this.customRoadAttributeScenarios = customRoadAttributeScenarios;
     return this;
   }
@@ -64,16 +65,16 @@ public class CustomRoadAttributeScenarioList {
    * @return customRoadAttributeScenarios
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_ROAD_ATTRIBUTE_SCENARIOS)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_ROAD_ATTRIBUTE_SCENARIOS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<CustomRoadAttributeScenario> getCustomRoadAttributeScenarios() {
     return customRoadAttributeScenarios;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CUSTOM_ROAD_ATTRIBUTE_SCENARIOS)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_ROAD_ATTRIBUTE_SCENARIOS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomRoadAttributeScenarios(List<CustomRoadAttributeScenario> customRoadAttributeScenarios) {
+  public void setCustomRoadAttributeScenarios(@javax.annotation.Nullable List<CustomRoadAttributeScenario> customRoadAttributeScenarios) {
     this.customRoadAttributeScenarios = customRoadAttributeScenarios;
   }
 
@@ -112,10 +113,7 @@ public class CustomRoadAttributeScenarioList {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -154,8 +152,8 @@ public class CustomRoadAttributeScenarioList {
     if (getCustomRoadAttributeScenarios() != null) {
       for (int i = 0; i < getCustomRoadAttributeScenarios().size(); i++) {
         if (getCustomRoadAttributeScenarios().get(i) != null) {
-          joiner.add(getCustomRoadAttributeScenarios().get(i).toUrlQueryString(String.format("%scustomRoadAttributeScenarios%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+          joiner.add(getCustomRoadAttributeScenarios().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%scustomRoadAttributeScenarios%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }

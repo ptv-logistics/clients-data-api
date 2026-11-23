@@ -36,18 +36,20 @@ import com.ptvgroup.developer.client.data.ApiClient;
   CombinedTransportByText.JSON_PROPERTY_QUERY,
   CombinedTransportByText.JSON_PROPERTY_ALLOWED_COUNTRIES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class CombinedTransportByText {
   public static final String JSON_PROPERTY_QUERY = "query";
+  @javax.annotation.Nonnull
   private String query;
 
   public static final String JSON_PROPERTY_ALLOWED_COUNTRIES = "allowedCountries";
+  @javax.annotation.Nullable
   private String allowedCountries;
 
   public CombinedTransportByText() { 
   }
 
-  public CombinedTransportByText query(String query) {
+  public CombinedTransportByText query(@javax.annotation.Nonnull String query) {
     this.query = query;
     return this;
   }
@@ -57,21 +59,21 @@ public class CombinedTransportByText {
    * @return query
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonProperty(value = JSON_PROPERTY_QUERY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getQuery() {
     return query;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonProperty(value = JSON_PROPERTY_QUERY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setQuery(String query) {
+  public void setQuery(@javax.annotation.Nonnull String query) {
     this.query = query;
   }
 
 
-  public CombinedTransportByText allowedCountries(String allowedCountries) {
+  public CombinedTransportByText allowedCountries(@javax.annotation.Nullable String allowedCountries) {
     this.allowedCountries = allowedCountries;
     return this;
   }
@@ -81,16 +83,16 @@ public class CombinedTransportByText {
    * @return allowedCountries
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOWED_COUNTRIES)
+  @JsonProperty(value = JSON_PROPERTY_ALLOWED_COUNTRIES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAllowedCountries() {
     return allowedCountries;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALLOWED_COUNTRIES)
+  @JsonProperty(value = JSON_PROPERTY_ALLOWED_COUNTRIES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowedCountries(String allowedCountries) {
+  public void setAllowedCountries(@javax.annotation.Nullable String allowedCountries) {
     this.allowedCountries = allowedCountries;
   }
 
@@ -131,10 +133,7 @@ public class CombinedTransportByText {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -171,12 +170,12 @@ public class CombinedTransportByText {
 
     // add `query` to the URL query string
     if (getQuery() != null) {
-      joiner.add(String.format("%squery%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getQuery()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%squery%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getQuery()))));
     }
 
     // add `allowedCountries` to the URL query string
     if (getAllowedCountries() != null) {
-      joiner.add(String.format("%sallowedCountries%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAllowedCountries()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sallowedCountries%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getAllowedCountries()))));
     }
 
     return joiner.toString();

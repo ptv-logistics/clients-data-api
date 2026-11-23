@@ -41,27 +41,32 @@ import com.ptvgroup.developer.client.data.ApiClient;
   GeographicalUnit.JSON_PROPERTY_CONTINENT,
   GeographicalUnit.JSON_PROPERTY_FEATURES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class GeographicalUnit {
   public static final String JSON_PROPERTY_CODE = "code";
+  @javax.annotation.Nonnull
   private String code;
 
   public static final String JSON_PROPERTY_COUNTRY = "country";
+  @javax.annotation.Nonnull
   private String country;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private String state;
 
   public static final String JSON_PROPERTY_CONTINENT = "continent";
+  @javax.annotation.Nonnull
   private Continent continent;
 
   public static final String JSON_PROPERTY_FEATURES = "features";
+  @javax.annotation.Nonnull
   private MapFeatures features;
 
   public GeographicalUnit() { 
   }
 
-  public GeographicalUnit code(String code) {
+  public GeographicalUnit code(@javax.annotation.Nonnull String code) {
     this.code = code;
     return this;
   }
@@ -71,21 +76,21 @@ public class GeographicalUnit {
    * @return code
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonProperty(value = JSON_PROPERTY_CODE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCode() {
     return code;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonProperty(value = JSON_PROPERTY_CODE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCode(String code) {
+  public void setCode(@javax.annotation.Nonnull String code) {
     this.code = code;
   }
 
 
-  public GeographicalUnit country(String country) {
+  public GeographicalUnit country(@javax.annotation.Nonnull String country) {
     this.country = country;
     return this;
   }
@@ -95,21 +100,21 @@ public class GeographicalUnit {
    * @return country
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_COUNTRY)
+  @JsonProperty(value = JSON_PROPERTY_COUNTRY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCountry() {
     return country;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COUNTRY)
+  @JsonProperty(value = JSON_PROPERTY_COUNTRY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCountry(String country) {
+  public void setCountry(@javax.annotation.Nonnull String country) {
     this.country = country;
   }
 
 
-  public GeographicalUnit state(String state) {
+  public GeographicalUnit state(@javax.annotation.Nullable String state) {
     this.state = state;
     return this;
   }
@@ -119,21 +124,21 @@ public class GeographicalUnit {
    * @return state
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonProperty(value = JSON_PROPERTY_STATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getState() {
     return state;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonProperty(value = JSON_PROPERTY_STATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(String state) {
+  public void setState(@javax.annotation.Nullable String state) {
     this.state = state;
   }
 
 
-  public GeographicalUnit continent(Continent continent) {
+  public GeographicalUnit continent(@javax.annotation.Nonnull Continent continent) {
     this.continent = continent;
     return this;
   }
@@ -143,21 +148,21 @@ public class GeographicalUnit {
    * @return continent
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CONTINENT)
+  @JsonProperty(value = JSON_PROPERTY_CONTINENT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Continent getContinent() {
     return continent;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CONTINENT)
+  @JsonProperty(value = JSON_PROPERTY_CONTINENT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setContinent(Continent continent) {
+  public void setContinent(@javax.annotation.Nonnull Continent continent) {
     this.continent = continent;
   }
 
 
-  public GeographicalUnit features(MapFeatures features) {
+  public GeographicalUnit features(@javax.annotation.Nonnull MapFeatures features) {
     this.features = features;
     return this;
   }
@@ -167,16 +172,16 @@ public class GeographicalUnit {
    * @return features
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FEATURES)
+  @JsonProperty(value = JSON_PROPERTY_FEATURES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public MapFeatures getFeatures() {
     return features;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FEATURES)
+  @JsonProperty(value = JSON_PROPERTY_FEATURES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFeatures(MapFeatures features) {
+  public void setFeatures(@javax.annotation.Nonnull MapFeatures features) {
     this.features = features;
   }
 
@@ -223,10 +228,7 @@ public class GeographicalUnit {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -263,22 +265,22 @@ public class GeographicalUnit {
 
     // add `code` to the URL query string
     if (getCode() != null) {
-      joiner.add(String.format("%scode%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%scode%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCode()))));
     }
 
     // add `country` to the URL query string
     if (getCountry() != null) {
-      joiner.add(String.format("%scountry%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCountry()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%scountry%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCountry()))));
     }
 
     // add `state` to the URL query string
     if (getState() != null) {
-      joiner.add(String.format("%sstate%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getState()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sstate%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getState()))));
     }
 
     // add `continent` to the URL query string
     if (getContinent() != null) {
-      joiner.add(String.format("%scontinent%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getContinent()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%scontinent%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getContinent()))));
     }
 
     // add `features` to the URL query string

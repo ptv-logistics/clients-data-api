@@ -35,15 +35,16 @@ import com.ptvgroup.developer.client.data.ApiClient;
 @JsonPropertyOrder({
   CombinedTransportAttributes.JSON_PROPERTY_PROHIBITED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class CombinedTransportAttributes {
   public static final String JSON_PROPERTY_PROHIBITED = "prohibited";
+  @javax.annotation.Nullable
   private Boolean prohibited;
 
   public CombinedTransportAttributes() { 
   }
 
-  public CombinedTransportAttributes prohibited(Boolean prohibited) {
+  public CombinedTransportAttributes prohibited(@javax.annotation.Nullable Boolean prohibited) {
     this.prohibited = prohibited;
     return this;
   }
@@ -53,16 +54,16 @@ public class CombinedTransportAttributes {
    * @return prohibited
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROHIBITED)
+  @JsonProperty(value = JSON_PROPERTY_PROHIBITED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getProhibited() {
     return prohibited;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROHIBITED)
+  @JsonProperty(value = JSON_PROPERTY_PROHIBITED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProhibited(Boolean prohibited) {
+  public void setProhibited(@javax.annotation.Nullable Boolean prohibited) {
     this.prohibited = prohibited;
   }
 
@@ -101,10 +102,7 @@ public class CombinedTransportAttributes {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -141,7 +139,7 @@ public class CombinedTransportAttributes {
 
     // add `prohibited` to the URL query string
     if (getProhibited() != null) {
-      joiner.add(String.format("%sprohibited%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getProhibited()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sprohibited%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getProhibited()))));
     }
 
     return joiner.toString();

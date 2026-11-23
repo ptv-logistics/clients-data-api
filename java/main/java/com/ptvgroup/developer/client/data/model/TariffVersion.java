@@ -38,21 +38,24 @@ import com.ptvgroup.developer.client.data.ApiClient;
   TariffVersion.JSON_PROPERTY_DESCRIPTION,
   TariffVersion.JSON_PROPERTY_VALID_FROM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class TariffVersion {
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private String version;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private String description;
 
   public static final String JSON_PROPERTY_VALID_FROM = "validFrom";
+  @javax.annotation.Nonnull
   private LocalDate validFrom;
 
   public TariffVersion() { 
   }
 
-  public TariffVersion version(String version) {
+  public TariffVersion version(@javax.annotation.Nonnull String version) {
     this.version = version;
     return this;
   }
@@ -62,21 +65,21 @@ public class TariffVersion {
    * @return version
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(value = JSON_PROPERTY_VERSION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getVersion() {
     return version;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(value = JSON_PROPERTY_VERSION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(String version) {
+  public void setVersion(@javax.annotation.Nonnull String version) {
     this.version = version;
   }
 
 
-  public TariffVersion description(String description) {
+  public TariffVersion description(@javax.annotation.Nullable String description) {
     this.description = description;
     return this;
   }
@@ -86,21 +89,21 @@ public class TariffVersion {
    * @return description
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
     return description;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
+  public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
   }
 
 
-  public TariffVersion validFrom(LocalDate validFrom) {
+  public TariffVersion validFrom(@javax.annotation.Nonnull LocalDate validFrom) {
     this.validFrom = validFrom;
     return this;
   }
@@ -110,16 +113,16 @@ public class TariffVersion {
    * @return validFrom
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VALID_FROM)
+  @JsonProperty(value = JSON_PROPERTY_VALID_FROM, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LocalDate getValidFrom() {
     return validFrom;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALID_FROM)
+  @JsonProperty(value = JSON_PROPERTY_VALID_FROM, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValidFrom(LocalDate validFrom) {
+  public void setValidFrom(@javax.annotation.Nonnull LocalDate validFrom) {
     this.validFrom = validFrom;
   }
 
@@ -162,10 +165,7 @@ public class TariffVersion {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -202,17 +202,17 @@ public class TariffVersion {
 
     // add `version` to the URL query string
     if (getVersion() != null) {
-      joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sversion%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getVersion()))));
     }
 
     // add `description` to the URL query string
     if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sdescription%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDescription()))));
     }
 
     // add `validFrom` to the URL query string
     if (getValidFrom() != null) {
-      joiner.add(String.format("%svalidFrom%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getValidFrom()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%svalidFrom%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getValidFrom()))));
     }
 
     return joiner.toString();

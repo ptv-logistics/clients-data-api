@@ -36,15 +36,16 @@ import com.ptvgroup.developer.client.data.ApiClient;
 @JsonPropertyOrder({
   Features.JSON_PROPERTY_LOW_EMISSION_ZONE_FEATURES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class Features {
   public static final String JSON_PROPERTY_LOW_EMISSION_ZONE_FEATURES = "lowEmissionZoneFeatures";
+  @javax.annotation.Nonnull
   private LowEmissionZoneFeatures lowEmissionZoneFeatures;
 
   public Features() { 
   }
 
-  public Features lowEmissionZoneFeatures(LowEmissionZoneFeatures lowEmissionZoneFeatures) {
+  public Features lowEmissionZoneFeatures(@javax.annotation.Nonnull LowEmissionZoneFeatures lowEmissionZoneFeatures) {
     this.lowEmissionZoneFeatures = lowEmissionZoneFeatures;
     return this;
   }
@@ -54,16 +55,16 @@ public class Features {
    * @return lowEmissionZoneFeatures
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LOW_EMISSION_ZONE_FEATURES)
+  @JsonProperty(value = JSON_PROPERTY_LOW_EMISSION_ZONE_FEATURES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LowEmissionZoneFeatures getLowEmissionZoneFeatures() {
     return lowEmissionZoneFeatures;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOW_EMISSION_ZONE_FEATURES)
+  @JsonProperty(value = JSON_PROPERTY_LOW_EMISSION_ZONE_FEATURES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLowEmissionZoneFeatures(LowEmissionZoneFeatures lowEmissionZoneFeatures) {
+  public void setLowEmissionZoneFeatures(@javax.annotation.Nonnull LowEmissionZoneFeatures lowEmissionZoneFeatures) {
     this.lowEmissionZoneFeatures = lowEmissionZoneFeatures;
   }
 
@@ -102,10 +103,7 @@ public class Features {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**

@@ -46,33 +46,40 @@ import com.ptvgroup.developer.client.data.ApiClient;
   RoadsToBeAttributed.JSON_PROPERTY_UNMATCHED_AFTER_MAP_UPDATE,
   RoadsToBeAttributed.JSON_PROPERTY_DESCRIPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class RoadsToBeAttributed {
   public static final String JSON_PROPERTY_POINTS = "points";
+  @javax.annotation.Nonnull
   private String points;
 
   public static final String JSON_PROPERTY_POLYLINES = "polylines";
+  @javax.annotation.Nullable
   private List<String> polylines;
 
   public static final String JSON_PROPERTY_DIRECTION = "direction";
+  @javax.annotation.Nullable
   private RoadDirectionType direction = RoadDirectionType.BOTH;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  @javax.annotation.Nonnull
   private RoadAttributes attributes;
 
   public static final String JSON_PROPERTY_VALIDITY = "validity";
+  @javax.annotation.Nullable
   private Validity validity;
 
   public static final String JSON_PROPERTY_UNMATCHED_AFTER_MAP_UPDATE = "unmatchedAfterMapUpdate";
+  @javax.annotation.Nullable
   private Boolean unmatchedAfterMapUpdate = false;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private String description;
 
   public RoadsToBeAttributed() { 
   }
 
-  public RoadsToBeAttributed points(String points) {
+  public RoadsToBeAttributed points(@javax.annotation.Nonnull String points) {
     this.points = points;
     return this;
   }
@@ -82,21 +89,21 @@ public class RoadsToBeAttributed {
    * @return points
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_POINTS)
+  @JsonProperty(value = JSON_PROPERTY_POINTS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPoints() {
     return points;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_POINTS)
+  @JsonProperty(value = JSON_PROPERTY_POINTS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPoints(String points) {
+  public void setPoints(@javax.annotation.Nonnull String points) {
     this.points = points;
   }
 
 
-  public RoadsToBeAttributed polylines(List<String> polylines) {
+  public RoadsToBeAttributed polylines(@javax.annotation.Nullable List<String> polylines) {
     this.polylines = polylines;
     return this;
   }
@@ -114,21 +121,21 @@ public class RoadsToBeAttributed {
    * @return polylines
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POLYLINES)
+  @JsonProperty(value = JSON_PROPERTY_POLYLINES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getPolylines() {
     return polylines;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_POLYLINES)
+  @JsonProperty(value = JSON_PROPERTY_POLYLINES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPolylines(List<String> polylines) {
+  public void setPolylines(@javax.annotation.Nullable List<String> polylines) {
     this.polylines = polylines;
   }
 
 
-  public RoadsToBeAttributed direction(RoadDirectionType direction) {
+  public RoadsToBeAttributed direction(@javax.annotation.Nullable RoadDirectionType direction) {
     this.direction = direction;
     return this;
   }
@@ -138,21 +145,21 @@ public class RoadsToBeAttributed {
    * @return direction
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DIRECTION)
+  @JsonProperty(value = JSON_PROPERTY_DIRECTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RoadDirectionType getDirection() {
     return direction;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DIRECTION)
+  @JsonProperty(value = JSON_PROPERTY_DIRECTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDirection(RoadDirectionType direction) {
+  public void setDirection(@javax.annotation.Nullable RoadDirectionType direction) {
     this.direction = direction;
   }
 
 
-  public RoadsToBeAttributed attributes(RoadAttributes attributes) {
+  public RoadsToBeAttributed attributes(@javax.annotation.Nonnull RoadAttributes attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -162,21 +169,21 @@ public class RoadsToBeAttributed {
    * @return attributes
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(value = JSON_PROPERTY_ATTRIBUTES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public RoadAttributes getAttributes() {
     return attributes;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(value = JSON_PROPERTY_ATTRIBUTES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAttributes(RoadAttributes attributes) {
+  public void setAttributes(@javax.annotation.Nonnull RoadAttributes attributes) {
     this.attributes = attributes;
   }
 
 
-  public RoadsToBeAttributed validity(Validity validity) {
+  public RoadsToBeAttributed validity(@javax.annotation.Nullable Validity validity) {
     this.validity = validity;
     return this;
   }
@@ -186,21 +193,21 @@ public class RoadsToBeAttributed {
    * @return validity
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALIDITY)
+  @JsonProperty(value = JSON_PROPERTY_VALIDITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Validity getValidity() {
     return validity;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALIDITY)
+  @JsonProperty(value = JSON_PROPERTY_VALIDITY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValidity(Validity validity) {
+  public void setValidity(@javax.annotation.Nullable Validity validity) {
     this.validity = validity;
   }
 
 
-  public RoadsToBeAttributed unmatchedAfterMapUpdate(Boolean unmatchedAfterMapUpdate) {
+  public RoadsToBeAttributed unmatchedAfterMapUpdate(@javax.annotation.Nullable Boolean unmatchedAfterMapUpdate) {
     this.unmatchedAfterMapUpdate = unmatchedAfterMapUpdate;
     return this;
   }
@@ -210,21 +217,21 @@ public class RoadsToBeAttributed {
    * @return unmatchedAfterMapUpdate
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UNMATCHED_AFTER_MAP_UPDATE)
+  @JsonProperty(value = JSON_PROPERTY_UNMATCHED_AFTER_MAP_UPDATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getUnmatchedAfterMapUpdate() {
     return unmatchedAfterMapUpdate;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UNMATCHED_AFTER_MAP_UPDATE)
+  @JsonProperty(value = JSON_PROPERTY_UNMATCHED_AFTER_MAP_UPDATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUnmatchedAfterMapUpdate(Boolean unmatchedAfterMapUpdate) {
+  public void setUnmatchedAfterMapUpdate(@javax.annotation.Nullable Boolean unmatchedAfterMapUpdate) {
     this.unmatchedAfterMapUpdate = unmatchedAfterMapUpdate;
   }
 
 
-  public RoadsToBeAttributed description(String description) {
+  public RoadsToBeAttributed description(@javax.annotation.Nullable String description) {
     this.description = description;
     return this;
   }
@@ -234,16 +241,16 @@ public class RoadsToBeAttributed {
    * @return description
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
     return description;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
+  public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
   }
 
@@ -294,10 +301,7 @@ public class RoadsToBeAttributed {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -334,21 +338,21 @@ public class RoadsToBeAttributed {
 
     // add `points` to the URL query string
     if (getPoints() != null) {
-      joiner.add(String.format("%spoints%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPoints()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%spoints%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPoints()))));
     }
 
     // add `polylines` to the URL query string
     if (getPolylines() != null) {
       for (int i = 0; i < getPolylines().size(); i++) {
-        joiner.add(String.format("%spolylines%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(ApiClient.valueToString(getPolylines().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        joiner.add(String.format(java.util.Locale.ROOT, "%spolylines%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
+            ApiClient.urlEncode(ApiClient.valueToString(getPolylines().get(i)))));
       }
     }
 
     // add `direction` to the URL query string
     if (getDirection() != null) {
-      joiner.add(String.format("%sdirection%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDirection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sdirection%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDirection()))));
     }
 
     // add `attributes` to the URL query string
@@ -363,12 +367,12 @@ public class RoadsToBeAttributed {
 
     // add `unmatchedAfterMapUpdate` to the URL query string
     if (getUnmatchedAfterMapUpdate() != null) {
-      joiner.add(String.format("%sunmatchedAfterMapUpdate%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUnmatchedAfterMapUpdate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sunmatchedAfterMapUpdate%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getUnmatchedAfterMapUpdate()))));
     }
 
     // add `description` to the URL query string
     if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sdescription%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDescription()))));
     }
 
     return joiner.toString();

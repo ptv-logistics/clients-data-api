@@ -43,36 +43,44 @@ import com.ptvgroup.developer.client.data.ApiClient;
   CombinedTransport.JSON_PROPERTY_ALLOWED_FOR,
   CombinedTransport.JSON_PROPERTY_WAYPOINTS_PARAMETER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class CombinedTransport {
   public static final String JSON_PROPERTY_POLYLINE = "polyline";
+  @javax.annotation.Nonnull
   private String polyline;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_DURATION = "duration";
+  @javax.annotation.Nonnull
   private Integer duration;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nonnull
   private String type;
 
   public static final String JSON_PROPERTY_START = "start";
+  @javax.annotation.Nonnull
   private CombinedTransportLocation start;
 
   public static final String JSON_PROPERTY_DESTINATION = "destination";
+  @javax.annotation.Nonnull
   private CombinedTransportLocation destination;
 
   public static final String JSON_PROPERTY_ALLOWED_FOR = "allowedFor";
+  @javax.annotation.Nonnull
   private String allowedFor;
 
   public static final String JSON_PROPERTY_WAYPOINTS_PARAMETER = "waypointsParameter";
+  @javax.annotation.Nonnull
   private String waypointsParameter;
 
   public CombinedTransport() { 
   }
 
-  public CombinedTransport polyline(String polyline) {
+  public CombinedTransport polyline(@javax.annotation.Nonnull String polyline) {
     this.polyline = polyline;
     return this;
   }
@@ -82,21 +90,21 @@ public class CombinedTransport {
    * @return polyline
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_POLYLINE)
+  @JsonProperty(value = JSON_PROPERTY_POLYLINE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPolyline() {
     return polyline;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_POLYLINE)
+  @JsonProperty(value = JSON_PROPERTY_POLYLINE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPolyline(String polyline) {
+  public void setPolyline(@javax.annotation.Nonnull String polyline) {
     this.polyline = polyline;
   }
 
 
-  public CombinedTransport name(String name) {
+  public CombinedTransport name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -106,21 +114,21 @@ public class CombinedTransport {
    * @return name
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
     return name;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public CombinedTransport duration(Integer duration) {
+  public CombinedTransport duration(@javax.annotation.Nonnull Integer duration) {
     this.duration = duration;
     return this;
   }
@@ -130,21 +138,21 @@ public class CombinedTransport {
    * @return duration
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonProperty(value = JSON_PROPERTY_DURATION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getDuration() {
     return duration;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonProperty(value = JSON_PROPERTY_DURATION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDuration(Integer duration) {
+  public void setDuration(@javax.annotation.Nonnull Integer duration) {
     this.duration = duration;
   }
 
 
-  public CombinedTransport type(String type) {
+  public CombinedTransport type(@javax.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -154,21 +162,21 @@ public class CombinedTransport {
    * @return type
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getType() {
     return type;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@javax.annotation.Nonnull String type) {
     this.type = type;
   }
 
 
-  public CombinedTransport start(CombinedTransportLocation start) {
+  public CombinedTransport start(@javax.annotation.Nonnull CombinedTransportLocation start) {
     this.start = start;
     return this;
   }
@@ -178,21 +186,21 @@ public class CombinedTransport {
    * @return start
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_START)
+  @JsonProperty(value = JSON_PROPERTY_START, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public CombinedTransportLocation getStart() {
     return start;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_START)
+  @JsonProperty(value = JSON_PROPERTY_START, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStart(CombinedTransportLocation start) {
+  public void setStart(@javax.annotation.Nonnull CombinedTransportLocation start) {
     this.start = start;
   }
 
 
-  public CombinedTransport destination(CombinedTransportLocation destination) {
+  public CombinedTransport destination(@javax.annotation.Nonnull CombinedTransportLocation destination) {
     this.destination = destination;
     return this;
   }
@@ -202,21 +210,21 @@ public class CombinedTransport {
    * @return destination
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DESTINATION)
+  @JsonProperty(value = JSON_PROPERTY_DESTINATION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public CombinedTransportLocation getDestination() {
     return destination;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DESTINATION)
+  @JsonProperty(value = JSON_PROPERTY_DESTINATION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDestination(CombinedTransportLocation destination) {
+  public void setDestination(@javax.annotation.Nonnull CombinedTransportLocation destination) {
     this.destination = destination;
   }
 
 
-  public CombinedTransport allowedFor(String allowedFor) {
+  public CombinedTransport allowedFor(@javax.annotation.Nonnull String allowedFor) {
     this.allowedFor = allowedFor;
     return this;
   }
@@ -226,21 +234,21 @@ public class CombinedTransport {
    * @return allowedFor
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ALLOWED_FOR)
+  @JsonProperty(value = JSON_PROPERTY_ALLOWED_FOR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getAllowedFor() {
     return allowedFor;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALLOWED_FOR)
+  @JsonProperty(value = JSON_PROPERTY_ALLOWED_FOR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAllowedFor(String allowedFor) {
+  public void setAllowedFor(@javax.annotation.Nonnull String allowedFor) {
     this.allowedFor = allowedFor;
   }
 
 
-  public CombinedTransport waypointsParameter(String waypointsParameter) {
+  public CombinedTransport waypointsParameter(@javax.annotation.Nonnull String waypointsParameter) {
     this.waypointsParameter = waypointsParameter;
     return this;
   }
@@ -250,16 +258,16 @@ public class CombinedTransport {
    * @return waypointsParameter
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_WAYPOINTS_PARAMETER)
+  @JsonProperty(value = JSON_PROPERTY_WAYPOINTS_PARAMETER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getWaypointsParameter() {
     return waypointsParameter;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WAYPOINTS_PARAMETER)
+  @JsonProperty(value = JSON_PROPERTY_WAYPOINTS_PARAMETER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWaypointsParameter(String waypointsParameter) {
+  public void setWaypointsParameter(@javax.annotation.Nonnull String waypointsParameter) {
     this.waypointsParameter = waypointsParameter;
   }
 
@@ -312,10 +320,7 @@ public class CombinedTransport {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -352,22 +357,22 @@ public class CombinedTransport {
 
     // add `polyline` to the URL query string
     if (getPolyline() != null) {
-      joiner.add(String.format("%spolyline%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPolyline()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%spolyline%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPolyline()))));
     }
 
     // add `name` to the URL query string
     if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sname%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getName()))));
     }
 
     // add `duration` to the URL query string
     if (getDuration() != null) {
-      joiner.add(String.format("%sduration%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDuration()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sduration%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDuration()))));
     }
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%stype%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getType()))));
     }
 
     // add `start` to the URL query string
@@ -382,12 +387,12 @@ public class CombinedTransport {
 
     // add `allowedFor` to the URL query string
     if (getAllowedFor() != null) {
-      joiner.add(String.format("%sallowedFor%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAllowedFor()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sallowedFor%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getAllowedFor()))));
     }
 
     // add `waypointsParameter` to the URL query string
     if (getWaypointsParameter() != null) {
-      joiner.add(String.format("%swaypointsParameter%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getWaypointsParameter()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%swaypointsParameter%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getWaypointsParameter()))));
     }
 
     return joiner.toString();

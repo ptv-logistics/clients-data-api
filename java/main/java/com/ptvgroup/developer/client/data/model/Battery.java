@@ -40,24 +40,28 @@ import com.ptvgroup.developer.client.data.ApiClient;
   Battery.JSON_PROPERTY_DC_CHARGING_POWER,
   Battery.JSON_PROPERTY_PLUGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class Battery {
   public static final String JSON_PROPERTY_TOTAL_CAPACITY = "totalCapacity";
+  @javax.annotation.Nonnull
   private Double totalCapacity;
 
   public static final String JSON_PROPERTY_AC_CHARGING_POWER = "acChargingPower";
+  @javax.annotation.Nonnull
   private Integer acChargingPower;
 
   public static final String JSON_PROPERTY_DC_CHARGING_POWER = "dcChargingPower";
+  @javax.annotation.Nonnull
   private Integer dcChargingPower;
 
   public static final String JSON_PROPERTY_PLUGS = "plugs";
+  @javax.annotation.Nonnull
   private List<String> plugs;
 
   public Battery() { 
   }
 
-  public Battery totalCapacity(Double totalCapacity) {
+  public Battery totalCapacity(@javax.annotation.Nonnull Double totalCapacity) {
     this.totalCapacity = totalCapacity;
     return this;
   }
@@ -67,21 +71,21 @@ public class Battery {
    * @return totalCapacity
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TOTAL_CAPACITY)
+  @JsonProperty(value = JSON_PROPERTY_TOTAL_CAPACITY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Double getTotalCapacity() {
     return totalCapacity;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOTAL_CAPACITY)
+  @JsonProperty(value = JSON_PROPERTY_TOTAL_CAPACITY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTotalCapacity(Double totalCapacity) {
+  public void setTotalCapacity(@javax.annotation.Nonnull Double totalCapacity) {
     this.totalCapacity = totalCapacity;
   }
 
 
-  public Battery acChargingPower(Integer acChargingPower) {
+  public Battery acChargingPower(@javax.annotation.Nonnull Integer acChargingPower) {
     this.acChargingPower = acChargingPower;
     return this;
   }
@@ -91,21 +95,21 @@ public class Battery {
    * @return acChargingPower
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_AC_CHARGING_POWER)
+  @JsonProperty(value = JSON_PROPERTY_AC_CHARGING_POWER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getAcChargingPower() {
     return acChargingPower;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AC_CHARGING_POWER)
+  @JsonProperty(value = JSON_PROPERTY_AC_CHARGING_POWER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAcChargingPower(Integer acChargingPower) {
+  public void setAcChargingPower(@javax.annotation.Nonnull Integer acChargingPower) {
     this.acChargingPower = acChargingPower;
   }
 
 
-  public Battery dcChargingPower(Integer dcChargingPower) {
+  public Battery dcChargingPower(@javax.annotation.Nonnull Integer dcChargingPower) {
     this.dcChargingPower = dcChargingPower;
     return this;
   }
@@ -115,21 +119,21 @@ public class Battery {
    * @return dcChargingPower
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DC_CHARGING_POWER)
+  @JsonProperty(value = JSON_PROPERTY_DC_CHARGING_POWER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getDcChargingPower() {
     return dcChargingPower;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DC_CHARGING_POWER)
+  @JsonProperty(value = JSON_PROPERTY_DC_CHARGING_POWER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDcChargingPower(Integer dcChargingPower) {
+  public void setDcChargingPower(@javax.annotation.Nonnull Integer dcChargingPower) {
     this.dcChargingPower = dcChargingPower;
   }
 
 
-  public Battery plugs(List<String> plugs) {
+  public Battery plugs(@javax.annotation.Nonnull List<String> plugs) {
     this.plugs = plugs;
     return this;
   }
@@ -147,16 +151,16 @@ public class Battery {
    * @return plugs
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PLUGS)
+  @JsonProperty(value = JSON_PROPERTY_PLUGS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getPlugs() {
     return plugs;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PLUGS)
+  @JsonProperty(value = JSON_PROPERTY_PLUGS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPlugs(List<String> plugs) {
+  public void setPlugs(@javax.annotation.Nonnull List<String> plugs) {
     this.plugs = plugs;
   }
 
@@ -201,10 +205,7 @@ public class Battery {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -241,25 +242,25 @@ public class Battery {
 
     // add `totalCapacity` to the URL query string
     if (getTotalCapacity() != null) {
-      joiner.add(String.format("%stotalCapacity%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTotalCapacity()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%stotalCapacity%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getTotalCapacity()))));
     }
 
     // add `acChargingPower` to the URL query string
     if (getAcChargingPower() != null) {
-      joiner.add(String.format("%sacChargingPower%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAcChargingPower()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sacChargingPower%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getAcChargingPower()))));
     }
 
     // add `dcChargingPower` to the URL query string
     if (getDcChargingPower() != null) {
-      joiner.add(String.format("%sdcChargingPower%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDcChargingPower()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sdcChargingPower%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDcChargingPower()))));
     }
 
     // add `plugs` to the URL query string
     if (getPlugs() != null) {
       for (int i = 0; i < getPlugs().size(); i++) {
-        joiner.add(String.format("%splugs%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(ApiClient.valueToString(getPlugs().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        joiner.add(String.format(java.util.Locale.ROOT, "%splugs%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
+            ApiClient.urlEncode(ApiClient.valueToString(getPlugs().get(i)))));
       }
     }
 

@@ -15,6 +15,7 @@ package com.ptvgroup.developer.client.data.api;
 import com.ptvgroup.developer.client.data.ApiClient;
 import com.ptvgroup.developer.client.data.ApiException;
 import com.ptvgroup.developer.client.data.ApiResponse;
+import com.ptvgroup.developer.client.data.Configuration;
 import com.ptvgroup.developer.client.data.Pair;
 
 import com.ptvgroup.developer.client.data.model.CustomRoadAttributeScenario;
@@ -51,18 +52,38 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class CustomRoadAttributesApi {
+  /**
+   * Utility class for extending HttpRequest.Builder functionality.
+   */
+  private static class HttpRequestBuilderExtensions {
+    /**
+     * Adds additional headers to the provided HttpRequest.Builder. Useful for adding method/endpoint specific headers.
+     *
+     * @param builder the HttpRequest.Builder to which headers will be added
+     * @param headers a map of header names and values to add; may be null
+     * @return the same HttpRequest.Builder instance with the additional headers set
+     */
+    static HttpRequest.Builder withAdditionalHeaders(HttpRequest.Builder builder, Map<String, String> headers) {
+        if (headers != null) {
+            for (Map.Entry<String, String> entry : headers.entrySet()) {
+                builder.header(entry.getKey(), entry.getValue());
+            }
+        }
+        return builder;
+    }
+  }
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
   private final String memberVarBaseUri;
   private final Consumer<HttpRequest.Builder> memberVarInterceptor;
   private final Duration memberVarReadTimeout;
   private final Consumer<HttpResponse<InputStream>> memberVarResponseInterceptor;
-  private final Consumer<HttpResponse<String>> memberVarAsyncResponseInterceptor;
+  private final Consumer<HttpResponse<InputStream>> memberVarAsyncResponseInterceptor;
 
   public CustomRoadAttributesApi() {
-    this(new ApiClient());
+    this(Configuration.getDefaultApiClient());
   }
 
   public CustomRoadAttributesApi(ApiClient apiClient) {
@@ -75,8 +96,17 @@ public class CustomRoadAttributesApi {
     memberVarAsyncResponseInterceptor = apiClient.getAsyncResponseInterceptor();
   }
 
+
   protected ApiException getApiException(String operationId, HttpResponse<InputStream> response) throws IOException {
-    String body = response.body() == null ? null : new String(response.body().readAllBytes());
+    InputStream responseBody = ApiClient.getResponseBody(response);
+    String body = null;
+    try {
+      body = responseBody == null ? null : new String(responseBody.readAllBytes());
+    } finally {
+      if (responseBody != null) {
+        responseBody.close();
+      }
+    }
     String message = formatExceptionMessage(operationId, response.statusCode(), body);
     return new ApiException(response.statusCode(), message, response.headers(), body);
   }
@@ -89,6 +119,57 @@ public class CustomRoadAttributesApi {
   }
 
   /**
+   * Download file from the given response.
+   *
+   * @param response Response
+   * @return File
+   * @throws ApiException If fail to read file content from response and write to disk
+   */
+  public File downloadFileFromResponse(HttpResponse<InputStream> response, InputStream responseBody) throws ApiException {
+    if (responseBody == null) {
+      throw new ApiException(new IOException("Response body is empty"));
+    }
+    try {
+      File file = prepareDownloadFile(response);
+      java.nio.file.Files.copy(responseBody, file.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+      return file;
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+  }
+
+  /**
+   * <p>Prepare the file for download from the response.</p>
+   *
+   * @param response a {@link java.net.http.HttpResponse} object.
+   * @return a {@link java.io.File} object.
+   * @throws java.io.IOException if any.
+   */
+  private File prepareDownloadFile(HttpResponse<InputStream> response) throws IOException {
+    String filename = null;
+    java.util.Optional<String> contentDisposition = response.headers().firstValue("Content-Disposition");
+    if (contentDisposition.isPresent() && !"".equals(contentDisposition.get())) {
+      // Get filename from the Content-Disposition header.
+      java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("filename=['\"]?([^'\"\\s]+)['\"]?");
+      java.util.regex.Matcher matcher = pattern.matcher(contentDisposition.get());
+      if (matcher.find())
+        filename = matcher.group(1);
+    }
+    File file = null;
+    if (filename != null) {
+      java.nio.file.Path tempDir = java.nio.file.Files.createTempDirectory("swagger-gen-native");
+      java.nio.file.Path filePath = java.nio.file.Files.createFile(tempDir.resolve(filename));
+      file = filePath.toFile();
+      tempDir.toFile().deleteOnExit();   // best effort cleanup
+      file.deleteOnExit(); // best effort cleanup
+    } else {
+      file = java.nio.file.Files.createTempFile("download-", "").toFile();
+      file.deleteOnExit(); // best effort cleanup
+    }
+    return file;
+  }
+
+  /**
    * 
    * Create a custom road attribute scenario.
    * @param customRoadAttributeScenario The roads to be attributed. (required)
@@ -98,8 +179,23 @@ public class CustomRoadAttributesApi {
    * @return CustomRoadAttributeScenario
    * @throws ApiException if fails to make API call
    */
-  public CustomRoadAttributeScenario createCustomRoadAttributeScenario(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results, PolylineFormat polylineFormat, PolylineMapType polylineMapType) throws ApiException {
-    ApiResponse<CustomRoadAttributeScenario> localVarResponse = createCustomRoadAttributeScenarioWithHttpInfo(customRoadAttributeScenario, results, polylineFormat, polylineMapType);
+  public CustomRoadAttributeScenario createCustomRoadAttributeScenario(@javax.annotation.Nonnull CustomRoadAttributeScenario customRoadAttributeScenario, @javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat, @javax.annotation.Nullable PolylineMapType polylineMapType) throws ApiException {
+    return createCustomRoadAttributeScenario(customRoadAttributeScenario, results, polylineFormat, polylineMapType, null);
+  }
+
+  /**
+   * 
+   * Create a custom road attribute scenario.
+   * @param customRoadAttributeScenario The roads to be attributed. (required)
+   * @param results Defines which results will be returned. (optional)
+   * @param polylineFormat  (optional, default to GEO_JSON)
+   * @param polylineMapType Defines whether polylines should match the Raster Maps API or the Vector Maps API.  This parameter affects the polylines returned in the response of this request and all subsequent requests referring to this scenario, if polylines are to be returned. Once created or updated, it is not possible to request the polyline for this scenario matching a different map. (optional, default to RASTER)
+   * @param headers Optional headers to include in the request
+   * @return CustomRoadAttributeScenario
+   * @throws ApiException if fails to make API call
+   */
+  public CustomRoadAttributeScenario createCustomRoadAttributeScenario(@javax.annotation.Nonnull CustomRoadAttributeScenario customRoadAttributeScenario, @javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat, @javax.annotation.Nullable PolylineMapType polylineMapType, Map<String, String> headers) throws ApiException {
+    ApiResponse<CustomRoadAttributeScenario> localVarResponse = createCustomRoadAttributeScenarioWithHttpInfo(customRoadAttributeScenario, results, polylineFormat, polylineMapType, headers);
     return localVarResponse.getData();
   }
 
@@ -113,8 +209,23 @@ public class CustomRoadAttributesApi {
    * @return ApiResponse&lt;CustomRoadAttributeScenario&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<CustomRoadAttributeScenario> createCustomRoadAttributeScenarioWithHttpInfo(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results, PolylineFormat polylineFormat, PolylineMapType polylineMapType) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = createCustomRoadAttributeScenarioRequestBuilder(customRoadAttributeScenario, results, polylineFormat, polylineMapType);
+  public ApiResponse<CustomRoadAttributeScenario> createCustomRoadAttributeScenarioWithHttpInfo(@javax.annotation.Nonnull CustomRoadAttributeScenario customRoadAttributeScenario, @javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat, @javax.annotation.Nullable PolylineMapType polylineMapType) throws ApiException {
+    return createCustomRoadAttributeScenarioWithHttpInfo(customRoadAttributeScenario, results, polylineFormat, polylineMapType, null);
+  }
+
+  /**
+   * 
+   * Create a custom road attribute scenario.
+   * @param customRoadAttributeScenario The roads to be attributed. (required)
+   * @param results Defines which results will be returned. (optional)
+   * @param polylineFormat  (optional, default to GEO_JSON)
+   * @param polylineMapType Defines whether polylines should match the Raster Maps API or the Vector Maps API.  This parameter affects the polylines returned in the response of this request and all subsequent requests referring to this scenario, if polylines are to be returned. Once created or updated, it is not possible to request the polyline for this scenario matching a different map. (optional, default to RASTER)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;CustomRoadAttributeScenario&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<CustomRoadAttributeScenario> createCustomRoadAttributeScenarioWithHttpInfo(@javax.annotation.Nonnull CustomRoadAttributeScenario customRoadAttributeScenario, @javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat, @javax.annotation.Nullable PolylineMapType polylineMapType, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createCustomRoadAttributeScenarioRequestBuilder(customRoadAttributeScenario, results, polylineFormat, polylineMapType, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -122,16 +233,35 @@ public class CustomRoadAttributesApi {
       if (memberVarResponseInterceptor != null) {
         memberVarResponseInterceptor.accept(localVarResponse);
       }
+      InputStream localVarResponseBody = null;
       try {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("createCustomRoadAttributeScenario", localVarResponse);
         }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<CustomRoadAttributeScenario>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        CustomRoadAttributeScenario responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<CustomRoadAttributeScenario>() {});
+        
+
         return new ApiResponse<CustomRoadAttributeScenario>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CustomRoadAttributeScenario>() {}) // closes the InputStream
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
         );
       } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
       }
     } catch (IOException e) {
       throw new ApiException(e);
@@ -142,7 +272,7 @@ public class CustomRoadAttributesApi {
     }
   }
 
-  private HttpRequest.Builder createCustomRoadAttributeScenarioRequestBuilder(CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results, PolylineFormat polylineFormat, PolylineMapType polylineMapType) throws ApiException {
+  private HttpRequest.Builder createCustomRoadAttributeScenarioRequestBuilder(@javax.annotation.Nonnull CustomRoadAttributeScenario customRoadAttributeScenario, @javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat, @javax.annotation.Nullable PolylineMapType polylineMapType, Map<String, String> headers) throws ApiException {
     // verify the required parameter 'customRoadAttributeScenario' is set
     if (customRoadAttributeScenario == null) {
       throw new ApiException(400, "Missing the required parameter 'customRoadAttributeScenario' when calling createCustomRoadAttributeScenario");
@@ -185,6 +315,8 @@ public class CustomRoadAttributesApi {
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
     if (memberVarInterceptor != null) {
       memberVarInterceptor.accept(localVarRequestBuilder);
     }
@@ -197,8 +329,19 @@ public class CustomRoadAttributesApi {
    * @param scenarioId The ID of the custom road attribute scenario. (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteCustomRoadAttributeScenario(UUID scenarioId) throws ApiException {
-    deleteCustomRoadAttributeScenarioWithHttpInfo(scenarioId);
+  public void deleteCustomRoadAttributeScenario(@javax.annotation.Nonnull UUID scenarioId) throws ApiException {
+    deleteCustomRoadAttributeScenario(scenarioId, null);
+  }
+
+  /**
+   * 
+   * Delete a custom road attribute scenario.
+   * @param scenarioId The ID of the custom road attribute scenario. (required)
+   * @param headers Optional headers to include in the request
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteCustomRoadAttributeScenario(@javax.annotation.Nonnull UUID scenarioId, Map<String, String> headers) throws ApiException {
+    deleteCustomRoadAttributeScenarioWithHttpInfo(scenarioId, headers);
   }
 
   /**
@@ -208,8 +351,20 @@ public class CustomRoadAttributesApi {
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> deleteCustomRoadAttributeScenarioWithHttpInfo(UUID scenarioId) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = deleteCustomRoadAttributeScenarioRequestBuilder(scenarioId);
+  public ApiResponse<Void> deleteCustomRoadAttributeScenarioWithHttpInfo(@javax.annotation.Nonnull UUID scenarioId) throws ApiException {
+    return deleteCustomRoadAttributeScenarioWithHttpInfo(scenarioId, null);
+  }
+
+  /**
+   * 
+   * Delete a custom road attribute scenario.
+   * @param scenarioId The ID of the custom road attribute scenario. (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> deleteCustomRoadAttributeScenarioWithHttpInfo(@javax.annotation.Nonnull UUID scenarioId, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteCustomRoadAttributeScenarioRequestBuilder(scenarioId, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -217,21 +372,24 @@ public class CustomRoadAttributesApi {
       if (memberVarResponseInterceptor != null) {
         memberVarResponseInterceptor.accept(localVarResponse);
       }
+      InputStream localVarResponseBody = null;
       try {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("deleteCustomRoadAttributeScenario", localVarResponse);
         }
-        return new ApiResponse<Void>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          null
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody != null) {
+          localVarResponseBody.readAllBytes();
+        }
+        return new ApiResponse<>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            null
         );
       } finally {
-        // Drain the InputStream
-        while (localVarResponse.body().read() != -1) {
-            // Ignore
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
         }
-        localVarResponse.body().close();
       }
     } catch (IOException e) {
       throw new ApiException(e);
@@ -242,7 +400,7 @@ public class CustomRoadAttributesApi {
     }
   }
 
-  private HttpRequest.Builder deleteCustomRoadAttributeScenarioRequestBuilder(UUID scenarioId) throws ApiException {
+  private HttpRequest.Builder deleteCustomRoadAttributeScenarioRequestBuilder(@javax.annotation.Nonnull UUID scenarioId, Map<String, String> headers) throws ApiException {
     // verify the required parameter 'scenarioId' is set
     if (scenarioId == null) {
       throw new ApiException(400, "Missing the required parameter 'scenarioId' when calling deleteCustomRoadAttributeScenario");
@@ -261,6 +419,8 @@ public class CustomRoadAttributesApi {
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
     if (memberVarInterceptor != null) {
       memberVarInterceptor.accept(localVarRequestBuilder);
     }
@@ -275,8 +435,21 @@ public class CustomRoadAttributesApi {
    * @return CustomRoadAttributeScenarioList
    * @throws ApiException if fails to make API call
    */
-  public CustomRoadAttributeScenarioList getAllCustomRoadAttributeScenarios(List<RoadAttributesResults> results, PolylineFormat polylineFormat) throws ApiException {
-    ApiResponse<CustomRoadAttributeScenarioList> localVarResponse = getAllCustomRoadAttributeScenariosWithHttpInfo(results, polylineFormat);
+  public CustomRoadAttributeScenarioList getAllCustomRoadAttributeScenarios(@javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat) throws ApiException {
+    return getAllCustomRoadAttributeScenarios(results, polylineFormat, null);
+  }
+
+  /**
+   * 
+   * Get a list of all custom road attribute scenarios of the current user.
+   * @param results Defines which results will be returned. (optional)
+   * @param polylineFormat  (optional, default to GEO_JSON)
+   * @param headers Optional headers to include in the request
+   * @return CustomRoadAttributeScenarioList
+   * @throws ApiException if fails to make API call
+   */
+  public CustomRoadAttributeScenarioList getAllCustomRoadAttributeScenarios(@javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat, Map<String, String> headers) throws ApiException {
+    ApiResponse<CustomRoadAttributeScenarioList> localVarResponse = getAllCustomRoadAttributeScenariosWithHttpInfo(results, polylineFormat, headers);
     return localVarResponse.getData();
   }
 
@@ -288,8 +461,21 @@ public class CustomRoadAttributesApi {
    * @return ApiResponse&lt;CustomRoadAttributeScenarioList&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<CustomRoadAttributeScenarioList> getAllCustomRoadAttributeScenariosWithHttpInfo(List<RoadAttributesResults> results, PolylineFormat polylineFormat) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getAllCustomRoadAttributeScenariosRequestBuilder(results, polylineFormat);
+  public ApiResponse<CustomRoadAttributeScenarioList> getAllCustomRoadAttributeScenariosWithHttpInfo(@javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat) throws ApiException {
+    return getAllCustomRoadAttributeScenariosWithHttpInfo(results, polylineFormat, null);
+  }
+
+  /**
+   * 
+   * Get a list of all custom road attribute scenarios of the current user.
+   * @param results Defines which results will be returned. (optional)
+   * @param polylineFormat  (optional, default to GEO_JSON)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;CustomRoadAttributeScenarioList&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<CustomRoadAttributeScenarioList> getAllCustomRoadAttributeScenariosWithHttpInfo(@javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getAllCustomRoadAttributeScenariosRequestBuilder(results, polylineFormat, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -297,16 +483,35 @@ public class CustomRoadAttributesApi {
       if (memberVarResponseInterceptor != null) {
         memberVarResponseInterceptor.accept(localVarResponse);
       }
+      InputStream localVarResponseBody = null;
       try {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getAllCustomRoadAttributeScenarios", localVarResponse);
         }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<CustomRoadAttributeScenarioList>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        CustomRoadAttributeScenarioList responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<CustomRoadAttributeScenarioList>() {});
+        
+
         return new ApiResponse<CustomRoadAttributeScenarioList>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CustomRoadAttributeScenarioList>() {}) // closes the InputStream
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
         );
       } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
       }
     } catch (IOException e) {
       throw new ApiException(e);
@@ -317,7 +522,7 @@ public class CustomRoadAttributesApi {
     }
   }
 
-  private HttpRequest.Builder getAllCustomRoadAttributeScenariosRequestBuilder(List<RoadAttributesResults> results, PolylineFormat polylineFormat) throws ApiException {
+  private HttpRequest.Builder getAllCustomRoadAttributeScenariosRequestBuilder(@javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat, Map<String, String> headers) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
@@ -348,6 +553,8 @@ public class CustomRoadAttributesApi {
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
     if (memberVarInterceptor != null) {
       memberVarInterceptor.accept(localVarRequestBuilder);
     }
@@ -363,8 +570,22 @@ public class CustomRoadAttributesApi {
    * @return CustomRoadAttributeScenario
    * @throws ApiException if fails to make API call
    */
-  public CustomRoadAttributeScenario getCustomRoadAttributeScenario(UUID scenarioId, List<RoadAttributesResults> results, PolylineFormat polylineFormat) throws ApiException {
-    ApiResponse<CustomRoadAttributeScenario> localVarResponse = getCustomRoadAttributeScenarioWithHttpInfo(scenarioId, results, polylineFormat);
+  public CustomRoadAttributeScenario getCustomRoadAttributeScenario(@javax.annotation.Nonnull UUID scenarioId, @javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat) throws ApiException {
+    return getCustomRoadAttributeScenario(scenarioId, results, polylineFormat, null);
+  }
+
+  /**
+   * 
+   * Get a custom road attribute scenario by its ID.
+   * @param scenarioId The ID of the custom road attribute scenario. (required)
+   * @param results Defines which results will be returned. (optional)
+   * @param polylineFormat  (optional, default to GEO_JSON)
+   * @param headers Optional headers to include in the request
+   * @return CustomRoadAttributeScenario
+   * @throws ApiException if fails to make API call
+   */
+  public CustomRoadAttributeScenario getCustomRoadAttributeScenario(@javax.annotation.Nonnull UUID scenarioId, @javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat, Map<String, String> headers) throws ApiException {
+    ApiResponse<CustomRoadAttributeScenario> localVarResponse = getCustomRoadAttributeScenarioWithHttpInfo(scenarioId, results, polylineFormat, headers);
     return localVarResponse.getData();
   }
 
@@ -377,8 +598,22 @@ public class CustomRoadAttributesApi {
    * @return ApiResponse&lt;CustomRoadAttributeScenario&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<CustomRoadAttributeScenario> getCustomRoadAttributeScenarioWithHttpInfo(UUID scenarioId, List<RoadAttributesResults> results, PolylineFormat polylineFormat) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getCustomRoadAttributeScenarioRequestBuilder(scenarioId, results, polylineFormat);
+  public ApiResponse<CustomRoadAttributeScenario> getCustomRoadAttributeScenarioWithHttpInfo(@javax.annotation.Nonnull UUID scenarioId, @javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat) throws ApiException {
+    return getCustomRoadAttributeScenarioWithHttpInfo(scenarioId, results, polylineFormat, null);
+  }
+
+  /**
+   * 
+   * Get a custom road attribute scenario by its ID.
+   * @param scenarioId The ID of the custom road attribute scenario. (required)
+   * @param results Defines which results will be returned. (optional)
+   * @param polylineFormat  (optional, default to GEO_JSON)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;CustomRoadAttributeScenario&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<CustomRoadAttributeScenario> getCustomRoadAttributeScenarioWithHttpInfo(@javax.annotation.Nonnull UUID scenarioId, @javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getCustomRoadAttributeScenarioRequestBuilder(scenarioId, results, polylineFormat, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -386,16 +621,35 @@ public class CustomRoadAttributesApi {
       if (memberVarResponseInterceptor != null) {
         memberVarResponseInterceptor.accept(localVarResponse);
       }
+      InputStream localVarResponseBody = null;
       try {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getCustomRoadAttributeScenario", localVarResponse);
         }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<CustomRoadAttributeScenario>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        CustomRoadAttributeScenario responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<CustomRoadAttributeScenario>() {});
+        
+
         return new ApiResponse<CustomRoadAttributeScenario>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CustomRoadAttributeScenario>() {}) // closes the InputStream
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
         );
       } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
       }
     } catch (IOException e) {
       throw new ApiException(e);
@@ -406,7 +660,7 @@ public class CustomRoadAttributesApi {
     }
   }
 
-  private HttpRequest.Builder getCustomRoadAttributeScenarioRequestBuilder(UUID scenarioId, List<RoadAttributesResults> results, PolylineFormat polylineFormat) throws ApiException {
+  private HttpRequest.Builder getCustomRoadAttributeScenarioRequestBuilder(@javax.annotation.Nonnull UUID scenarioId, @javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat, Map<String, String> headers) throws ApiException {
     // verify the required parameter 'scenarioId' is set
     if (scenarioId == null) {
       throw new ApiException(400, "Missing the required parameter 'scenarioId' when calling getCustomRoadAttributeScenario");
@@ -442,6 +696,8 @@ public class CustomRoadAttributesApi {
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
     if (memberVarInterceptor != null) {
       memberVarInterceptor.accept(localVarRequestBuilder);
     }
@@ -457,8 +713,22 @@ public class CustomRoadAttributesApi {
    * @return RoadsResponse
    * @throws ApiException if fails to make API call
    */
-  public RoadsResponse getRoads(String points, PolylineFormat polylineFormat, PolylineMapType polylineMapType) throws ApiException {
-    ApiResponse<RoadsResponse> localVarResponse = getRoadsWithHttpInfo(points, polylineFormat, polylineMapType);
+  public RoadsResponse getRoads(@javax.annotation.Nonnull String points, @javax.annotation.Nullable PolylineFormat polylineFormat, @javax.annotation.Nullable PolylineMapType polylineMapType) throws ApiException {
+    return getRoads(points, polylineFormat, polylineMapType, null);
+  }
+
+  /**
+   * 
+   * Get roads from (click) points on a map.
+   * @param points A point, a polyline or a polygon to select roads. Combined transports will not be selected.  * For a single point the road(s) closest to this point will be returned.  Usually, a single road will be returned, but if there are multiple roads at the same distance from the point, all of them will be returned. This is most likely to happen on road crossings. * Several points where the first and last point are different will be considered a polyline and  all roads intersected by this polyline will be returned. * If the polyline is closed, i.e. the first and the last point are the same, the polyline defines  a polygon and all roads whose complete polyline is within the polygon will be returned. A polygon must be  valid according to [OGC](https://www.ogc.org/standard/sfa/). Holes within polygons are not supported.  Format: &#x60;&lt;point1_lat&gt;,&lt;point1_lon&gt;,...,&lt;pointN_lat&gt;,&lt;pointN_lon&gt;&#x60;.  A request will be rejected if it * does not contain an even number of coordinates, * contains a closed polyline defining an invalid polygon according to OGC, * contains invalid coordinates or * covers more than 5000 roads. (required)
+   * @param polylineFormat  (optional, default to GEO_JSON)
+   * @param polylineMapType Defines whether polylines should match the Raster Maps API or the Vector Maps API.  The polylines are used for the selection, hence the selected roads can differ when using different values. (optional, default to RASTER)
+   * @param headers Optional headers to include in the request
+   * @return RoadsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RoadsResponse getRoads(@javax.annotation.Nonnull String points, @javax.annotation.Nullable PolylineFormat polylineFormat, @javax.annotation.Nullable PolylineMapType polylineMapType, Map<String, String> headers) throws ApiException {
+    ApiResponse<RoadsResponse> localVarResponse = getRoadsWithHttpInfo(points, polylineFormat, polylineMapType, headers);
     return localVarResponse.getData();
   }
 
@@ -471,8 +741,22 @@ public class CustomRoadAttributesApi {
    * @return ApiResponse&lt;RoadsResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<RoadsResponse> getRoadsWithHttpInfo(String points, PolylineFormat polylineFormat, PolylineMapType polylineMapType) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getRoadsRequestBuilder(points, polylineFormat, polylineMapType);
+  public ApiResponse<RoadsResponse> getRoadsWithHttpInfo(@javax.annotation.Nonnull String points, @javax.annotation.Nullable PolylineFormat polylineFormat, @javax.annotation.Nullable PolylineMapType polylineMapType) throws ApiException {
+    return getRoadsWithHttpInfo(points, polylineFormat, polylineMapType, null);
+  }
+
+  /**
+   * 
+   * Get roads from (click) points on a map.
+   * @param points A point, a polyline or a polygon to select roads. Combined transports will not be selected.  * For a single point the road(s) closest to this point will be returned.  Usually, a single road will be returned, but if there are multiple roads at the same distance from the point, all of them will be returned. This is most likely to happen on road crossings. * Several points where the first and last point are different will be considered a polyline and  all roads intersected by this polyline will be returned. * If the polyline is closed, i.e. the first and the last point are the same, the polyline defines  a polygon and all roads whose complete polyline is within the polygon will be returned. A polygon must be  valid according to [OGC](https://www.ogc.org/standard/sfa/). Holes within polygons are not supported.  Format: &#x60;&lt;point1_lat&gt;,&lt;point1_lon&gt;,...,&lt;pointN_lat&gt;,&lt;pointN_lon&gt;&#x60;.  A request will be rejected if it * does not contain an even number of coordinates, * contains a closed polyline defining an invalid polygon according to OGC, * contains invalid coordinates or * covers more than 5000 roads. (required)
+   * @param polylineFormat  (optional, default to GEO_JSON)
+   * @param polylineMapType Defines whether polylines should match the Raster Maps API or the Vector Maps API.  The polylines are used for the selection, hence the selected roads can differ when using different values. (optional, default to RASTER)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;RoadsResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<RoadsResponse> getRoadsWithHttpInfo(@javax.annotation.Nonnull String points, @javax.annotation.Nullable PolylineFormat polylineFormat, @javax.annotation.Nullable PolylineMapType polylineMapType, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getRoadsRequestBuilder(points, polylineFormat, polylineMapType, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -480,16 +764,35 @@ public class CustomRoadAttributesApi {
       if (memberVarResponseInterceptor != null) {
         memberVarResponseInterceptor.accept(localVarResponse);
       }
+      InputStream localVarResponseBody = null;
       try {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getRoads", localVarResponse);
         }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<RoadsResponse>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        RoadsResponse responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<RoadsResponse>() {});
+        
+
         return new ApiResponse<RoadsResponse>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<RoadsResponse>() {}) // closes the InputStream
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
         );
       } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
       }
     } catch (IOException e) {
       throw new ApiException(e);
@@ -500,7 +803,7 @@ public class CustomRoadAttributesApi {
     }
   }
 
-  private HttpRequest.Builder getRoadsRequestBuilder(String points, PolylineFormat polylineFormat, PolylineMapType polylineMapType) throws ApiException {
+  private HttpRequest.Builder getRoadsRequestBuilder(@javax.annotation.Nonnull String points, @javax.annotation.Nullable PolylineFormat polylineFormat, @javax.annotation.Nullable PolylineMapType polylineMapType, Map<String, String> headers) throws ApiException {
     // verify the required parameter 'points' is set
     if (points == null) {
       throw new ApiException(400, "Missing the required parameter 'points' when calling getRoads");
@@ -537,6 +840,8 @@ public class CustomRoadAttributesApi {
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
     if (memberVarInterceptor != null) {
       memberVarInterceptor.accept(localVarRequestBuilder);
     }
@@ -554,8 +859,24 @@ public class CustomRoadAttributesApi {
    * @return CustomRoadAttributeScenario
    * @throws ApiException if fails to make API call
    */
-  public CustomRoadAttributeScenario updateCustomRoadAttributeScenario(UUID scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results, PolylineFormat polylineFormat, PolylineMapType polylineMapType) throws ApiException {
-    ApiResponse<CustomRoadAttributeScenario> localVarResponse = updateCustomRoadAttributeScenarioWithHttpInfo(scenarioId, customRoadAttributeScenario, results, polylineFormat, polylineMapType);
+  public CustomRoadAttributeScenario updateCustomRoadAttributeScenario(@javax.annotation.Nonnull UUID scenarioId, @javax.annotation.Nonnull CustomRoadAttributeScenario customRoadAttributeScenario, @javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat, @javax.annotation.Nullable PolylineMapType polylineMapType) throws ApiException {
+    return updateCustomRoadAttributeScenario(scenarioId, customRoadAttributeScenario, results, polylineFormat, polylineMapType, null);
+  }
+
+  /**
+   * 
+   * Perform a full update of an existing custom road attribute scenario.
+   * @param scenarioId The ID of the custom road attribute scenario. (required)
+   * @param customRoadAttributeScenario The custom road attribute scenario to be updated. (required)
+   * @param results Defines which results will be returned. (optional)
+   * @param polylineFormat  (optional, default to GEO_JSON)
+   * @param polylineMapType Defines whether polylines should match the Raster Maps API or the Vector Maps API.  This parameter affects the polylines returned in the response of this request and all subsequent requests referring to this scenario, if polylines are to be returned. Once created or updated, it is not possible to request the polyline for this scenario matching a different map. (optional, default to RASTER)
+   * @param headers Optional headers to include in the request
+   * @return CustomRoadAttributeScenario
+   * @throws ApiException if fails to make API call
+   */
+  public CustomRoadAttributeScenario updateCustomRoadAttributeScenario(@javax.annotation.Nonnull UUID scenarioId, @javax.annotation.Nonnull CustomRoadAttributeScenario customRoadAttributeScenario, @javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat, @javax.annotation.Nullable PolylineMapType polylineMapType, Map<String, String> headers) throws ApiException {
+    ApiResponse<CustomRoadAttributeScenario> localVarResponse = updateCustomRoadAttributeScenarioWithHttpInfo(scenarioId, customRoadAttributeScenario, results, polylineFormat, polylineMapType, headers);
     return localVarResponse.getData();
   }
 
@@ -570,8 +891,24 @@ public class CustomRoadAttributesApi {
    * @return ApiResponse&lt;CustomRoadAttributeScenario&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<CustomRoadAttributeScenario> updateCustomRoadAttributeScenarioWithHttpInfo(UUID scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results, PolylineFormat polylineFormat, PolylineMapType polylineMapType) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = updateCustomRoadAttributeScenarioRequestBuilder(scenarioId, customRoadAttributeScenario, results, polylineFormat, polylineMapType);
+  public ApiResponse<CustomRoadAttributeScenario> updateCustomRoadAttributeScenarioWithHttpInfo(@javax.annotation.Nonnull UUID scenarioId, @javax.annotation.Nonnull CustomRoadAttributeScenario customRoadAttributeScenario, @javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat, @javax.annotation.Nullable PolylineMapType polylineMapType) throws ApiException {
+    return updateCustomRoadAttributeScenarioWithHttpInfo(scenarioId, customRoadAttributeScenario, results, polylineFormat, polylineMapType, null);
+  }
+
+  /**
+   * 
+   * Perform a full update of an existing custom road attribute scenario.
+   * @param scenarioId The ID of the custom road attribute scenario. (required)
+   * @param customRoadAttributeScenario The custom road attribute scenario to be updated. (required)
+   * @param results Defines which results will be returned. (optional)
+   * @param polylineFormat  (optional, default to GEO_JSON)
+   * @param polylineMapType Defines whether polylines should match the Raster Maps API or the Vector Maps API.  This parameter affects the polylines returned in the response of this request and all subsequent requests referring to this scenario, if polylines are to be returned. Once created or updated, it is not possible to request the polyline for this scenario matching a different map. (optional, default to RASTER)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;CustomRoadAttributeScenario&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<CustomRoadAttributeScenario> updateCustomRoadAttributeScenarioWithHttpInfo(@javax.annotation.Nonnull UUID scenarioId, @javax.annotation.Nonnull CustomRoadAttributeScenario customRoadAttributeScenario, @javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat, @javax.annotation.Nullable PolylineMapType polylineMapType, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateCustomRoadAttributeScenarioRequestBuilder(scenarioId, customRoadAttributeScenario, results, polylineFormat, polylineMapType, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -579,16 +916,35 @@ public class CustomRoadAttributesApi {
       if (memberVarResponseInterceptor != null) {
         memberVarResponseInterceptor.accept(localVarResponse);
       }
+      InputStream localVarResponseBody = null;
       try {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("updateCustomRoadAttributeScenario", localVarResponse);
         }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<CustomRoadAttributeScenario>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        CustomRoadAttributeScenario responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<CustomRoadAttributeScenario>() {});
+        
+
         return new ApiResponse<CustomRoadAttributeScenario>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CustomRoadAttributeScenario>() {}) // closes the InputStream
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
         );
       } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
       }
     } catch (IOException e) {
       throw new ApiException(e);
@@ -599,7 +955,7 @@ public class CustomRoadAttributesApi {
     }
   }
 
-  private HttpRequest.Builder updateCustomRoadAttributeScenarioRequestBuilder(UUID scenarioId, CustomRoadAttributeScenario customRoadAttributeScenario, List<RoadAttributesResults> results, PolylineFormat polylineFormat, PolylineMapType polylineMapType) throws ApiException {
+  private HttpRequest.Builder updateCustomRoadAttributeScenarioRequestBuilder(@javax.annotation.Nonnull UUID scenarioId, @javax.annotation.Nonnull CustomRoadAttributeScenario customRoadAttributeScenario, @javax.annotation.Nullable List<RoadAttributesResults> results, @javax.annotation.Nullable PolylineFormat polylineFormat, @javax.annotation.Nullable PolylineMapType polylineMapType, Map<String, String> headers) throws ApiException {
     // verify the required parameter 'scenarioId' is set
     if (scenarioId == null) {
       throw new ApiException(400, "Missing the required parameter 'scenarioId' when calling updateCustomRoadAttributeScenario");
@@ -647,6 +1003,8 @@ public class CustomRoadAttributesApi {
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
     if (memberVarInterceptor != null) {
       memberVarInterceptor.accept(localVarRequestBuilder);
     }

@@ -47,30 +47,38 @@ import com.ptvgroup.developer.client.data.ApiClient;
   CustomRoadAttributeScenario.JSON_PROPERTY_ACTIVE,
   CustomRoadAttributeScenario.JSON_PROPERTY_REVISION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class CustomRoadAttributeScenario {
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private String description;
 
   public static final String JSON_PROPERTY_ROADS_TO_BE_ATTRIBUTED = "roadsToBeAttributed";
+  @javax.annotation.Nullable
   private List<RoadsToBeAttributed> roadsToBeAttributed;
 
   public static final String JSON_PROPERTY_COMBINED_TRANSPORTS_TO_BE_ATTRIBUTED = "combinedTransportsToBeAttributed";
+  @javax.annotation.Nullable
   private List<CombinedTransportToBeAttributed> combinedTransportsToBeAttributed;
 
   public static final String JSON_PROPERTY_SHARED = "shared";
+  @javax.annotation.Nullable
   private Boolean shared = false;
 
   public static final String JSON_PROPERTY_ACTIVE = "active";
+  @javax.annotation.Nullable
   private Boolean active = true;
 
   public static final String JSON_PROPERTY_REVISION = "revision";
+  @javax.annotation.Nullable
   private Integer revision;
 
   public CustomRoadAttributeScenario() { 
@@ -89,7 +97,7 @@ public class CustomRoadAttributeScenario {
    * @return id
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UUID getId() {
     return id;
@@ -98,7 +106,7 @@ public class CustomRoadAttributeScenario {
 
 
 
-  public CustomRoadAttributeScenario name(String name) {
+  public CustomRoadAttributeScenario name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -108,21 +116,21 @@ public class CustomRoadAttributeScenario {
    * @return name
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
     return name;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public CustomRoadAttributeScenario description(String description) {
+  public CustomRoadAttributeScenario description(@javax.annotation.Nullable String description) {
     this.description = description;
     return this;
   }
@@ -132,21 +140,21 @@ public class CustomRoadAttributeScenario {
    * @return description
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
     return description;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
+  public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
   }
 
 
-  public CustomRoadAttributeScenario roadsToBeAttributed(List<RoadsToBeAttributed> roadsToBeAttributed) {
+  public CustomRoadAttributeScenario roadsToBeAttributed(@javax.annotation.Nullable List<RoadsToBeAttributed> roadsToBeAttributed) {
     this.roadsToBeAttributed = roadsToBeAttributed;
     return this;
   }
@@ -164,21 +172,21 @@ public class CustomRoadAttributeScenario {
    * @return roadsToBeAttributed
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROADS_TO_BE_ATTRIBUTED)
+  @JsonProperty(value = JSON_PROPERTY_ROADS_TO_BE_ATTRIBUTED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<RoadsToBeAttributed> getRoadsToBeAttributed() {
     return roadsToBeAttributed;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROADS_TO_BE_ATTRIBUTED)
+  @JsonProperty(value = JSON_PROPERTY_ROADS_TO_BE_ATTRIBUTED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRoadsToBeAttributed(List<RoadsToBeAttributed> roadsToBeAttributed) {
+  public void setRoadsToBeAttributed(@javax.annotation.Nullable List<RoadsToBeAttributed> roadsToBeAttributed) {
     this.roadsToBeAttributed = roadsToBeAttributed;
   }
 
 
-  public CustomRoadAttributeScenario combinedTransportsToBeAttributed(List<CombinedTransportToBeAttributed> combinedTransportsToBeAttributed) {
+  public CustomRoadAttributeScenario combinedTransportsToBeAttributed(@javax.annotation.Nullable List<CombinedTransportToBeAttributed> combinedTransportsToBeAttributed) {
     this.combinedTransportsToBeAttributed = combinedTransportsToBeAttributed;
     return this;
   }
@@ -196,21 +204,21 @@ public class CustomRoadAttributeScenario {
    * @return combinedTransportsToBeAttributed
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMBINED_TRANSPORTS_TO_BE_ATTRIBUTED)
+  @JsonProperty(value = JSON_PROPERTY_COMBINED_TRANSPORTS_TO_BE_ATTRIBUTED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<CombinedTransportToBeAttributed> getCombinedTransportsToBeAttributed() {
     return combinedTransportsToBeAttributed;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COMBINED_TRANSPORTS_TO_BE_ATTRIBUTED)
+  @JsonProperty(value = JSON_PROPERTY_COMBINED_TRANSPORTS_TO_BE_ATTRIBUTED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCombinedTransportsToBeAttributed(List<CombinedTransportToBeAttributed> combinedTransportsToBeAttributed) {
+  public void setCombinedTransportsToBeAttributed(@javax.annotation.Nullable List<CombinedTransportToBeAttributed> combinedTransportsToBeAttributed) {
     this.combinedTransportsToBeAttributed = combinedTransportsToBeAttributed;
   }
 
 
-  public CustomRoadAttributeScenario shared(Boolean shared) {
+  public CustomRoadAttributeScenario shared(@javax.annotation.Nullable Boolean shared) {
     this.shared = shared;
     return this;
   }
@@ -220,21 +228,21 @@ public class CustomRoadAttributeScenario {
    * @return shared
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHARED)
+  @JsonProperty(value = JSON_PROPERTY_SHARED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShared() {
     return shared;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHARED)
+  @JsonProperty(value = JSON_PROPERTY_SHARED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShared(Boolean shared) {
+  public void setShared(@javax.annotation.Nullable Boolean shared) {
     this.shared = shared;
   }
 
 
-  public CustomRoadAttributeScenario active(Boolean active) {
+  public CustomRoadAttributeScenario active(@javax.annotation.Nullable Boolean active) {
     this.active = active;
     return this;
   }
@@ -244,21 +252,21 @@ public class CustomRoadAttributeScenario {
    * @return active
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACTIVE)
+  @JsonProperty(value = JSON_PROPERTY_ACTIVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getActive() {
     return active;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACTIVE)
+  @JsonProperty(value = JSON_PROPERTY_ACTIVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setActive(Boolean active) {
+  public void setActive(@javax.annotation.Nullable Boolean active) {
     this.active = active;
   }
 
 
-  public CustomRoadAttributeScenario revision(Integer revision) {
+  public CustomRoadAttributeScenario revision(@javax.annotation.Nullable Integer revision) {
     this.revision = revision;
     return this;
   }
@@ -269,16 +277,16 @@ public class CustomRoadAttributeScenario {
    * @return revision
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REVISION)
+  @JsonProperty(value = JSON_PROPERTY_REVISION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getRevision() {
     return revision;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REVISION)
+  @JsonProperty(value = JSON_PROPERTY_REVISION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRevision(Integer revision) {
+  public void setRevision(@javax.annotation.Nullable Integer revision) {
     this.revision = revision;
   }
 
@@ -331,10 +339,7 @@ public class CustomRoadAttributeScenario {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -371,25 +376,25 @@ public class CustomRoadAttributeScenario {
 
     // add `id` to the URL query string
     if (getId() != null) {
-      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sid%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getId()))));
     }
 
     // add `name` to the URL query string
     if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sname%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getName()))));
     }
 
     // add `description` to the URL query string
     if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sdescription%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDescription()))));
     }
 
     // add `roadsToBeAttributed` to the URL query string
     if (getRoadsToBeAttributed() != null) {
       for (int i = 0; i < getRoadsToBeAttributed().size(); i++) {
         if (getRoadsToBeAttributed().get(i) != null) {
-          joiner.add(getRoadsToBeAttributed().get(i).toUrlQueryString(String.format("%sroadsToBeAttributed%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+          joiner.add(getRoadsToBeAttributed().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%sroadsToBeAttributed%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }
@@ -398,25 +403,25 @@ public class CustomRoadAttributeScenario {
     if (getCombinedTransportsToBeAttributed() != null) {
       for (int i = 0; i < getCombinedTransportsToBeAttributed().size(); i++) {
         if (getCombinedTransportsToBeAttributed().get(i) != null) {
-          joiner.add(getCombinedTransportsToBeAttributed().get(i).toUrlQueryString(String.format("%scombinedTransportsToBeAttributed%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+          joiner.add(getCombinedTransportsToBeAttributed().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%scombinedTransportsToBeAttributed%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }
 
     // add `shared` to the URL query string
     if (getShared() != null) {
-      joiner.add(String.format("%sshared%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getShared()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sshared%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getShared()))));
     }
 
     // add `active` to the URL query string
     if (getActive() != null) {
-      joiner.add(String.format("%sactive%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getActive()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sactive%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getActive()))));
     }
 
     // add `revision` to the URL query string
     if (getRevision() != null) {
-      joiner.add(String.format("%srevision%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRevision()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%srevision%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getRevision()))));
     }
 
     return joiner.toString();

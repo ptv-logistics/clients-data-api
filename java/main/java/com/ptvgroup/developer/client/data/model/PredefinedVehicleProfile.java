@@ -45,33 +45,40 @@ import com.ptvgroup.developer.client.data.ApiClient;
   PredefinedVehicleProfile.JSON_PROPERTY_MONETARY_COST_OPTIONS,
   PredefinedVehicleProfile.JSON_PROPERTY_ROUTE_OPTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class PredefinedVehicleProfile {
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nonnull
   private String description;
 
   public static final String JSON_PROPERTY_REGION = "region";
+  @javax.annotation.Nonnull
   private RegionType region;
 
   public static final String JSON_PROPERTY_VEHICLE = "vehicle";
+  @javax.annotation.Nullable
   private Vehicle vehicle;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
+  @javax.annotation.Nonnull
   private String currency;
 
   public static final String JSON_PROPERTY_MONETARY_COST_OPTIONS = "monetaryCostOptions";
+  @javax.annotation.Nullable
   private MonetaryCostOptions monetaryCostOptions;
 
   public static final String JSON_PROPERTY_ROUTE_OPTIONS = "routeOptions";
+  @javax.annotation.Nullable
   private RouteOptions routeOptions;
 
   public PredefinedVehicleProfile() { 
   }
 
-  public PredefinedVehicleProfile name(String name) {
+  public PredefinedVehicleProfile name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -81,21 +88,21 @@ public class PredefinedVehicleProfile {
    * @return name
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
     return name;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public PredefinedVehicleProfile description(String description) {
+  public PredefinedVehicleProfile description(@javax.annotation.Nonnull String description) {
     this.description = description;
     return this;
   }
@@ -105,21 +112,21 @@ public class PredefinedVehicleProfile {
    * @return description
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDescription() {
     return description;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(value = JSON_PROPERTY_DESCRIPTION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDescription(String description) {
+  public void setDescription(@javax.annotation.Nonnull String description) {
     this.description = description;
   }
 
 
-  public PredefinedVehicleProfile region(RegionType region) {
+  public PredefinedVehicleProfile region(@javax.annotation.Nonnull RegionType region) {
     this.region = region;
     return this;
   }
@@ -129,21 +136,21 @@ public class PredefinedVehicleProfile {
    * @return region
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_REGION)
+  @JsonProperty(value = JSON_PROPERTY_REGION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public RegionType getRegion() {
     return region;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REGION)
+  @JsonProperty(value = JSON_PROPERTY_REGION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRegion(RegionType region) {
+  public void setRegion(@javax.annotation.Nonnull RegionType region) {
     this.region = region;
   }
 
 
-  public PredefinedVehicleProfile vehicle(Vehicle vehicle) {
+  public PredefinedVehicleProfile vehicle(@javax.annotation.Nullable Vehicle vehicle) {
     this.vehicle = vehicle;
     return this;
   }
@@ -153,21 +160,21 @@ public class PredefinedVehicleProfile {
    * @return vehicle
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VEHICLE)
+  @JsonProperty(value = JSON_PROPERTY_VEHICLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Vehicle getVehicle() {
     return vehicle;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEHICLE)
+  @JsonProperty(value = JSON_PROPERTY_VEHICLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setVehicle(Vehicle vehicle) {
+  public void setVehicle(@javax.annotation.Nullable Vehicle vehicle) {
     this.vehicle = vehicle;
   }
 
 
-  public PredefinedVehicleProfile currency(String currency) {
+  public PredefinedVehicleProfile currency(@javax.annotation.Nonnull String currency) {
     this.currency = currency;
     return this;
   }
@@ -177,21 +184,21 @@ public class PredefinedVehicleProfile {
    * @return currency
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonProperty(value = JSON_PROPERTY_CURRENCY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCurrency() {
     return currency;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonProperty(value = JSON_PROPERTY_CURRENCY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCurrency(String currency) {
+  public void setCurrency(@javax.annotation.Nonnull String currency) {
     this.currency = currency;
   }
 
 
-  public PredefinedVehicleProfile monetaryCostOptions(MonetaryCostOptions monetaryCostOptions) {
+  public PredefinedVehicleProfile monetaryCostOptions(@javax.annotation.Nullable MonetaryCostOptions monetaryCostOptions) {
     this.monetaryCostOptions = monetaryCostOptions;
     return this;
   }
@@ -201,21 +208,21 @@ public class PredefinedVehicleProfile {
    * @return monetaryCostOptions
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MONETARY_COST_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_MONETARY_COST_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonetaryCostOptions getMonetaryCostOptions() {
     return monetaryCostOptions;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MONETARY_COST_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_MONETARY_COST_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMonetaryCostOptions(MonetaryCostOptions monetaryCostOptions) {
+  public void setMonetaryCostOptions(@javax.annotation.Nullable MonetaryCostOptions monetaryCostOptions) {
     this.monetaryCostOptions = monetaryCostOptions;
   }
 
 
-  public PredefinedVehicleProfile routeOptions(RouteOptions routeOptions) {
+  public PredefinedVehicleProfile routeOptions(@javax.annotation.Nullable RouteOptions routeOptions) {
     this.routeOptions = routeOptions;
     return this;
   }
@@ -225,16 +232,16 @@ public class PredefinedVehicleProfile {
    * @return routeOptions
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROUTE_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_ROUTE_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RouteOptions getRouteOptions() {
     return routeOptions;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROUTE_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_ROUTE_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRouteOptions(RouteOptions routeOptions) {
+  public void setRouteOptions(@javax.annotation.Nullable RouteOptions routeOptions) {
     this.routeOptions = routeOptions;
   }
 
@@ -285,10 +292,7 @@ public class PredefinedVehicleProfile {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -325,17 +329,17 @@ public class PredefinedVehicleProfile {
 
     // add `name` to the URL query string
     if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sname%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getName()))));
     }
 
     // add `description` to the URL query string
     if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sdescription%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDescription()))));
     }
 
     // add `region` to the URL query string
     if (getRegion() != null) {
-      joiner.add(String.format("%sregion%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRegion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sregion%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getRegion()))));
     }
 
     // add `vehicle` to the URL query string
@@ -345,7 +349,7 @@ public class PredefinedVehicleProfile {
 
     // add `currency` to the URL query string
     if (getCurrency() != null) {
-      joiner.add(String.format("%scurrency%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCurrency()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%scurrency%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCurrency()))));
     }
 
     // add `monetaryCostOptions` to the URL query string

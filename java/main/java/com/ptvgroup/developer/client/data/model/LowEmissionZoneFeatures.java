@@ -37,15 +37,16 @@ import com.ptvgroup.developer.client.data.ApiClient;
 @JsonPropertyOrder({
   LowEmissionZoneFeatures.JSON_PROPERTY_EXEMPTIBLE_LOW_EMISSION_ZONES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class LowEmissionZoneFeatures {
   public static final String JSON_PROPERTY_EXEMPTIBLE_LOW_EMISSION_ZONES = "exemptibleLowEmissionZones";
+  @javax.annotation.Nonnull
   private List<String> exemptibleLowEmissionZones;
 
   public LowEmissionZoneFeatures() { 
   }
 
-  public LowEmissionZoneFeatures exemptibleLowEmissionZones(List<String> exemptibleLowEmissionZones) {
+  public LowEmissionZoneFeatures exemptibleLowEmissionZones(@javax.annotation.Nonnull List<String> exemptibleLowEmissionZones) {
     this.exemptibleLowEmissionZones = exemptibleLowEmissionZones;
     return this;
   }
@@ -63,16 +64,16 @@ public class LowEmissionZoneFeatures {
    * @return exemptibleLowEmissionZones
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EXEMPTIBLE_LOW_EMISSION_ZONES)
+  @JsonProperty(value = JSON_PROPERTY_EXEMPTIBLE_LOW_EMISSION_ZONES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getExemptibleLowEmissionZones() {
     return exemptibleLowEmissionZones;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXEMPTIBLE_LOW_EMISSION_ZONES)
+  @JsonProperty(value = JSON_PROPERTY_EXEMPTIBLE_LOW_EMISSION_ZONES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExemptibleLowEmissionZones(List<String> exemptibleLowEmissionZones) {
+  public void setExemptibleLowEmissionZones(@javax.annotation.Nonnull List<String> exemptibleLowEmissionZones) {
     this.exemptibleLowEmissionZones = exemptibleLowEmissionZones;
   }
 
@@ -111,10 +112,7 @@ public class LowEmissionZoneFeatures {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -152,9 +150,9 @@ public class LowEmissionZoneFeatures {
     // add `exemptibleLowEmissionZones` to the URL query string
     if (getExemptibleLowEmissionZones() != null) {
       for (int i = 0; i < getExemptibleLowEmissionZones().size(); i++) {
-        joiner.add(String.format("%sexemptibleLowEmissionZones%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(ApiClient.valueToString(getExemptibleLowEmissionZones().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        joiner.add(String.format(java.util.Locale.ROOT, "%sexemptibleLowEmissionZones%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
+            ApiClient.urlEncode(ApiClient.valueToString(getExemptibleLowEmissionZones().get(i)))));
       }
     }
 

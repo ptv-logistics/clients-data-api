@@ -38,15 +38,16 @@ import com.ptvgroup.developer.client.data.ApiClient;
 @JsonPropertyOrder({
   RoadsResponse.JSON_PROPERTY_ROADS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class RoadsResponse {
   public static final String JSON_PROPERTY_ROADS = "roads";
+  @javax.annotation.Nullable
   private List<Road> roads;
 
   public RoadsResponse() { 
   }
 
-  public RoadsResponse roads(List<Road> roads) {
+  public RoadsResponse roads(@javax.annotation.Nullable List<Road> roads) {
     this.roads = roads;
     return this;
   }
@@ -64,16 +65,16 @@ public class RoadsResponse {
    * @return roads
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROADS)
+  @JsonProperty(value = JSON_PROPERTY_ROADS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Road> getRoads() {
     return roads;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROADS)
+  @JsonProperty(value = JSON_PROPERTY_ROADS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRoads(List<Road> roads) {
+  public void setRoads(@javax.annotation.Nullable List<Road> roads) {
     this.roads = roads;
   }
 
@@ -112,10 +113,7 @@ public class RoadsResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -154,8 +152,8 @@ public class RoadsResponse {
     if (getRoads() != null) {
       for (int i = 0; i < getRoads().size(); i++) {
         if (getRoads().get(i) != null) {
-          joiner.add(getRoads().get(i).toUrlQueryString(String.format("%sroads%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+          joiner.add(getRoads().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%sroads%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }

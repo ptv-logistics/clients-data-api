@@ -37,21 +37,24 @@ import com.ptvgroup.developer.client.data.ApiClient;
   CombinedTransportByPosition.JSON_PROPERTY_LONGITUDE,
   CombinedTransportByPosition.JSON_PROPERTY_RADIUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class CombinedTransportByPosition {
   public static final String JSON_PROPERTY_LATITUDE = "latitude";
+  @javax.annotation.Nonnull
   private Double latitude;
 
   public static final String JSON_PROPERTY_LONGITUDE = "longitude";
+  @javax.annotation.Nonnull
   private Double longitude;
 
   public static final String JSON_PROPERTY_RADIUS = "radius";
+  @javax.annotation.Nullable
   private Integer radius = 5000;
 
   public CombinedTransportByPosition() { 
   }
 
-  public CombinedTransportByPosition latitude(Double latitude) {
+  public CombinedTransportByPosition latitude(@javax.annotation.Nonnull Double latitude) {
     this.latitude = latitude;
     return this;
   }
@@ -63,21 +66,21 @@ public class CombinedTransportByPosition {
    * @return latitude
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LATITUDE)
+  @JsonProperty(value = JSON_PROPERTY_LATITUDE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Double getLatitude() {
     return latitude;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LATITUDE)
+  @JsonProperty(value = JSON_PROPERTY_LATITUDE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLatitude(Double latitude) {
+  public void setLatitude(@javax.annotation.Nonnull Double latitude) {
     this.latitude = latitude;
   }
 
 
-  public CombinedTransportByPosition longitude(Double longitude) {
+  public CombinedTransportByPosition longitude(@javax.annotation.Nonnull Double longitude) {
     this.longitude = longitude;
     return this;
   }
@@ -89,21 +92,21 @@ public class CombinedTransportByPosition {
    * @return longitude
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LONGITUDE)
+  @JsonProperty(value = JSON_PROPERTY_LONGITUDE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Double getLongitude() {
     return longitude;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LONGITUDE)
+  @JsonProperty(value = JSON_PROPERTY_LONGITUDE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLongitude(Double longitude) {
+  public void setLongitude(@javax.annotation.Nonnull Double longitude) {
     this.longitude = longitude;
   }
 
 
-  public CombinedTransportByPosition radius(Integer radius) {
+  public CombinedTransportByPosition radius(@javax.annotation.Nullable Integer radius) {
     this.radius = radius;
     return this;
   }
@@ -114,16 +117,16 @@ public class CombinedTransportByPosition {
    * @return radius
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RADIUS)
+  @JsonProperty(value = JSON_PROPERTY_RADIUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getRadius() {
     return radius;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RADIUS)
+  @JsonProperty(value = JSON_PROPERTY_RADIUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRadius(Integer radius) {
+  public void setRadius(@javax.annotation.Nullable Integer radius) {
     this.radius = radius;
   }
 
@@ -166,10 +169,7 @@ public class CombinedTransportByPosition {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -206,17 +206,17 @@ public class CombinedTransportByPosition {
 
     // add `latitude` to the URL query string
     if (getLatitude() != null) {
-      joiner.add(String.format("%slatitude%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLatitude()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%slatitude%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLatitude()))));
     }
 
     // add `longitude` to the URL query string
     if (getLongitude() != null) {
-      joiner.add(String.format("%slongitude%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLongitude()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%slongitude%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLongitude()))));
     }
 
     // add `radius` to the URL query string
     if (getRadius() != null) {
-      joiner.add(String.format("%sradius%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRadius()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sradius%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getRadius()))));
     }
 
     return joiner.toString();

@@ -44,24 +44,30 @@ import com.ptvgroup.developer.client.data.ApiClient;
   VehicleModel.JSON_PROPERTY_ENGINE,
   VehicleModel.JSON_PROPERTY_BATTERY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class VehicleModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_PREDEFINED_PROFILE = "predefinedProfile";
+  @javax.annotation.Nonnull
   private String predefinedProfile;
 
   public static final String JSON_PROPERTY_VEHICLE_TYPE = "vehicleType";
+  @javax.annotation.Nonnull
   private String vehicleType;
 
   public static final String JSON_PROPERTY_COMMERCIAL = "commercial";
+  @javax.annotation.Nonnull
   private Commercial commercial;
 
   public static final String JSON_PROPERTY_ENGINE = "engine";
+  @javax.annotation.Nullable
   private Engine engine;
 
   public static final String JSON_PROPERTY_BATTERY = "battery";
+  @javax.annotation.Nullable
   private Battery battery;
 
   public VehicleModel() { 
@@ -80,7 +86,7 @@ public class VehicleModel {
    * @return id
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public UUID getId() {
     return id;
@@ -89,7 +95,7 @@ public class VehicleModel {
 
 
 
-  public VehicleModel predefinedProfile(String predefinedProfile) {
+  public VehicleModel predefinedProfile(@javax.annotation.Nonnull String predefinedProfile) {
     this.predefinedProfile = predefinedProfile;
     return this;
   }
@@ -99,21 +105,21 @@ public class VehicleModel {
    * @return predefinedProfile
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PREDEFINED_PROFILE)
+  @JsonProperty(value = JSON_PROPERTY_PREDEFINED_PROFILE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPredefinedProfile() {
     return predefinedProfile;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PREDEFINED_PROFILE)
+  @JsonProperty(value = JSON_PROPERTY_PREDEFINED_PROFILE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPredefinedProfile(String predefinedProfile) {
+  public void setPredefinedProfile(@javax.annotation.Nonnull String predefinedProfile) {
     this.predefinedProfile = predefinedProfile;
   }
 
 
-  public VehicleModel vehicleType(String vehicleType) {
+  public VehicleModel vehicleType(@javax.annotation.Nonnull String vehicleType) {
     this.vehicleType = vehicleType;
     return this;
   }
@@ -123,21 +129,21 @@ public class VehicleModel {
    * @return vehicleType
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VEHICLE_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_VEHICLE_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getVehicleType() {
     return vehicleType;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEHICLE_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_VEHICLE_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVehicleType(String vehicleType) {
+  public void setVehicleType(@javax.annotation.Nonnull String vehicleType) {
     this.vehicleType = vehicleType;
   }
 
 
-  public VehicleModel commercial(Commercial commercial) {
+  public VehicleModel commercial(@javax.annotation.Nonnull Commercial commercial) {
     this.commercial = commercial;
     return this;
   }
@@ -147,21 +153,21 @@ public class VehicleModel {
    * @return commercial
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_COMMERCIAL)
+  @JsonProperty(value = JSON_PROPERTY_COMMERCIAL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Commercial getCommercial() {
     return commercial;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COMMERCIAL)
+  @JsonProperty(value = JSON_PROPERTY_COMMERCIAL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCommercial(Commercial commercial) {
+  public void setCommercial(@javax.annotation.Nonnull Commercial commercial) {
     this.commercial = commercial;
   }
 
 
-  public VehicleModel engine(Engine engine) {
+  public VehicleModel engine(@javax.annotation.Nullable Engine engine) {
     this.engine = engine;
     return this;
   }
@@ -171,21 +177,21 @@ public class VehicleModel {
    * @return engine
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENGINE)
+  @JsonProperty(value = JSON_PROPERTY_ENGINE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Engine getEngine() {
     return engine;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENGINE)
+  @JsonProperty(value = JSON_PROPERTY_ENGINE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEngine(Engine engine) {
+  public void setEngine(@javax.annotation.Nullable Engine engine) {
     this.engine = engine;
   }
 
 
-  public VehicleModel battery(Battery battery) {
+  public VehicleModel battery(@javax.annotation.Nullable Battery battery) {
     this.battery = battery;
     return this;
   }
@@ -195,16 +201,16 @@ public class VehicleModel {
    * @return battery
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BATTERY)
+  @JsonProperty(value = JSON_PROPERTY_BATTERY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Battery getBattery() {
     return battery;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BATTERY)
+  @JsonProperty(value = JSON_PROPERTY_BATTERY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBattery(Battery battery) {
+  public void setBattery(@javax.annotation.Nullable Battery battery) {
     this.battery = battery;
   }
 
@@ -253,10 +259,7 @@ public class VehicleModel {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -293,17 +296,17 @@ public class VehicleModel {
 
     // add `id` to the URL query string
     if (getId() != null) {
-      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sid%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getId()))));
     }
 
     // add `predefinedProfile` to the URL query string
     if (getPredefinedProfile() != null) {
-      joiner.add(String.format("%spredefinedProfile%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPredefinedProfile()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%spredefinedProfile%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPredefinedProfile()))));
     }
 
     // add `vehicleType` to the URL query string
     if (getVehicleType() != null) {
-      joiner.add(String.format("%svehicleType%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getVehicleType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%svehicleType%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getVehicleType()))));
     }
 
     // add `commercial` to the URL query string

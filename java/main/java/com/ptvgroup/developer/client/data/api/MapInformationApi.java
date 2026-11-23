@@ -15,6 +15,7 @@ package com.ptvgroup.developer.client.data.api;
 import com.ptvgroup.developer.client.data.ApiClient;
 import com.ptvgroup.developer.client.data.ApiException;
 import com.ptvgroup.developer.client.data.ApiResponse;
+import com.ptvgroup.developer.client.data.Configuration;
 import com.ptvgroup.developer.client.data.Pair;
 
 import com.ptvgroup.developer.client.data.model.CombinedTransportByPosition;
@@ -49,18 +50,38 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class MapInformationApi {
+  /**
+   * Utility class for extending HttpRequest.Builder functionality.
+   */
+  private static class HttpRequestBuilderExtensions {
+    /**
+     * Adds additional headers to the provided HttpRequest.Builder. Useful for adding method/endpoint specific headers.
+     *
+     * @param builder the HttpRequest.Builder to which headers will be added
+     * @param headers a map of header names and values to add; may be null
+     * @return the same HttpRequest.Builder instance with the additional headers set
+     */
+    static HttpRequest.Builder withAdditionalHeaders(HttpRequest.Builder builder, Map<String, String> headers) {
+        if (headers != null) {
+            for (Map.Entry<String, String> entry : headers.entrySet()) {
+                builder.header(entry.getKey(), entry.getValue());
+            }
+        }
+        return builder;
+    }
+  }
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
   private final String memberVarBaseUri;
   private final Consumer<HttpRequest.Builder> memberVarInterceptor;
   private final Duration memberVarReadTimeout;
   private final Consumer<HttpResponse<InputStream>> memberVarResponseInterceptor;
-  private final Consumer<HttpResponse<String>> memberVarAsyncResponseInterceptor;
+  private final Consumer<HttpResponse<InputStream>> memberVarAsyncResponseInterceptor;
 
   public MapInformationApi() {
-    this(new ApiClient());
+    this(Configuration.getDefaultApiClient());
   }
 
   public MapInformationApi(ApiClient apiClient) {
@@ -73,8 +94,17 @@ public class MapInformationApi {
     memberVarAsyncResponseInterceptor = apiClient.getAsyncResponseInterceptor();
   }
 
+
   protected ApiException getApiException(String operationId, HttpResponse<InputStream> response) throws IOException {
-    String body = response.body() == null ? null : new String(response.body().readAllBytes());
+    InputStream responseBody = ApiClient.getResponseBody(response);
+    String body = null;
+    try {
+      body = responseBody == null ? null : new String(responseBody.readAllBytes());
+    } finally {
+      if (responseBody != null) {
+        responseBody.close();
+      }
+    }
     String message = formatExceptionMessage(operationId, response.statusCode(), body);
     return new ApiException(response.statusCode(), message, response.headers(), body);
   }
@@ -87,6 +117,57 @@ public class MapInformationApi {
   }
 
   /**
+   * Download file from the given response.
+   *
+   * @param response Response
+   * @return File
+   * @throws ApiException If fail to read file content from response and write to disk
+   */
+  public File downloadFileFromResponse(HttpResponse<InputStream> response, InputStream responseBody) throws ApiException {
+    if (responseBody == null) {
+      throw new ApiException(new IOException("Response body is empty"));
+    }
+    try {
+      File file = prepareDownloadFile(response);
+      java.nio.file.Files.copy(responseBody, file.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+      return file;
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+  }
+
+  /**
+   * <p>Prepare the file for download from the response.</p>
+   *
+   * @param response a {@link java.net.http.HttpResponse} object.
+   * @return a {@link java.io.File} object.
+   * @throws java.io.IOException if any.
+   */
+  private File prepareDownloadFile(HttpResponse<InputStream> response) throws IOException {
+    String filename = null;
+    java.util.Optional<String> contentDisposition = response.headers().firstValue("Content-Disposition");
+    if (contentDisposition.isPresent() && !"".equals(contentDisposition.get())) {
+      // Get filename from the Content-Disposition header.
+      java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("filename=['\"]?([^'\"\\s]+)['\"]?");
+      java.util.regex.Matcher matcher = pattern.matcher(contentDisposition.get());
+      if (matcher.find())
+        filename = matcher.group(1);
+    }
+    File file = null;
+    if (filename != null) {
+      java.nio.file.Path tempDir = java.nio.file.Files.createTempDirectory("swagger-gen-native");
+      java.nio.file.Path filePath = java.nio.file.Files.createFile(tempDir.resolve(filename));
+      file = filePath.toFile();
+      tempDir.toFile().deleteOnExit();   // best effort cleanup
+      file.deleteOnExit(); // best effort cleanup
+    } else {
+      file = java.nio.file.Files.createTempFile("download-", "").toFile();
+      file.deleteOnExit(); // best effort cleanup
+    }
+    return file;
+  }
+
+  /**
    * 
    * Get combined transports from a (click) point on a map or matching a given text input.  A request will be rejected if  * it covers more than 5000 combined transports or * if neither the parameter **position** nor the parameter **text** is specified.
    * @param position  (optional)
@@ -95,8 +176,22 @@ public class MapInformationApi {
    * @return CombinedTransportsResponse
    * @throws ApiException if fails to make API call
    */
-  public CombinedTransportsResponse getCombinedTransports(CombinedTransportByPosition position, CombinedTransportByText text, PolylineFormat polylineFormat) throws ApiException {
-    ApiResponse<CombinedTransportsResponse> localVarResponse = getCombinedTransportsWithHttpInfo(position, text, polylineFormat);
+  public CombinedTransportsResponse getCombinedTransports(@javax.annotation.Nullable CombinedTransportByPosition position, @javax.annotation.Nullable CombinedTransportByText text, @javax.annotation.Nullable PolylineFormat polylineFormat) throws ApiException {
+    return getCombinedTransports(position, text, polylineFormat, null);
+  }
+
+  /**
+   * 
+   * Get combined transports from a (click) point on a map or matching a given text input.  A request will be rejected if  * it covers more than 5000 combined transports or * if neither the parameter **position** nor the parameter **text** is specified.
+   * @param position  (optional)
+   * @param text  (optional)
+   * @param polylineFormat  (optional, default to GEO_JSON)
+   * @param headers Optional headers to include in the request
+   * @return CombinedTransportsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CombinedTransportsResponse getCombinedTransports(@javax.annotation.Nullable CombinedTransportByPosition position, @javax.annotation.Nullable CombinedTransportByText text, @javax.annotation.Nullable PolylineFormat polylineFormat, Map<String, String> headers) throws ApiException {
+    ApiResponse<CombinedTransportsResponse> localVarResponse = getCombinedTransportsWithHttpInfo(position, text, polylineFormat, headers);
     return localVarResponse.getData();
   }
 
@@ -109,8 +204,22 @@ public class MapInformationApi {
    * @return ApiResponse&lt;CombinedTransportsResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<CombinedTransportsResponse> getCombinedTransportsWithHttpInfo(CombinedTransportByPosition position, CombinedTransportByText text, PolylineFormat polylineFormat) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getCombinedTransportsRequestBuilder(position, text, polylineFormat);
+  public ApiResponse<CombinedTransportsResponse> getCombinedTransportsWithHttpInfo(@javax.annotation.Nullable CombinedTransportByPosition position, @javax.annotation.Nullable CombinedTransportByText text, @javax.annotation.Nullable PolylineFormat polylineFormat) throws ApiException {
+    return getCombinedTransportsWithHttpInfo(position, text, polylineFormat, null);
+  }
+
+  /**
+   * 
+   * Get combined transports from a (click) point on a map or matching a given text input.  A request will be rejected if  * it covers more than 5000 combined transports or * if neither the parameter **position** nor the parameter **text** is specified.
+   * @param position  (optional)
+   * @param text  (optional)
+   * @param polylineFormat  (optional, default to GEO_JSON)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;CombinedTransportsResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<CombinedTransportsResponse> getCombinedTransportsWithHttpInfo(@javax.annotation.Nullable CombinedTransportByPosition position, @javax.annotation.Nullable CombinedTransportByText text, @javax.annotation.Nullable PolylineFormat polylineFormat, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getCombinedTransportsRequestBuilder(position, text, polylineFormat, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -118,16 +227,35 @@ public class MapInformationApi {
       if (memberVarResponseInterceptor != null) {
         memberVarResponseInterceptor.accept(localVarResponse);
       }
+      InputStream localVarResponseBody = null;
       try {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getCombinedTransports", localVarResponse);
         }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<CombinedTransportsResponse>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        CombinedTransportsResponse responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<CombinedTransportsResponse>() {});
+        
+
         return new ApiResponse<CombinedTransportsResponse>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CombinedTransportsResponse>() {}) // closes the InputStream
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
         );
       } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
       }
     } catch (IOException e) {
       throw new ApiException(e);
@@ -138,7 +266,7 @@ public class MapInformationApi {
     }
   }
 
-  private HttpRequest.Builder getCombinedTransportsRequestBuilder(CombinedTransportByPosition position, CombinedTransportByText text, PolylineFormat polylineFormat) throws ApiException {
+  private HttpRequest.Builder getCombinedTransportsRequestBuilder(@javax.annotation.Nullable CombinedTransportByPosition position, @javax.annotation.Nullable CombinedTransportByText text, @javax.annotation.Nullable PolylineFormat polylineFormat, Map<String, String> headers) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
@@ -181,6 +309,8 @@ public class MapInformationApi {
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
     if (memberVarInterceptor != null) {
       memberVarInterceptor.accept(localVarRequestBuilder);
     }
@@ -194,7 +324,18 @@ public class MapInformationApi {
    * @throws ApiException if fails to make API call
    */
   public MapInformationResponse getMapInformation() throws ApiException {
-    ApiResponse<MapInformationResponse> localVarResponse = getMapInformationWithHttpInfo();
+    return getMapInformation(null);
+  }
+
+  /**
+   * 
+   * Gets information about the map. See [here](./concepts/map-information) for more information.
+   * @param headers Optional headers to include in the request
+   * @return MapInformationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MapInformationResponse getMapInformation(Map<String, String> headers) throws ApiException {
+    ApiResponse<MapInformationResponse> localVarResponse = getMapInformationWithHttpInfo(headers);
     return localVarResponse.getData();
   }
 
@@ -205,7 +346,18 @@ public class MapInformationApi {
    * @throws ApiException if fails to make API call
    */
   public ApiResponse<MapInformationResponse> getMapInformationWithHttpInfo() throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getMapInformationRequestBuilder();
+    return getMapInformationWithHttpInfo(null);
+  }
+
+  /**
+   * 
+   * Gets information about the map. See [here](./concepts/map-information) for more information.
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;MapInformationResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<MapInformationResponse> getMapInformationWithHttpInfo(Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getMapInformationRequestBuilder(headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -213,16 +365,35 @@ public class MapInformationApi {
       if (memberVarResponseInterceptor != null) {
         memberVarResponseInterceptor.accept(localVarResponse);
       }
+      InputStream localVarResponseBody = null;
       try {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getMapInformation", localVarResponse);
         }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<MapInformationResponse>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        MapInformationResponse responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<MapInformationResponse>() {});
+        
+
         return new ApiResponse<MapInformationResponse>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<MapInformationResponse>() {}) // closes the InputStream
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
         );
       } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
       }
     } catch (IOException e) {
       throw new ApiException(e);
@@ -233,7 +404,7 @@ public class MapInformationApi {
     }
   }
 
-  private HttpRequest.Builder getMapInformationRequestBuilder() throws ApiException {
+  private HttpRequest.Builder getMapInformationRequestBuilder(Map<String, String> headers) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
@@ -247,6 +418,8 @@ public class MapInformationApi {
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
     if (memberVarInterceptor != null) {
       memberVarInterceptor.accept(localVarRequestBuilder);
     }

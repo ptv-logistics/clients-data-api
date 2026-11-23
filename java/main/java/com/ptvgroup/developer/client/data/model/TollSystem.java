@@ -40,21 +40,24 @@ import com.ptvgroup.developer.client.data.ApiClient;
   TollSystem.JSON_PROPERTY_OPERATOR,
   TollSystem.JSON_PROPERTY_TARIFF_VERSIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class TollSystem {
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_OPERATOR = "operator";
+  @javax.annotation.Nonnull
   private String operator;
 
   public static final String JSON_PROPERTY_TARIFF_VERSIONS = "tariffVersions";
+  @javax.annotation.Nonnull
   private List<TariffVersion> tariffVersions;
 
   public TollSystem() { 
   }
 
-  public TollSystem name(String name) {
+  public TollSystem name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -64,21 +67,21 @@ public class TollSystem {
    * @return name
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
     return name;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public TollSystem operator(String operator) {
+  public TollSystem operator(@javax.annotation.Nonnull String operator) {
     this.operator = operator;
     return this;
   }
@@ -88,21 +91,21 @@ public class TollSystem {
    * @return operator
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_OPERATOR)
+  @JsonProperty(value = JSON_PROPERTY_OPERATOR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getOperator() {
     return operator;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OPERATOR)
+  @JsonProperty(value = JSON_PROPERTY_OPERATOR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOperator(String operator) {
+  public void setOperator(@javax.annotation.Nonnull String operator) {
     this.operator = operator;
   }
 
 
-  public TollSystem tariffVersions(List<TariffVersion> tariffVersions) {
+  public TollSystem tariffVersions(@javax.annotation.Nonnull List<TariffVersion> tariffVersions) {
     this.tariffVersions = tariffVersions;
     return this;
   }
@@ -120,16 +123,16 @@ public class TollSystem {
    * @return tariffVersions
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TARIFF_VERSIONS)
+  @JsonProperty(value = JSON_PROPERTY_TARIFF_VERSIONS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<TariffVersion> getTariffVersions() {
     return tariffVersions;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TARIFF_VERSIONS)
+  @JsonProperty(value = JSON_PROPERTY_TARIFF_VERSIONS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTariffVersions(List<TariffVersion> tariffVersions) {
+  public void setTariffVersions(@javax.annotation.Nonnull List<TariffVersion> tariffVersions) {
     this.tariffVersions = tariffVersions;
   }
 
@@ -172,10 +175,7 @@ public class TollSystem {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -212,20 +212,20 @@ public class TollSystem {
 
     // add `name` to the URL query string
     if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sname%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getName()))));
     }
 
     // add `operator` to the URL query string
     if (getOperator() != null) {
-      joiner.add(String.format("%soperator%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getOperator()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%soperator%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getOperator()))));
     }
 
     // add `tariffVersions` to the URL query string
     if (getTariffVersions() != null) {
       for (int i = 0; i < getTariffVersions().size(); i++) {
         if (getTariffVersions().get(i) != null) {
-          joiner.add(getTariffVersions().get(i).toUrlQueryString(String.format("%stariffVersions%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+          joiner.add(getTariffVersions().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%stariffVersions%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }

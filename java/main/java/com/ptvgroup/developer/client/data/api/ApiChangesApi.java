@@ -15,6 +15,7 @@ package com.ptvgroup.developer.client.data.api;
 import com.ptvgroup.developer.client.data.ApiClient;
 import com.ptvgroup.developer.client.data.ApiException;
 import com.ptvgroup.developer.client.data.ApiResponse;
+import com.ptvgroup.developer.client.data.Configuration;
 import com.ptvgroup.developer.client.data.Pair;
 
 import com.ptvgroup.developer.client.data.model.ApiChanges;
@@ -45,18 +46,38 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class ApiChangesApi {
+  /**
+   * Utility class for extending HttpRequest.Builder functionality.
+   */
+  private static class HttpRequestBuilderExtensions {
+    /**
+     * Adds additional headers to the provided HttpRequest.Builder. Useful for adding method/endpoint specific headers.
+     *
+     * @param builder the HttpRequest.Builder to which headers will be added
+     * @param headers a map of header names and values to add; may be null
+     * @return the same HttpRequest.Builder instance with the additional headers set
+     */
+    static HttpRequest.Builder withAdditionalHeaders(HttpRequest.Builder builder, Map<String, String> headers) {
+        if (headers != null) {
+            for (Map.Entry<String, String> entry : headers.entrySet()) {
+                builder.header(entry.getKey(), entry.getValue());
+            }
+        }
+        return builder;
+    }
+  }
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
   private final String memberVarBaseUri;
   private final Consumer<HttpRequest.Builder> memberVarInterceptor;
   private final Duration memberVarReadTimeout;
   private final Consumer<HttpResponse<InputStream>> memberVarResponseInterceptor;
-  private final Consumer<HttpResponse<String>> memberVarAsyncResponseInterceptor;
+  private final Consumer<HttpResponse<InputStream>> memberVarAsyncResponseInterceptor;
 
   public ApiChangesApi() {
-    this(new ApiClient());
+    this(Configuration.getDefaultApiClient());
   }
 
   public ApiChangesApi(ApiClient apiClient) {
@@ -69,8 +90,17 @@ public class ApiChangesApi {
     memberVarAsyncResponseInterceptor = apiClient.getAsyncResponseInterceptor();
   }
 
+
   protected ApiException getApiException(String operationId, HttpResponse<InputStream> response) throws IOException {
-    String body = response.body() == null ? null : new String(response.body().readAllBytes());
+    InputStream responseBody = ApiClient.getResponseBody(response);
+    String body = null;
+    try {
+      body = responseBody == null ? null : new String(responseBody.readAllBytes());
+    } finally {
+      if (responseBody != null) {
+        responseBody.close();
+      }
+    }
     String message = formatExceptionMessage(operationId, response.statusCode(), body);
     return new ApiException(response.statusCode(), message, response.headers(), body);
   }
@@ -83,13 +113,75 @@ public class ApiChangesApi {
   }
 
   /**
+   * Download file from the given response.
+   *
+   * @param response Response
+   * @return File
+   * @throws ApiException If fail to read file content from response and write to disk
+   */
+  public File downloadFileFromResponse(HttpResponse<InputStream> response, InputStream responseBody) throws ApiException {
+    if (responseBody == null) {
+      throw new ApiException(new IOException("Response body is empty"));
+    }
+    try {
+      File file = prepareDownloadFile(response);
+      java.nio.file.Files.copy(responseBody, file.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+      return file;
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+  }
+
+  /**
+   * <p>Prepare the file for download from the response.</p>
+   *
+   * @param response a {@link java.net.http.HttpResponse} object.
+   * @return a {@link java.io.File} object.
+   * @throws java.io.IOException if any.
+   */
+  private File prepareDownloadFile(HttpResponse<InputStream> response) throws IOException {
+    String filename = null;
+    java.util.Optional<String> contentDisposition = response.headers().firstValue("Content-Disposition");
+    if (contentDisposition.isPresent() && !"".equals(contentDisposition.get())) {
+      // Get filename from the Content-Disposition header.
+      java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("filename=['\"]?([^'\"\\s]+)['\"]?");
+      java.util.regex.Matcher matcher = pattern.matcher(contentDisposition.get());
+      if (matcher.find())
+        filename = matcher.group(1);
+    }
+    File file = null;
+    if (filename != null) {
+      java.nio.file.Path tempDir = java.nio.file.Files.createTempDirectory("swagger-gen-native");
+      java.nio.file.Path filePath = java.nio.file.Files.createFile(tempDir.resolve(filename));
+      file = filePath.toFile();
+      tempDir.toFile().deleteOnExit();   // best effort cleanup
+      file.deleteOnExit(); // best effort cleanup
+    } else {
+      file = java.nio.file.Files.createTempFile("download-", "").toFile();
+      file.deleteOnExit(); // best effort cleanup
+    }
+    return file;
+  }
+
+  /**
    * 
    * Get all API changes for PTV Developer.
    * @return ApiChanges
    * @throws ApiException if fails to make API call
    */
   public ApiChanges getApiChanges() throws ApiException {
-    ApiResponse<ApiChanges> localVarResponse = getApiChangesWithHttpInfo();
+    return getApiChanges(null);
+  }
+
+  /**
+   * 
+   * Get all API changes for PTV Developer.
+   * @param headers Optional headers to include in the request
+   * @return ApiChanges
+   * @throws ApiException if fails to make API call
+   */
+  public ApiChanges getApiChanges(Map<String, String> headers) throws ApiException {
+    ApiResponse<ApiChanges> localVarResponse = getApiChangesWithHttpInfo(headers);
     return localVarResponse.getData();
   }
 
@@ -100,7 +192,18 @@ public class ApiChangesApi {
    * @throws ApiException if fails to make API call
    */
   public ApiResponse<ApiChanges> getApiChangesWithHttpInfo() throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getApiChangesRequestBuilder();
+    return getApiChangesWithHttpInfo(null);
+  }
+
+  /**
+   * 
+   * Get all API changes for PTV Developer.
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;ApiChanges&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ApiChanges> getApiChangesWithHttpInfo(Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getApiChangesRequestBuilder(headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -108,16 +211,35 @@ public class ApiChangesApi {
       if (memberVarResponseInterceptor != null) {
         memberVarResponseInterceptor.accept(localVarResponse);
       }
+      InputStream localVarResponseBody = null;
       try {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getApiChanges", localVarResponse);
         }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<ApiChanges>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        ApiChanges responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<ApiChanges>() {});
+        
+
         return new ApiResponse<ApiChanges>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ApiChanges>() {}) // closes the InputStream
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
         );
       } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
       }
     } catch (IOException e) {
       throw new ApiException(e);
@@ -128,7 +250,7 @@ public class ApiChangesApi {
     }
   }
 
-  private HttpRequest.Builder getApiChangesRequestBuilder() throws ApiException {
+  private HttpRequest.Builder getApiChangesRequestBuilder(Map<String, String> headers) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
@@ -142,6 +264,8 @@ public class ApiChangesApi {
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
     if (memberVarInterceptor != null) {
       memberVarInterceptor.accept(localVarRequestBuilder);
     }

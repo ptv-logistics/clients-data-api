@@ -38,15 +38,16 @@ import com.ptvgroup.developer.client.data.ApiClient;
 @JsonPropertyOrder({
   PredefinedVehicleProfiles.JSON_PROPERTY_PROFILES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class PredefinedVehicleProfiles {
   public static final String JSON_PROPERTY_PROFILES = "profiles";
+  @javax.annotation.Nonnull
   private List<PredefinedVehicleProfile> profiles;
 
   public PredefinedVehicleProfiles() { 
   }
 
-  public PredefinedVehicleProfiles profiles(List<PredefinedVehicleProfile> profiles) {
+  public PredefinedVehicleProfiles profiles(@javax.annotation.Nonnull List<PredefinedVehicleProfile> profiles) {
     this.profiles = profiles;
     return this;
   }
@@ -64,16 +65,16 @@ public class PredefinedVehicleProfiles {
    * @return profiles
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PROFILES)
+  @JsonProperty(value = JSON_PROPERTY_PROFILES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<PredefinedVehicleProfile> getProfiles() {
     return profiles;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROFILES)
+  @JsonProperty(value = JSON_PROPERTY_PROFILES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProfiles(List<PredefinedVehicleProfile> profiles) {
+  public void setProfiles(@javax.annotation.Nonnull List<PredefinedVehicleProfile> profiles) {
     this.profiles = profiles;
   }
 
@@ -112,10 +113,7 @@ public class PredefinedVehicleProfiles {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -154,8 +152,8 @@ public class PredefinedVehicleProfiles {
     if (getProfiles() != null) {
       for (int i = 0; i < getProfiles().size(); i++) {
         if (getProfiles().get(i) != null) {
-          joiner.add(getProfiles().get(i).toUrlQueryString(String.format("%sprofiles%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+          joiner.add(getProfiles().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%sprofiles%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }

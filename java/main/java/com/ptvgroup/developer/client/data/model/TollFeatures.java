@@ -38,15 +38,16 @@ import com.ptvgroup.developer.client.data.ApiClient;
 @JsonPropertyOrder({
   TollFeatures.JSON_PROPERTY_TOLL_SYSTEMS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class TollFeatures {
   public static final String JSON_PROPERTY_TOLL_SYSTEMS = "tollSystems";
+  @javax.annotation.Nonnull
   private List<TollSystem> tollSystems;
 
   public TollFeatures() { 
   }
 
-  public TollFeatures tollSystems(List<TollSystem> tollSystems) {
+  public TollFeatures tollSystems(@javax.annotation.Nonnull List<TollSystem> tollSystems) {
     this.tollSystems = tollSystems;
     return this;
   }
@@ -64,16 +65,16 @@ public class TollFeatures {
    * @return tollSystems
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TOLL_SYSTEMS)
+  @JsonProperty(value = JSON_PROPERTY_TOLL_SYSTEMS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<TollSystem> getTollSystems() {
     return tollSystems;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOLL_SYSTEMS)
+  @JsonProperty(value = JSON_PROPERTY_TOLL_SYSTEMS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTollSystems(List<TollSystem> tollSystems) {
+  public void setTollSystems(@javax.annotation.Nonnull List<TollSystem> tollSystems) {
     this.tollSystems = tollSystems;
   }
 
@@ -112,10 +113,7 @@ public class TollFeatures {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -154,8 +152,8 @@ public class TollFeatures {
     if (getTollSystems() != null) {
       for (int i = 0; i < getTollSystems().size(); i++) {
         if (getTollSystems().get(i) != null) {
-          joiner.add(getTollSystems().get(i).toUrlQueryString(String.format("%stollSystems%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+          joiner.add(getTollSystems().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%stollSystems%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }

@@ -15,6 +15,7 @@ package com.ptvgroup.developer.client.data.api;
 import com.ptvgroup.developer.client.data.ApiClient;
 import com.ptvgroup.developer.client.data.ApiException;
 import com.ptvgroup.developer.client.data.ApiResponse;
+import com.ptvgroup.developer.client.data.Configuration;
 import com.ptvgroup.developer.client.data.Pair;
 
 import com.ptvgroup.developer.client.data.model.ErrorResponse;
@@ -45,18 +46,38 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T08:03:35.819342895Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.403698097Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class VehicleModelsApi {
+  /**
+   * Utility class for extending HttpRequest.Builder functionality.
+   */
+  private static class HttpRequestBuilderExtensions {
+    /**
+     * Adds additional headers to the provided HttpRequest.Builder. Useful for adding method/endpoint specific headers.
+     *
+     * @param builder the HttpRequest.Builder to which headers will be added
+     * @param headers a map of header names and values to add; may be null
+     * @return the same HttpRequest.Builder instance with the additional headers set
+     */
+    static HttpRequest.Builder withAdditionalHeaders(HttpRequest.Builder builder, Map<String, String> headers) {
+        if (headers != null) {
+            for (Map.Entry<String, String> entry : headers.entrySet()) {
+                builder.header(entry.getKey(), entry.getValue());
+            }
+        }
+        return builder;
+    }
+  }
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
   private final String memberVarBaseUri;
   private final Consumer<HttpRequest.Builder> memberVarInterceptor;
   private final Duration memberVarReadTimeout;
   private final Consumer<HttpResponse<InputStream>> memberVarResponseInterceptor;
-  private final Consumer<HttpResponse<String>> memberVarAsyncResponseInterceptor;
+  private final Consumer<HttpResponse<InputStream>> memberVarAsyncResponseInterceptor;
 
   public VehicleModelsApi() {
-    this(new ApiClient());
+    this(Configuration.getDefaultApiClient());
   }
 
   public VehicleModelsApi(ApiClient apiClient) {
@@ -69,8 +90,17 @@ public class VehicleModelsApi {
     memberVarAsyncResponseInterceptor = apiClient.getAsyncResponseInterceptor();
   }
 
+
   protected ApiException getApiException(String operationId, HttpResponse<InputStream> response) throws IOException {
-    String body = response.body() == null ? null : new String(response.body().readAllBytes());
+    InputStream responseBody = ApiClient.getResponseBody(response);
+    String body = null;
+    try {
+      body = responseBody == null ? null : new String(responseBody.readAllBytes());
+    } finally {
+      if (responseBody != null) {
+        responseBody.close();
+      }
+    }
     String message = formatExceptionMessage(operationId, response.statusCode(), body);
     return new ApiException(response.statusCode(), message, response.headers(), body);
   }
@@ -83,6 +113,57 @@ public class VehicleModelsApi {
   }
 
   /**
+   * Download file from the given response.
+   *
+   * @param response Response
+   * @return File
+   * @throws ApiException If fail to read file content from response and write to disk
+   */
+  public File downloadFileFromResponse(HttpResponse<InputStream> response, InputStream responseBody) throws ApiException {
+    if (responseBody == null) {
+      throw new ApiException(new IOException("Response body is empty"));
+    }
+    try {
+      File file = prepareDownloadFile(response);
+      java.nio.file.Files.copy(responseBody, file.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+      return file;
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+  }
+
+  /**
+   * <p>Prepare the file for download from the response.</p>
+   *
+   * @param response a {@link java.net.http.HttpResponse} object.
+   * @return a {@link java.io.File} object.
+   * @throws java.io.IOException if any.
+   */
+  private File prepareDownloadFile(HttpResponse<InputStream> response) throws IOException {
+    String filename = null;
+    java.util.Optional<String> contentDisposition = response.headers().firstValue("Content-Disposition");
+    if (contentDisposition.isPresent() && !"".equals(contentDisposition.get())) {
+      // Get filename from the Content-Disposition header.
+      java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("filename=['\"]?([^'\"\\s]+)['\"]?");
+      java.util.regex.Matcher matcher = pattern.matcher(contentDisposition.get());
+      if (matcher.find())
+        filename = matcher.group(1);
+    }
+    File file = null;
+    if (filename != null) {
+      java.nio.file.Path tempDir = java.nio.file.Files.createTempDirectory("swagger-gen-native");
+      java.nio.file.Path filePath = java.nio.file.Files.createFile(tempDir.resolve(filename));
+      file = filePath.toFile();
+      tempDir.toFile().deleteOnExit();   // best effort cleanup
+      file.deleteOnExit(); // best effort cleanup
+    } else {
+      file = java.nio.file.Files.createTempFile("download-", "").toFile();
+      file.deleteOnExit(); // best effort cleanup
+    }
+    return file;
+  }
+
+  /**
    * 
    * A list of **VehicleModel** objects. Only vehicle models matching all filters are returned. In case that no vehicle model is found an empty list is returned. In case no filters are applied, all available vehicle models are returned.  This method is in a preview state, the API is stable, feature changes could be introduced in future.
    * @param identification String which must be contained in the vehicle model or the vehicle variant. See **commercial** in the response. (optional)
@@ -90,8 +171,21 @@ public class VehicleModelsApi {
    * @return VehicleModels
    * @throws ApiException if fails to make API call
    */
-  public VehicleModels getVehicleModels(String identification, List<String> vehicleTypes) throws ApiException {
-    ApiResponse<VehicleModels> localVarResponse = getVehicleModelsWithHttpInfo(identification, vehicleTypes);
+  public VehicleModels getVehicleModels(@javax.annotation.Nullable String identification, @javax.annotation.Nullable List<String> vehicleTypes) throws ApiException {
+    return getVehicleModels(identification, vehicleTypes, null);
+  }
+
+  /**
+   * 
+   * A list of **VehicleModel** objects. Only vehicle models matching all filters are returned. In case that no vehicle model is found an empty list is returned. In case no filters are applied, all available vehicle models are returned.  This method is in a preview state, the API is stable, feature changes could be introduced in future.
+   * @param identification String which must be contained in the vehicle model or the vehicle variant. See **commercial** in the response. (optional)
+   * @param vehicleTypes A comma-separated list of vehicle types. See **vehicleType** in the response. The following vehicle types are supported.  Tractor-like vehicle types: * &#x60;TRUCK&#x60; - Truck. Total permitted weight &gt; 7.5t. * &#x60;LCV&#x60; - Light Commercial Vehicle. Total permitted weight &lt; 7.5t. * &#x60;SCV&#x60; - Small Commercial Vehicle. Total permitted weight &lt; 3.5t.  Trailer-like vehicle types: * &#x60;TRAILER&#x60; - Trailer * &#x60;SEMI_TRAILER&#x60; - Semi-trailer * &#x60;BODY&#x60; - Body  This list can be extended at any time. (optional)
+   * @param headers Optional headers to include in the request
+   * @return VehicleModels
+   * @throws ApiException if fails to make API call
+   */
+  public VehicleModels getVehicleModels(@javax.annotation.Nullable String identification, @javax.annotation.Nullable List<String> vehicleTypes, Map<String, String> headers) throws ApiException {
+    ApiResponse<VehicleModels> localVarResponse = getVehicleModelsWithHttpInfo(identification, vehicleTypes, headers);
     return localVarResponse.getData();
   }
 
@@ -103,8 +197,21 @@ public class VehicleModelsApi {
    * @return ApiResponse&lt;VehicleModels&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<VehicleModels> getVehicleModelsWithHttpInfo(String identification, List<String> vehicleTypes) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getVehicleModelsRequestBuilder(identification, vehicleTypes);
+  public ApiResponse<VehicleModels> getVehicleModelsWithHttpInfo(@javax.annotation.Nullable String identification, @javax.annotation.Nullable List<String> vehicleTypes) throws ApiException {
+    return getVehicleModelsWithHttpInfo(identification, vehicleTypes, null);
+  }
+
+  /**
+   * 
+   * A list of **VehicleModel** objects. Only vehicle models matching all filters are returned. In case that no vehicle model is found an empty list is returned. In case no filters are applied, all available vehicle models are returned.  This method is in a preview state, the API is stable, feature changes could be introduced in future.
+   * @param identification String which must be contained in the vehicle model or the vehicle variant. See **commercial** in the response. (optional)
+   * @param vehicleTypes A comma-separated list of vehicle types. See **vehicleType** in the response. The following vehicle types are supported.  Tractor-like vehicle types: * &#x60;TRUCK&#x60; - Truck. Total permitted weight &gt; 7.5t. * &#x60;LCV&#x60; - Light Commercial Vehicle. Total permitted weight &lt; 7.5t. * &#x60;SCV&#x60; - Small Commercial Vehicle. Total permitted weight &lt; 3.5t.  Trailer-like vehicle types: * &#x60;TRAILER&#x60; - Trailer * &#x60;SEMI_TRAILER&#x60; - Semi-trailer * &#x60;BODY&#x60; - Body  This list can be extended at any time. (optional)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;VehicleModels&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<VehicleModels> getVehicleModelsWithHttpInfo(@javax.annotation.Nullable String identification, @javax.annotation.Nullable List<String> vehicleTypes, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getVehicleModelsRequestBuilder(identification, vehicleTypes, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -112,16 +219,35 @@ public class VehicleModelsApi {
       if (memberVarResponseInterceptor != null) {
         memberVarResponseInterceptor.accept(localVarResponse);
       }
+      InputStream localVarResponseBody = null;
       try {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getVehicleModels", localVarResponse);
         }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<VehicleModels>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        VehicleModels responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<VehicleModels>() {});
+        
+
         return new ApiResponse<VehicleModels>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<VehicleModels>() {}) // closes the InputStream
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
         );
       } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
       }
     } catch (IOException e) {
       throw new ApiException(e);
@@ -132,7 +258,7 @@ public class VehicleModelsApi {
     }
   }
 
-  private HttpRequest.Builder getVehicleModelsRequestBuilder(String identification, List<String> vehicleTypes) throws ApiException {
+  private HttpRequest.Builder getVehicleModelsRequestBuilder(@javax.annotation.Nullable String identification, @javax.annotation.Nullable List<String> vehicleTypes, Map<String, String> headers) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
@@ -163,6 +289,8 @@ public class VehicleModelsApi {
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
     if (memberVarInterceptor != null) {
       memberVarInterceptor.accept(localVarRequestBuilder);
     }
